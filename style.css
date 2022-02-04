@@ -152,11 +152,26 @@ body {
 
 @media(max-width: 700px){
     .titlemain {
-        padding-top: 50vw;
+        padding-top: 15vw;
     }
-    .textbox h1 {
-        font-weight: 750;
-        font-size: 7.5vw;
-        line-height: 9.5vw;
+    .button1{
+        padding: 2vw 4vw;
     }
+
+/*FOR LATER!!!
+    .navbar a{
+        display:block;
+    }
+    .navbar{
+        position:absolute;
+        height:100vh;
+        width:28vw;
+        top:0;
+        right:0;
+        text-align: right;
+        line-height: 10vw;
+
+    }
+}
+*/
 }
