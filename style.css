@@ -117,7 +117,6 @@ body {
 .button1:active { 
     color: transparent;
     transform:scale(0.96);
-
 }
 
 .imgaffan {
@@ -150,12 +149,34 @@ body {
 */
 
 
-@media(max-width: 700px){
+@media(max-width: 1024px){
     .titlemain {
         padding-top: 15vw;
     }
+    .textbox h1{
+        text-align:center;
+        font-size:12vw;
+    }
+
+    .titlemain{
+        float: left;
+        padding-left: 10vw;
+        position:relative;
+        z-index: 1;
+    
+    }
     .button1{
         padding: 2vw 4vw;
+    }
+    .imgaffan{
+        margin-top: 5vw; margin-right: 25vw;
+        width:50vw;
+    }
+    .button1{
+        margin-top: 62vw; margin-left: 27vw;
+    }
+    .textbox h4{
+        font-size:3vw;
     }
 
 /*FOR LATER!!!
