@@ -138,7 +138,7 @@ html, body {
 */
 
 
-@media(max-width: 700px){
+@media(max-width: 768px){
     .textbox h1{
         font-size:12vw;
     }
