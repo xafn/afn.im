@@ -5,26 +5,26 @@
 }
 
 html, body {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     background-color: #030303;
     background-image: url(eiu.png);
 }
-
+/*--text selection colour--*/
 ::selection {
     color: #000000;
     background: #ffffff;
   }
 
-.navbar {
+/*--navigation bar--*/
+nav { 
     position: fixed;
     width: 100%;
     text-align:right;
     padding-top:2vw;
-    background: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.738) 19%, rgba(0, 0, 0, 0.541) 34%, rgba(0, 0, 0, 0.382) 47%, rgba(0, 0, 0, 0.278) 56.5%, rgba(0, 0, 0, 0.194) 65%, rgba(0, 0, 0, 0.126) 73%, rgba(0, 0, 0, 0.075) 80.2%, rgba(0, 0, 0, 0.042) 86.1%, rgba(0, 0, 0, 0.021) 91%, rgba(0, 0, 0, 0.008) 95.2%, rgba(0, 0, 0, 0.002) 98.2%, transparent 100%);    z-index: 100;
-}
+    background: linear-gradient(180deg, rgba(0,0,0,0.8295693277310925) 0%, rgba(0,0,0,0.5046393557422969) 52%, rgba(0,0,0,0) 100%);}
 
-.navbar a {
+nav a {
     transition-duration: 0.2s;
     padding:8px 12px;
     margin-right:2vw;
@@ -34,12 +34,13 @@ html, body {
     text-align: center;
 }
 
-.navbar a:hover {
+nav a:hover {
     font-weight: 800;
 }
 
+/*--scrollbar--*/
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 0.75vw;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -54,26 +55,39 @@ html, body {
     padding-top: 14vh;
     padding-left: 5.5vw;
     z-index: 23000000;
+    min-height: 90vh;
 
 }
+/*--everything but header--*/
 
 .container {
-    display:flex;
+    display: flex; /*FLEX OR GRID PLS EXPERIMENT!!!!*/
     width:100%;
-
 }
 .textbox {
     color: #ffffff;
-    z-index: 344;
 }
 
-.textbox h1 {
+.strokemm {
+    background-color: #ffffff3f;
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 0.3vw transparent;
+    color:#000000;
+    padding-left: 1vw;
+    padding-right: 1vw;
+
+}
+
+
+
+h1 {
     font-weight: 750;
     font-size: 9.5vw;
     line-height: 9.5vw;
 }
 
-.textbox h4 {
+h4 {
     font-weight: 600;
     font-size: 2.2vw;
 }
@@ -109,16 +123,44 @@ html, body {
 .button1:hover {
     transition-duration: 0.2s;
     background-color: #ffffff;
-    padding: 1.75vw 2.75vw;
     color: #000000;
-
+    transform:scale(1.1);
 }
 
 .button1:active { 
     color: transparent;
-    transform:scale(0.96);
+    transform:scale(0.98);
 }
 
+.work{
+    width: 90%; 
+    margin: auto; 
+    text-align: right; 
+}
+
+.work h1 {
+    font-size:8vw;
+}
+
+.backtext{
+    font-size:8vw;
+}
+
+.lh3{
+    margin-top: -6vw;
+}
+
+.gallery{
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 300px;
+}
+
+.gallery img {
+width: 96%;
+height: auto;
+}
 /*     transition-duration:0.4s;
 .imgaffan:hover {
     width:35.5vw;
@@ -139,8 +181,6 @@ html, body {
 }
 
 */
-
-/*-----------TEMPTEMP!! CHANGE TO 768PX or 700PX--------------------*/
 @media(max-width: 700px){
     .textbox h1{
         font-size:12vw;
@@ -156,6 +196,7 @@ html, body {
         padding: 2vw 4vw;
         transform:scale(1.25);
         margin-top:8vh;
+        position: static;
     }
     .imgaffan{
         margin:4vh 25vw 0 0vw;
@@ -166,11 +207,10 @@ html, body {
         font-size:2.75vw;
     }
 
-    .navbar{
+    nav{
         text-align: center;
-        margin-top:1vh;
     }
-    .navbar a{
+    nav a{
         font-size:2.5vw;
         flex:1;
         width: 100%;
