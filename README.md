@@ -1,3 +1,3 @@
 # Personal Website
 
-A nice and dandy little site. Very cool things can be found in it, go check it yourself. ;)
+A nice and dandy little site. Work in progress, but very cool things can be found in it. Go check it yourself. ;)
