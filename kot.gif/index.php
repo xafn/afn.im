@@ -10,5 +10,6 @@
     </head>
     <body>
         <a href="https://afn.pages.dev">afn.pages.dev</a>
+        Your IP Address is: <? echo $_SERVER["REMOTE_ADDR"]; ?>
     </body>
 </html>
