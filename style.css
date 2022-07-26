@@ -78,9 +78,6 @@ nav a:hover {
     width:max-content
 }
 
-.pageheader h1, h4 {
-    mix-blend-mode: difference;
-}
 
 /*--everything but header--*/
 .container {
