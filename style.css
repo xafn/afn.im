@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0; 
     font-family: 'Syne', sans-serif;
-    overflow-x: hidden;
 }
 
 body.stop-transitions * {
@@ -124,6 +123,7 @@ h1 {
     box-shadow: 2vw 2vw 0px #ffffff;
     transition-timing-function:cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transition-duration: 0.4s;
+    overflow-x: hidden;
 }
 
 .imgaffan:hover {
