@@ -1,0 +1,51 @@
+<script>
+	let d = new Date();
+</script>
+
+<div>
+    <img src="HeroImage.png" alt="A drawing of me.">
+</div>
+
+<style>
+    @keyframes float {
+        0% {
+            transform: translateY(7px);
+        }
+
+        50% {
+            transform: translateY(-7px);
+        }
+
+        100% {
+            transform: translateY(7px);
+        }
+    }
+        
+
+    img {
+        border-radius: 60px;
+
+        width:500px;
+        height: auto;
+        transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform: rotate3d(0,0,0,0deg) !important;
+    }
+
+
+    img:hover {
+        width:490px;
+        transform:rotate3d(1,0,1,6deg) !important;
+        box-shadow: 0 0 2rem #97918d27, 3.2rem 3.2rem 0 var(--grey-one), 6.4rem 6.4rem 0 var(--grey-two);
+    }
+    img:active {
+        box-shadow: 0 0 2rem #97918d27, 2rem 2rem 0 var(--grey-one), 4rem 4rem 0 var(--grey-two);
+    }
+
+    div {
+        float:right;
+        user-select: none;
+        position: relative;
+        display: block;
+        animation: float 6s ease-in-out infinite !important;
+    }
+</style>
