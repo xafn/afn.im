@@ -12,5 +12,6 @@
     .rich {
         display:flex;
         gap:2.25rem;
+        align-items: center;
     }
 </style>
