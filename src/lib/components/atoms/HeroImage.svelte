@@ -1,7 +1,3 @@
-<script>
-	let d = new Date();
-</script>
-
 <div>
     <img src="HeroImage.png" alt="A drawing of me.">
 </div>

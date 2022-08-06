@@ -41,12 +41,18 @@
 		padding: 0;
 		line-height: 1.3;
 		background-color: var(--bg-color);
+		overflow: overlay;
+	}
+
+	:global(html, body) {
+		max-width: 100%;
+		overflow-x: hidden;
 	}
 
 	:global(.wrapper) {
 		margin-inline: auto;
 		width: min(90%, 70rem);
-		margin-top:6rem;
+		margin-top:6.75rem;
 	}
 
 	:root {
@@ -55,13 +61,14 @@
 		--bg-color: #120e0e;
 		--grey-one: #211c1c;
 		--grey-two: #211c1c75;
+		--grey-three: #1e1a1a;
 		--font-one: 'Space Grotesk', sans-serif;
 		--font-two: 'JetBrains Mono', mono space;
 	}
 
 	:global(::selection) {
-		color: var(--white);
-		background: var(--grey-two);
+		color: var(--yellow);
+		background: var(--grey-three);
 	}
 
 	/*-----headings-----*/
@@ -98,18 +105,18 @@
 	/*-----scrollbar-----*/
 
 	:global(::-webkit-scrollbar) {
-		width: 20px;
+		width: 2vw;
 		background-color: transparent;
 	}
 
 	:global(::-webkit-scrollbar-thumb) {
 		background-color: var(--grey-three);
 		border-radius: 20px;
-		border: 6px solid transparent;
+		border: 0.6vw solid transparent;
 		background-clip: content-box;
 	}
 
 	:global(::-webkit-scrollbar-thumb:hover) {
-		background-color: var(--grey-four);
+		background-color: var(--grey-one);
 	}
 </style>

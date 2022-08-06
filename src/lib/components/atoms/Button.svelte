@@ -1,8 +1,12 @@
 <script>
+    export const handleClick = () => {
+        alert('clicked')
+    }
 </script>
 
 <div>
-    <button>
+    <button >
+        <span class="side"></span>
         <h2>
             <slot/>
         </h2>
@@ -10,15 +14,17 @@
 </div>
 
 <style>
+
     button {
 		border-radius: 25px;
         border-color: transparent;
-		padding: 1rem 2rem 1rem 2.5rem;
+		padding: 1rem 2rem;
 		cursor: pointer;
 		background-color: var(--grey-one);
 		font-size: 1.5rem;
 		transition: padding 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 		user-select: none;
+        border-left: 20px solid var(--yellow);
         
     }
 
@@ -27,7 +33,7 @@
     }
 
     button:hover {
-		padding: 1.5rem 2.5rem 1.5rem 3rem;
+		padding: 1.5rem 2.5rem;
 	}
 
     button:active {

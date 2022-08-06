@@ -17,7 +17,7 @@
 <style>
     div {
 		display: inline-block;
-        margin-bottom: 7rem;
+        margin-bottom: 9rem;
 	}
 
     h4 {
