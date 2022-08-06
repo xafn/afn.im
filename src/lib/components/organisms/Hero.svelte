@@ -2,6 +2,7 @@
     import HeroTitle from "../atoms/HeroTitle.svelte";
     import HeroImage from "$lib/components/atoms/HeroImage.svelte";
     import Button from "../atoms/Button.svelte";
+
 </script>
 
 <section>

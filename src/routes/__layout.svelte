@@ -58,6 +58,7 @@
 	:root {
 		--white: #eed1c7;
 		--yellow: #dba895;
+		--yellow-opacity: #dba89525;
 		--bg-color: #120e0e;
 		--grey-one: #211c1c;
 		--grey-two: #211c1c75;
@@ -67,8 +68,8 @@
 	}
 
 	:global(::selection) {
-		color: var(--yellow);
-		background: var(--grey-three);
+		color: var(--white);
+		background: var(--yellow-opacity);
 	}
 
 	/*-----headings-----*/

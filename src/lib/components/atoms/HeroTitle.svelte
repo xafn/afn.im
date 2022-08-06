@@ -1,5 +1,5 @@
 <script>
-	
+	export const names = ["affan", "just j", "afn", "h"]
 </script>
 
 <div>
