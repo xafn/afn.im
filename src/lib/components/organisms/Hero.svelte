@@ -10,7 +10,7 @@
         <div>
             <HeroTitle />
             <h4>Hobbyist illustrator and designer. <br />Attemping to program.</h4>
-            <Button>Discover my work ↓</Button>
+            <span><Button>Discover my work ↓</Button></span>
         </div>
         
         <HeroImage />
@@ -26,15 +26,21 @@
 
     section > div {
         width:100%;
+        margin-bottom: 3.75rem;
     }
     section > div > div {
 		display: inline-block;
-        margin-bottom: 9rem;
+        padding-bottom:10rem;
 	}
 
+    span {
+        position: absolute;
+    }
+    
     h4 {
         margin-top: 1rem;
         margin-bottom: 3rem;
     }
+
 </style>
 

@@ -2,7 +2,7 @@
     import Nav from "../atoms/Nav.svelte";
 </script>
 
-<nav>
+<nav class="navbar">
     <ul>
         <Nav href="#home">home</Nav>
         <Nav href="#about">about</Nav>
@@ -11,7 +11,7 @@
 </nav>
 
 <style>
-    nav {
+    .navbar {
         width: 100%;
         text-align:center;
         align-items:center;
@@ -24,9 +24,15 @@
         background-blend-mode: overlay;
     }
 
-    nav ul {
+    .navbar ul {
         display: flex;
         gap:4rem;
         justify-content: center;
     }
+    
+    .navbar.active {
+        border-bottom: 1.5px solid var(--yellow-opacity);
+        padding: 1rem 0;
+    }
+
 </style>

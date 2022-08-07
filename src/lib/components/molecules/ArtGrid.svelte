@@ -14,7 +14,7 @@
                 <ArtCell art="windy.png" type="tall"/>
                 <ArtCell art="cry.png" type="tall"/>
                 <ArtCell art="crop.png"/>
-                <ArtCell art="murder.png"/>
+                <ArtCell art="smile.png"/>
         </div>
     </div>
 </div>

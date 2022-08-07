@@ -1,8 +1,17 @@
 <script>
+    import { onMount } from "svelte";
     export const icon = "https://cdn.discordapp.com/avatars/420043923822608384/6bf1522d60a8091bea9cf31697b58202.png?size=4096"
-    fetch('https://api.lanyard.rest/v1/users/420043923822608384')
-        .then((response) => response.json())
-        .then((data) => console.log(data));
+
+    onMount(async () => {
+        fetch("https://api.lanyard.rest/v1/users/420043923822608384")
+        .then(response => response.json())
+        .then((data) => { 
+            let username = data.data.discord_user.username;
+            console.log(username)
+        }).catch(error => {
+            console.log(error);
+        })
+    });
 </script>
 
 <div>
