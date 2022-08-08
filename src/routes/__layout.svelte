@@ -42,7 +42,7 @@
 		padding: 0;
 		line-height: 1.3;
 		background-color: var(--bg-color);
-		overflow: overlay;
+		overflow-x: hidden;
 	}
 
 	:global(html, body) {
