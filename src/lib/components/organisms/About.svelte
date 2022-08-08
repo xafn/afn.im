@@ -16,7 +16,9 @@
 <style>
     section {
         margin-bottom: 6rem;
+        display: inline-block;
     }
+        
     section > div {
         display:grid;
 		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -48,7 +50,7 @@
         color:transparent;
         opacity:0.25;
         letter-spacing: -0.075em;
-        
         position: absolute;
+
     }
 </style>

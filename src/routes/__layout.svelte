@@ -34,6 +34,7 @@
 		font-size: 100%;
 		box-sizing: border-box;
 		letter-spacing: -0.05em;
+		overflow-x: hidden;
 	}
 
 	:global(body) {
@@ -42,7 +43,6 @@
 		line-height: 1.3;
 		background-color: var(--bg-color);
 		overflow: overlay;
-		overflow-x: hidden;
 	}
 
 	:global(html, body) {
@@ -53,6 +53,7 @@
 		margin-inline: auto;
 		width: min(90%, 70rem);
 		margin-top:6.75rem;
+
 	}
 
 	:root {
