@@ -15,14 +15,14 @@
 
 <style>
     section {
-        margin-bottom: 6rem;
         display: inline-block;
+        margin-bottom: 5.5rem;
     }
         
     section > div {
         display:grid;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        flex-direction: column;
+        gap:1.5rem;
+		grid-template-columns: 1fr 1fr;
     }
 
     h6 {
@@ -51,6 +51,15 @@
         opacity:0.25;
         letter-spacing: -0.075em;
         position: absolute;
+
+    }
+
+    @media (max-width: 1000px){
+        section > div {
+            display:flex;
+            flex-direction: column;
+            grid-row: 2 / -1;
+        }
 
     }
 </style>

@@ -44,4 +44,27 @@
         display: block;
         animation: float 6s ease-in-out infinite !important;
     }
+
+    @media (max-width: 1234px){
+        img {
+            width:40vw;
+        }
+
+        img:hover {
+            width:39vw;
+        }
+
+        div {
+            display:flex;
+            justify-content: center;
+        }
+
+    }
+
+    @media (max-width: 1000px){
+        img {
+            display:none;
+        }
+
+    }
 </style>
