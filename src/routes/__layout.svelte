@@ -10,7 +10,7 @@
 	<meta property="og:description" content="The only portfolio ever.">
 	<meta name="twitter:image" itemprop="image" content="/embed.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#0f111a">
+    <meta name="theme-color" content="#dba895">
 	<title>afn</title>
 	<link rel="stylesheet" href="css/styles.css" />
 </svelte:head>
@@ -94,6 +94,16 @@
 		font-weight: 300;
 		font-size: 1.85rem;
 		letter-spacing: -0.05em;
+	}
+	:global(h5) {
+		color: var(--white);
+		font-weight: 500;
+		font-size: 4rem;
+		letter-spacing: -0.05em;
+		background-color: var(--grey-one);
+		border-radius: 2.25rem;
+		padding: 0.4rem 3rem 0.3rem;
+		width:fit-content;
 	}
 
 	:global(h6) {

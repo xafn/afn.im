@@ -21,7 +21,6 @@
 
 <style>
     .grid {
-        margin-top: 4rem;
         gap: 1rem;
         grid-auto-rows: 240px;
         flex-direction:column;
@@ -38,5 +37,7 @@
     .idfk {
         display:flex;
         justify-content: center;
+        margin-bottom: 4rem;
+        
     }
 </style>

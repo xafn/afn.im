@@ -14,7 +14,9 @@
 </section>
 
 <style>
-
+    section {
+        margin-bottom: 6rem;
+    }
     section > div {
         display:grid;
 		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -39,9 +41,9 @@
         font-size: 300px;
         content:'afn';
         font-weight:800;
-        transform: translateY(-70%) translateX(97%);
         z-index: -1;
         user-select: none;
+        transform: translateY(-70%) translateX(97%);
         -webkit-text-stroke: 2px var(--white);
         color:transparent;
         opacity:0.25;
