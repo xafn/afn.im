@@ -1,9 +1,25 @@
 <script>
+    import { onMount } from "svelte";
+    const fetchLanyardData = fetch("https://api.lanyard.rest/v1/users/420043923822608384")
+        .then(response => response.json())
+        .then((data) => { 
+            return data
+        }).catch(error => {
+            console.log(error);
+    });
 
+    const getLanyardData = async () => {
+        const a = await fetchLanyardData;
+        console.log(a);
+        return a;
+    };
+
+    const data = getLanyardData();
+    
 </script>
 
 <section>
-    <h4>SPOTIFY </h4>
+    <h4>hi </h4>
     <h2>Jungle by <br/>
     CIX HELLO Chapter 3: Hello, Stranger</h2>
     <br />
