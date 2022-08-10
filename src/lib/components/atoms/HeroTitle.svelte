@@ -43,7 +43,7 @@
 		font-family: var(--font-two);
 		letter-spacing: -0.075em;
 		background-color: var(--grey-one);
-		border-radius: 2.25rem;
+		border-radius: 30px;
 		padding: 0.4rem 2rem 0.3rem;
 		transform: translateY(-4%);
 	}
