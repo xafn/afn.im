@@ -1,7 +1,6 @@
 <script>
     import ArtGrid from "$lib/components/molecules/ArtGrid.svelte";
     import ArtCell from "../atoms/ArtCell.svelte";
-    import SkillGrid from "../molecules/SkillGrid.svelte";
 </script>
 
 
@@ -10,7 +9,6 @@
         <h5><span>art</span>:work</h5>
     </div>
     <ArtGrid />
-    <SkillGrid />
 </div>
 
 <style>
