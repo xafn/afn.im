@@ -1,32 +1,41 @@
 <script>
     import { onMount } from "svelte";
-    export const icon = "https://cdn.discordapp.com/avatars/420043923822608384/6bf1522d60a8091bea9cf31697b58202.png?size=4096"
+    let icon;
+    let app_id;
+    let app_image;
 
     onMount(async () => {
-        fetch("https://api.lanyard.rest/v1/users/420043923822608384")
-        .then(response => response.json())
-        .then((data) => { 
-            let username = data.data.discord_user.username;
-            console.log(username)
-        }).catch(error => {
-            console.log(error);
-        })
+        const response = await fetch("https://api.lanyard.rest/v1/users/420043923822608384")
+        const data = await response.json();
+        app_id = data.data.activities[1].application_id
+        app_image = data.data.activities[1].assets.large_image
+        icon = `https://cdn.discordapp.com/app-assets/${app_id}/${app_image}.webp`
     });
+
 </script>
 
 <div>
-    <img src={icon} alt="h">
+    {#if app_id === undefined}
+        <img src="favicon.png" alt="h">
+    {:else}
+        <img src={icon} alt="h">
+    {/if}
 </div>
 
 <style>
     img {
-        height: 150px;
-        width: 150px;
+        height: 135px;
+        width: 135px;
         background-color: var(--grey-one);
         border-radius: 50%;
         display: inline-block;
         animation: rotate 15s linear infinite;
         animation-play-state: paused;
+        opacity:0.9;
+    }
+
+    div {
+        user-select: none;
     }
 
 

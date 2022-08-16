@@ -28,6 +28,9 @@
 		margin: 0;
 		padding: 0;
 		font-family: 'Space Grotesk', sans-serif;
+
+		scroll-behavior: smooth;
+		scroll-margin-top: 6rem;
 	}
 
 	:global(html) {

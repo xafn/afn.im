@@ -1,11 +1,13 @@
 <script>
-    export const handleClick = () => {
-        alert('clicked')
-    }
+    function handleClick() {
+        const el = document.querySelector('#aw');
+		if (!el) return;
+        el.scrollIntoView(true);
+    };
 </script>
 
 <div>
-    <button >
+    <button on:click={ handleClick }>
         <span class="side"></span>
         <h2>
             <slot/>

@@ -1,11 +1,11 @@
 <script>
-        import ArtGrid from "$lib/components/molecules/ArtGrid.svelte";
-import ArtCell from "../atoms/ArtCell.svelte";
+    import ArtGrid from "$lib/components/molecules/ArtGrid.svelte";
+    import ArtCell from "../atoms/ArtCell.svelte";
 </script>
 
 
 <div>
-    <div class="art-work">
+    <div class="art-work" id="aw">
         <h5><span>art</span>:work</h5>
     </div>
     <ArtGrid />

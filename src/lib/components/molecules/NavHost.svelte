@@ -6,7 +6,7 @@
     <ul>
         <Nav href="#home">home</Nav>
         <Nav href="#about">about</Nav>
-        <Nav href="#work">work</Nav>
+        <Nav href="#aw">work</Nav>
     </ul>
 </nav>
 
