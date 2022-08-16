@@ -31,7 +31,7 @@
         display: inline-block;
         animation: rotate 15s linear infinite;
         animation-play-state: paused;
-        opacity:0.75;
+        opacity:0.9;
     }
 
     div {

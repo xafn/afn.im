@@ -5,7 +5,9 @@
 </script>
 
 <div class="wrapper">
-    <Hero />
+   <span id="home"> 
+        <Hero />
+    </span>
     <About />
 </div>
 
