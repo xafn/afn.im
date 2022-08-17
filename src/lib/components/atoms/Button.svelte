@@ -46,7 +46,12 @@
 		h2 {
 			font-size:clamp(1.25rem, 5vw, 1.5rem)
 		}
-
-	
 	}
+
+    @media (hover: none) {
+        button:hover {
+            padding: 1rem 2rem;
+        }
+    }
+    
 </style>

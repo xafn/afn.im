@@ -94,7 +94,7 @@
 
     @media screen and (max-width: 600px) {
 		section {
-            height:calc(100vh - 90px);
+            height:calc(100vh - 120px);
             justify-content: center;
             align-items: center;
         }
