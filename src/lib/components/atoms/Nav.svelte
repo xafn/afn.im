@@ -59,7 +59,7 @@
 			margin-right: 0;
 			margin-bottom: 0.2rem;
 			border-radius: 100px;
-			padding: 10px 30px;
+			padding: 7px 27px;
 		}
 
 		a {
