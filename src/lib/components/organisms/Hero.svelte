@@ -30,7 +30,13 @@
     }
     section > div > div {
 		display: inline-block;
-        padding-bottom:10rem;
+        padding-bottom:9rem;
+	}
+
+    @media screen and (max-width: 768px) {
+		section > div > div {
+            padding-bottom:5rem;
+	    }
 	}
 
     span {

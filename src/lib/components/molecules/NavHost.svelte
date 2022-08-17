@@ -43,6 +43,7 @@
             padding: 0rem;
             padding-left: 1rem;
             padding-right: 1rem;
+            background-color: #1a1616;
         }
 
         .navbar ul {

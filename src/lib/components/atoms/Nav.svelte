@@ -63,6 +63,7 @@
 		a {
 			flex-direction: column;
 			font-size:0.9rem;
+			margin-bottom: 0.2rem;
 		}
 
 		a:hover {
@@ -70,7 +71,7 @@
 		}
 
 		a:hover > img {
-			background-color: var(--grey-one);
+			background-color: var(--yellow-opacity);
 			
 		}
 	}
