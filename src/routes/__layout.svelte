@@ -17,6 +17,29 @@
 
 <script>
 	import NavHost from "$lib/components/molecules/NavHost.svelte";
+
+	const stopResizeAnimation = () => { 
+		const classes = document.body.classList;
+		/** @type {any}*/
+		let timer = 0;
+		window.addEventListener('resize', function () {
+			if (timer) {
+				clearTimeout(timer);
+				timer = null;
+			}
+			else {
+				classes.add('stop-transitions');
+			}
+
+			timer = setTimeout(() => {
+				classes.remove('stop-transitions');
+				timer = null;
+			}, 100);
+		});
+	};
+	
+	stopResizeAnimation();
+	
 </script>
 
 <NavHost />
@@ -33,6 +56,7 @@
 		scroll-margin-top: 6rem;
 
 		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		
 	}
 
 	@media (max-width: 768px){
@@ -72,6 +96,10 @@
 			margin-top: 4rem;
         }
     }
+
+	:global(body.stop-transitions *){
+		transition: none !important;
+	}
 
 	:root {
 		--white: #eed1c7;

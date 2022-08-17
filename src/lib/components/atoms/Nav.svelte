@@ -55,7 +55,7 @@
 		margin-right: 0.75rem;
 	}
 
-	@media screen and (max-width: 768px) {
+	@media screen and (max-width: 850px) {
 		img {
 			transform: scale(0.95);
 			margin-right: 0;
