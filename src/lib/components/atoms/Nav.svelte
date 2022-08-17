@@ -1,8 +1,10 @@
 <script>
-    export let href = "#"
+    export let href = "#";
+	export let icon = "home";
 </script>
 
 <a href={href}>
+	<img src="navbar/{icon}.svg" alt="{icon}"/>
 	<li>
 	    <slot/>
 	</li>
@@ -17,9 +19,7 @@
 		align-items: center;
 		border: var(--grey-six);
         font-family: var(--font-two);
-        border-radius: 100px;
-		padding: 7px 20px;
-        user-select: none;
+        
 		transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 	}
 
@@ -28,16 +28,48 @@
 		text-decoration: none;
 		font-size: 1.1rem;
 		user-select: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 100px;
+		padding: 15px 25px;
+        user-select: none;
 		
 	}
 
-	li:hover {
-		background-color: var(--grey-two);
+	a:hover {
+		background-color: var(--grey-one);
 	}
 
 	li.selected	 {
 		font-weight: 600;
 		border: 3px solid var(--red);
 		border-radius: 200px;
+	}
+
+	img {
+		margin-right: 0.75rem;
+	}
+
+	@media screen and (max-width: 768px) {
+		img {
+			margin-right: 0;
+			margin-bottom: 0.4rem;
+			border-radius: 100px;
+			padding: 10px 30px;
+		}
+
+		a {
+			flex-direction: column;
+		}
+
+		a:hover {
+			background-color: transparent;
+		}
+
+		a:hover > img {
+			background-color: var(--grey-one);
+			
+		}
 	}
 </style>

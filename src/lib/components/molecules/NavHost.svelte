@@ -4,9 +4,9 @@
 
 <nav class="navbar">
     <ul>
-        <Nav href="#home">home</Nav>
-        <Nav href="#about">about</Nav>
-        <Nav href="#aw">work</Nav>
+        <Nav href="#home" icon="home">home</Nav>
+        <Nav href="#about" icon="about">about</Nav>
+        <Nav href="#aw" icon="work">work</Nav>
     </ul>
 </nav>
 
@@ -17,7 +17,7 @@
         align-items:center;
         position:fixed;
         top:0;
-        padding: 1.5rem 0;
+        padding: 1.25rem 0;
         z-index:999;
         background-color: #120e0ebb;
         backdrop-filter: blur(15px);
@@ -35,4 +35,16 @@
         padding: 1rem 0;
     }
 
+
+    @media (max-width: 768px){
+        .navbar {
+            bottom:0;
+            top:auto;
+            padding: 0.5rem;
+        }
+
+        .navbar ul {
+            gap:1vw;
+        }
+    }
 </style>

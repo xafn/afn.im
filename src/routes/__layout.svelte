@@ -33,6 +33,12 @@
 		scroll-margin-top: 6rem;
 	}
 
+	@media (max-width: 768px){
+        :global(*) {
+			scroll-margin-top: 2rem;
+        }
+    }
+
 	:global(html) {
 		font-size: 100%;
 		box-sizing: border-box;
@@ -58,6 +64,12 @@
 		margin-top:6.75rem;
 
 	}
+
+	@media (max-width: 768px){
+        :global(.wrapper) {
+			margin-top: 5rem;
+        }
+    }
 
 	:root {
 		--white: #eed1c7;
