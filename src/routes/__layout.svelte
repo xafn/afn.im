@@ -89,8 +89,9 @@
 	}
 
 	:global(.wrapper) {
+		min-height: 0vw;
 		margin-inline: auto;
-		width: min(90%, 70rem);
+		width: min(90%, 70rem) !important;
 		margin-top:6.9rem;
 
 	}

@@ -27,7 +27,7 @@
         justify-content: center;
         align-items: center;
         display:grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
     }
 
     .contain {

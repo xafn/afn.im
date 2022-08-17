@@ -21,6 +21,7 @@
         z-index:999;
         background-color: #120e0ebb;
         backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
         background-blend-mode: overlay;
     }
 
