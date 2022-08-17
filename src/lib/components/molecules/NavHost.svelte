@@ -41,8 +41,6 @@
             bottom:0;
             top:auto;
             padding: 0rem;
-            padding-left: 1rem;
-            padding-right: 1rem;
             background-color: #1a1616;
         }
 

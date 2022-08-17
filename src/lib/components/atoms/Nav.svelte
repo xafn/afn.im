@@ -35,7 +35,7 @@
 		padding: 13px 25px;
         user-select: none;
 
-		-webkit-tap-highlight-color: #dba89520;
+		-webkit-tap-highlight-color: #211c1c46;
 		
 	}
 
