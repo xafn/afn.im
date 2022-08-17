@@ -40,7 +40,9 @@
         .navbar {
             bottom:0;
             top:auto;
-            padding: 0.5rem;
+            padding: 0rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
 
         .navbar ul {

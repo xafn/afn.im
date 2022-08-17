@@ -32,7 +32,7 @@
 		align-items: center;
 		justify-content: center;
 		border-radius: 100px;
-		padding: 15px 25px;
+		padding: 13px 25px;
         user-select: none;
 		
 	}
@@ -53,14 +53,16 @@
 
 	@media screen and (max-width: 768px) {
 		img {
+			transform: scale(0.95);
 			margin-right: 0;
-			margin-bottom: 0.4rem;
+			margin-bottom: 0.2rem;
 			border-radius: 100px;
 			padding: 10px 30px;
 		}
 
 		a {
 			flex-direction: column;
+			font-size:0.9rem;
 		}
 
 		a:hover {
