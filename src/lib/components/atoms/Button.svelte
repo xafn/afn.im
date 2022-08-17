@@ -41,4 +41,12 @@
     button:active {
         transform: translateY(5%);
     }
+
+    @media screen and (max-width: 1240px) {
+		h2 {
+			font-size:clamp(1rem, 10vw, 1.5rem)
+		}
+
+	
+	}
 </style>

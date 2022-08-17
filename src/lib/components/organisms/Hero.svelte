@@ -42,16 +42,46 @@
         margin-bottom: 3rem;
     }
 
-    @media screen and (max-width: 768px) {
+    /* @media screen and (max-width: 768px) {
 		section > div > div {
             padding-bottom:5rem;
+            display: grid;
+            align-items: center;
+            justify-content: center;
 	    }
-	}
+
+        section > div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h4 {
+            text-align: center;
+        }
+
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(300%);
+        }
+
+
+	} */
 
     @media screen and (max-width: 500px) {
 		br {
             content:'&#160;';
 	    }
+	}
+
+    @media screen and (max-width: 1240px) {
+		h4 {
+			font-size:clamp(1rem, 10vw, 1.5rem)
+		}
+
+	
 	}
 
 </style>
