@@ -34,6 +34,8 @@
 		border-radius: 100px;
 		padding: 13px 25px;
         user-select: none;
+
+		-webkit-tap-highlight-color: #dba89520;
 		
 	}
 

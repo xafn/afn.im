@@ -31,6 +31,8 @@
 
 		scroll-behavior: smooth;
 		scroll-margin-top: 6rem;
+
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
 	}
 
 	@media (max-width: 768px){
