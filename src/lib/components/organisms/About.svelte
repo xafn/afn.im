@@ -45,7 +45,7 @@
         font-weight:800;
         z-index: -1;
         user-select: none;
-        transform: translateY(-70%) translateX(97%);
+        transform: translateY(-80%) translateX(97%);
         -webkit-text-stroke: 2px var(--white);
         color:transparent;
         opacity:0.25;
