@@ -17,28 +17,32 @@
 
 <script>
 	import NavHost from "$lib/components/molecules/NavHost.svelte";
+	import { onMount } from "svelte";
 
-	const stopResizeAnimation = () => { 
-		const classes = document.body.classList;
-		/** @type {any}*/
-		let timer = 0;
-		window.addEventListener('resize', function () {
-			if (timer) {
-				clearTimeout(timer);
-				timer = null;
-			}
-			else {
-				classes.add('stop-transitions');
-			}
+	onMount (() => {
+		const classes = document.querySelector('body')?.classList || [];
 
-			timer = setTimeout(() => {
-				classes.remove('stop-transitions');
-				timer = null;
-			}, 100);
-		});
-	};
-	
-	stopResizeAnimation();
+		const stopResizeAnimation = () => { 
+			/** @type {any}*/
+			let timer = 0;
+			window.addEventListener('resize', function () {
+				if (timer) {
+					clearTimeout(timer);
+					timer = null;
+				}
+				else {
+					classes.add('stop-transitions');
+				}
+
+				timer = setTimeout(() => {
+					classes.remove('stop-transitions');
+					timer = null;
+				}, 100);
+			});
+		};
+
+		stopResizeAnimation();
+	})
 	
 </script>
 
