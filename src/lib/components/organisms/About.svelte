@@ -58,7 +58,7 @@
         section > div {
             display:flex;
             flex-direction: column;
-            grid-row: 2 / -1;
+            
         }
 
     }
