@@ -13,3 +13,10 @@
 
 <Work />   
 
+
+<style>
+    #home {
+        scroll-margin-top: 20rem;
+    }
+</style>
+

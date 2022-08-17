@@ -31,7 +31,15 @@
 
 		scroll-behavior: smooth;
 		scroll-margin-top: 6rem;
+
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
 	}
+
+	@media (max-width: 768px){
+        :global(*) {
+			scroll-margin-top: 2rem;
+        }
+    }
 
 	:global(html) {
 		font-size: 100%;
@@ -55,14 +63,20 @@
 	:global(.wrapper) {
 		margin-inline: auto;
 		width: min(90%, 70rem);
-		margin-top:6.75rem;
+		margin-top:6.9rem;
 
 	}
+
+	@media (max-width: 768px){
+        :global(.wrapper) {
+			margin-top: 4rem;
+        }
+    }
 
 	:root {
 		--white: #eed1c7;
 		--yellow: #dba895;
-		--yellow-opacity: #dba89543;
+		--yellow-opacity: #dba8952a;
 		--bg-color: #120e0e;
 		--grey-one: #211c1c;
 		--grey-two: #211c1c75;
@@ -105,7 +119,7 @@
 		font-size: 4rem;
 		letter-spacing: -0.05em;
 		background-color: var(--grey-one);
-		border-radius: 2.25rem;
+		border-radius: 30px;
 		padding: 0.4rem 3rem 0.3rem;
 		width:fit-content;
 	}

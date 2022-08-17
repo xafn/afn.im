@@ -48,4 +48,14 @@
 		transform: translateY(-4%);
 	}
 
+	@media screen and (max-width: 768px) {
+		h1 {
+			font-size:6rem;
+		}
+
+		.second {
+			font-size:4rem;
+		}
+	}
+
 </style>
