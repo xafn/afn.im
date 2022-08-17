@@ -79,7 +79,7 @@
 	:global(body) {
 		margin: 0;
 		padding: 0;
-		line-height: 1.5;
+		line-height: 1.4;
 		background-color: var(--bg-color);
 		overflow-x: hidden;
 	}
@@ -145,7 +145,6 @@
 		font-weight: 300;
 		font-size: 1.85rem;
 		letter-spacing: -0.05em;
-		line-height: 1.3;
 	}
 
 	:global(h5) {
