@@ -84,5 +84,24 @@
 	
 	}
 
+    @media screen and (max-width: 1000px) {
+		section > div {
+			margin-bottom: 2rem;
+		}
+
+	
+	}
+
+    @media screen and (max-width: 768px) {
+		section {
+            height:calc(100vh - 90px);
+            justify-content: center;
+            align-items: center;
+        }
+
+
+	
+	}
+
 </style>
 
