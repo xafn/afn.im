@@ -33,12 +33,6 @@
         padding-bottom:9rem;
 	}
 
-    @media screen and (max-width: 768px) {
-		section > div > div {
-            padding-bottom:5rem;
-	    }
-	}
-
     span {
         position: absolute;
     }
@@ -47,6 +41,18 @@
         margin-top: 1rem;
         margin-bottom: 3rem;
     }
+
+    @media screen and (max-width: 768px) {
+		section > div > div {
+            padding-bottom:5rem;
+	    }
+	}
+
+    @media screen and (max-width: 500px) {
+		br {
+            content:'&#160;';
+	    }
+	}
 
 </style>
 
