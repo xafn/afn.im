@@ -63,7 +63,7 @@
 		
 	}
 
-	@media (max-width: 768px){
+	@media (max-width: 850px){
         :global(*) {
 			scroll-margin-top: 2rem;
         }
@@ -96,7 +96,7 @@
 
 	}
 
-	@media (max-width: 768px){
+	@media (max-width: 850px){
         :global(.wrapper) {
 			margin-top: 4rem;
         }
@@ -146,10 +146,11 @@
 		font-size: 1.85rem;
 		letter-spacing: -0.05em;
 	}
+
 	:global(h5) {
 		color: var(--white);
 		font-weight: 500;
-		font-size: 4rem;
+		font-size: 3.5rem;
 		letter-spacing: -0.05em;
 		background-color: var(--grey-one);
 		border-radius: 30px;
@@ -157,6 +158,7 @@
 		width:fit-content;
 	}
 
+	
 	:global(h6) {
 		color: var(--white);
 		font-weight: 300;

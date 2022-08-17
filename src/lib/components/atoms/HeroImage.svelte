@@ -47,8 +47,8 @@
 
     @media (max-width: 1240px){
         img {
-            width:40vw;
-            border-radius: 5vw;
+            min-height: 0vw;
+			width:clamp(19rem, 40vw, 40rem);
         }
 
         img:hover {

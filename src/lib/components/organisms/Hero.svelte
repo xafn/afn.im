@@ -39,38 +39,10 @@
     
     h4 {
         margin-top: 1rem;
-        margin-bottom: 3rem;
+        margin-bottom: 10%;
     }
 
-    /* @media screen and (max-width: 768px) {
-		section > div > div {
-            padding-bottom:5rem;
-            display: grid;
-            align-items: center;
-            justify-content: center;
-	    }
-
-        section > div {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        h4 {
-            text-align: center;
-        }
-
-        span {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transform: translateY(300%);
-        }
-
-
-	} */
-
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 400px) {
 		br {
             content:'&#160;';
 	    }
@@ -79,7 +51,7 @@
     @media screen and (max-width: 1240px) {
 		h4 {
             min-height: 0vw;
-			font-size:clamp(1rem, 10vw, 1.5rem)
+			font-size:clamp(1.25rem, 2.4vw, 1.85rem);
 		}
 
 	
