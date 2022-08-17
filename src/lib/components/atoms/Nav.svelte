@@ -3,12 +3,14 @@
 	export let icon = "home";
 </script>
 
-<a href={href}>
-	<img src="navbar/{icon}.svg" alt="{icon}"/>
-	<li>
-	    <slot/>
-	</li>
-</a>
+<div oncontextmenu="return false;">
+	<a href={href} >
+		<img src="navbar/{icon}.svg" alt="{icon}"/>
+		<li>
+		    <slot/>
+		</li>
+	</a>
+</div>
 
 <style>
 	li {
