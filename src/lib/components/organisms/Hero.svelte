@@ -39,19 +39,41 @@
     
     h4 {
         margin-top: 1rem;
-        margin-bottom: 3rem;
+        margin-bottom: 10%;
     }
 
-    @media screen and (max-width: 768px) {
-		section > div > div {
-            padding-bottom:5rem;
-	    }
-	}
-
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 400px) {
 		br {
             content:'&#160;';
 	    }
+	}
+
+    @media screen and (max-width: 1240px) {
+		h4 {
+            min-height: 0vw;
+			font-size:clamp(1.4rem, 2.4vw, 1.85rem);
+		}
+
+	
+	}
+
+    @media screen and (max-width: 1000px) {
+		section > div {
+			margin-bottom: 2rem;
+		}
+
+	
+	}
+
+    @media screen and (max-width: 600px) {
+		section {
+            height:calc(100vh - 120px);
+            justify-content: center;
+            align-items: center;
+        }
+
+
+	
 	}
 
 </style>

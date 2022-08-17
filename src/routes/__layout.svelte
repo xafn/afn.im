@@ -17,6 +17,33 @@
 
 <script>
 	import NavHost from "$lib/components/molecules/NavHost.svelte";
+	import { onMount } from "svelte";
+
+	onMount (() => {
+		const classes = document.querySelector('body')?.classList || [];
+
+		const stopResizeAnimation = () => { 
+			/** @type {any}*/
+			let timer = 0;
+			window.addEventListener('resize', function () {
+				if (timer) {
+					clearTimeout(timer);
+					timer = null;
+				}
+				else {
+					classes.add('stop-transitions');
+				}
+
+				timer = setTimeout(() => {
+					classes.remove('stop-transitions');
+					timer = null;
+				}, 100);
+			});
+		};
+
+		stopResizeAnimation();
+	})
+	
 </script>
 
 <NavHost />
@@ -33,9 +60,10 @@
 		scroll-margin-top: 6rem;
 
 		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		
 	}
 
-	@media (max-width: 768px){
+	@media (max-width: 850px){
         :global(*) {
 			scroll-margin-top: 2rem;
         }
@@ -51,7 +79,7 @@
 	:global(body) {
 		margin: 0;
 		padding: 0;
-		line-height: 1.3;
+		line-height: 1.4;
 		background-color: var(--bg-color);
 		overflow-x: hidden;
 	}
@@ -61,17 +89,22 @@
 	}
 
 	:global(.wrapper) {
+		min-height: 0vw;
 		margin-inline: auto;
-		width: min(90%, 70rem);
+		width: min(90%, 70rem) !important;
 		margin-top:6.9rem;
 
 	}
 
-	@media (max-width: 768px){
+	@media (max-width: 850px){
         :global(.wrapper) {
 			margin-top: 4rem;
         }
     }
+
+	:global(body.stop-transitions *){
+		transition: none !important;
+	}
 
 	:root {
 		--white: #eed1c7;
@@ -113,10 +146,11 @@
 		font-size: 1.85rem;
 		letter-spacing: -0.05em;
 	}
+
 	:global(h5) {
 		color: var(--white);
 		font-weight: 500;
-		font-size: 4rem;
+		font-size: 3.5rem;
 		letter-spacing: -0.05em;
 		background-color: var(--grey-one);
 		border-radius: 30px;
@@ -124,11 +158,12 @@
 		width:fit-content;
 	}
 
+	
 	:global(h6) {
 		color: var(--white);
 		font-weight: 300;
 		font-size: 1.25rem;
-		letter-spacing: -0.05em;
+		letter-spacing: -0.04em;
 	}
 
 	/*-----scrollbar-----*/

@@ -17,7 +17,7 @@
 	h1 {
 		line-height: 0.05rem;
 		line-height: 101.6%;
-		font-size: calc(100% + 6rem);
+		font-size: 7rem;
 	}
 
 	h1::before {
@@ -53,9 +53,24 @@
 			font-size:6rem;
 		}
 
+		
 		.second {
 			font-size:4rem;
 		}
+	}
+
+	@media screen and (max-width: 1240px) {
+		h1 {
+			min-height: 0vw;
+			font-size:clamp(5rem, 10vw, 7rem);
+		}
+		.second {
+			min-height: 0vw;
+			font-size:clamp(3rem, 6vw, 4.6rem);
+		}
+
+
+	
 	}
 
 </style>

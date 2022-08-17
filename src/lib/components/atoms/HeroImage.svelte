@@ -45,13 +45,15 @@
         animation: float 6s ease-in-out infinite !important;
     }
 
-    @media (max-width: 1234px){
+    @media (max-width: 1240px){
         img {
-            width:40vw;
+            min-height: 0vw;
+			width:clamp(19rem, 40vw, 40rem);
         }
 
         img:hover {
             width:39vw;
+            
         }
 
         div {
@@ -61,7 +63,7 @@
 
     }
 
-    @media (max-width: 1000px){
+    @media (max-width: 768px){
         img {
             display:none;
         }
