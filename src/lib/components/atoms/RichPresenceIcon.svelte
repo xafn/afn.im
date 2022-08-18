@@ -16,7 +16,7 @@
 
 <div>
     {#if app_id === undefined}
-        <img src="favicon.png" alt="h">
+        <img src="favicon.webp" alt="h">
     {:else}
         <img src={icon} alt="h">
     {/if}

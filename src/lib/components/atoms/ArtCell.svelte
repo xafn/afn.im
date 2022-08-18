@@ -3,7 +3,7 @@
     export let art = 'HeroImage.png';
 </script>
 
-<div class = "card {type}" style = "background-image:url(art/{art})"> </div>
+<div class = "card {type}" style = "background-image:url(art/{art}.webp)"> </div>
 
 
 <style>

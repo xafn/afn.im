@@ -45,7 +45,7 @@
     @media screen and (max-width: 1240px) {
 		h2 {
             min-height: 0vw;
-			font-size:clamp(1.25rem, 2vw, 1.9rem)
+			font-size:clamp(1.4rem, 2vw, 1.9rem)
 		}
 	}
 

@@ -1,5 +1,5 @@
 <div>
-    <img src="HeroImage.png" alt="A drawing of me.">
+    <img src="HeroImage.webp" alt="A drawing of me.">
 </div>
 
 <style>
