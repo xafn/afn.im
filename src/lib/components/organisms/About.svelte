@@ -45,7 +45,7 @@
 
     span {
 		font-weight: 400;
-        font-family: 'JetBrains Mono', mono space;
+        font-family: var(--font-two);
         font-size: 1rem;
 		background-color: var(--grey-one);
 		border-radius: 10px;

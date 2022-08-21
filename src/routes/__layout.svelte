@@ -54,7 +54,7 @@
 		box-sizing: inherit;
 		margin: 0;
 		padding: 0;
-		font-family: 'Space Grotesk', sans-serif;
+		font-family: var(--font-one);
 
 		scroll-behavior: smooth;
 		scroll-margin-top: 6rem;
@@ -136,7 +136,7 @@
 		color: var(--white);
 		font-weight: 300;
 		font-size: 1.85rem;
-		font-family: 'JetBrains Mono', mono space;
+		font-family: var(--font-two);
 		letter-spacing: -0.075em;
 	}
 
