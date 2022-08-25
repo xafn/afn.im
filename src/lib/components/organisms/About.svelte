@@ -1,5 +1,5 @@
 <script>
-    import RichPresenceHost from "../molecules/RichPresenceHost.svelte";
+    import RichPresence from "../molecules/RichPresence.svelte";
     import moment from 'moment';
 
     let age = moment().diff('20070326', 'years');
@@ -9,7 +9,7 @@
 <section id="about">
     <div>
         <div class="rich">
-            <RichPresenceHost />
+            <RichPresence />
         </div>
         <div class="text">
             <h6>Hello funny people in my screen :&#93; I'm a <span>{age}</span> year old digital artist and graphic/UI designer based in Canada. I’ve taken art seriously since <span>2017</span>, and have been doodling goofy anime characters since <span>2020</span>. I’ve also done some design work in open-source projects. Recently, however, I’ve grown a knack in programming. Currently learning Python, and JS → Svelte. Hope to move onto Flutter one day. Don’t look into it though, it’s not even that interesting.</h6>
@@ -20,12 +20,12 @@
 <style>
     section {
         display: inline-block;
-        margin-bottom: 5.5rem;
+        margin-bottom: 5rem;
     }
         
     section > div {
         display:grid;
-        gap:1.5rem;
+        gap:2rem;
 		grid-template-columns: 1fr 1fr;
     }
 
@@ -46,7 +46,7 @@
     span {
 		font-weight: 400;
         font-family: var(--font-two);
-        font-size: 1rem;
+        font-size: 0.9rem;
 		background-color: var(--grey-one);
 		border-radius: 10px;
 		padding: 0.15rem 0.7rem 0.15rem;
@@ -69,7 +69,7 @@
 
     }
 
-    @media (max-width: 1000px){
+    @media (max-width: 875px){
         section > div {
             display:flex;
             flex-direction: column;

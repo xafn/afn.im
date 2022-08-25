@@ -21,7 +21,7 @@
     img {
         border-radius: 60px;
 
-        width:500px;
+        width:450px;
         height: auto;
         transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         transform: rotate3d(0,0,0,0deg) !important;
@@ -29,7 +29,7 @@
 
 
     img:hover {
-        width:490px;
+        width:435px;
         transform:rotate3d(1,0,1,6deg) !important;
         box-shadow: 0 0 2rem #97918d27, 3.2rem 3.2rem 0 var(--grey-one), 6.4rem 6.4rem 0 var(--grey-two);
     }

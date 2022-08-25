@@ -38,9 +38,7 @@
         user-select: none;
 
 		-webkit-tap-highlight-color: #211c1c46;
-		transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-		
+		transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);	
 	}
 
 	a:hover {
@@ -79,7 +77,6 @@
 		a:hover > img {
 			transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 			background-color: var(--yellow-opacity);
-			
 		}
 	}
 </style>

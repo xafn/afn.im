@@ -26,8 +26,9 @@
 
     section > div {
         width:100%;
-        margin-bottom: 3.75rem;
+        margin-bottom: 1.9rem;
     }
+
     section > div > div {
 		display: inline-block;
         padding-bottom:9rem;
