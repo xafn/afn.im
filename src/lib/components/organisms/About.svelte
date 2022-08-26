@@ -25,7 +25,7 @@
         
     section > div {
         display:grid;
-        gap:2rem;
+        gap:3rem;
 		grid-template-columns: 1fr 1fr;
     }
 

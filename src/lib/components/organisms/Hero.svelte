@@ -26,7 +26,7 @@
 
     section > div {
         width:100%;
-        margin-bottom: 1.9rem;
+        margin-bottom: 2.8rem;
     }
 
     section > div > div {
@@ -52,7 +52,7 @@
     @media screen and (max-width: 1240px) {
 		h4 {
             min-height: 0vw;
-			font-size:clamp(1.4rem, 2.4vw, 1.85rem);
+			font-size:clamp(1.4rem, 2.4vw, 1.7rem);
 		}
 
 	

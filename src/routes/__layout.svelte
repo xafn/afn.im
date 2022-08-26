@@ -10,7 +10,7 @@
 	<meta property="og:description" content="The only portfolio ever.">
 	<meta name="twitter:image" itemprop="image" content="/embed.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#dba895">
+    <meta name="theme-color" content="#120e0e">
 	<title>afn</title>
 	<link rel="stylesheet" href="css/styles.css" />
 </svelte:head>
