@@ -1,29 +1,35 @@
 <script>
     import { onMount } from "svelte";
+    import moment from 'moment';
 
     let data;
+
+    let activityImage = 'favicon.webp';
     let activity = "afn#0001";
     let details = 'hhhh';
     let state = 'i just be h';
+
     let pulse = 30000;
     let isSpotify = false;
-    let progress = 0;  
-    let activityImage = 'favicon.webp';
+    let progress = 0;
+    let elapsed;
+    let spotifyTotal = 0;
+    
 
     onMount(() => {
         const lanyard = new WebSocket("wss://api.lanyard.rest/socket");
 
-        lanyard.onopen = function() {
+        lanyard.onopen = () => {
             console.log("Established websocket connection!")
         };
     
-        lanyard.onmessage = function (e) {
+        lanyard.onmessage = e => {
             data = JSON.parse(e.data);
             console.log(data);
             
             switch (data.op) {
                 case 1: {
-                    pulse = data.d.heartbeat_interval
+                    pulse = data.d.heartbeat_interval;
                     lanyard.send(
                         JSON.stringify({
                             op: 2,
@@ -31,52 +37,49 @@
                         })
                     );
                     break;
-                }
+                };
 
                 case 0: {
                     isSpotify = data.d.listening_to_spotify;
 
                     if (isSpotify) {
-                        activity = data.d.spotify.song;
-                        activityImage = data.d.spotify.album_art_url;
+                        ({ song: activity, album_art_url: activityImage} = data.d.spotify);
                         details = `by ${data.d.spotify.artist.replace(/;/g, ',')}`; //why does lanyard use ; guhh??
-
-                        //checking if it's a single
-                        if (activity === data.d.spotify.album) {
+                        
+                        //checking if the song is a single
+                        if (activity === data.d.spotify.album) { 
                             state = '';
                         } else {
                             state = `on ${data.d.spotify.album}`
                         };
 
+                        spotifyTotal = data.d.spotify.timestamps.end - data.d.spotify.timestamps.start;
                         setInterval(() => {
-                            const total = data.d.spotify.timestamps.end - data.d.spotify.timestamps.start;
-                            progress = 100 - (100 * (data.d.spotify.timestamps.end - new Date().getTime())) / total;
-                        }, 1000)
-                        
-                    } 
+                            progress = 100 - (100 * (data.d.spotify.timestamps.end - new Date().getTime())) / spotifyTotal;
+                        }, 1000);
+                    }
                 
                     else {
-                        activity = data.d.activities[0].name
-                        details = data.d.activities[0].details
-                        state = data.d.activities[0].state
-                        activityImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.large_image}.webp`;
-                    }
+                        ({ name: activity, details, state } = data.d.activities[0])
+                        activityImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.large_image}.png`;
+                        
+                        setInterval(() => {
+                            elapsed = new Date().getTime() - data.d.activities[0].timestamps.start
+                        }, 1000);
+                    };
+                    
                     break;
-                }
-            }
-        }
+                };
+            };
+        };
 
         setInterval(() => {
             lanyard.send(
-                JSON.stringify({
-                    op: 3
-                })
+                JSON.stringify({ op: 3 })
             );
             console.log('pump')
-        }, pulse)
-
+        }, pulse);
     });
-        
     
 </script>
 
@@ -87,15 +90,22 @@
         <h4> 
             {activity} 
         </h4>
+
         <h2>
             {details}
             <br />
             {state}
         </h2>
+
         {#if isSpotify} 
-        <progress max="100" value="{progress}" />
+            <progress max="100" value="{progress}" />
+        {:else}
+            <h2>
+                {elapsed}
+            </h2>
         {/if}
     </section>
+
 </div>
 
 
@@ -117,18 +127,35 @@
         font-size:1.15rem;
     }
 
-    progress::-webkit-progress-bar {
-        background-color: yellow !important;
-        border-radius: 0rem;
-    }
-
     img {
         height: 135px;
         width: auto;
         background-color: var(--grey-one);
         border-radius: 1.5rem;
         display: inline-block;
-        opacity: 0.75;
+        opacity: 1;
+    }
+
+    progress {
+        -webkit-appearance: none;
+        border: 0;
+        border-radius: 10rem;
+        margin:0;
+        margin-top: 0.6rem;
+    }
+
+    progress::-webkit-progress-bar {
+        background-color: var(--grey-one);
+        border-radius: 1rem;
+        transform: translateY(0.2rem);
+        height:0.6rem;
+        
+    }
+
+    progress[value]::-webkit-progress-value {
+        background-color: var(--yellow);
+        border-radius: 10rem;
+        
     }
 
     @keyframes rotate {
