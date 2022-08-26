@@ -23,7 +23,6 @@
 		padding: 1rem 2rem;
 		cursor: pointer;
 		background-color: var(--grey-one);
-		font-size: 1.5rem;
 		transition: padding 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 		user-select: none;
         border-left: 20px solid var(--yellow);

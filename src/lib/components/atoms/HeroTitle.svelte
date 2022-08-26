@@ -4,7 +4,7 @@
 
 <div>
     <h1>
-        hey, <br/>	<span class="im">i'm</span> <span class="second">affan;</span>
+        hey, <br/> i'm <span>affan;</span>
     </h1>
 	
 </div>
@@ -17,7 +17,7 @@
 	h1 {
 		line-height: 0.05rem;
 		line-height: 101.6%;
-		font-size: 7rem;
+		font-size: 6.25rem;
 	}
 
 	h1::before {
@@ -32,20 +32,18 @@
         color:transparent;
         opacity:0.25;
         letter-spacing: -0.1em;
-        
         position: absolute;
 	}
 
-	.second {
+	span {
 		color: var(--yellow);
 		font-weight: 600;
-		font-size: 4.6rem;
+		font-size: 4rem;
 		font-family: var(--font-two);
 		letter-spacing: -0.075em;
 		background-color: var(--grey-one);
 		border-radius: 30px;
 		padding: 0.4rem 2rem 0.3rem;
-		transform: translateY(-4%);
 	}
 
 	@media screen and (max-width: 768px) {
@@ -54,7 +52,7 @@
 		}
 
 		
-		.second {
+		span {
 			font-size:4rem;
 		}
 	}
@@ -62,11 +60,11 @@
 	@media screen and (max-width: 1240px) {
 		h1 {
 			min-height: 0vw;
-			font-size:clamp(5rem, 10vw, 7rem);
+			font-size:clamp(5rem, 10vw, 6.25rem);
 		}
-		.second {
+		span {
 			min-height: 0vw;
-			font-size:clamp(3rem, 6vw, 4.6rem);
+			font-size:clamp(3rem, 6vw, 4rem);
 		}
 
 

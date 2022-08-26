@@ -26,8 +26,9 @@
 
     section > div {
         width:100%;
-        margin-bottom: 3.75rem;
+        margin-bottom: 2.8rem;
     }
+
     section > div > div {
 		display: inline-block;
         padding-bottom:9rem;
@@ -51,7 +52,7 @@
     @media screen and (max-width: 1240px) {
 		h4 {
             min-height: 0vw;
-			font-size:clamp(1.4rem, 2.4vw, 1.85rem);
+			font-size:clamp(1.4rem, 2.4vw, 1.7rem);
 		}
 
 	

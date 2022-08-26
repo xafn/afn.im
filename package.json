@@ -19,12 +19,11 @@
 		"prettier-plugin-svelte": "^2.7.0",
 		"svelte": "^3.44.0",
 		"svelte-check": "^2.7.1",
-		"typescript": "^4.7.4",
 		"vite": "^3.0.0"
 	},
 	"type": "module",
 	"dependencies": {
 		"moment": "^2.29.4",
-		"sk-lanyard": "^0.1.6"
+		"svelte-scrolling": "^1.2.2"
 	}
 }

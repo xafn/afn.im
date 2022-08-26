@@ -2,8 +2,8 @@
     import ArtCell from "../atoms/ArtCell.svelte";
 </script>
 
-<div class="idfk">
-    <div class="contain">
+<div class="idfk" >
+    <div class="contain" id = "carduu">
         <div class="grid">   
                 <ArtCell art="painted_red" name="painted_red" type="tall"/>
                 <ArtCell art="drown" name="drowning" />
@@ -31,7 +31,7 @@
     }
 
     .contain {
-        width: min(90%, 80rem);
+        width: min(90%, 75rem);
     }
 
     .idfk {

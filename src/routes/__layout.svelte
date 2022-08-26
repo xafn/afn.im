@@ -10,7 +10,7 @@
 	<meta property="og:description" content="The only portfolio ever.">
 	<meta name="twitter:image" itemprop="image" content="/embed.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#dba895">
+    <meta name="theme-color" content="#120e0e">
 	<title>afn</title>
 	<link rel="stylesheet" href="css/styles.css" />
 </svelte:head>
@@ -91,7 +91,7 @@
 	:global(.wrapper) {
 		min-height: 0vw;
 		margin-inline: auto;
-		width: min(90%, 70rem) !important;
+		width: min(90%, 65rem) !important;
 		margin-top:6.9rem;
 
 	}
@@ -127,7 +127,7 @@
 
 	:global(h1) {
 		color: var(--white);
-		font-weight: 700;
+		font-weight: 600;
 		letter-spacing: -0.075em;
 		font-size: 7.5rem;
 	}
@@ -135,7 +135,7 @@
 	:global(h2) {
 		color: var(--white);
 		font-weight: 300;
-		font-size: 1.85rem;
+		font-size: 1.75rem;
 		font-family: var(--font-two);
 		letter-spacing: -0.075em;
 	}
@@ -143,14 +143,14 @@
 	:global(h4) {
 		color: var(--white);
 		font-weight: 300;
-		font-size: 1.85rem;
+		font-size: 1.7rem;
 		letter-spacing: -0.05em;
 	}
 
 	:global(h5) {
 		color: var(--white);
 		font-weight: 500;
-		font-size: 3.5rem;
+		font-size: 3rem;
 		letter-spacing: -0.05em;
 		background-color: var(--grey-one);
 		border-radius: 30px;
@@ -162,7 +162,7 @@
 	:global(h6) {
 		color: var(--white);
 		font-weight: 300;
-		font-size: 1.25rem;
+		font-size: 1.1rem;
 		letter-spacing: -0.04em;
 	}
 
