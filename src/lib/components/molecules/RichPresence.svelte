@@ -44,7 +44,7 @@
     
                 case 0: {
                     isSpotify = data.d.listening_to_spotify;
-                    isActivity = data.d.activities.length;
+                    isActivity = !!data.d.activities[0];
     
                     if (isSpotify) {
                         ({ song: activity, album_art_url: activityImage } = data.d.spotify);
