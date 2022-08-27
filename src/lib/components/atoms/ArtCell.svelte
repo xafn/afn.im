@@ -10,6 +10,7 @@
 <div 
     class = "card {type}" 
     style = "background-image:url(art/{art}.webp)" 
+    loading = "lazy"
     on:click = {() => {clicked = !clicked;}}
 ></div>
 
@@ -17,7 +18,6 @@
     <div class="img-contain" on:click = {() => {clicked = !clicked;}}>
         <h4>{name}</h4>
         <img src="art/{art}.webp" alt="{name}"/>
-        <!-- <h5>{name}</h5> -->
         <h2>Click anywhere to dismiss</h2>
     </div>
 {/if}

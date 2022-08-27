@@ -4,11 +4,11 @@
     
     let data;
     
-    let activityImage = 'favicon.webp';
-    let smallImage = '';
     let activity = "afn#0001";
     let details = 'hhhh';
     let state = 'i just be h';
+    let activityImage = 'HeroImage.webp';
+    let smallImage = '';
     
     let pulse = 30000;
     let isSpotify = false;
@@ -24,7 +24,7 @@
     onMount(() => {
         const lanyard = new WebSocket("wss://api.lanyard.rest/socket");
     
-        lanyard.onopen = () => console.log("Established websocket connection!")
+        lanyard.onopen = () => console.log("Established websocket connection!");
     
         lanyard.onmessage = e => {
             data = JSON.parse(e.data);
@@ -43,21 +43,16 @@
                 };
     
                 case 0: {
-                    
                     isSpotify = data.d.listening_to_spotify;
-                    isActivity = !!data.d.activities[0];
+                    isActivity = data.d.activities.length;
     
                     if (isSpotify) {
-                        ({ song: activity, album_art_url: activityImage} = data.d.spotify);
+                        ({ song: activity, album_art_url: activityImage } = data.d.spotify);
                         smallImage = '';
                         details = `by ${data.d.spotify.artist.replace(/;/g, ',')}`; //why does lanyard use ; guhh??
                         
                         //checking if the song is a single
-                        if (activity === data.d.spotify.album) { 
-                            state = '';
-                        } else {
-                            state = `on ${data.d.spotify.album}`;
-                        };
+                        activity === data.d.spotify.album ? state = '' : state = `on ${data.d.spotify.album}`;
     
                         spotifyTotal = data.d.spotify.timestamps.end - data.d.spotify.timestamps.start;
                         calculateMusicProgress = () => {
@@ -87,132 +82,133 @@
                         setInterval(() => {
                             if (isActivity) {
                                 calculateElapsedTime();
-                            }
+                            };
                         }, 1000);
                     } 
                     
-                    else if (!isActivity) {
-                        activityImage = 'favicon.webp';
-                        smallImage = '';
+                    else if (isActivity === false) {
                         activity = "afn#0001";
                         details = 'hhhh';
                         state = 'i just be h';
+                        activityImage = 'HeroImage.webp';
+                        smallImage = '';
                     };
                     
                     break;
+                    
                 };
+                
             };
+            
         };
     
         setInterval(() => {
             lanyard.send(
                 JSON.stringify({ op: 3 })
             );
-            console.log('pump');
         }, pulse);
     });
         
-    </script>
+</script>
     
-    <div>
-        <img src="{activityImage}" alt="{activity}" class="big {isSpotify ? 'spin' : ''}">
-        {#if smallImage}
-            <img src="{smallImage}" alt="{activity}" class="small">
-        {/if}
-    
-        <section>
-            <h4> 
-                {activity} 
-            </h4>
-    
+<div>
+    <img src="{activityImage}" alt="{activity}" class="big {isSpotify ? 'spin' : ''}">
+    {#if smallImage}
+        <img src="{smallImage}" alt="{activity}" class="small">
+    {/if}
+
+    <section>
+        <h4> 
+            {activity} 
+        </h4>
+
+        <h2>
+            {details || ''}
+        </h2>
+        
+        <h2>
+            {state || ''}
+        </h2>
+
+        {#if isSpotify} 
+            <progress max="100" value="{progress}" />
+        {:else}
             <h2>
-                {details ? details : ''}
-                <br />
-                {state  ? state : ''}
+                {isActivity? elapsed : ''}
             </h2>
+        {/if}
+    </section>
+
+</div>
     
-            {#if isSpotify} 
-                <progress max="100" value="{progress}" />
-            {:else}
-                <h2>
-                    {isActivity? elapsed : ''}
-                </h2>
-            {/if}
-        </section>
-    
-    </div>
-    
-    
-    <style>
-    
-        div {
-            display:flex;
-            gap:2.25rem;
-            align-items: center;
+<style>
+    div {
+        display:flex;
+        gap:2.25rem;
+        align-items: center;
+    }
+
+    h4 {
+        font-weight:500;
+        font-size:1.4rem;
+        margin-bottom: 0.25rem;
+    }
+
+    h2 {
+        font-size:1.15rem;
+    }
+
+    .big {
+        height: 135px;
+        width: auto;
+        background-color: var(--grey-one);
+        border-radius: 1.5rem;
+        display: inline-block;
+        opacity: 1;
+        user-select: none;
+    }
+
+    .small {
+        height: 40px;
+        width: auto;
+        border-radius: 50%;
+        position: absolute;
+        transform: translate(275%, 150%);
+        border: 10px solid (--bg-color);
+    }
+
+    progress {
+        -webkit-appearance: none;
+        border: 0;
+        border-radius: 10rem;
+        margin:0;
+        margin-top: 0.6rem;
+    }
+
+    progress::-webkit-progress-bar {
+        background-color: var(--grey-one);
+        border-radius: 1rem;
+        transform: translateY(0.2rem);
+        height:0.6rem;
+    }
+
+    progress[value]::-webkit-progress-value {
+        background-color: var(--yellow);
+        border-radius: 10rem;
+        
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
         }
-    
-        h4 {
-            font-weight:500;
-            font-size:1.4rem;
-            margin-bottom: 0.25rem;
+        100% {
+            transform: rotate(360deg);
         }
-    
-        h2 {
-            font-size:1.15rem;
-        }
-    
-        .big {
-            height: 135px;
-            width: auto;
-            background-color: var(--grey-one);
-            border-radius: 1.5rem;
-            display: inline-block;
-            opacity: 1;
-            user-select: none;
-        }
-    
-        .small {
-            height: 40px;
-            width: auto;
-            border-radius: 50%;
-            position: absolute;
-            transform: translate(275%, 150%);
-        }
-    
-        progress {
-            -webkit-appearance: none;
-            border: 0;
-            border-radius: 10rem;
-            margin:0;
-            margin-top: 0.6rem;
-        }
-    
-        progress::-webkit-progress-bar {
-            background-color: var(--grey-one);
-            border-radius: 1rem;
-            transform: translateY(0.2rem);
-            height:0.6rem;
-        }
-    
-        progress[value]::-webkit-progress-value {
-            background-color: var(--yellow);
-            border-radius: 10rem;
-            
-        }
-    
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    
-        .spin {
-            animation: rotate 40s linear infinite;
-            border-radius: 50%;
-        }
-    
-    
-    </style>
+    }
+
+    .spin {
+        animation: rotate 40s linear infinite;
+        border-radius: 50%;
+    }
+</style>

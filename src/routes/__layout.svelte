@@ -92,7 +92,7 @@
 		min-height: 0vw;
 		margin-inline: auto;
 		width: min(90%, 65rem) !important;
-		margin-top:6.9rem;
+		margin-top:7.75rem;
 
 	}
 
