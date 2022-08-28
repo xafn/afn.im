@@ -24,6 +24,7 @@
 	"type": "module",
 	"dependencies": {
 		"moment": "^2.29.4",
+		"moment-timezone": "^0.5.37",
 		"svelte-scrolling": "^1.2.2"
 	}
 }
