@@ -38,6 +38,11 @@
         align-items: center;
     }
 
+    .text {
+        position: relative;
+        z-index: 1;
+    }
+
     span {
 		font-weight: 400;
         font-family: var(--font-two);
