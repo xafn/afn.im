@@ -24,8 +24,8 @@
     }
         
     section > div {
-        display:grid;
-        gap:3rem;
+        display: grid;
+        gap: 2rem;
 		grid-template-columns: 1fr 1fr;
     }
 
@@ -36,11 +36,6 @@
     .rich {
         display: flex;
         align-items: center;
-    }
-
-    .text {
-        position: relative;
-        z-index: 1;
     }
 
     span {

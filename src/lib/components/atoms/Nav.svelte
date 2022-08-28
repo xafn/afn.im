@@ -53,6 +53,12 @@
 
 	img {
 		margin-right: 0.75rem;
+		opacity: 0.7;
+		transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);	
+	}
+
+	a:hover > img {
+		opacity: 1;
 	}
 
 	@media screen and (max-width: 850px) {
