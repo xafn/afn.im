@@ -19,11 +19,11 @@
         
 
     img {
-        border-radius: 60px;
+        border-radius: 55px;
 
         width:450px;
         height: auto;
-        transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: width 0.4s var(--bezier-one), transform 0.4s var(--bezier-one), box-shadow 0.4s var(--bezier-one);
         transform: rotate3d(0,0,0,0deg) !important;
     }
 

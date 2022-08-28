@@ -12,7 +12,6 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#120e0e">
 	<title>afn</title>
-	<link rel="stylesheet" href="css/styles.css" />
 </svelte:head>
 
 <script>
@@ -117,6 +116,7 @@
 		--grey-three: #1e1a1a;
 		--font-one: 'Space Grotesk', sans-serif;
 		--font-two: 'JetBrains Mono', mono space;
+		--bezier-one: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 	}
 
 	:global(::selection) {
@@ -136,7 +136,7 @@
 	:global(h2) {
 		color: var(--white);
 		font-weight: 300;
-		font-size: 1.75rem;
+		font-size: 1.6rem;
 		font-family: var(--font-two);
 		letter-spacing: -0.075em;
 	}
@@ -154,8 +154,8 @@
 		font-size: 3rem;
 		letter-spacing: -0.05em;
 		background-color: var(--grey-one);
-		border-radius: 30px;
-		padding: 0.4rem 3rem 0.3rem;
+		border-radius: 20px;
+		padding: 0.4rem 2.5rem;
 		width:fit-content;
 	}
 

@@ -68,7 +68,8 @@
 
     @media screen and (max-width: 600px) {
 		section {
-            height:calc(100vh - 120px);
+            display: flex;
+            height:calc(100vh - 140px);
             justify-content: center;
             align-items: center;
         }
