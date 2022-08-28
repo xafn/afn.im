@@ -52,7 +52,7 @@
                         details = `by ${details.replace(/;/g, ',')}`; //why does lanyard use ; guhh??
                         
                         //checking if the song is a single
-                        activity === state ? state = '' : state = `on ${state}`;
+                        state = activity === state ? '' : `on ${state}`;
     
                         spotifyTotal = data.d.spotify.timestamps.end - data.d.spotify.timestamps.start;
                         calculateMusicProgress = () => {
