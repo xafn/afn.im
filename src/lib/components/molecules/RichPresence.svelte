@@ -47,17 +47,17 @@
                     isActivity = !!data.d.activities[0];
     
                     if (isSpotify) {
-                        ({ song: activity, album_art_url: activityImage } = data.d.spotify);
+                        ({ song: activity, artist: details, album: state, album_art_url: activityImage } = data.d.spotify);
                         smallImage = '';
-                        details = `by ${data.d.spotify.artist.replace(/;/g, ',')}`; //why does lanyard use ; guhh??
+                        details = `by ${details.replace(/;/g, ',')}`; //why does lanyard use ; guhh??
                         
                         //checking if the song is a single
-                        activity === data.d.spotify.album ? state = '' : state = `on ${data.d.spotify.album}`;
+                        activity === state ? state = '' : state = `on ${state}`;
     
                         spotifyTotal = data.d.spotify.timestamps.end - data.d.spotify.timestamps.start;
                         calculateMusicProgress = () => {
                             progress = 100 - (100 * (data.d.spotify.timestamps.end - new Date().getTime())) / spotifyTotal;
-                        }
+                        };
     
                         calculateMusicProgress();
                         setInterval(() => {
@@ -93,7 +93,6 @@
                         activityImage = 'HeroImage.webp';
                         smallImage = '';
                     };
-                    
                     break;
                     
                 };
@@ -134,7 +133,7 @@
             <progress max="100" value="{progress}" />
         {:else}
             <h2>
-                {isActivity? elapsed : ''}
+                {isActivity ? elapsed : ''}
             </h2>
         {/if}
     </section>

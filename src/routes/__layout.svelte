@@ -99,6 +99,7 @@
 	@media (max-width: 850px){
         :global(.wrapper) {
 			margin-top: 4rem;
+			margin-bottom: 4.75rem;
         }
     }
 
