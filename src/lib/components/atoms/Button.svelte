@@ -19,7 +19,7 @@
 <style>
 
     div {
-        transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: 0.5s var(--bezier-one);
     }
 
     .rect {
@@ -27,21 +27,21 @@
         background-color: var(--yellow);
         width:1.6rem;
         height:100%;
-        border-top-left-radius: 25px;
-        border-bottom-left-radius: 25px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
         top:0;
         left:0;
-        transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: 0.3s var(--bezier-one);
         z-index: 0;
     }
 
     button {
-		border-radius: 25px;
+		border-radius: 20px;
         border-color: transparent;
 		padding: 1rem 2rem 1rem 3rem;
 		cursor: pointer;
 		background-color: var(--grey-one);
-        transition: padding 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: padding 0.3s var(--bezier-one), transform 0.5s var(--bezier-one);
         user-select: none;
         margin: 0;   
     }
@@ -58,8 +58,9 @@
 
 
     div:active {
-        transform: translateY(5%);
+        transform: scale(95%);
     }
+
 
     @media screen and (max-width: 1240px) {
 		h2 {
@@ -70,7 +71,7 @@
 
     @media (hover: none) {
         button:hover {
-            padding: 1rem 2rem;
+            padding: 1rem 2rem 1rem 3rem;
         }
     }
     

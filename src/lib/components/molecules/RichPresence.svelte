@@ -1,13 +1,13 @@
 <script>
     import { onMount } from "svelte";
-    import moment from 'moment';
+    import moment from 'moment-timezone';
     
     let data;
     
     let activity = "afn#0001";
-    let details = 'Offline';
-    let state = 'i just be h';
-    let activityImage = 'favicon.webp';
+    let details = 'Fetching...';
+    let state = '';
+    let activityImage = 'default.webp';
     let smallImage = '';
     
     let pulse = 30000;
@@ -16,9 +16,11 @@
     let progress = 0;
     let elapsed;
     let spotifyTotal = 0;
+    let time;
     
     let calculateMusicProgress;
     let calculateElapsedTime;
+    let calculateCurrentTime;
     
     
     onMount(() => {
@@ -48,11 +50,9 @@
     
                     if (isSpotify) {
                         ({ song: activity, artist: details, album: state, album_art_url: activityImage } = data.d.spotify);
-                        smallImage = '';
                         details = `by ${details.replace(/;/g, ',')}`; //why does lanyard use ; guhh??
-                        
-                        //checking if the song is a single
-                        state = activity === state ? '' : `on ${state}`;
+                        state = activity === state ? '' : `on ${state}`;  //checking if the song is a single
+                        smallImage = '';
     
                         spotifyTotal = data.d.spotify.timestamps.end - data.d.spotify.timestamps.start;
                         calculateMusicProgress = () => {
@@ -69,8 +69,8 @@
                 
                     else if (isActivity) {
                         ({ name: activity, details, state } = data.d.activities[0]);
-                        activityImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.large_image}.png`;
-                        smallImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.small_image}.png` || '';
+                        activityImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.large_image}.webp?size=512`;
+                        smallImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.small_image}.webp?size=512` || '';
                         
                         calculateElapsedTime = () => {
                             elapsed = new Date().getTime() - data.d.activities[0].timestamps.start;
@@ -88,9 +88,23 @@
                     
                     else if (isActivity === false) {
                         activity = "afn#0001";
-                        details = 'Offline';
-                        state = 'i just be h';
-                        activityImage = 'favicon.webp';
+                        details = data.d.discord_status.charAt(0).toUpperCase() + data.d.discord_status.slice(1).toLowerCase();;
+                        
+                        
+
+                        calculateCurrentTime = () => {
+                            time = moment().tz("America/New_York").format("hh:mm:ss A");
+                            state = time;
+                        }
+
+                        calculateCurrentTime();
+                        setInterval(() => {
+                            if (!isActivity) {
+                                calculateCurrentTime();
+                            };
+                        }, 1000);
+
+                        activityImage = 'default.webp';
                         smallImage = '';
                     };
                     break;
@@ -157,13 +171,15 @@
         font-size:1.15rem;
     }
 
+
     .big {
         height: 135px;
         width: auto;
-        border-radius: 1.5rem;
+        border-radius: 20px;
         display: inline-block;
         opacity: 1;
         user-select: none;
+        transition: 0.4s var(--bezier-one);
     }
 
     .small {
@@ -172,7 +188,6 @@
         border-radius: 50%;
         position: absolute;
         transform: translate(275%, 150%);
-        border: 10px solid (--bg-color);
     }
 
     progress {

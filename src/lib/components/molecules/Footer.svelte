@@ -26,21 +26,21 @@
     }
 
     a {
-        transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: 0.3s var(--bezier-one);
         text-decoration: none;
-        color: var(--yellow);
+        color: var(--white);
 		font-weight: 300;
 		font-size:0.9rem;
         opacity:0.7;
     }
 
     a:hover {
+        font-family: var(--font-two);
         opacity: 1;
-        color: var(--white)
     }
 
     hr {
-        background-color: var(--yellow); 
+        background-color: var(--white); 
         height: 2px; 
         border: 0;
         opacity:0.2;
@@ -62,12 +62,22 @@
 
     }
 
+    a:hover {
+        font-weight: 400;
+        font-family: var(--font-two);
+		background-color: var(--yellow);
+        color:var(--grey-one);
+		border-radius: 7px;
+		padding: 0.15rem 0.5rem 0.15rem;
+		width:fit-content;
+    }
+
     span {
         font-weight: 400;
         font-family: var(--font-two);
 		background-color: var(--grey-one);
-		border-radius: 10px;
-		padding: 0.15rem 0.7rem 0.15rem;
+		border-radius: 7px;
+		padding: 0.15rem 0.5rem 0.15rem;
 		width:fit-content;
         margin-right: 0.4rem;
     }

@@ -42,7 +42,7 @@
 		font-family: var(--font-two);
 		letter-spacing: -0.075em;
 		background-color: var(--grey-one);
-		border-radius: 30px;
+		border-radius: 25px;
 		padding: 0.4rem 2rem 0.3rem;
 	}
 

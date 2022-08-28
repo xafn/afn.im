@@ -9,10 +9,9 @@
 
 <div 
     class = "card {type}" 
-    style = "background-image:url(art/{art}.webp)" 
-    loading = "lazy"
+    style = "background-image:url(art/{art}.webp)"
     on:click = {() => {clicked = !clicked;}}
-></div>
+>{name}</div>
 
 {#if clicked}
     <div class="img-contain" on:click = {() => {clicked = !clicked;}}>
@@ -24,16 +23,18 @@
 
 <style>
     .card {
-        background-color: var(--grey-three);
         height: 100%;
         width: 100%;
-        border-radius:7px;
+        border-radius:4px;
         overflow: hidden;
+        background: var(--yellow); 
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: transform 0.3s var(--bezier-one), box-shadow 0.3s var(--bezier-one);
         cursor: pointer;
+        font-size: 0;
+        user-select: none;
 
     }
 
@@ -80,7 +81,7 @@
         max-height:86vh;
         height:auto;
         max-width:86vw;
-        border-radius:3vh;
+        border-radius:2vh;
         display:flex;
         justify-content: center;
         align-items: center;

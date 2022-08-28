@@ -22,7 +22,7 @@
 		border: var(--grey-six);
         font-family: var(--font-two);
         
-		transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		transition: background-color 0.3s var(--bezier-one);
 	}
 
 	a {
@@ -38,7 +38,7 @@
         user-select: none;
 
 		-webkit-tap-highlight-color: #211c1c46;
-		transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);	
+		transition: background-color 0.3s var(--bezier-one);	
 	}
 
 	a:hover {
@@ -54,7 +54,7 @@
 	img {
 		margin-right: 0.75rem;
 		opacity: 0.7;
-		transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);	
+		transition: opacity 0.3s var(--bezier-one);	
 	}
 
 	a:hover > img {
@@ -81,7 +81,7 @@
 		}
 
 		a:hover > img {
-			transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+			transition: background-color 0.3s var(--bezier-one);
 			background-color: var(--yellow-opacity);
 		}
 	}
