@@ -5,9 +5,9 @@
     let data;
     
     let activity = "afn#0001";
-    let details = 'hhhh';
+    let details = 'Offline';
     let state = 'i just be h';
-    let activityImage = 'HeroImage.webp';
+    let activityImage = 'favicon.webp';
     let smallImage = '';
     
     let pulse = 30000;
@@ -88,9 +88,9 @@
                     
                     else if (isActivity === false) {
                         activity = "afn#0001";
-                        details = 'hhhh';
+                        details = 'Offline';
                         state = 'i just be h';
-                        activityImage = 'HeroImage.webp';
+                        activityImage = 'favicon.webp';
                         smallImage = '';
                     };
                     break;
@@ -133,7 +133,7 @@
             <progress max="100" value="{progress}" />
         {:else}
             <h2>
-                {isActivity ? elapsed : ''}
+                {isActivity? elapsed : ''}
             </h2>
         {/if}
     </section>
@@ -160,7 +160,6 @@
     .big {
         height: 135px;
         width: auto;
-        background-color: var(--grey-one);
         border-radius: 1.5rem;
         display: inline-block;
         opacity: 1;
