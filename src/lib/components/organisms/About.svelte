@@ -86,5 +86,9 @@
         section  {
             margin-bottom: -2rem;
         }
+
+        h5 {
+            display:block;
+        }
     }
 </style>
