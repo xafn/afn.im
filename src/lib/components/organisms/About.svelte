@@ -86,6 +86,5 @@
         section  {
             margin-bottom: -2rem;
         }
-
     }
 </style>
