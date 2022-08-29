@@ -8,10 +8,13 @@
 
 <section id="about">
     <div>
+        
         <div class="rich">
             <RichPresence />
         </div>
+
         <div class="text">
+            <h5>bio</h5>
             <h6>Hello funny people in my screen :&#93; I'm a <span>{age}</span> year old digital artist and graphic/UI designer based in Canada. I’ve taken art seriously since <span>2017</span>, and have been doodling goofy anime characters since <span>2020</span>. I’ve also done some design work in open-source projects. Recently, however, I’ve grown a knack in programming. Currently learning Python, and JS → Svelte. Hope to move onto Flutter one day. Don’t look into it though, it’s not even that interesting.</h6>
         </div>
     </div>
@@ -69,12 +72,25 @@
 
     }
 
-    @media (max-width: 875px){
+    h5 {
+        display:none;
+        margin-top: 1rem;
+    }
+
+    @media (max-width: 850px){
         section > div {
             display:flex;
             flex-direction: column;
-            
         }
 
+        section  {
+            margin-bottom: -2rem;
+        }
+
+        h5 {
+            display:block;
+        }
     }
+
+    
 </style>

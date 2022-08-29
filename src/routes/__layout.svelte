@@ -159,12 +159,27 @@
 		width:fit-content;
 	}
 
+	@media (max-width: 850px){
+        :global(h5) {
+            display: block;
+			padding: 0;
+			background-color: transparent;
+			font-size: 2rem;
+        }
+    }
+
 	
 	:global(h6) {
 		color: var(--white);
 		font-weight: 300;
 		font-size: 1.1rem;
 		letter-spacing: -0.04em;
+	}
+
+	@media (max-width: 850px) {
+		:global(h6) {
+			font-size: 1rem;
+		}
 	}
 
 	/*-----scrollbar-----*/
