@@ -23,7 +23,7 @@
 <style>
     section {
         display: inline-block;
-        margin-bottom: 5rem;
+        margin-bottom: 6rem;
     }
         
     section > div {

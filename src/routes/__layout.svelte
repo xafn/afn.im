@@ -64,7 +64,7 @@
 
 	@media (max-width: 850px){
         :global(*) {
-			scroll-margin-top: 2rem;
+			scroll-margin-top: 1rem;
         }
     }
 

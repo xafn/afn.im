@@ -20,6 +20,7 @@
     .art-work {
         display: flex;
         justify-content: center;
+        margin-top:0;
         margin-bottom: 2rem;
     }
 
