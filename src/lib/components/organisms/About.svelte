@@ -43,7 +43,7 @@
 
     .text {
         position: relative;
-        z-index: -1;
+        z-index: 1;
     }
 
     span {
@@ -87,10 +87,5 @@
             margin-bottom: -2rem;
         }
 
-        h5 {
-            display:block;
-        }
     }
-
-    
 </style>
