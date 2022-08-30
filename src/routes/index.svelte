@@ -6,7 +6,7 @@
 </script>
 
 
-<div class="wrapper">
+<div class="wrapper margin">
    <span id="home"> 
         <Hero />
     </span>
@@ -15,15 +15,28 @@
 
 <Work />   
 
+
 <div class="wrapper">
     <Footer/>
 </div>
 
 <style>
     #home {
+        
         scroll-margin-top: 20rem;
     }
 
+    .margin {
+        margin-top: 7.25rem;
+    }
+
+    @media screen and (max-width: 850px){
+        :global(.margin) {
+			margin-top: 4rem !important;
+        }
+    }
     
 </style>
+
+
 

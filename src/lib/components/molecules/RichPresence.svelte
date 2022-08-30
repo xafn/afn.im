@@ -175,14 +175,14 @@
 
     a:hover {
         text-decoration:underline;
-        text-decoration-color: var(--yellow);
+        text-decoration-color: var(--white);
         transition: 0.4s var(--bezier-one);
     }
 
     a, a:not(:hover) {
         text-decoration:underline;
         text-decoration-color: var(--bg-color);
-        transition: 0.4s var(--bezier-one);
+        transition: 0.2s var(--bezier-one);
     }
 
     h5 {
@@ -265,6 +265,26 @@
 
         div {
             justify-content: left;
+        }
+    }
+
+    @media screen and (max-width: 868px) {
+        .big {
+            height:100px;
+            width:100px;
+            border-radius: 17px;
+        }
+
+
+        .small {
+            transform: translate(200%, 125%);
+        }
+
+        h4 {
+            font-size: 1.2rem;
+        }
+        h2 {
+            font-size: 1rem;
         }
     }
 </style>

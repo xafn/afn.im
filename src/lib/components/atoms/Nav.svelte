@@ -5,7 +5,7 @@
 
 <div oncontextmenu="return false;">
 	<a href={href} >
-		<img src="navbar/{icon}.svg" alt="{icon}"/>
+		<img src="icons/{icon}.svg" alt="{icon}"/>
 		<li>
 		    <slot/>
 		</li>
@@ -42,26 +42,21 @@
 	}
 
 	a:hover {
-		background-color: var(--grey-one);
+		background-color: var(--yellow-opacity);
 	}
 
-	li.selected	 {
+	/* li.selected	 {
 		font-weight: 600;
 		border: 3px solid var(--red);
 		border-radius: 200px;
-	}
+	} */
 
 	img {
 		margin-right: 0.75rem;
-		opacity: 0.7;
 		transition: opacity 0.3s var(--bezier-one);	
 	}
 
-	a:hover > img {
-		opacity: 1;
-	}
-
-	@media screen and (max-width: 850px) {
+	@media screen and (max-width: 868px) {
 		img {
 			transform: scale(0.95);
 			margin-right: 0;

@@ -66,8 +66,23 @@
     @media screen and (max-width: 1240px) {
 		h2 {
             min-height: 0vw;
-			font-size:clamp(1.4rem, 2vw, 1.9rem)
+			font-size:clamp(1.1rem, 2vw, 1.9rem)
 		}
+	}
+
+    @media screen and (max-width: 768px) {
+		button {
+            position: inherit;
+            padding: 0.9rem 2rem 0.9rem 2rem;
+            border-radius: 17px;
+            width:100%;
+		}
+
+        .rect {
+            display:none;
+            border-top-left-radius: 17px;
+            border-bottom-left-radius: 17px;
+        }
 	}
 
     @media (hover: none) {
