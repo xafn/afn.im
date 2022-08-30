@@ -2,13 +2,14 @@
     export let type = '';
     export let art = 'HeroImage';
     export let name = '';
+    export let shrink = '';
 
     let clicked = false;
 
 </script>
 
 <div 
-    class = "card {type}" 
+    class = "card {type} {shrink}" 
     style = "background-image:url(art/{art}.webp)"
     on:click = {() => {clicked = !clicked;}}
 >{name}</div>
@@ -92,26 +93,7 @@
         animation-fill-mode: forwards; 
     }
 
-    /* h5 {    
-        font-size: 23vw;
-        width:fit-content;
-        font-weight:800;
-        z-index: -1;
-        background-color: transparent;
-        user-select: none;
-        text-align: center;
-        -webkit-text-stroke: 0.1vw var(--white);
-        color:transparent;
-        opacity:0.25;
-        letter-spacing: -0.075em;
-        position: absolute;
-
-    } */
-
-
-    
     .img-contain {
-        
         background-blend-mode: overlay;
         display:flex;
         flex-direction: column;
@@ -147,4 +129,9 @@
         font-weight:500;
     }
     
+    @media only screen and (min-width: 869px) and (max-width: 1164px) { 
+        .shrink {
+            grid-row: span 1 / auto;
+        }
+    } 
 </style>

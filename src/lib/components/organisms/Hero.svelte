@@ -9,7 +9,7 @@
     <div>
         <div>
             <HeroTitle />
-            <h4>Hobbyist illustrator and designer. <br />Attemping to program.</h4>
+            <h4>Hobbyist illustrator and designer. <br />Attempting to program.</h4>
             <span><Button>Discover my work ↓</Button></span>
         </div>
         <HeroImage />

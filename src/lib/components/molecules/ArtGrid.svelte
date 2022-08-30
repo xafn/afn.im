@@ -11,7 +11,7 @@
                 <ArtCell art="murder" name="811" />
                 <ArtCell art="diverge" name="diverge" type="tall"/>
                 <ArtCell art="smoke" name="FADE" type="tall"/>
-                <ArtCell art="windy" name="kind of cold" type="tall"/>
+                <ArtCell art="windy" name="kind of cold" type="tall" shrink="shrink"/>
                 <ArtCell art="cry" name="ribbons" type="tall" />
                 <ArtCell art="crop" name="asumi" />
                 <ArtCell art="smile" name="doodle" />
