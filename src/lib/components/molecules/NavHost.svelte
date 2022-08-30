@@ -31,10 +31,10 @@
         justify-content: center;
     }
     
-    .navbar.active {
+    /* .navbar.active {
         border-bottom: 1.5px solid var(--yellow-opacity);
         padding: 1rem 0;
-    }
+    } */
 
 
     @media (max-width: 850px){

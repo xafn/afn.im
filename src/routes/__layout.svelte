@@ -91,13 +91,11 @@
 		min-height: 0vw;
 		margin-inline: auto;
 		width: min(90%, 65rem) !important;
-		margin-top: 7.75rem;
 
 	}
 
 	@media (max-width: 850px){
         :global(.wrapper) {
-			margin-top: 4rem;
 			margin-bottom: 4.75rem;
         }
     }

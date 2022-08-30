@@ -175,14 +175,14 @@
 
     a:hover {
         text-decoration:underline;
-        text-decoration-color: var(--yellow);
+        text-decoration-color: var(--white);
         transition: 0.4s var(--bezier-one);
     }
 
     a, a:not(:hover) {
         text-decoration:underline;
         text-decoration-color: var(--bg-color);
-        transition: 0.4s var(--bezier-one);
+        transition: 0.2s var(--bezier-one);
     }
 
     h5 {
