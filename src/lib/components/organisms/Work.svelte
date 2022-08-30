@@ -5,7 +5,7 @@
 
 
 <div>
-    <div class="art-work" id="aw">
+    <div class="art-work wrapper" id="aw">
         <h5><span>art</span>:work</h5>
     </div>
     <ArtGrid />
@@ -20,6 +20,15 @@
     .art-work {
         display: flex;
         justify-content: center;
+        margin-top:0;
         margin-bottom: 2rem;
     }
+
+    @media (max-width: 850px){
+        .art-work {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+    }
+
 </style>

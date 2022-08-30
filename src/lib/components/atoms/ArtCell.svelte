@@ -27,7 +27,7 @@
         width: 100%;
         border-radius:4px;
         overflow: hidden;
-        background: var(--yellow); 
+        background: var(--grey-one); 
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;

@@ -124,38 +124,62 @@
         
 </script>
     
-<div>
-    <img src="{activityImage}" alt="{activity}" class="big {isSpotify ? 'spin' : ''}">
-    {#if smallImage}
-        <img src="{smallImage}" alt="{activity}" class="small">
-    {/if}
+<div class="h">
+    <h5>activity</h5>
+        <div>
+            <img src="{activityImage}" alt="{activity}" class="big {isSpotify ? 'spin' : ''}">
+            {#if smallImage}
+                <img src="{smallImage}" alt="{activity}" class="small">
+            {/if}
 
-    <section>
-        <h4> 
-            {activity} 
-        </h4>
+            <section>
+                <h4> 
+                    {activity} 
+                </h4>
 
-        <h2>
-            {details || ''}
-        </h2>
-        
-        <h2>
-            {state || ''}
-        </h2>
+                <h2>
+                    {details || ''}
+                </h2>
+                
+                <h2>
+                    {state || ''}
+                </h2>
 
-        {#if isSpotify} 
-            <progress max="100" value="{progress}" />
-        {:else}
-            <h2>
-                {isActivity? elapsed : ''}
-            </h2>
-        {/if}
-    </section>
-
+                {#if isSpotify} 
+                    <progress max="100" value="{progress}" />
+                {:else}
+                    <h2>
+                        {isActivity? elapsed : ''}
+                    </h2>
+                {/if}
+            </section>
+        </div>
 </div>
     
 <style>
-    div {
+    .h {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-content: left;
+    }
+
+    h5 {
+        display:none;
+    }
+
+    @media (max-width: 850px){
+        h5 {
+            display:inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        div {
+            justify-content: left;
+        }
+    }
+
+    div > div {
         display:flex;
         gap:2.25rem;
         align-items: center;

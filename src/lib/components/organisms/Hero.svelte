@@ -12,7 +12,6 @@
             <h4>Hobbyist illustrator and designer. <br />Attemping to program.</h4>
             <span><Button>Discover my work ↓</Button></span>
         </div>
-        
         <HeroImage />
     </div>
 </section>
@@ -34,10 +33,6 @@
         padding-bottom:9rem;
 	}
 
-    span {
-        position: absolute;
-    }
-    
     h4 {
         margin-top: 1rem;
         margin-bottom: 10%;
@@ -54,29 +49,23 @@
             min-height: 0vw;
 			font-size:clamp(1.4rem, 2.4vw, 1.7rem);
 		}
-
-	
 	}
 
     @media screen and (max-width: 1000px) {
 		section > div {
 			margin-bottom: 2rem;
 		}
-
-	
 	}
 
-    @media screen and (max-width: 600px) {
-		section {
-            display: flex;
-            height:calc(100vh - 140px);
-            justify-content: center;
-            align-items: center;
-        }
+    @media screen and (max-width: 850px) {
+        section > div > div {
+            padding-bottom:6rem;
+	    }
 
-
-	
 	}
+
+
+
 
 </style>
 

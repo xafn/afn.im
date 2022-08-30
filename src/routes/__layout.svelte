@@ -64,7 +64,7 @@
 
 	@media (max-width: 850px){
         :global(*) {
-			scroll-margin-top: 2rem;
+			scroll-margin-top: 1rem;
         }
     }
 
@@ -91,7 +91,7 @@
 		min-height: 0vw;
 		margin-inline: auto;
 		width: min(90%, 65rem) !important;
-		margin-top:7.75rem;
+		margin-top: 7.75rem;
 
 	}
 
@@ -159,6 +159,15 @@
 		width:fit-content;
 	}
 
+	@media (max-width: 850px){
+        :global(h5) {
+            display: block;
+			padding: 0;
+			background-color: transparent;
+			font-size: 1.75rem;
+        }
+    }
+
 	
 	:global(h6) {
 		color: var(--white);
@@ -167,17 +176,21 @@
 		letter-spacing: -0.04em;
 	}
 
+	@media (max-width: 850px) {
+		:global(h6) {
+			font-size: 1rem;
+		}
+	}
+
 	/*-----scrollbar-----*/
 
 	:global(::-webkit-scrollbar) {
-		width: 2vw;
+		width: 11px;
 		background-color: transparent;
 	}
 
 	:global(::-webkit-scrollbar-thumb) {
 		background-color: var(--grey-three);
-		border-radius: 20px;
-		border: 0.6vw solid transparent;
 		background-clip: content-box;
 	}
 
