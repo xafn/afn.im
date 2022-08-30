@@ -14,6 +14,8 @@
     img {
         height:25px;
         width:25px;
+        opacity: 0.7;
+        transition: all 0.3s var(--bezier-one);
     }
     
     button {
@@ -31,6 +33,10 @@
 
     button:hover {
         background-color: var(--yellow-opacity);
+    }  
+
+    button:hover > img {
+        opacity:1;
     }   
 
    
