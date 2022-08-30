@@ -100,6 +100,12 @@
         }
     }
 
+	@media (max-width: 768px){
+        :global(.wrapper) {
+			width: min(88%, 65rem) !important;
+        }
+    }
+
 	:global(body.stop-transitions *){
 		transition: none !important;
 	}

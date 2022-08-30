@@ -41,6 +41,7 @@
     h2 {
         font-size:0.9rem;
         opacity:0.7;
+        text-align: center;
     }
 
     span {

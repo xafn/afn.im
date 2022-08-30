@@ -129,9 +129,15 @@
         font-weight:500;
     }
     
-    @media only screen and (min-width: 869px) and (max-width: 1164px) { 
+    @media only screen and (max-width: 1164px) { 
         .shrink {
             grid-row: span 1 / auto;
         }
     } 
+
+    @media screen and (max-width: 600px) {
+        .card {
+            border-radius: 0;
+        }
+    }
 </style>

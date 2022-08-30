@@ -60,15 +60,13 @@
 	@media screen and (max-width: 1240px) {
 		h1 {
 			min-height: 0vw;
-			font-size:clamp(5rem, 10vw, 6.25rem);
+			font-size:clamp(4rem, 10vw, 6.25rem);
 		}
 		span {
 			min-height: 0vw;
-			font-size:clamp(3rem, 6vw, 4rem);
+			font-size:clamp(2.5rem, 6vw, 4rem);
 		}
-
-
-	
 	}
+
 
 </style>

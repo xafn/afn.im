@@ -46,7 +46,9 @@
         }
 
         .navbar ul {
-            gap:1vw;
+            display: flex;
+            justify-content: space-around;
+            gap:2vw;
         }
     }
 </style>

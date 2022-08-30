@@ -267,4 +267,22 @@
             justify-content: left;
         }
     }
+
+    @media screen and (max-width: 768px) {
+        .big {
+            height:100px;
+            width:100px;
+        }
+
+        .small {
+            transform: translate(200%, 125%);
+        }
+
+        h4 {
+            font-size: 1.2rem;
+        }
+        h2 {
+            font-size: 1rem;
+        }
+    }
 </style>

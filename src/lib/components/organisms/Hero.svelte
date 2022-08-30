@@ -35,7 +35,7 @@
 
     h4 {
         margin-top: 1rem;
-        margin-bottom: 10%;
+        margin-bottom: 1.7rem;
     }
 
     @media screen and (max-width: 400px) {
@@ -64,6 +64,12 @@
 
 	}
 
+    @media screen and (max-width: 768px) {
+        section > div > div {
+        padding-bottom:0.75rem;
+	    }
+
+	}
 
 
 
