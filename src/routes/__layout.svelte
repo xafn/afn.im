@@ -91,7 +91,7 @@
 		min-height: 0vw;
 		margin-inline: auto;
 		width: min(90%, 65rem) !important;
-		margin-top:7.75rem;
+		margin-top: 7.75rem;
 
 	}
 
@@ -185,14 +185,12 @@
 	/*-----scrollbar-----*/
 
 	:global(::-webkit-scrollbar) {
-		width: 2vw;
+		width: 11px;
 		background-color: transparent;
 	}
 
 	:global(::-webkit-scrollbar-thumb) {
 		background-color: var(--grey-three);
-		border-radius: 20px;
-		border: 0.6vw solid transparent;
 		background-clip: content-box;
 	}
 
