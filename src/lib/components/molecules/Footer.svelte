@@ -5,7 +5,7 @@
     <div>
         <h1>Affan Zaman</h1>
         <h2>Reposting my work without credit is prohibited.</h2>
-        <h2><span>V2</span> <a href="https://v1.afn.pages.dev/" target="_blank" >V1</a></h2>
+        <h2><span>V2</span> <a href="https://v1.afn.lol/" target="_blank" >V1</a></h2>
     </div>
 </footer>
 
