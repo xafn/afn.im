@@ -17,6 +17,7 @@
     let elapsed;
     let spotifyTotal = 0;
     let time;
+    let songLink = '';
     
     let calculateMusicProgress;
     let calculateElapsedTime;
@@ -25,7 +26,7 @@
     
     onMount(() => {
         const lanyard = new WebSocket("wss://api.lanyard.rest/socket");
-    
+
         lanyard.onopen = () => console.log("Established websocket connection!");
     
         lanyard.onmessage = e => {
@@ -52,6 +53,7 @@
                         ({ song: activity, artist: details, album: state, album_art_url: activityImage } = data.d.spotify);
                         details = `by ${details.replace(/;/g, ',')}`; //why does lanyard use ; guhh??
                         state = activity === state ? '' : `on ${state}`;  //checking if the song is a single
+                        songLink = `https://open.spotify.com/track/${data.d.spotify.track_id}`;
                         smallImage = '';
     
                         spotifyTotal = data.d.spotify.timestamps.end - data.d.spotify.timestamps.start;
@@ -90,8 +92,6 @@
                         activity = "afn#0001";
                         details = data.d.discord_status.charAt(0).toUpperCase() + data.d.discord_status.slice(1).toLowerCase();;
                         
-                        
-
                         calculateCurrentTime = () => {
                             time = moment().tz("America/New_York").format("hh:mm:ss A");
                             state = time;
@@ -124,7 +124,7 @@
         
 </script>
     
-<div class="h">
+<div class="contain">
     <h5>activity</h5>
         <div>
             <img src="{activityImage}" alt="{activity}" class="big {isSpotify ? 'spin' : ''}">
@@ -133,9 +133,18 @@
             {/if}
 
             <section>
-                <h4> 
-                    {activity} 
-                </h4>
+                {#if isSpotify}
+                    <a href="{songLink}" target="_blank">
+                        <h4> 
+                            {activity} 
+                        </h4>
+                    </a>
+                {:else}
+                    <h4> 
+                        {activity} 
+                    </h4>
+                {/if}
+
 
                 <h2>
                     {details || ''}
@@ -157,26 +166,27 @@
 </div>
     
 <style>
-    .h {
+    .contain {
         display: flex;
         flex-direction: column;
         justify-content: left;
         align-content: left;
     }
 
-    h5 {
-        display:none;
+    a:hover {
+        text-decoration:underline;
+        text-decoration-color: var(--yellow);
+        transition: 0.4s var(--bezier-one);
     }
 
-    @media (max-width: 850px){
-        h5 {
-            display:inline-block;
-            margin-bottom: 0.5rem;
-        }
+    a, a:not(:hover) {
+        text-decoration:underline;
+        text-decoration-color: var(--bg-color);
+        transition: 0.4s var(--bezier-one);
+    }
 
-        div {
-            justify-content: left;
-        }
+    h5 {
+        display:none;
     }
 
     div > div {
@@ -188,13 +198,11 @@
     h4 {
         font-weight:500;
         font-size:1.4rem;
-        margin-bottom: 0.25rem;
     }
 
     h2 {
         font-size:1.15rem;
     }
-
 
     .big {
         height: 135px;
@@ -203,7 +211,6 @@
         display: inline-block;
         opacity: 1;
         user-select: none;
-        transition: 0.4s var(--bezier-one);
     }
 
     .small {
@@ -234,6 +241,7 @@
         border-radius: 10rem;
         
     }
+    
 
     @keyframes rotate {
         0% {
@@ -247,5 +255,16 @@
     .spin {
         animation: rotate 40s linear infinite;
         border-radius: 50%;
+    }
+
+    @media (max-width: 850px){
+        h5 {
+            display:inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        div {
+            justify-content: left;
+        }
     }
 </style>
