@@ -6,7 +6,7 @@
     <hr>
     <div>
         <Socials/>
-        <h2>Reposting without credit is prohibited.  <span>V2</span> <a href="https://v1.afn.lol/" target="_blank" >V1</a></h2>
+        <h2>Reposting without credit is prohibited. <br/> <span>V2</span> <a href="https://v1.afn.lol/" target="_blank" >V1</a></h2>
         
     </div>
     
@@ -83,4 +83,11 @@
             gap:0.5rem;
         }
 	}
+
+    @media screen and (min-width: 500px) {
+        br {
+            content:'&#160;';
+	    }
+	}
+    
 </style>

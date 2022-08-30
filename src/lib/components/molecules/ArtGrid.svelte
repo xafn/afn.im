@@ -21,7 +21,7 @@
 
 <style>
     .grid {
-        gap: 1rem;
+        gap: 0.75rem;
         grid-auto-rows: 240px;
         flex-direction:column;
         justify-content: center;
@@ -42,19 +42,24 @@
         
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 868px) {
         .contain {
             width: min(100%, 75rem);
         }
 
         .grid {
             gap: 0.2rem;
-            grid-auto-rows: 125px;
             flex-direction:column;
             justify-content: center;
             align-items: center;
             display:grid;
             grid-template-columns: 1fr 1fr 1fr
+        }
+	}
+
+    @media screen and (max-width: 600px) {
+        .grid {
+            grid-auto-rows: 125px;
         }
 	}
 

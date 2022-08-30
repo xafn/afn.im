@@ -37,7 +37,7 @@
     } */
 
 
-    @media (max-width: 850px){
+    @media (max-width: 868px){
         .navbar {
             bottom:0;
             top:auto;

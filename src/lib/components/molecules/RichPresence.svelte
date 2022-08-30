@@ -268,11 +268,13 @@
         }
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 868px) {
         .big {
             height:100px;
             width:100px;
+            border-radius: 17px;
         }
+
 
         .small {
             transform: translate(200%, 125%);

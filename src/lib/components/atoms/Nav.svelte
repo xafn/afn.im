@@ -56,7 +56,7 @@
 		transition: opacity 0.3s var(--bezier-one);	
 	}
 
-	@media screen and (max-width: 850px) {
+	@media screen and (max-width: 868px) {
 		img {
 			transform: scale(0.95);
 			margin-right: 0;
