@@ -51,7 +51,6 @@
 			font-size:6rem;
 		}
 
-		
 		span {
 			font-size:4rem;
 		}

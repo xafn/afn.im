@@ -6,7 +6,7 @@
     <hr>
     <div>
         <Socials/>
-        <h2>Reposting without credit is prohibited. <br/> <span>V2</span> <a href="https://v1.afn.lol/" target="_blank" >V1</a></h2>
+        <h2>Made with pain. ❤<br/> <span>V2</span> <a href="https://v1.afn.lol/" target="_blank" >V1</a></h2>
         
     </div>
     
@@ -15,7 +15,7 @@
 
 <style>
     footer {
-        padding-bottom: 3rem;
+        padding-bottom: 2.4rem;
         display:flex;
         justify-content: center;
         align-items: center;
@@ -40,8 +40,10 @@
 
     h2 {
         font-size:0.9rem;
-        opacity:0.7;
+        opacity: 0.7;
         text-align: center;
+        line-height: 2.5rem;
+        margin-top: 0;
     }
 
     span {
@@ -80,7 +82,6 @@
 
         div {
             flex-direction: column;
-            gap:0.5rem;
         }
 	}
 

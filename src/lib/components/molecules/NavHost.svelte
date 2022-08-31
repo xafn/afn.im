@@ -47,7 +47,7 @@
 
         .navbar ul {
             display: flex;
-            justify-content: space-around;
+            justify-content:space-evenly;
             gap:2vw;
         }
     }

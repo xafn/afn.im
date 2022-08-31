@@ -45,6 +45,14 @@
 		background-color: var(--yellow-opacity);
 	}
 
+	div {
+		transition: 0.3s var(--bezier-one);
+	}
+
+	div:active {
+		transform: scale(95%);
+	}
+
 	/* li.selected	 {
 		font-weight: 600;
 		border: 3px solid var(--red);
@@ -62,13 +70,13 @@
 			margin-right: 0;
 			margin-bottom: 0.2rem;
 			border-radius: 100px;
-			padding: 7px 27px;
+			padding: 6px 24px;
 		}
 
 		a {
 			flex-direction: column;
 			font-size:0.9rem;
-			margin-bottom: 0.2rem;
+			margin-bottom: 0;
 		}
 
 		a:hover {
@@ -79,5 +87,10 @@
 			transition: background-color 0.3s var(--bezier-one);
 			background-color: var(--yellow-opacity);
 		}
+
+		div:active {
+		transform: none;
+		}
+
 	}
 </style>

@@ -3,12 +3,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous">
 	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	<meta name="og:title" content="afn"/>
-	<meta name="og:image" itemprop="image" content="/embed.png">
-	<meta property="og:description" content="The only portfolio ever.">
-	<meta name="twitter:image" itemprop="image" content="/embed.png">
+	<meta content="/HeroImage.png" property="og:image"/>
+	<meta property="og:description" content="The only portfolio to exist.">
+	<meta name="twitter:image" itemprop="image" content="/HeroImage.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#120e0e">
 	<title>afn</title>
@@ -19,7 +19,7 @@
 	import { onMount } from "svelte";
 
 	onMount (() => {
-		const classes = document.querySelector('body')?.classList || [];
+		const classes = document.querySelector('body')?.classList;
 
 		const stopResizeAnimation = () => { 
 			/** @type {any}*/
@@ -30,11 +30,11 @@
 					timer = null;
 				}
 				else {
-					classes.add('stop-transitions');
+					classes?.add('stop-transitions');
 				}
 
 				timer = setTimeout(() => {
-					classes.remove('stop-transitions');
+					classes?.remove('stop-transitions');
 					timer = null;
 				}, 100);
 			});
@@ -54,15 +54,12 @@
 		margin: 0;
 		padding: 0;
 		font-family: var(--font-one);
-
 		scroll-behavior: smooth;
 		scroll-margin-top: 6rem;
-
 		-webkit-tap-highlight-color: rgba(0,0,0,0);
-		
 	}
 
-	@media (max-width: 850px){
+	@media (max-width: 868px){
         :global(*) {
 			scroll-margin-top: 1rem;
         }
@@ -94,7 +91,7 @@
 
 	}
 
-	@media (max-width: 850px){
+	@media (max-width: 868px){
         :global(.wrapper) {
 			margin-bottom: 4.75rem;
         }
@@ -163,7 +160,7 @@
 		width:fit-content;
 	}
 
-	@media (max-width: 850px){
+	@media (max-width: 868px){
         :global(h5) {
             display: block;
 			padding: 0;
@@ -180,7 +177,7 @@
 		letter-spacing: -0.04em;
 	}
 
-	@media (max-width: 850px) {
+	@media (max-width: 868px) {
 		:global(h6) {
 			font-size: 1rem;
 		}
