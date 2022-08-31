@@ -25,102 +25,111 @@
     
     
     onMount(() => {
-        const lanyard = new WebSocket("wss://api.lanyard.rest/socket");
+        const connect = () => {
+            const lanyard = new WebSocket("wss://api.lanyard.rest/socket");
 
-        lanyard.onopen = () => console.log("Established websocket connection!");
-    
-        lanyard.onmessage = e => {
-            data = JSON.parse(e.data);
-            console.log(data);
-            
-            switch (data.op) {
-                case 1: {
-                    pulse = data.d.heartbeat_interval;
-                    lanyard.send(
-                        JSON.stringify({
-                            op: 2,
-                            d: { subscribe_to_id: "420043923822608384" }
-                        })
-                    );
-                    break;
-                };
-    
-                case 0: {
-                    isSpotify = data.d.listening_to_spotify;
-                    isActivity = !!data.d.activities[0];
-    
-                    if (isSpotify) {
-                        ({ song: activity, artist: details, album: state, album_art_url: activityImage } = data.d.spotify);
-                        details = `by ${details.replace(/;/g, ',')}`; //why does lanyard use ; guhh??
-                        state = activity === state ? '' : `on ${state}`;  //checking if the song is a single
-                        songLink = `https://open.spotify.com/track/${data.d.spotify.track_id}`;
-                        smallImage = '';
-    
-                        spotifyTotal = data.d.spotify.timestamps.end - data.d.spotify.timestamps.start;
-                        calculateMusicProgress = () => {
-                            progress = 100 - (100 * (data.d.spotify.timestamps.end - new Date().getTime())) / spotifyTotal;
-                        };
-    
-                         // going to make this not shit soon tm
-                        calculateMusicProgress();
-                        setInterval(() => {
-                            if (isSpotify){
-                                calculateMusicProgress();
-                            }
-                        }, 1000);
-                    }
+            lanyard.onopen = () => console.log("Established websocket connection!");
+        
+            lanyard.onmessage = e => {
+                data = JSON.parse(e.data);
+                console.log(data);
                 
-                    else if (isActivity) {
-                        ({ name: activity, details, state } = data.d.activities[0]);
-                        activityImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.large_image}.webp?size=512`;
-                        smallImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.small_image}.webp?size=512` || '';
-                        
-                        calculateElapsedTime = () => {
-                            elapsed = new Date().getTime() - data.d.activities[0].timestamps.start;
-                            elapsed = moment.utc(elapsed).format(elapsed > 3600000 ? 'HH:mm:ss' : 'mm:ss');
-                            elapsed = `${elapsed} elapsed`;
-                        };
-                        
-                        calculateElapsedTime();
-                        setInterval(() => {
-                            if (isActivity) {
-                                calculateElapsedTime();
-                            };
-                        }, 1000);
-                    } 
-                    
-                    else if (isActivity === false) {
-                        activity = "afn#0001";
-                        details = data.d.discord_status.charAt(0).toUpperCase() + data.d.discord_status.slice(1).toLowerCase();;
-                        
-                        calculateCurrentTime = () => {
-                            time = moment().tz("America/New_York").format("hh:mm:ss A");
-                            state = time;
-                        }
-
-                        calculateCurrentTime();
-                        setInterval(() => {
-                            if (!isActivity) {
-                                calculateCurrentTime();
-                            };
-                        }, 1000);
-
-                        activityImage = 'default.webp';
-                        smallImage = '';
+                switch (data.op) {
+                    case 1: {
+                        pulse = data.d.heartbeat_interval;
+                        lanyard.send(
+                            JSON.stringify({
+                                op: 2,
+                                d: { subscribe_to_id: "420043923822608384" }
+                            })
+                        );
+                        break;
                     };
-                    break;
+        
+                    case 0: {
+                        isSpotify = data.d.listening_to_spotify;
+                        isActivity = !!data.d.activities[0];
+        
+                        if (isSpotify) {
+                            ({ song: activity, artist: details, album: state, album_art_url: activityImage } = data.d.spotify);
+                            details = `by ${details.replace(/;/g, ',')}`; //why does lanyard use ; guhh??
+                            state = activity === state ? '' : `on ${state}`;  //checking if the song is a single
+                            songLink = `https://open.spotify.com/track/${data.d.spotify.track_id}`;
+                            smallImage = '';
+        
+                            spotifyTotal = data.d.spotify.timestamps.end - data.d.spotify.timestamps.start;
+                            calculateMusicProgress = () => {
+                                progress = 100 - (100 * (data.d.spotify.timestamps.end - new Date().getTime())) / spotifyTotal;
+                            };
+        
+                            // going to make this not shit soon tm
+                            calculateMusicProgress();
+                            setInterval(() => {
+                                if (isSpotify){
+                                    calculateMusicProgress();
+                                }
+                            }, 1000);
+                        }
+                    
+                        else if (isActivity) {
+                            ({ name: activity, details, state } = data.d.activities[0]);
+                            activityImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.large_image}.webp?size=512`;
+                            smallImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.small_image}.webp?size=512` || '';
+                            
+                            calculateElapsedTime = () => {
+                                elapsed = new Date().getTime() - data.d.activities[0].timestamps.start;
+                                elapsed = moment.utc(elapsed).format(elapsed > 3600000 ? 'HH:mm:ss' : 'mm:ss');
+                                elapsed = `${elapsed} elapsed`;
+                            };
+                            
+                            calculateElapsedTime();
+                            setInterval(() => {
+                                if (isActivity) {
+                                    calculateElapsedTime();
+                                };
+                            }, 1000);
+                        } 
+                        
+                        else if (isActivity === false) {
+                            activity = "afn#0001";
+                            details = data.d.discord_status.charAt(0).toUpperCase() + data.d.discord_status.slice(1).toLowerCase();;
+                            
+                            calculateCurrentTime = () => {
+                                time = moment().tz("America/New_York").format("hh:mm:ss A");
+                                state = time;
+                            }
+
+                            calculateCurrentTime();
+                            setInterval(() => {
+                                if (!isActivity) {
+                                    calculateCurrentTime();
+                                };
+                            }, 1000);
+
+                            activityImage = 'default.webp';
+                            smallImage = '';
+                        };
+                        break;
+                        
+                    };
                     
                 };
                 
             };
-            
+        
+            setInterval(() => {
+                lanyard.send(
+                    JSON.stringify({ op: 3 })
+                );
+            }, pulse);
+
+            lanyard.onclose = () => {
+                lanyard = null;
+                setTimeout(function(){connect()}, 5000);
+            }
         };
-    
-        setInterval(() => {
-            lanyard.send(
-                JSON.stringify({ op: 3 })
-            );
-        }, pulse);
+
+        connect();
     });
         
 </script>
@@ -257,7 +266,7 @@
         div {
             justify-content: left;
         }
-        
+
         h2 {
             font-size: 1rem;
         }
