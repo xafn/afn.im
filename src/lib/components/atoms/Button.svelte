@@ -62,7 +62,6 @@
         transform: scale(95%);
     }
 
-
     @media screen and (max-width: 1240px) {
 		h2 {
             min-height: 0vw;
@@ -78,6 +77,9 @@
             width:100%;
 		}
 
+        button:hover {
+            padding: 0.9rem 2rem 0.9rem 2rem;
+        }
         .rect {
             display:none;
             border-top-left-radius: 17px;
@@ -91,4 +93,4 @@
         }
     }
     
-</style>
+</style>    

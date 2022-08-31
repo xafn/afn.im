@@ -11,6 +11,18 @@
 
 <style>
 
+    a {
+        transition: all 0.3s var(--bezier-one)
+    }
+
+    a:hover{
+        transform: translateY(-5%);
+    }
+
+    a:active{
+        transform: scale(95%);
+    }
+
     img {
         height:25px;
         width:25px;

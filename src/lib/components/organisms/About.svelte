@@ -77,7 +77,7 @@
         margin-top: 1rem;
     }
 
-    @media (max-width: 850px){
+    @media (max-width: 868px){
         section > div {
             display:flex;
             flex-direction: column;

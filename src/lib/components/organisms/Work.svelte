@@ -16,7 +16,6 @@
         color:var(--yellow);
     }
     
-
     .art-work {
         display: flex;
         justify-content: center;
@@ -24,7 +23,7 @@
         margin-bottom: 2rem;
     }
 
-    @media (max-width: 850px){
+    @media (max-width: 868px){
         .art-work {
             display: block;
             margin-bottom: 0.25rem;

@@ -30,7 +30,7 @@
         margin-top: 7.25rem;
     }
 
-    @media screen and (max-width: 850px){
+    @media screen and (max-width: 868px){
         :global(.margin) {
 			margin-top: 4rem !important;
         }

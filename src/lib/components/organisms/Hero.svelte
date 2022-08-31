@@ -18,6 +18,8 @@
 
 
 <style>
+    /* IM SO SORRY ITS SO BAD */
+
     section {
         display:flex;
         width:100%;
@@ -38,6 +40,8 @@
         margin-bottom: 1.7rem;
     }
 
+
+
     @media screen and (max-width: 400px) {
 		br {
             content:'&#160;';
@@ -57,7 +61,7 @@
 		}
 	}
 
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 868px) {
         section > div > div {
             padding-bottom:6rem;
 	    }
@@ -66,12 +70,9 @@
 
     @media screen and (max-width: 768px) {
         section > div > div {
-        padding-bottom:0.75rem;
+            padding-bottom:0.75rem;
 	    }
 
 	}
-
-
-
 </style>
 

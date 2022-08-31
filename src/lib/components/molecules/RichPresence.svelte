@@ -61,6 +61,7 @@
                             progress = 100 - (100 * (data.d.spotify.timestamps.end - new Date().getTime())) / spotifyTotal;
                         };
     
+                         // going to make this not shit soon tm
                         calculateMusicProgress();
                         setInterval(() => {
                             if (isSpotify){
@@ -242,14 +243,9 @@
         
     }
     
-
     @keyframes rotate {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
     }
 
     .spin {
@@ -257,34 +253,36 @@
         border-radius: 50%;
     }
 
-    @media (max-width: 850px){
+    @media screen and (max-width: 868px) {
+        div {
+            justify-content: left;
+        }
+        
+        h2 {
+            font-size: 1rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+        }
+
         h5 {
             display:inline-block;
             margin-bottom: 0.5rem;
         }
 
-        div {
-            justify-content: left;
-        }
-    }
-
-    @media screen and (max-width: 868px) {
         .big {
             height:100px;
             width:100px;
             border-radius: 17px;
         }
 
+        .spin {
+            border-radius: 50%;
+        }
 
         .small {
             transform: translate(200%, 125%);
-        }
-
-        h4 {
-            font-size: 1.2rem;
-        }
-        h2 {
-            font-size: 1rem;
         }
     }
 </style>

@@ -135,7 +135,7 @@
         }
     } 
 
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 868px) {
         .card {
             border-radius: 0;
         }
