@@ -37,7 +37,7 @@
 	button {
 		position: absolute;
 		border-radius: 20px;
-		border-color: transparent;
+        border: none;
 		padding: 1rem 2rem 1rem 3rem;
 		cursor: pointer;
 		background-color: var(--grey-one);

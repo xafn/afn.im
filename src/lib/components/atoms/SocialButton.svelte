@@ -3,34 +3,16 @@
     export let link = '';
 </script>
 
-<a href = "{link}" target = "_blank">
-    <button>
+<div>
+    <a href = "{link}" target = "_blank">
         <img src="icons/{icon}.svg" alt="{icon}"/>
-    </button>
-</a>
+    </a>
+</div>
 
 <style>
 
     a {
-        transition: all 0.3s var(--bezier-one)
-    }
-
-    a:hover{
-        transform: translateY(-5%);
-    }
-
-    a:active{
-        transform: scale(95%);
-    }
-
-    img {
-        height:25px;
-        width:25px;
-        opacity: 0.7;
-        transition: all 0.3s var(--bezier-one);  
-    }
-    
-    button {
+        transition: all 0.3s var(--bezier-one);
         display:flex;
         justify-content: center;
         align-items: center;
@@ -39,17 +21,26 @@
         background-color: transparent;
         border: none;
         border-radius: 10px;
-        transition: all 0.3s var(--bezier-one);
         cursor: pointer;
     }
 
-    button:hover {
+    div {
+        transition: all 0.3s var(--bezier-one);
+    }
+
+    div:hover > a{
+        transform: translateY(-5%);
         background-color: var(--yellow-opacity);
-    }  
+    }
 
-    button:hover > img {
-        opacity:1;
-    }   
+    div:active{
+        transform: scale(95%);
+    }
 
-   
+    img {
+        height:26px;
+        width:26px;
+        opacity: 0.7;
+        transition: all 0.3s var(--bezier-one);  
+    }
 </style>

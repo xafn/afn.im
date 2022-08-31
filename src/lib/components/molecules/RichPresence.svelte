@@ -27,11 +27,11 @@
 		const connect = () => {
 			let lanyard = new WebSocket('wss://api.lanyard.rest/socket');
 
-			lanyard.onopen = () => console.log('Established websocket connection!');
+			lanyard.onopen = () => console.log('Connected with Rich Presence!');
 
 			lanyard.onmessage = (e) => {
 				data = JSON.parse(e.data);
-				console.log(data);
+				// console.log(data);
 
 				switch (data.op) {
 					case 1: {
@@ -174,17 +174,21 @@
 		align-content: left;
 	}
 
-	a:hover {
-		text-decoration: underline;
-		text-decoration-color: var(--white);
-		transition: 0.4s var(--bezier-one);
-	}
-
-	a,
+    a {
+        width: fit-content;
+    }
+    
+    a,
 	a:not(:hover) {
 		text-decoration: underline;
 		text-decoration-color: var(--bg-color);
 		transition: 0.2s var(--bezier-one);
+	}
+
+	a:hover {
+		text-decoration: underline;
+		text-decoration-color: var(--white);
+		transition: 0.4s var(--bezier-one);
 	}
 
 	h5 {
