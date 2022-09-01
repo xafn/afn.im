@@ -1,8 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-	import moment from 'moment-timezone';
-
-	let data;
 
 	let activity = 'afn#0001';
 	let details = 'Fetching...';
@@ -13,25 +10,23 @@
 	let pulse = 30000;
 	let isSpotify = false;
 	let isActivity = false;
-	let progress = 0;
-	let elapsed;
-	let spotifyTotal = 0;
-	let time;
 	let songLink = '';
+	let progress = 0;
+	let elapsed = '';
 
-	let calculateMusicProgress;
-	let calculateElapsedTime;
-	let calculateCurrentTime;
+	let calculateMusicProgress = Function();
+	let calculateElapsedTime = Function();
+	let calculateCurrentTime = Function();
 
 	onMount(() => {
 		const connect = () => {
 			let lanyard = new WebSocket('wss://api.lanyard.rest/socket');
 
-			lanyard.onopen = () => console.log('Connected with Rich Presence!');
+			lanyard.onopen = () => console.log('Synced with Discord rich presence!');
 
 			lanyard.onmessage = (e) => {
-				data = JSON.parse(e.data);
-				// console.log(data);
+				let data = JSON.parse(e.data);
+				console.log(data);
 
 				switch (data.op) {
 					case 1: {
@@ -56,13 +51,14 @@
 								album: state,
 								album_art_url: activityImage
 							} = data.d.spotify);
-							details = `by ${details.replace(/;/g, ',')}`; //why does lanyard use ; guhh??
-							state = activity === state ? '' : `on ${state}`; //checking if the song is a single
+							
+							details = 'by ' + details.replace(/;/g, ','); // why does lanyard use ; guhh??
+							state = (activity === state) ? '' : 'on ' + state; // checking if the song is a single
 							songLink = `https://open.spotify.com/track/${data.d.spotify.track_id}`;
 							smallImage = '';
 
-							spotifyTotal = data.d.spotify.timestamps.end - data.d.spotify.timestamps.start;
 							calculateMusicProgress = () => {
+								let spotifyTotal = data.d.spotify.timestamps.end - data.d.spotify.timestamps.start;
 								progress = 100 - (100 * (data.d.spotify.timestamps.end - new Date().getTime())) / spotifyTotal;
 							};
 
@@ -72,18 +68,35 @@
 								if (isSpotify) {
 									calculateMusicProgress();
 								}
-							}, 1000);
+							}, 1000); 
 						} 
                         
                         else if (isActivity) {
 							({ name: activity, details, state } = data.d.activities[0]);
-							activityImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.large_image}.webp?size=512`;
-							smallImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.small_image}.webp?size=512` || '';
+							if (data.d.activities[0].assets) {
+								activityImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.large_image}.webp?size=512`;
+								smallImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.small_image}.webp?size=512` || '';
+							} else {
+								activityImage = 'default.webp'
+							}
+							
+							function msToTime(ms) {
+								let seconds = Math.floor((ms / 1000) % 60);
+								let minutes = Math.floor((ms / (1000 * 60)) % 60);
+								let hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
 
+								seconds = (seconds < 10) ? '0' + seconds : seconds;
+								minutes = (minutes < 10) ? '0' + minutes : minutes;
+								hours = (hours < 10) ? '0' + hours : hours;
+
+								return hours > 0 
+									? hours + ':' + minutes + ':' + seconds
+									: minutes + ':' + seconds
+							};
+							
 							calculateElapsedTime = () => {
-								elapsed = new Date().getTime() - data.d.activities[0].timestamps.start;
-								elapsed = moment.utc(elapsed).format(elapsed > 3600000 ? 'HH:mm:ss' : 'mm:ss');
-								elapsed = `${elapsed} elapsed`;
+								let elapsedMs = new Date().getTime() - data.d.activities[0].timestamps.start;
+								elapsed = msToTime(elapsedMs) + ' elapsed';
 							};
 
 							calculateElapsedTime();
@@ -96,12 +109,12 @@
                         
                         else if (isActivity === false) {
 							activity = 'afn#0001';
-							details = data.d.discord_status.charAt(0).toUpperCase() + data.d.discord_status.slice(1).toLowerCase();
-							details = details === 'Dnd' ? 'Do Not Disturb' : details;
-							calculateCurrentTime = () => {
-								time = moment().tz('America/New_York').format('hh:mm:ss A');
-								state = time;
-                            };
+							details = data.d.discord_status.charAt(0).toUpperCase() + data.d.discord_status.slice(1);
+							details = (details === 'Dnd') ? 'Do Not Disturb' : details;
+							activityImage = 'default.webp';
+							smallImage = '';
+							
+							calculateCurrentTime = () => state = new Date().toLocaleTimeString('en-US');
 
 							calculateCurrentTime();
 							setInterval(() => {
@@ -109,9 +122,6 @@
 									calculateCurrentTime();
 								}
 							}, 1000);
-
-							activityImage = 'default.webp';
-							smallImage = '';
 						}
 						break;
 					}
@@ -126,7 +136,7 @@
 				lanyard = null;
 				setTimeout(function () {
 					connect();
-				}, 5000);
+				}, 2500);
 			};
 		};
 
@@ -158,10 +168,9 @@
 
 			{#if isSpotify}
 				<progress max="100" value={progress} />
-			{:else}
-				<h2>{isActivity ? elapsed : ''}</h2>
+			{:else if isActivity}
+				<h2>{elapsed}</h2>
 			{/if}
-
 		</section>
 	</div>
 </div>
@@ -217,6 +226,7 @@
 		display: inline-block;
 		opacity: 1;
 		user-select: none;
+		transition: all 0.3s var(--bezier-one);
 	}
 
 	.small {

@@ -11,14 +11,15 @@
 
     img {
         border-radius: 55px;
-        width:450px;
+        width: 450px;
         height: auto;
         transition: width 0.4s var(--bezier-one), transform 0.4s var(--bezier-one), box-shadow 0.4s var(--bezier-one);
         transform: rotate3d(0,0,0,0deg) !important;
     }
 
     img:hover {
-        width:435px;
+        width: 435px;
+        height: auto;
         transform:rotate3d(1,0,1,6deg) !important;
         box-shadow: 0 0 2rem #97918d27, 3.2rem 3.2rem 0 var(--grey-one), 6.4rem 6.4rem 0 var(--grey-two);
     }
