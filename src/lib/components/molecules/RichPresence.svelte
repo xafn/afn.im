@@ -14,9 +14,9 @@
 	let progress = 0;
 	let elapsed = '';
 
-	let calculateMusicProgress = Function();
-	let calculateElapsedTime = Function();
-	let calculateCurrentTime = Function();
+	let calculateMusicProgress;
+	let calculateElapsedTime;
+	let calculateCurrentTime;
 
 	onMount(() => {
 		const connect = () => {
