@@ -1,21 +1,28 @@
 <script>
     import RichPresence from "../molecules/RichPresence.svelte";
-    import moment from 'moment';
-
-    let age = moment().diff('20070326', 'years');
+    
+    let getAge = () => {
+        let today = new Date();
+        let birthDate = new Date("2007/03/24");
+        let age = today.getFullYear() - birthDate.getFullYear();
+        let m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    };
 
 </script>
 
 <section id="about">
     <div>
-        
         <div class="rich">
             <RichPresence />
         </div>
 
         <div class="text">
             <h5>bio</h5>
-            <h6>Hello funny people in my screen :&#93; I'm a <span>{age}</span> year old digital artist and graphic/UI designer based in Canada. I’ve taken art seriously since <span>2017</span>, and have been doodling goofy anime characters since <span>2020</span>. I’ve also done some design work in open-source projects. Recently, however, I’ve grown a knack in programming. Currently learning Python, and JS → Svelte. Hope to move onto Flutter one day. Don’t look into it though, it’s not even that interesting.</h6>
+            <h6>Hello funny people in my screen :&#93; I'm a <span>{getAge()}</span> year old digital artist and graphic/UI designer based in Canada. I’ve taken art seriously since <span>2017</span>, and have been doodling goofy anime characters since <span>2020</span>. I’ve also done some design work in open-source projects. Recently, however, I’ve grown a knack in programming. Currently learning Python, and JS → Svelte. Hope to move onto Flutter one day. Don’t look into it though, it’s not even that interesting.</h6>
         </div>
     </div>
 </section>
