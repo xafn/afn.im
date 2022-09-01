@@ -18,6 +18,10 @@
 	let calculateElapsedTime;
 	let calculateCurrentTime;
 
+	let images = {
+		"CLIP STUDIO PAINT": "https://cdn.discordapp.com/attachments/819655079447363659/1014741587953209345/image_32.png"
+	}
+
 	onMount(() => {
 		const connect = () => {
 			let lanyard = new WebSocket('wss://api.lanyard.rest/socket');
@@ -73,13 +77,22 @@
                         
                         else if (isActivity) {
 							({ name: activity, details, state } = data.d.activities[0]);
-							if (data.d.activities[0].assets) {
-								activityImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.large_image}.webp?size=512`;
-								smallImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.small_image}.webp?size=512` || '';
-							} else {
-								activityImage = 'default.webp';
-							}
 							
+							activityImage = (data.d.activities[0].assets)
+								? `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.large_image}.webp?size=512`
+								: images[activity] || 'question_mark.png';
+
+							// WHAT IS THIS SOMEONE HELP HOW DO I NOT DO THIS I TRIED EVERYTHING RIUHFSDUIHS
+							try {
+								if (data.d.activities[0].assets.small_image) {
+									smallImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.small_image}.webp?size=512`
+								} else {
+									smallImage = '';
+								}
+							} catch(err) {
+								smallImage = '';
+							} 
+
 							function msToTime(ms) {
 								let seconds = Math.floor((ms / 1000) % 60);
 								let minutes = Math.floor((ms / (1000 * 60)) % 60);
@@ -231,10 +244,13 @@
 
 	.small {
 		height: 40px;
-		width: auto;
+		width: 40px;
 		border-radius: 50%;
 		position: absolute;
 		transform: translate(275%, 150%);
+		outline: 8px solid var(--bg-color);
+		outline-offset: -1px;
+		background-color: var(--bg-color)
 	}
 
 	progress {
@@ -300,7 +316,7 @@
 		}
 
 		.small {
-			transform: translate(200%, 125%);
+			transform: translate(190%, 110%);
 		}
 	}
 </style>
