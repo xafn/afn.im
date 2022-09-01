@@ -1,6 +1,7 @@
 <script>
     import RichPresence from "../molecules/RichPresence.svelte";
     
+    // i didnt write this idk
     let getAge = () => {
         let today = new Date();
         let birthDate = new Date("2007/03/24");
@@ -58,7 +59,7 @@
         font-family: var(--font-two);
         font-size: 0.9rem;
 		background-color: var(--grey-one);
-		border-radius: 10px;
+		border-radius: 7px;
 		padding: 0.15rem 0.7rem 0.15rem;
 		width:fit-content;
     }

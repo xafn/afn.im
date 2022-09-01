@@ -1,8 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
 
-	let data;
-
 	let activity = 'afn#0001';
 	let details = 'Fetching...';
 	let state = '';
@@ -12,14 +10,13 @@
 	let pulse = 30000;
 	let isSpotify = false;
 	let isActivity = false;
-	let progress = 0;
-	let elapsed;
-	let time;
 	let songLink = '';
+	let progress = 0;
+	let elapsed = '';
 
-	let calculateMusicProgress;
-	let calculateElapsedTime;
-	let calculateCurrentTime;
+	let calculateMusicProgress = Function();
+	let calculateElapsedTime = Function();
+	let calculateCurrentTime = Function();
 
 	onMount(() => {
 		const connect = () => {
@@ -28,8 +25,8 @@
 			lanyard.onopen = () => console.log('Synced with Discord rich presence!');
 
 			lanyard.onmessage = (e) => {
-				data = JSON.parse(e.data);
-				// console.log(data);
+				let data = JSON.parse(e.data);
+				console.log(data);
 
 				switch (data.op) {
 					case 1: {
@@ -54,8 +51,9 @@
 								album: state,
 								album_art_url: activityImage
 							} = data.d.spotify);
-							details = 'by ' + details.replace(/;/g, ','); //why does lanyard use ; guhh??
-							state = (activity === state) ? '' : 'on ' + state; //checking if the song is a single
+							
+							details = 'by ' + details.replace(/;/g, ','); // why does lanyard use ; guhh??
+							state = (activity === state) ? '' : 'on ' + state; // checking if the song is a single
 							songLink = `https://open.spotify.com/track/${data.d.spotify.track_id}`;
 							smallImage = '';
 
@@ -75,17 +73,21 @@
                         
                         else if (isActivity) {
 							({ name: activity, details, state } = data.d.activities[0]);
-							activityImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.large_image}.webp?size=512`;
-							smallImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.small_image}.webp?size=512` || '';
-
+							if (data.d.activities[0].assets) {
+								activityImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.large_image}.webp?size=512`;
+								smallImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.small_image}.webp?size=512` || '';
+							} else {
+								activityImage = 'default.webp'
+							}
+							
 							function msToTime(ms) {
-								let seconds = Math.floor((ms / 1000) % 60),
-								minutes = Math.floor((ms / (1000 * 60)) % 60),
-								hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
+								let seconds = Math.floor((ms / 1000) % 60);
+								let minutes = Math.floor((ms / (1000 * 60)) % 60);
+								let hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
 
-								hours = (hours < 10) ? '0' + hours : hours;
-								minutes = (minutes < 10) ? '0' + minutes : minutes;
 								seconds = (seconds < 10) ? '0' + seconds : seconds;
+								minutes = (minutes < 10) ? '0' + minutes : minutes;
+								hours = (hours < 10) ? '0' + hours : hours;
 
 								return hours > 0 
 									? hours + ':' + minutes + ':' + seconds
@@ -107,12 +109,12 @@
                         
                         else if (isActivity === false) {
 							activity = 'afn#0001';
-							details = data.d.discord_status.charAt(0).toUpperCase() + data.d.discord_status.slice(1).toLowerCase();
-							details = details === 'Dnd' ? 'Do Not Disturb' : details;
+							details = data.d.discord_status.charAt(0).toUpperCase() + data.d.discord_status.slice(1);
+							details = (details === 'Dnd') ? 'Do Not Disturb' : details;
+							activityImage = 'default.webp';
+							smallImage = '';
 							
-							calculateCurrentTime = () => {
-								state = new Date().toLocaleTimeString('en-US');
-                            };
+							calculateCurrentTime = () => state = new Date().toLocaleTimeString('en-US');
 
 							calculateCurrentTime();
 							setInterval(() => {
@@ -120,9 +122,6 @@
 									calculateCurrentTime();
 								}
 							}, 1000);
-
-							activityImage = 'default.webp';
-							smallImage = '';
 						}
 						break;
 					}
@@ -137,7 +136,7 @@
 				lanyard = null;
 				setTimeout(function () {
 					connect();
-				}, 5000);
+				}, 2500);
 			};
 		};
 
@@ -169,10 +168,9 @@
 
 			{#if isSpotify}
 				<progress max="100" value={progress} />
-			{:else}
-				<h2>{isActivity ? elapsed : ''}</h2>
+			{:else if isActivity}
+				<h2>{elapsed}</h2>
 			{/if}
-
 		</section>
 	</div>
 </div>
@@ -228,6 +226,7 @@
 		display: inline-block;
 		opacity: 1;
 		user-select: none;
+		transition: all 0.3s var(--bezier-one);
 	}
 
 	.small {
