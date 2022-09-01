@@ -19,7 +19,7 @@
 	let calculateCurrentTime;
 
 	let images = {
-		"CLIP STUDIO PAINT": "https://cdn.discordapp.com/attachments/819655079447363659/1014741587953209345/image_32.png"
+		"CLIP STUDIO PAINT": "https://i.imgur.com/IUVs3RB.png"
 	}
 
 	onMount(() => {

@@ -21,7 +21,7 @@
 
 <style>
     .grid {
-        gap: 0.65rem;
+        gap: 0.8rem;
         grid-auto-rows: 240px;
         flex-direction:column;
         justify-content: center;

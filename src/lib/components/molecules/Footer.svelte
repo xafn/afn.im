@@ -6,7 +6,7 @@
     <hr>
     <div>
         <Socials/>
-        <h2>Made with Svelte and pain. <span>V2</span> <a href="https://v1.afn.lol/" target="_blank" >V1</a></h2>
+        <h2>Reposting without credit is prohibited.<br/><span>V2</span> <a href="https://v1.afn.lol/" target="_blank" >V1</a></h2>
     </div>
     
 </footer>
@@ -74,6 +74,12 @@
 		border-radius: 7px;
 		width:fit-content;
     }
+
+    @media screen and (min-width: 475px) {
+        br {
+            content: "";
+        }
+	}
 
     @media screen and (max-width: 768px) {
         hr {
