@@ -14,9 +14,9 @@
 	let progress = 0;
 	let elapsed = '';
 
-	let calculateMusicProgress = Function();
-	let calculateElapsedTime = Function();
-	let calculateCurrentTime = Function();
+	let calculateMusicProgress;
+	let calculateElapsedTime;
+	let calculateCurrentTime;
 
 	onMount(() => {
 		const connect = () => {
@@ -77,7 +77,7 @@
 								activityImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.large_image}.webp?size=512`;
 								smallImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.small_image}.webp?size=512` || '';
 							} else {
-								activityImage = 'default.webp'
+								activityImage = 'default.webp';
 							}
 							
 							function msToTime(ms) {
