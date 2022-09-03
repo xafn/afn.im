@@ -6,7 +6,7 @@
     <hr>
     <div>
         <Socials/>
-        <h2>Made with pain <3<span>V2</span> <a href="https://v1.afn.lol/" target="_blank" >V1</a></h2>
+        <h2>Made with pain. &#60;3 <span>V2</span> <a href="https://v1.afn.lol/" target="_blank" >V1</a></h2>
     </div>
     
 </footer>
