@@ -46,7 +46,6 @@
     }
 
     span {
-        font-weight: 400;
         font-family: var(--font-two);
 		background-color: var(--grey-one);
 		border-radius: 7px;
@@ -61,7 +60,6 @@
         font-family: var(--font-two);
         text-decoration: none;
         color: var(--white);
-		font-weight: 300;
 		font-size:0.9rem;
         border-radius: 7px;
         padding: 0.15rem 0.5rem 0.15rem;

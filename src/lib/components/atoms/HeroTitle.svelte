@@ -24,7 +24,7 @@
 		height:175px;
         font-size: 175px;
         content:'///';
-        font-weight:800;
+        font-weight:700;
         z-index: -1;
         user-select: none;
 		transform: translateX(-95%);
