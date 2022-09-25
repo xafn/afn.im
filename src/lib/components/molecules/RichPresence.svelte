@@ -25,22 +25,15 @@
 	onMount(() => {
 		const connect = () => {
 			let lanyard = new WebSocket('wss://api.lanyard.rest/socket');
-
 			lanyard.onopen = () => console.log('Synced with Discord rich presence!');
 
 			lanyard.onmessage = (e) => {
 				let data = JSON.parse(e.data);
-				console.log(data);
-
+				
 				switch (data.op) {
 					case 1: {
 						pulse = data.d.heartbeat_interval;
-						lanyard.send(
-							JSON.stringify({
-								op: 2,
-								d: { subscribe_to_id: '420043923822608384' }
-							})
-						);
+						lanyard.send( JSON.stringify({op: 2, d: {subscribe_to_id: '420043923822608384'}}));
 						break;
 					}
 
@@ -94,9 +87,9 @@
 							} 
 
 							function msToTime(ms) {
-								let seconds = Math.floor((ms / 1000) % 60);
-								let minutes = Math.floor((ms / (1000 * 60)) % 60);
-								let hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
+								let seconds = Math.floor((ms / 1000) % 60),
+									minutes = Math.floor((ms / (1000 * 60)) % 60),
+									hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
 
 								seconds = (seconds < 10) ? '0' + seconds : seconds;
 								minutes = (minutes < 10) ? '0' + minutes : minutes;
@@ -127,7 +120,7 @@
 							activityImage = 'default.webp';
 							smallImage = '';
 							
-							calculateCurrentTime = () => state = new Date().toLocaleTimeString('en-US');
+							calculateCurrentTime = () => state = new Date().toLocaleTimeString('en-US', { timeZone: "America/Chicago" });
 
 							calculateCurrentTime();
 							setInterval(() => {
@@ -142,7 +135,7 @@
 			};
 
 			setInterval(() => {
-				lanyard.send(JSON.stringify({ op: 3 }));
+				lanyard.send(JSON.stringify({op: 3}));
 			}, pulse);
 
 			lanyard.onclose = () => {
@@ -152,7 +145,6 @@
 				}, 2500);
 			};
 		};
-
 		connect();
 	});
 </script>
@@ -176,7 +168,6 @@
 			{/if}
 
 			<h2>{details || ''}</h2>
-
 			<h2>{state || ''}</h2>
 
 			{#if isSpotify}
@@ -268,7 +259,13 @@
 		height: 0.6rem;
 	}
 
+
 	progress[value]::-webkit-progress-value {
+		background-color: var(--yellow);
+		border-radius: 10rem;
+	}
+
+	progress[value]::-moz-progress-bar {
 		background-color: var(--yellow);
 		border-radius: 10rem;
 	}
