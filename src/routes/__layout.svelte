@@ -6,7 +6,7 @@
 	<meta content="/HeroImage.png" property="og:image"/>
 	<meta property="og:description" content="The only portfolio to exist.">
 	<meta name="twitter:image" itemprop="image" content="/HeroImage.png">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary">
     <meta name="theme-color" content="#120e0e">
 	<title>afn</title>
 </svelte:head>
