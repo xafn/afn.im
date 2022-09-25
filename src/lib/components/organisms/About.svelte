@@ -68,7 +68,7 @@
         height:300px;
         font-size: 300px;
         content:'afn';
-        font-weight:800;
+        font-weight:700;
         z-index: -1;
         user-select: none;
         transform: translateY(-70%) translateX(97%);
