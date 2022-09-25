@@ -120,7 +120,7 @@
 							activityImage = 'default.webp';
 							smallImage = '';
 							
-							calculateCurrentTime = () => state = new Date().toLocaleTimeString('en-US', { timeZone: "America/Chicago" });
+							calculateCurrentTime = () => state = new Date().toLocaleTimeString('en-US', { timeZone: "America/New_York" });
 
 							calculateCurrentTime();
 							setInterval(() => {
