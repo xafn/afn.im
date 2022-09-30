@@ -1,26 +1,40 @@
 <script>
 	import { onMount } from 'svelte';
+	let activity = 'afn#0001',
+		details = 'Fetching...',
+		state = '',
+		activityImage = 'default.webp',
+		smallImage = '',
 
-	let activity = 'afn#0001';
-	let details = 'Fetching...';
-	let state = '';
-	let activityImage = 'default.webp';
-	let smallImage = '';
-
-	let pulse = 30000;
-	let isSpotify = false;
-	let isActivity = false;
-	let songLink = '';
-	let progress = 0;
-	let elapsed = '';
-
-	let calculateMusicProgress;
-	let calculateElapsedTime;
-	let calculateCurrentTime;
+		pulse = 30000,
+		isSpotify = false,
+		isActivity = false,
+		songLink = '',
+		progress = 0,
+		elapsed = '',
+		
+		calculateMusicProgress,
+		calculateElapsedTime,
+		calculateCurrentTime;
 
 	let images = {
 		"CLIP STUDIO PAINT": "https://i.imgur.com/IUVs3RB.png"
 	}
+
+	function msToTime(ms) {
+		let seconds = Math.floor((ms / 1000) % 60),
+			minutes = Math.floor((ms / (1000 * 60)) % 60),
+			hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
+
+		seconds = (seconds < 10) ? '0' + seconds : seconds;
+		minutes = (minutes < 10) ? '0' + minutes : minutes;
+		hours = (hours < 10) ? '0' + hours : hours;
+
+		return hours > 0 
+			? hours + ':' + minutes + ':' + seconds
+			: minutes + ':' + seconds
+	};
+			
 
 	onMount(() => {
 		const connect = () => {
@@ -33,7 +47,14 @@
 				switch (data.op) {
 					case 1: {
 						pulse = data.d.heartbeat_interval;
-						lanyard.send( JSON.stringify({op: 2, d: {subscribe_to_id: '420043923822608384'}}));
+						lanyard.send( 
+							JSON.stringify(
+								{
+									op: 2, 
+									d: { subscribe_to_id: '420043923822608384' }
+								}
+							)
+						);
 						break;
 					}
 
@@ -42,8 +63,7 @@
 						isActivity = !!data.d.activities[0];
 
 						if (isSpotify) {
-							({
-								song: activity,
+							({	song: activity,
 								artist: details,
 								album: state,
 								album_art_url: activityImage
@@ -59,7 +79,6 @@
 								progress = 100 - (100 * (data.d.spotify.timestamps.end - new Date().getTime())) / spotifyTotal;
 							};
 
-							// going to make this not shit soon tm
 							calculateMusicProgress();
 							setInterval(() => {
 								if (isSpotify) {
@@ -86,20 +105,6 @@
 								smallImage = '';
 							} 
 
-							function msToTime(ms) {
-								let seconds = Math.floor((ms / 1000) % 60),
-									minutes = Math.floor((ms / (1000 * 60)) % 60),
-									hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
-
-								seconds = (seconds < 10) ? '0' + seconds : seconds;
-								minutes = (minutes < 10) ? '0' + minutes : minutes;
-								hours = (hours < 10) ? '0' + hours : hours;
-
-								return hours > 0 
-									? hours + ':' + minutes + ':' + seconds
-									: minutes + ':' + seconds
-							};
-							
 							calculateElapsedTime = () => {
 								let elapsedMs = new Date().getTime() - data.d.activities[0].timestamps.start;
 								elapsed = msToTime(elapsedMs) + ' elapsed';
@@ -135,7 +140,11 @@
 			};
 
 			setInterval(() => {
-				lanyard.send(JSON.stringify({op: 3}));
+				lanyard.send(
+					JSON.stringify(
+						{op: 3}
+					)
+				);
 			}, pulse);
 
 			lanyard.onclose = () => {
@@ -149,11 +158,11 @@
 	});
 </script>
 
+
 <div class="contain">
 	<h5>activity</h5>
 	<div>
 		<img src={activityImage} alt={activity} class="big {isSpotify ? 'spin' : ''}" />
-
 		{#if smallImage}
 			<img src={smallImage} alt={activity} class="small" />
 		{/if}
@@ -167,8 +176,8 @@
 				<h4>{activity}</h4>
 			{/if}
 
-			<h2>{details || ''}</h2>
-			<h2>{state || ''}</h2>
+			<h2>{details}</h2>
+			<h2>{state}</h2>
 
 			{#if isSpotify}
 				<progress max="100" value={progress} />
@@ -182,26 +191,19 @@
 <style>
 	.contain {
 		display: flex;
-		flex-direction: column;
 		justify-content: left;
 		align-content: left;
+		flex-direction: column;
 	}
-
-    a {
-        width: fit-content;
-    }
     
-    a,
-	a:not(:hover) {
+    a, a:not(:hover) {
 		text-decoration: underline;
 		text-decoration-color: var(--bg-color);
-		transition: 0.2s var(--bezier-one);
+		transition: 0.3s var(--bezier-one);
 	}
 
 	a:hover {
-		text-decoration: underline;
 		text-decoration-color: var(--white);
-		transition: 0.4s var(--bezier-one);
 	}
 
 	h5 {
@@ -225,7 +227,7 @@
 
 	.big {
 		height: 135px;
-		width: auto;
+		width: 135px;
 		border-radius: 20px;
 		display: inline-block;
 		opacity: 1;
@@ -239,7 +241,7 @@
 		border-radius: 50%;
 		position: absolute;
 		transform: translate(275%, 150%);
-		outline: 8px solid var(--bg-color);
+		outline: 6px solid var(--bg-color);
 		outline-offset: -1px;
 		background-color: var(--bg-color)
 	}
