@@ -1,4 +1,7 @@
 <script>
+    import { fly } from 'svelte/transition';
+    import { quintOut } from 'svelte/easing';
+    
     export let type = '';
     export let art = 'HeroImage';
     export let name = '';
@@ -12,10 +15,16 @@
     class = "card {type} {shrink}" 
     style = "background-image:url(art/{art}.webp)"
     on:click = {() => {clicked = !clicked;}}
->{name}</div>
+>
+{name}
+</div>
 
 {#if clicked}
-    <div class="img-contain" on:click = {() => {clicked = !clicked;}}>
+    <div 
+        class="img-contain" 
+        on:click = {() => {clicked = false}} 
+        transition:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
+        >
         <h4>{name}</h4>
         <img src="art/{art}.webp" alt="{name}"/>
         <h2>Click anywhere to dismiss</h2>
@@ -48,35 +57,6 @@
         grid-row: span 2 / auto;
     }
 
-    @keyframes blurr {
-        0% {
-            opacity:0;
-            background-color: #0a080800;
-            backdrop-filter: blur(0px);
-            -webkit-backdrop-filter: blur(0px);
-        }
-        100% {
-            opacity:1;
-            background-color: #0a0808bb;
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-        }
-    }
-
-    @keyframes unblurr {
-        0% {
-            opacity:1;
-            background-color: #0a0808bb;
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-        }
-        100% {
-            opacity:0;
-            background-color: #0a080800;
-            backdrop-filter: blur(0px);
-            -webkit-backdrop-filter: blur(0px);
-        }
-    }
 
     img {
         max-height:86vh;
@@ -86,11 +66,6 @@
         display:flex;
         justify-content: center;
         align-items: center;
-
-        animation-name: blurr;
-        animation-duration: 0.4s;
-        animation-timing-function: ease-in-out;
-        animation-fill-mode: forwards; 
     }
 
     .img-contain {
@@ -103,16 +78,14 @@
         left: 0;
         top: 50%;
         transform: translateY(-50%);
-        height:100vh;
+        height:200vh;
         width:100vw;
         z-index:1000;
         cursor: pointer;
         user-select: none;
-
-        animation-name: blurr;
-        animation-duration: 0.5s;
-        animation-timing-function: ease-in-out;
-        animation-fill-mode: forwards; 
+        background-color: #0a0808bb;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
     }
 
     h4, h2 {
