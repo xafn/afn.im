@@ -8,23 +8,22 @@
     export let shrink = '';
 
     let clicked = false;
-
 </script>
 
 <div 
     class = "card {type} {shrink}" 
     style = "background-image:url(art/{art}.webp)"
-    on:click = {() => {clicked = !clicked;}}
+    on:click = {() => {clicked = true}}
 >
-{name}
+    {name}
 </div>
 
-{#if clicked}
+{#if clicked === true}
     <div 
         class="img-contain" 
         on:click = {() => {clicked = false}} 
         transition:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
-        >
+    >
         <h4>{name}</h4>
         <img src="art/{art}.webp" alt="{name}"/>
         <h2>Click anywhere to dismiss</h2>
@@ -45,7 +44,6 @@
         cursor: pointer;
         font-size: 0;
         user-select: none;
-
     }
 
     .card:hover {
@@ -57,13 +55,12 @@
         grid-row: span 2 / auto;
     }
 
-
     img {
-        max-height:86vh;
-        height:auto;
-        max-width:86vw;
-        border-radius:2vh;
-        display:flex;
+        max-height: 83vh;
+        height: auto;
+        max-width: 86vw;
+        border-radius: 2vh;
+        display: flex;
         justify-content: center;
         align-items: center;
     }
@@ -78,9 +75,9 @@
         left: 0;
         top: 50%;
         transform: translateY(-50%);
-        height:200vh;
-        width:100vw;
-        z-index:1000;
+        height: 200vh;
+        width: 100vw;
+        z-index: 1000;
         cursor: pointer;
         user-select: none;
         background-color: #0a0808bb;
