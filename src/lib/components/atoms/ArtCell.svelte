@@ -1,6 +1,6 @@
 <script>
     import { fly } from 'svelte/transition';
-    import { quintOut } from 'svelte/easing';
+    import { cubicOut, quintOut } from 'svelte/easing';
     
     export let type = '';
     export let art = 'HeroImage';
@@ -22,7 +22,8 @@
     <div 
         class="img-contain" 
         on:click = {() => {clicked = false}} 
-        transition:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
+        in:fly="{{ y: 50, easing: quintOut, duration: 750 }}"
+        out:fly="{{ y: 50, easing: cubicOut, duration: 300 }}"
     >
         <h4>{name}</h4>
         <img src="art/{art}.webp" alt="{name}"/>
