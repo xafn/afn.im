@@ -41,6 +41,7 @@
 		border-radius: 100px;
 		padding: 13px 25px;
         user-select: none;
+		cursor: pointer;
 
 		-webkit-tap-highlight-color: #211c1c46;
 		transition: background-color 0.3s var(--bezier-one), transform 0.3s var(--bezier-one);	

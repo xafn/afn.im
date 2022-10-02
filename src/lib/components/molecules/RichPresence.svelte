@@ -1,30 +1,29 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	let activity = 'afn#0001',
 		details = 'Fetching...',
 		state = '',
 		activityImage = 'default.webp',
 		smallImage = '',
-
 		pulse = 30000,
-		isSpotify = false,
-		isActivity = false,
-		songLink = '',
-		progress = 0,
-		elapsed = '',
+		isSpotify: boolean,
+		isActivity: boolean,
+		songLink: string,
+		progress: number,
+		elapsed: string;
 		
-		calculateMusicProgress,
-		calculateElapsedTime,
-		calculateCurrentTime;
+	let calculateMusicProgress: () => void,
+		calculateElapsedTime: () => void,
+		calculateCurrentTime: () => void;
 
 	let images = {
 		"CLIP STUDIO PAINT": "https://i.imgur.com/IUVs3RB.png"
-	}
+	};
 
-	function msToTime(ms) {
-		let seconds = Math.floor((ms / 1000) % 60),
-			minutes = Math.floor((ms / (1000 * 60)) % 60),
-			hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
+	function msToTime(ms: number): string {
+		let seconds: string | number = Math.floor((ms / 1000) % 60),
+			minutes: string | number = Math.floor((ms / (1000 * 60)) % 60),
+			hours: string | number = Math.floor((ms / (1000 * 60 * 60)) % 24);
 
 		seconds = (seconds < 10) ? '0' + seconds : seconds;
 		minutes = (minutes < 10) ? '0' + minutes : minutes;
@@ -38,7 +37,7 @@
 
 	onMount(() => {
 		const connect = () => {
-			let lanyard = new WebSocket('wss://api.lanyard.rest/socket');
+			let lanyard: WebSocket = new WebSocket('wss://api.lanyard.rest/socket');
 			lanyard.onopen = () => console.log('Synced with Discord rich presence!');
 
 			lanyard.onmessage = (e) => {
@@ -56,7 +55,7 @@
 							)
 						);
 						break;
-					}
+					};
 
 					case 0: {
 						isSpotify = data.d.listening_to_spotify;
@@ -83,7 +82,7 @@
 							setInterval(() => {
 								if (isSpotify) {
 									calculateMusicProgress();
-								}
+								};
 							}, 1000); 
 						} 
                         
@@ -114,9 +113,9 @@
 							setInterval(() => {
 								if (isActivity) {
 									calculateElapsedTime();
-								}
+								};
 							}, 1000);
-						} 
+						}
                         
                         else if (isActivity === false) {
 							activity = 'afn#0001';
@@ -131,12 +130,12 @@
 							setInterval(() => {
 								if (!isActivity) {
 									calculateCurrentTime();
-								}
+								};
 							}, 1000);
-						}
+						};
 						break;
-					}
-				}
+					};
+				};
 			};
 
 			setInterval(() => {
@@ -148,7 +147,7 @@
 			}, pulse);
 
 			lanyard.onclose = () => {
-				lanyard = null;
+				lanyard.close();
 				setTimeout(function () {
 					connect();
 				}, 2500);
@@ -162,7 +161,11 @@
 <div class="contain">
 	<h5>activity</h5>
 	<div>
-		<img src={activityImage} alt={activity} class="big {isSpotify ? 'spin' : ''}" />
+		<img 
+			src={activityImage} 
+			alt={activity} 
+			class="big {isSpotify ? 'spin' : ''}" 
+		/>
 		{#if smallImage}
 			<img src={smallImage} alt={activity} class="small" />
 		{/if}

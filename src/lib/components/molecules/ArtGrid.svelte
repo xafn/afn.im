@@ -3,7 +3,7 @@
 </script>
 
 <div class="idfk" >
-    <div class="contain" id = "carduu">
+    <div class="contain">
         <div class="grid">   
                 <ArtCell art="painted_red" name="painted_red" type="tall"/>
                 <ArtCell art="drown" name="drowning" />
