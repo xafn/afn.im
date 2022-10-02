@@ -4,9 +4,9 @@
 
 <nav class="navbar">
     <ul>
-        <Nav href="#home" icon="home">home</Nav>
-        <Nav href="#about" icon="about">about</Nav>
-        <Nav href="#aw" icon="work">work</Nav>
+        <Nav href="#home" section="home"/>
+        <Nav href="#about" section="about"/>
+        <Nav href="#aw" section="work"/>
     </ul>
 </nav>
 

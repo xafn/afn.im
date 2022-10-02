@@ -1,19 +1,24 @@
 <script>
     export let href = "#";
-	export let icon = "home";
+	export let section = "home";
+
+	function handleClick() {
+		const el = document.querySelector(href);
+		if (!el) return;
+		el.scrollIntoView(true);
+	}
+
 </script>
 
-<div oncontextmenu="return false;">
-	<a href={href} >
-		<img src="icons/{icon}.svg" alt="{icon}"/>
-		<li>
-		    <slot/>
-		</li>
-	</a>
+<div class='nav-container' oncontextmenu="return false;" on:click={handleClick}>
+	<img src="icons/{section}.svg" alt="{section}"/>
+	<div class="text">
+		{section}
+	</div>
 </div>
 
 <style>
-	li {
+	.text {
 		text-align: center;
 		list-style: none;
 		display: inline-block;
@@ -25,7 +30,7 @@
 		transition: background-color 0.3s var(--bezier-one);
 	}
 
-	a {
+	.nav-container {
 		color: var(--white);
 		text-decoration: none;
 		font-size: 1.1rem;
@@ -38,18 +43,14 @@
         user-select: none;
 
 		-webkit-tap-highlight-color: #211c1c46;
-		transition: background-color 0.3s var(--bezier-one);	
+		transition: background-color 0.3s var(--bezier-one), transform 0.3s var(--bezier-one);	
 	}
 
-	a:hover {
+	.nav-container:hover {
 		background-color: var(--yellow-opacity);
 	}
 
-	div {
-		transition: 0.3s var(--bezier-one);
-	}
-
-	div:active {
+	.nav-container:active {
 		transform: scale(95%);
 	}
 
@@ -73,17 +74,17 @@
 			padding: 6px 24px;
 		}
 
-		a {
+		.nav-container {
 			flex-direction: column;
 			font-size:0.9rem;
 			margin-bottom: 0;
 		}
 
-		a:hover {
+		.nav-container:hover {
 			background-color: transparent;
 		}
 
-		a:hover > img {
+		.nav-container:hover > img {
 			transition: background-color 0.3s var(--bezier-one);
 			background-color: var(--yellow-opacity);
 		}
