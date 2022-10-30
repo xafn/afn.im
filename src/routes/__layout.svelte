@@ -145,14 +145,12 @@
 		color: var(--white);
 		font-weight: 300;
 		font-size: 1.7rem;
-		letter-spacing: -0.05em;
 	}
 
 	:global(h5) {
 		color: var(--white);
 		font-weight: 500;
 		font-size: 3rem;
-		letter-spacing: -0.05em;
 		background-color: var(--grey-one);
 		border-radius: 20px;
 		padding: 0.4rem 2.5rem;
@@ -173,7 +171,6 @@
 		color: var(--white);
 		font-weight: 300;
 		font-size: 1.1rem;
-		letter-spacing: -0.04em;
 	}
 
 	@media (max-width: 868px) {
