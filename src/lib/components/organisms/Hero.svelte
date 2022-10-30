@@ -5,7 +5,7 @@
 
 </script>
 
-<section>
+<section id="home">
     <div>
         <div>
             <HeroTitle />
@@ -21,6 +21,7 @@
     /* IM SO SORRY ITS SO BAD */
 
     section {
+        scroll-margin-top: 20rem;
         display:flex;
         width:100%;
     }
@@ -38,7 +39,9 @@
     h4 {
         margin-top: 1rem;
         margin-bottom: 1.7rem;
+        color: var(--white-two);
     }
+
 
 
 

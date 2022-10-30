@@ -1,12 +1,7 @@
-<script>
-	export const names = ["affan", "just j", "afn", "h"]
-</script>
-
 <div>
     <h1>
         hey, <br/> i'm <span>affan;</span>
     </h1>
-	
 </div>
 
 <style>
@@ -42,7 +37,7 @@
 		font-family: var(--font-two);
 		letter-spacing: -0.075em;
 		background-color: var(--grey-one);
-		border-radius: 25px;
+		border-radius: 24px;
 		padding: 0.4rem 2rem 0.3rem;
 	}
 
@@ -63,6 +58,7 @@
 		}
 		span {
 			min-height: 0vw;
+			border-radius: 16px;
 			font-size:clamp(2.5rem, 6vw, 4rem);
 		}
 	}

@@ -1,42 +1,28 @@
 <script>
-    import Hero from "$lib/components/organisms/Hero.svelte";
-    import About from "$lib/components/organisms/About.svelte";
-    import Work from "$lib/components/organisms/Work.svelte";
-    import Footer from "$lib/components/molecules/Footer.svelte";
+	import Hero from '$lib/components/organisms/Hero.svelte';
+	import About from '$lib/components/organisms/About.svelte';
+	import Work from '$lib/components/organisms/Work.svelte';
+	import Footer from '$lib/components/molecules/Footer.svelte';
 </script>
 
-
 <div class="wrapper margin">
-   <span id="home"> 
-        <Hero />
-    </span>
-    <About />
+	<Hero />
+	<About />
 </div>
+<Work />
 
-<Work />   
-
-
-<div class="wrapper">
-    <Footer/>
-</div>
+<Footer />
 
 <style>
-    #home {
-        
-        scroll-margin-top: 20rem;
-    }
+	.margin {
+		margin-top: 7.25rem;
+	}
 
-    .margin {
-        margin-top: 7.25rem;
-    }
-
-    @media screen and (max-width: 868px){
-        :global(.margin) {
+	@media screen and (max-width: 868px) {
+		:global(.margin) {
 			margin-top: 4rem !important;
-        }
-    }
-    
+		}
+	}
+
+
 </style>
-
-
-

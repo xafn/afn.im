@@ -108,6 +108,7 @@
 
 	:root {
 		--white: #eed1c7;
+		--white-two: #b69999;
 		--yellow: #dba895;
 		--yellow-opacity: #dba8952a;
 		--bg-color: #120e0e;
@@ -134,7 +135,7 @@
 	}
 
 	:global(h2) {
-		color: var(--white);
+		color: var(--white-two);
 		font-weight: 300;
 		font-size: 1.6rem;
 		font-family: var(--font-two);
@@ -168,9 +169,10 @@
 
 	
 	:global(h6) {
-		color: var(--white);
+		color: var(--white-two);
 		font-weight: 300;
 		font-size: 1.1rem;
+		letter-spacing: -0.0rem;
 	}
 
 	@media (max-width: 868px) {

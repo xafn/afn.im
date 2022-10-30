@@ -26,8 +26,8 @@
 		background-color: var(--yellow);
 		width: 1.6rem;
 		height: 100%;
-		border-top-left-radius: 20px;
-		border-bottom-left-radius: 20px;
+		border-top-left-radius: 16px;
+		border-bottom-left-radius: 16px;
 		top: 0;
 		left: 0;
 		transition: 0.3s var(--bezier-one);
@@ -36,7 +36,7 @@
 
 	button {
 		position: absolute;
-		border-radius: 20px;
+		border-radius: 16px;
         border: none;
 		padding: 1rem 2rem 1rem 3rem;
 		cursor: pointer;

@@ -3,7 +3,7 @@
 </script>
 
 <div>
-    <SocialButton icon = 'github' link = "https://github.com/afnzmn"/>
+    <SocialButton icon = 'github' link = "https://github.com/xafn"/>
     <SocialButton icon = 'discord' link = "https://discord.com/users/420043923822608384"/>
     <SocialButton icon = 'email' link = "mailto:hey@afn.lol"/>
 </div>

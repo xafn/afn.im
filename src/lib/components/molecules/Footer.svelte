@@ -2,8 +2,8 @@
     import Socials from "$lib/components/molecules/Socials.svelte";
 </script>
 
-<footer>
-    <hr>
+<hr>
+<footer class="wrapper">
     <div>
         <Socials/>
         <h2>Made with pain. &#60;3 <span>V2</span> <a href="https://v1.afn.lol/" target="_blank" >V1</a></h2>
@@ -29,17 +29,16 @@
     }
     
     hr {
-        background-color: var(--white); 
-        height: 2px; 
+        background-color: var(--grey-one); 
+        height: 1px; 
         border: 0;
-        opacity:0.2;
         width:100%;
         margin-bottom:2rem;
     }
 
     h2 {
+        color: var(--white-two);
         font-size:0.9rem;
-        opacity: 0.7;
         text-align: center;
         line-height: 2.5rem;
         margin-top: 0;
@@ -59,7 +58,7 @@
         transition: 0.3s var(--bezier-one);
         font-family: var(--font-two);
         text-decoration: none;
-        color: var(--white);
+        color: var(--white-two);
 		font-size:0.9rem;
         border-radius: 7px;
         padding: 0.15rem 0.5rem 0.15rem;

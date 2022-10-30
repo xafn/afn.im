@@ -11,13 +11,13 @@
 		songLink: string,
 		progress: number,
 		elapsed: string;
-		
+
 	let calculateMusicProgress: () => void,
 		calculateElapsedTime: () => void,
 		calculateCurrentTime: () => void;
 
 	let images = {
-		"CLIP STUDIO PAINT": "https://i.imgur.com/IUVs3RB.png"
+		'CLIP STUDIO PAINT': 'https://i.imgur.com/IUVs3RB.png'
 	};
 
 	function msToTime(ms: number): string {
@@ -25,15 +25,12 @@
 			minutes: string | number = Math.floor((ms / (1000 * 60)) % 60),
 			hours: string | number = Math.floor((ms / (1000 * 60 * 60)) % 24);
 
-		seconds = (seconds < 10) ? '0' + seconds : seconds;
-		minutes = (minutes < 10) ? '0' + minutes : minutes;
-		hours = (hours < 10) ? '0' + hours : hours;
+		seconds = seconds < 10 ? '0' + seconds : seconds;
+		minutes = minutes < 10 ? '0' + minutes : minutes;
+		hours = hours < 10 ? '0' + hours : hours;
 
-		return hours > 0 
-			? hours + ':' + minutes + ':' + seconds
-			: minutes + ':' + seconds
-	};
-			
+		return hours > 0 ? hours + ':' + minutes + ':' + seconds : minutes + ':' + seconds;
+	}
 
 	onMount(() => {
 		const connect = () => {
@@ -42,67 +39,66 @@
 
 			lanyard.onmessage = (e) => {
 				let data = JSON.parse(e.data);
-				
+
 				switch (data.op) {
 					case 1: {
 						pulse = data.d.heartbeat_interval;
-						lanyard.send( 
-							JSON.stringify(
-								{
-									op: 2, 
-									d: { subscribe_to_id: '420043923822608384' }
-								}
-							)
+						lanyard.send(
+							JSON.stringify({
+								op: 2,
+								d: { subscribe_to_id: '420043923822608384' }
+							})
 						);
 						break;
-					};
+					}
 
 					case 0: {
 						isSpotify = data.d.listening_to_spotify;
 						isActivity = !!data.d.activities[0];
 
 						if (isSpotify) {
-							({	song: activity,
+							({
+								song: activity,
 								artist: details,
 								album: state,
 								album_art_url: activityImage
 							} = data.d.spotify);
-							
+
 							details = 'by ' + details.replace(/;/g, ','); // why does lanyard use ; guhh??
-							state = (activity === state) ? '' : 'on ' + state; // checking if the song is a single
+							state = activity === state ? '' : 'on ' + state; // checking if the song is a single
 							songLink = `https://open.spotify.com/track/${data.d.spotify.track_id}`;
 							smallImage = '';
 
 							calculateMusicProgress = () => {
 								let spotifyTotal = data.d.spotify.timestamps.end - data.d.spotify.timestamps.start;
-								progress = 100 - (100 * (data.d.spotify.timestamps.end - new Date().getTime())) / spotifyTotal;
+								progress =
+									100 -
+									(100 * (data.d.spotify.timestamps.end - new Date().getTime())) / spotifyTotal;
 							};
 
 							calculateMusicProgress();
 							setInterval(() => {
 								if (isSpotify) {
 									calculateMusicProgress();
-								};
-							}, 1000); 
-						} 
-                        
-                        else if (isActivity) {
+								}
+							}, 1000);
+						} else if (isActivity) {
 							({ name: activity, details, state } = data.d.activities[0]);
-							
-							activityImage = (data.d.activities[0].assets)
+
+							activityImage = data.d.activities[0].assets
 								? `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.large_image}.webp?size=512`
 								: images[activity] || 'question_mark.png';
 
 							// WHAT IS THIS SOMEONE HELP HOW DO I NOT DO THIS I TRIED EVERYTHING RIUHFSDUIHS
 							try {
 								if (data.d.activities[0].assets.small_image) {
-									smallImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.small_image}.webp?size=512`
+									smallImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.small_image}.webp?size=512`;
 								} else {
 									smallImage = '';
 								}
-							} catch(err) {
+							} catch (err) {
 								smallImage = '';
-							} 
+							}
 
 							calculateElapsedTime = () => {
 								let elapsedMs = new Date().getTime() - data.d.activities[0].timestamps.start;
@@ -113,37 +109,33 @@
 							setInterval(() => {
 								if (isActivity) {
 									calculateElapsedTime();
-								};
+								}
 							}, 1000);
-						}
-                        
-                        else if (isActivity === false) {
+						} else if (isActivity === false) {
 							activity = 'afn#0001';
-							details = data.d.discord_status.charAt(0).toUpperCase() + data.d.discord_status.slice(1);
-							details = (details === 'Dnd') ? 'Do Not Disturb' : details;
+							details =
+								data.d.discord_status.charAt(0).toUpperCase() + data.d.discord_status.slice(1);
+							details = details === 'Dnd' ? 'Do Not Disturb' : details;
 							activityImage = 'default.webp';
 							smallImage = '';
-							
-							calculateCurrentTime = () => state = new Date().toLocaleTimeString('en-US', { timeZone: "America/New_York" });
+
+							calculateCurrentTime = () =>
+								(state = new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York' }));
 
 							calculateCurrentTime();
 							setInterval(() => {
 								if (!isActivity) {
 									calculateCurrentTime();
-								};
+								}
 							}, 1000);
-						};
+						}
 						break;
-					};
-				};
+					}
+				}
 			};
 
 			setInterval(() => {
-				lanyard.send(
-					JSON.stringify(
-						{op: 3}
-					)
-				);
+				lanyard.send(JSON.stringify({ op: 3 }));
 			}, pulse);
 
 			lanyard.onclose = () => {
@@ -157,15 +149,10 @@
 	});
 </script>
 
-
 <div class="contain">
 	<h5>activity</h5>
 	<div>
-		<img 
-			src={activityImage} 
-			alt={activity} 
-			class="big {isSpotify ? 'spin' : ''}" 
-		/>
+		<img src={activityImage} alt={activity} class="big" class:spin={isSpotify} />
 		{#if smallImage}
 			<img src={smallImage} alt={activity} class="small" />
 		{/if}
@@ -179,8 +166,8 @@
 				<h4>{activity}</h4>
 			{/if}
 
-			<h2>{details}</h2>
-			<h2>{state}</h2>
+			<h2>{details || ''}</h2>
+			<h2>{state || ''}</h2>
 
 			{#if isSpotify}
 				<progress max="100" value={progress} />
@@ -198,8 +185,9 @@
 		align-content: left;
 		flex-direction: column;
 	}
-    
-    a, a:not(:hover) {
+
+	a,
+	a:not(:hover) {
 		text-decoration: underline;
 		text-decoration-color: var(--bg-color);
 		transition: 0.3s var(--bezier-one);
@@ -246,7 +234,7 @@
 		transform: translate(275%, 150%);
 		outline: 6px solid var(--bg-color);
 		outline-offset: -1px;
-		background-color: var(--bg-color)
+		background-color: var(--bg-color);
 	}
 
 	progress {
@@ -263,7 +251,6 @@
 		transform: translateY(0.2rem);
 		height: 0.6rem;
 	}
-
 
 	progress[value]::-webkit-progress-value {
 		background-color: var(--yellow);
