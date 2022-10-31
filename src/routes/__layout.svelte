@@ -108,7 +108,7 @@
 
 	:root {
 		--white: #eed1c7;
-		--white-two: #b69999;
+		--white-two: hsl(0, 17%, 69%);;
 		--yellow: #dba895;
 		--yellow-opacity: #dba8952a;
 		--bg-color: #120e0e;

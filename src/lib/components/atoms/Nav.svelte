@@ -54,6 +54,10 @@
 		background-color: var(--grey-two);
 	}
 
+	.nav-container:hover > .text {
+		color: var(--white)
+	}
+
 	.selected {
 		color: var(--white)
 	}

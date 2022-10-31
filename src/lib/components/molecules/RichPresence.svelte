@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	let activity = 'afn#0001',
+	let activity = 'afn#0128',
 		details = 'Fetching...',
 		state = '',
 		activityImage = 'default.webp',
@@ -112,7 +112,7 @@
 								}
 							}, 1000);
 						} else if (isActivity === false) {
-							activity = 'afn#0001';
+							activity = 'afn#0128';
 							details =
 								data.d.discord_status.charAt(0).toUpperCase() + data.d.discord_status.slice(1);
 							details = details === 'Dnd' ? 'Do Not Disturb' : details;
