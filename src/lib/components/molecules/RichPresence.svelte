@@ -1,4 +1,5 @@
 <script lang="ts">
+	// look away
 	import { onMount } from 'svelte';
 	let activity = 'afn#0128',
 		details = 'Fetching...',
@@ -31,6 +32,16 @@
 
 		return hours > 0 ? hours + ':' + minutes + ':' + seconds : minutes + ':' + seconds;
 	}
+
+	calculateCurrentTime = () =>
+		(state = new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York' }));
+
+	calculateCurrentTime();
+	setInterval(() => {
+		if (!isActivity) {
+			calculateCurrentTime();
+		}
+	}, 1000);
 
 	onMount(() => {
 		const connect = () => {
@@ -118,9 +129,6 @@
 							details = details === 'Dnd' ? 'Do Not Disturb' : details;
 							activityImage = 'default.webp';
 							smallImage = '';
-
-							calculateCurrentTime = () =>
-								(state = new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York' }));
 
 							calculateCurrentTime();
 							setInterval(() => {
