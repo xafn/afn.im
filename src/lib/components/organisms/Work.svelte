@@ -6,7 +6,7 @@
 
 <div>
     <div class="art-work wrapper" id="aw">
-        <h5><span>art</span>:work</h5>
+        <h2><span>art</span>:work</h2>
     </div>
     <ArtGrid />
 </div>
@@ -14,6 +14,10 @@
 <style>
     span {
         color:var(--yellow);
+    }
+
+    h2 {
+        display: inline-block;
     }
     
     .art-work {

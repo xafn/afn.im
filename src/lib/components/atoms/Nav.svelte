@@ -10,23 +10,24 @@
 	}
 </script>
 
-<div 
-	class="nav-container" 
+<li
+	class="nav-container"
 	class:selected={isSelected}
-	oncontextmenu="return false;" 
+	oncontextmenu="return false;"
 	on:click={handleClick}
 >
-	<img src="icons/{section}.svg" alt={section} />
-	<div class="text">
-		{section}
+	<div class="icon-container">
+		<img src="icons/{section}.svg" alt={section} />
 	</div>
-</div>
+	<h6 class="text">
+		{section}
+	</h6>
+</li>
 
 <style>
 	.text {
 		text-align: center;
 		list-style: none;
-		display: inline-block;
 		position: relative;
 		align-items: center;
 		border: var(--grey-six);
@@ -34,32 +35,30 @@
 		transition: all 0.3s var(--bezier-one);
 	}
 
-	.nav-container {
+	li {
 		color: var(--white-two);
 		text-decoration: none;
 		font-size: 1.1rem;
 		user-select: none;
 		display: flex;
 		align-items: center;
-		justify-content: center;
+		gap: 0.75rem;
 		padding: 13px 25px;
 		border-radius: 100px;
-		user-select: none;
 		cursor: pointer;
-
 		transition: background-color 0.3s var(--bezier-one), transform 0.3s var(--bezier-one);
 	}
 
-	.nav-container:hover {
+	li:hover {
 		background-color: var(--grey-two);
 	}
 
-	.nav-container:hover > .text {
-		color: var(--white)
+	li:hover > .text {
+		color: var(--white);
 	}
 
 	.selected {
-		color: var(--white)
+		color: var(--white);
 	}
 
 	.selected img {
@@ -67,14 +66,17 @@
 	}
 
 	img {
-		margin-right: 0.75rem;
+		display: flex;
+		align-items: center;
+		justify-self: center;
 		opacity: 0.5;
+		height: 24px;
+		width: 24px;
 		transition: all 0.5s var(--bezier-one);
 	}
 
-
-
-	div:active img, div:hover img {
+	li:active img,
+	li:hover img {
 		opacity: 1;
 	}
 
@@ -82,9 +84,6 @@
 		img {
 			transform: scale(0.95);
 			margin-right: 0;
-			margin-bottom: 0.2rem;
-			border-radius: 100px;
-			padding: 6px 24px;
 			transition-delay: 0.3s;
 		}
 
@@ -92,8 +91,17 @@
 			transition-delay: 0.5s;
 		}
 
-		.nav-container {
+		.icon-container {
+			padding: 6px 24px;
+			border-radius: 100px;
+			margin-bottom: 0.4rem;
+			transition: all 0.5s var(--bezier-one);
+			transition-delay: 0.3s;
+		}
+
+		li {
 			flex-direction: column;
+			gap: 0;
 			font-size: 0.9rem;
 			margin-bottom: 0;
 		}
@@ -102,9 +110,9 @@
 			background-color: transparent;
 		}
 
-		.nav-container:hover > img, .selected > img {
+		li:hover > .icon-container,
+		.selected > .icon-container {
 			background-color: var(--yellow-opacity);
 		}
-
 	}
 </style>

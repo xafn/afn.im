@@ -10,9 +10,9 @@
 	<button on:click={handleClick}>
 		<div class="rect" />
 		<span class="side" />
-		<h2>
+		<h3>
 			<slot />
-		</h2>
+		</h3>
 	</button>
 </div>
 
@@ -46,9 +46,8 @@
 		margin: 0;
 	}
 
-	h2 {
+	h3 {
 		transition: 0.3s ease-out;
-		color: var(--yellow);
 		z-index: 88;
 	}
 
@@ -61,7 +60,7 @@
 	}
 
 	@media screen and (max-width: 1240px) {
-		h2 {
+		h3 {
 			min-height: 0vw;
 			font-size: clamp(1.1rem, 2vw, 1.9rem);
 		}

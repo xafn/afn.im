@@ -20,15 +20,15 @@
 			<RichPresence />
 		</div>
 		<div class="text">
-			<h5>bio</h5>
-			<h6>
+			<h2>bio</h2>
+			<p>
 				Hello funny people in my screen :&#93; I'm a <span>{getAge()}</span> year old digital artist
 				and graphic/UI designer based in Canada. I’ve taken art seriously since <span>2017</span>,
 				and have been doodling goofy anime characters since <span>2020</span>. I’ve also done some
 				design work in open-source projects. Recently, however, I’ve grown a knack in programming.
 				Currently learning Python, Typescript, and Svelte. Hope to move onto Flutter one day. Don’t
 				look into it though, it’s not even that interesting.
-			</h6>
+			</p>
 		</div>
 	</div>
 </section>
@@ -80,7 +80,7 @@
 		position: absolute;
 	}
 
-	h5 {
+	h2 {
 		display: none;
 		margin-top: 1rem;
 	}
@@ -95,7 +95,7 @@
 			margin-bottom: -2rem;
 		}
 
-		h5 {
+		h2 {
 			display: block;
 		}
 	}

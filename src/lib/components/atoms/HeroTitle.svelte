@@ -9,11 +9,6 @@
 		display: inline-block;
 	}
 
-	h1 {
-		line-height: 0.05rem;
-		line-height: 101.6%;
-		font-size: 6.25rem;
-	}
 
 	h1::before {
 		height:175px;

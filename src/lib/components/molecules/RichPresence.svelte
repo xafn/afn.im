@@ -158,7 +158,7 @@
 </script>
 
 <div class="contain">
-	<h5>activity</h5>
+	<h2>activity</h2>
 	<div>
 		<img src={activityImage} alt={activity} class="big" class:spin={isSpotify} />
 		{#if smallImage}
@@ -168,19 +168,19 @@
 		<section>
 			{#if isSpotify}
 				<a href={songLink} target="_blank">
-					<h4>{activity}</h4>
+					<h5>{activity}</h5>
 				</a>
 			{:else}
-				<h4>{activity}</h4>
+				<h5>{activity}</h5>
 			{/if}
 
-			<h2>{details || ''}</h2>
-			<h2>{state || ''}</h2>
+			<h6>{details || ''}</h6>
+			<h6>{state || ''}</h6>
 
 			{#if isSpotify}
 				<progress max="100" value={progress} />
 			{:else if isActivity}
-				<h2>{elapsed}</h2>
+				<h6>{elapsed}</h6>
 			{/if}
 		</section>
 	</div>
@@ -204,24 +204,11 @@
 	a:hover {
 		text-decoration-color: var(--white);
 	}
-
-	h5 {
-		display: none;
-	}
-
+	
 	div > div {
 		display: flex;
 		gap: 2.25rem;
 		align-items: center;
-	}
-
-	h4 {
-		font-weight: 500;
-		font-size: 1.4rem;
-	}
-
-	h2 {
-		font-size: 1.15rem;
 	}
 
 	.big {
@@ -287,19 +274,6 @@
 	@media screen and (max-width: 868px) {
 		div {
 			justify-content: left;
-		}
-
-		h2 {
-			font-size: 1rem;
-		}
-
-		h4 {
-			font-size: 1.2rem;
-		}
-
-		h5 {
-			display: inline-block;
-			margin-bottom: 0.5rem;
 		}
 
 		.big {

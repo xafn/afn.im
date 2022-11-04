@@ -27,7 +27,7 @@
     >
         <h4>{name}</h4>
         <img src="art/{art}.webp" alt="{name}"/>
-        <h2>Click anywhere to dismiss</h2>
+        <h7>Click anywhere to dismiss</h7>
     </div>
 {/if}
 
@@ -86,11 +86,11 @@
         -webkit-backdrop-filter: blur(12px);
     }
 
-    h4, h2 {
+    h4, h7 {
         margin: 1vh;
     }
     
-    h2  {
+    h7  {
         font-size:2vh;
         margin-top:2vh;
     }

@@ -39,11 +39,7 @@
     h4 {
         margin-top: 1rem;
         margin-bottom: 1.7rem;
-        color: var(--white-two);
     }
-
-
-
 
     @media screen and (max-width: 400px) {
 		br {
