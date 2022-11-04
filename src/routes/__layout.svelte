@@ -136,10 +136,9 @@
 	:global(h2) {
 		color: var(--white);
 		font-weight: 500;
-		font-size: 3rem;
-		background-color: var(--grey-one);
-		border-radius: 20px;
-		padding: 0.4rem 2.5rem;
+		font-size: 2.25rem;
+		border-radius: 12px;
+		margin-bottom: 1rem;
 		width: fit-content;
 		display: none;
 	}

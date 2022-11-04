@@ -5,16 +5,16 @@
 <div class="idfk">
 	<div class="contain">
 		<div class="grid">
-			<ArtCell art="painted_red" name="painted_red" type="tall" />
-			<ArtCell art="drown" name="drowning" />
-			<ArtCell art="bling" name="BL1NG!" type="tall" />
-			<ArtCell art="murder" name="811" />
-			<ArtCell art="diverge" name="diverge" type="tall" />
-			<ArtCell art="smoke" name="FADE" type="tall" />
-			<ArtCell art="windy" name="kind of cold" type="tall" shrink="shrink" />
-			<ArtCell art="cry" name="ribbons" type="tall" />
-			<ArtCell art="crop" name="asumi" />
-			<ArtCell art="smile" name="doodle" />
+			<ArtCell art="painted_red" type="tall" />
+			<ArtCell art="drowning" />
+			<ArtCell art="BL1NG!" type="tall" />
+			<ArtCell art="811" />
+			<ArtCell art="diverge" type="tall" />
+			<ArtCell art="FADE" type="tall" />
+			<ArtCell art="chilly" type="tall" shrink="shrink" />
+			<ArtCell art="ribbons" type="tall" />
+			<ArtCell art="asumi" />
+			<ArtCell art="doodle" />
 		</div>
 	</div>
 </div>

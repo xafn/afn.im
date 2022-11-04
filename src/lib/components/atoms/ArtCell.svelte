@@ -1,11 +1,9 @@
 <script>
 	import { fly } from 'svelte/transition';
 	import { cubicOut, quintOut } from 'svelte/easing';
-	import { onMount } from 'svelte';
 
 	export let type = '';
 	export let art = 'HeroImage';
-	export let name = '';
 	export let shrink = '';
 
 	let clicked = false;
@@ -14,14 +12,15 @@
 <div
 	class="card {type} {shrink}"
 	style="background-image:url(art/{art}.webp)"
+    loading="eager"
+	tabindex="0"
 	on:click={() => (clicked = true)}
->
-	{name}
-</div>
+	on:keypress={() => (clicked = true)}
+/>
 
 <svelte:head>
 	{#if clicked}
-		<title>afn | {name}</title>
+		<title>afn | {art}</title>
 	{:else}
 		<title>afn</title>
 	{/if}
@@ -30,12 +29,14 @@
 {#if clicked === true}
 	<div
 		class="img-contain"
+		tabindex="0"
 		on:click={() => (clicked = false)}
+		on:keypress={() => (clicked = false)}
 		in:fly={{ y: 50, easing: quintOut, duration: 750 }}
 		out:fly={{ y: 50, easing: cubicOut, duration: 300 }}
 	>
-		<h4>{name}</h4>
-		<img src="art/{art}.webp" alt={name} />
+		<h4>{art}</h4>
+		<img src="art/{art}.webp" alt={art} />
 		<h7>Click anywhere to dismiss</h7>
 	</div>
 {/if}

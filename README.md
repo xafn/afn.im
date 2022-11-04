@@ -3,7 +3,7 @@
 
 A simple site to showcase the art I've made over the years. Check it out at [afn.lol](https://afn.lol/).
 
-I decided I needed to finally rewrite it after staring at my horrid old codebase and design for so long. Made using SvelteKit because I'm just that cool, and plain CSS because I'm dumb. Hope to add programming projects once I have some. (never)
+I decided I needed to finally rewrite it after staring at my horrid old codebase and design for so long. Made using SvelteKit because I'm just that cool, and plain CSS because I'm dumb.
 
 ## 📝 Notes
 * Deployed using [Cloudflare Pages](https://pages.dev/), using the SvelteKit preset. 
