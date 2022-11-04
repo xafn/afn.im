@@ -57,7 +57,12 @@
 					</div>
 				</a>
 			{/each}
-		{/if}
+		{:else}
+                <div class="repo-card"></div>
+                <div class="repo-card"></div>
+                <div class="repo-card"></div>
+        {/if}
+
 	</div>
 </div>
 
@@ -71,7 +76,7 @@
 		padding: 1rem 1.25rem;
 		background-color: var(--grey-two);
 		border-radius: 8px;
-		height: 100%;
+		min-height: 100px;
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;

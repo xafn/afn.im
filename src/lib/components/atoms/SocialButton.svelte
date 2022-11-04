@@ -28,12 +28,12 @@
 	}
 
 	div:hover > a {
-		transform: translateY(-5%);
+		transform: translateY(-1px);
 		background-color: var(--yellow-opacity);
 	}
 
 	div:active {
-		transform: scale(95%);
+		transform: scale(98%);
 	}
 
 	img {
