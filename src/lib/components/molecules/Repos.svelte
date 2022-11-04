@@ -75,12 +75,12 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
-		transition: transform 0.5s var(--bezier-one);
+		transition: transform 0.3s var(--bezier-one);
 		justify-content: space-between;
 	}
 
 	.repo-card:hover {
-		transform: translateY(-1%);
+		transform: translateY(-1px);
 	}
 
 	a {
