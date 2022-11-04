@@ -37,7 +37,7 @@
 	button {
 		position: absolute;
 		border-radius: 16px;
-        border: none;
+		border: none;
 		padding: 1rem 2rem 1rem 3rem;
 		cursor: pointer;
 		background-color: var(--grey-one);
@@ -70,7 +70,7 @@
 		button {
 			position: inherit;
 			padding: 0.9rem 2rem 0.9rem 2rem;
-			border-radius: 17px;
+			border-radius: 12px;
 			width: 100%;
 		}
 

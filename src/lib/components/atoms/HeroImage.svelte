@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 
 	let img: HTMLElement;
-    
+
 	onMount(() => {
 		img!.addEventListener('mousemove', (e: any) => {
 			const yRotation = 13 * ((e.layerX - img!.clientHeight / 2) / img!.clientWidth);

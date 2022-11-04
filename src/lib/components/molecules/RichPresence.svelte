@@ -204,7 +204,7 @@
 	a:hover {
 		text-decoration-color: var(--white);
 	}
-	
+
 	div > div {
 		display: flex;
 		gap: 2.25rem;

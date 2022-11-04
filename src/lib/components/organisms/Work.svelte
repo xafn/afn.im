@@ -1,37 +1,34 @@
 <script>
-    import ArtGrid from "$lib/components/molecules/ArtGrid.svelte";
-    import ArtCell from "../atoms/ArtCell.svelte";
+	import ArtGrid from '$lib/components/molecules/ArtGrid.svelte';
 </script>
 
-
 <div>
-    <div class="art-work wrapper" id="aw">
-        <h2><span>art</span>:work</h2>
-    </div>
-    <ArtGrid />
+	<div class="art-work wrapper" id="aw">
+		<h2><span>art</span>:work</h2>
+	</div>
+	<ArtGrid />
 </div>
 
 <style>
-    span {
-        color:var(--yellow);
-    }
+	span {
+		color: var(--yellow);
+	}
 
-    h2 {
-        display: inline-block;
-    }
-    
-    .art-work {
-        display: flex;
-        justify-content: center;
-        margin-top:0;
-        margin-bottom: 2rem;
-    }
+	h2 {
+		display: inline-block;
+	}
 
-    @media (max-width: 868px){
-        .art-work {
-            display: block;
-            margin-bottom: 0.25rem;
-        }
-    }
+	.art-work {
+		display: flex;
+		justify-content: center;
+		margin-top: 0;
+		margin-bottom: 2rem;
+	}
 
+	@media (max-width: 868px) {
+		.art-work {
+			display: block;
+			margin-bottom: 0.25rem;
+		}
+	}
 </style>

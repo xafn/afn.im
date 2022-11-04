@@ -11,7 +11,6 @@
 </script>
 
 <li
-	class="nav-container"
 	class:selected={isSelected}
 	oncontextmenu="return false;"
 	on:click={handleClick}
@@ -65,6 +64,10 @@
 		opacity: 1;
 	}
 
+	.selected h6 {
+		color: var(--white);
+	}
+
 	img {
 		display: flex;
 		align-items: center;
@@ -106,7 +109,7 @@
 			margin-bottom: 0;
 		}
 
-		.nav-container:hover {
+		li:hover {
 			background-color: transparent;
 		}
 

@@ -52,7 +52,7 @@
 
 	.text {
 		position: relative;
-        line-height: 1.75rem;
+		line-height: 1.75rem;
 	}
 
 	span {

@@ -163,7 +163,6 @@
 		font-size: 1.4rem;
 	}
 
-
 	:global(h6) {
 		color: var(--white-two);
 		font-size: 1.15rem;

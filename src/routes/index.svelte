@@ -23,6 +23,4 @@
 			margin-top: 4rem !important;
 		}
 	}
-
-
 </style>

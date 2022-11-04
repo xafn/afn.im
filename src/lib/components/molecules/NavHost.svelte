@@ -5,9 +5,9 @@
 
 <nav class:scrolled={y > 100}>
 	<ul>
-		<Nav href="#home" section="home" isSelected={y < 350}/>
-		<Nav href="#about" section="about" isSelected={y > 350 && y < 675}/>
-		<Nav href="#aw" section="work" isSelected={y > 675}/>
+		<Nav href="#home" section="home" isSelected={y < 350} />
+		<Nav href="#about" section="about" isSelected={y > 350 && y < 675} />
+		<Nav href="#aw" section="work" isSelected={y > 675} />
 	</ul>
 </nav>
 
@@ -23,7 +23,7 @@
 		top: 0;
 		padding: 1.25rem 0;
 		z-index: 999;
-		background-color: #120e0ebb;
+		background-color: #120e0fbb;
 		backdrop-filter: blur(15px);
 		-webkit-backdrop-filter: blur(15px);
 		background-blend-mode: overlay;
@@ -36,12 +36,12 @@
 		justify-content: center;
 	}
 
-    @media (min-width: 869px) {
-        .scrolled {
-            border-bottom: 1.5px solid var(--grey-one);
-            padding: 0.9rem 0;
-        }
-    }
+	@media (min-width: 869px) {
+		.scrolled {
+			border-bottom: 1.5px solid var(--grey-one);
+			padding: 0.9rem 0;
+		}
+	}
 
 	@media (max-width: 868px) {
 		nav {

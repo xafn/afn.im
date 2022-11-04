@@ -1,7 +1,7 @@
 <div>
-    <h1>
-        hey, <br/> i'm <span>affan;</span>
-    </h1>
+	<h1>
+		hey, <br /> i'm <span>affan;</span>
+	</h1>
 </div>
 
 <style>
@@ -9,20 +9,19 @@
 		display: inline-block;
 	}
 
-
 	h1::before {
-		height:175px;
-        font-size: 175px;
-        content:'///';
-        font-weight:700;
-        z-index: -1;
-        user-select: none;
+		height: 175px;
+		font-size: 175px;
+		content: '///';
+		font-weight: 700;
+		z-index: -1;
+		user-select: none;
 		transform: translateX(-95%);
-        -webkit-text-stroke: 2px var(--white);
-        color:transparent;
-        opacity:0.25;
-        letter-spacing: -0.1em;
-        position: absolute;
+		-webkit-text-stroke: 2px var(--white);
+		color: transparent;
+		opacity: 0.25;
+		letter-spacing: -0.1em;
+		position: absolute;
 	}
 
 	span {
@@ -38,25 +37,23 @@
 
 	@media screen and (max-width: 768px) {
 		h1 {
-			font-size:6rem;
+			font-size: 6rem;
 		}
 
 		span {
-			font-size:4rem;
+			font-size: 4rem;
 		}
 	}
 
 	@media screen and (max-width: 1240px) {
 		h1 {
 			min-height: 0vw;
-			font-size:clamp(4rem, 10vw, 6.25rem);
+			font-size: clamp(4rem, 10vw, 6.25rem);
 		}
 		span {
 			min-height: 0vw;
 			border-radius: 16px;
-			font-size:clamp(2.5rem, 6vw, 4rem);
+			font-size: clamp(2.5rem, 6vw, 4rem);
 		}
 	}
-
-
 </style>
