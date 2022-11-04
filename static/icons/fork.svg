@@ -1,14 +1,1 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_1_2)">
-<path d="M12 20C13.1046 20 14 19.1046 14 18C14 16.8954 13.1046 16 12 16C10.8954 16 10 16.8954 10 18C10 19.1046 10.8954 20 12 20Z" stroke="#BDA3A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M7 8C8.10457 8 9 7.10457 9 6C9 4.89543 8.10457 4 7 4C5.89543 4 5 4.89543 5 6C5 7.10457 5.89543 8 7 8Z" stroke="#BDA3A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M17 8C18.1046 8 19 7.10457 19 6C19 4.89543 18.1046 4 17 4C15.8954 4 15 4.89543 15 6C15 7.10457 15.8954 8 17 8Z" stroke="#BDA3A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M7 8V10C7 10.5304 7.21071 11.0391 7.58579 11.4142C7.96086 11.7893 8.46957 12 9 12H15C15.5304 12 16.0391 11.7893 16.4142 11.4142C16.7893 11.0391 17 10.5304 17 10V8" stroke="#BDA3A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M12 12V16" stroke="#BDA3A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<clipPath id="clip0_1_2">
-<rect width="24" height="24" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><g clip-path="url(#clip0_1_2)"><path stroke="#BDA3A2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20C13.1046 20 14 19.1046 14 18C14 16.8954 13.1046 16 12 16C10.8954 16 10 16.8954 10 18C10 19.1046 10.8954 20 12 20Z"/><path stroke="#BDA3A2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8C8.10457 8 9 7.10457 9 6C9 4.89543 8.10457 4 7 4C5.89543 4 5 4.89543 5 6C5 7.10457 5.89543 8 7 8Z"/><path stroke="#BDA3A2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8C18.1046 8 19 7.10457 19 6C19 4.89543 18.1046 4 17 4C15.8954 4 15 4.89543 15 6C15 7.10457 15.8954 8 17 8Z"/><path stroke="#BDA3A2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8V10C7 10.5304 7.21071 11.0391 7.58579 11.4142C7.96086 11.7893 8.46957 12 9 12H15C15.5304 12 16.0391 11.7893 16.4142 11.4142C16.7893 11.0391 17 10.5304 17 10V8"/><path stroke="#BDA3A2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12V16"/></g><defs><clipPath id="clip0_1_2"><rect width="24" height="24" fill="#fff"/></clipPath></defs></svg>
