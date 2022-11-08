@@ -1,17 +1,19 @@
 <script>
 	import RichPresence from '../molecules/RichPresence.svelte';
+	import Tooltip from '../atoms/Tooltip.svelte';
 
 	// i didnt write this idk
 	let getAge = () => {
-		let today = new Date();
 		let birthDate = new Date('2007/03/24');
-		let age = today.getFullYear() - birthDate.getFullYear();
-		let m = today.getMonth() - birthDate.getMonth();
-		if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-			age--;
-		}
-		return age;
+		const ageMs = Date.now() - birthDate.getTime();
+		const preciseAge = (ageMs / 31536000000).toFixed(10);
+		return preciseAge;
 	};
+
+	let age = getAge();
+	setInterval(() => {
+		age = getAge();
+	}, 1000);
 </script>
 
 <section id="about">
@@ -22,12 +24,12 @@
 		<div class="text">
 			<h2>bio</h2>
 			<p>
-				Hello funny people in my screen :&#93; I'm a <span>{getAge()}</span> year old digital artist
-				and graphic/UI designer based in Canada. I’ve taken art seriously since <span>2017</span>,
-				and have been doodling goofy anime characters since <span>2020</span>. I’ve also done some
-				design work in open-source projects. Recently, however, I’ve grown a knack in programming.
-				Currently learning Python, Typescript, and Svelte. Hope to move onto Flutter one day. Don’t
-				look into it though, it’s not even that interesting.
+				Hello funny people in my screen :&#93; I'm a <Tooltip tip={age}><span>{Math.floor(Number(age))}</span></Tooltip> year
+				old digital artist and graphic/UI designer based in Canada. I’ve taken art seriously since
+				<span>2017</span>, and have been doodling silly anime characters since <span>2020</span>.
+				Recently, however, I’ve grown a knack for programming. I like contributing to
+				<a href="https://github.com/xafn" target="_blank"><span>open source</span></a> as a web developer,
+				which is probably the reason why you've ended up here. Currently struggling with Svelte and Typescript.
 			</p>
 		</div>
 	</div>
@@ -41,7 +43,7 @@
 
 	section > div {
 		display: grid;
-		gap: 1.75rem;
+		gap: 3rem;
 		grid-template-columns: 1fr 1fr;
 	}
 
@@ -61,8 +63,13 @@
 		font-size: 0.9rem;
 		background-color: var(--grey-one);
 		border-radius: 7px;
+		color: var(--yellow);
 		padding: 0.2rem 0.5rem 0.2rem;
 		width: fit-content;
+	}
+
+	a {
+		text-decoration: none;
 	}
 
 	.text::before {

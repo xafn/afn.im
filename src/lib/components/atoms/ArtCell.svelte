@@ -1,6 +1,7 @@
 <script>
 	import { fly } from 'svelte/transition';
 	import { cubicOut, quintOut } from 'svelte/easing';
+	import Tooltip from '../atoms/Tooltip.svelte';
 
 	export let type = '';
 	export let art = 'HeroImage';
@@ -12,7 +13,7 @@
 <div
 	class="card {type} {shrink}"
 	style="background-image:url(art/{art}.webp)"
-    loading="eager"
+	loading="eager"
 	tabindex="0"
 	on:click={() => (clicked = true)}
 	on:keypress={() => (clicked = true)}
