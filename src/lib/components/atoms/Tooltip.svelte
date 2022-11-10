@@ -1,16 +1,30 @@
 <script>
+	import { onMount } from 'svelte';
+
 	export let tip = '';
 	export let active = false;
+	
+	let loaded = false;
+	onMount(() => {
+		if (document.readyState === 'complete') {
+			loaded = true;
+		}
+	});
 </script>
 
-<div class="tooltip-wrapper">
-	<span class="tooltip" class:active>
-		{tip}
-	</span>
-	<span class="tooltip-slot">
-		<slot />
-	</span>
-</div>
+<!-- preventing layout shifts by checking if page is fully loaded. if not, return original slot -->
+{#if loaded}
+	<div class="tooltip-wrapper">
+		<span class="tooltip" class:active>
+			{tip}
+		</span>
+		<span class="tooltip-slot">
+			<slot />
+		</span>
+	</div>
+{:else}
+	<slot />
+{/if}
 
 <style>
 	.tooltip-wrapper {

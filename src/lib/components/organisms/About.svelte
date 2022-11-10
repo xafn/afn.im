@@ -44,7 +44,7 @@
 
 	section > div {
 		display: grid;
-		gap: 3rem;
+		gap: 3.5rem;
 		grid-template-columns: 1fr 1fr;
 	}
 
