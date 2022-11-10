@@ -112,7 +112,7 @@
 		--grey-two: #211c1c75;
 		--grey-three: #1e1a1a;
 		--font-one: 'Space Grotesk', sans-serif;
-		--font-two: 'JetBrains Mono', mono space;
+		--font-two: 'JetBrains Mono', monospace;
 		--bezier-one: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 	}
 
