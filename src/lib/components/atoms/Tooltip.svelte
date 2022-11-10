@@ -4,12 +4,12 @@
 </script>
 
 <div class="tooltip-wrapper">
+	<span class="tooltip" class:active>
+		{tip}
+	</span>
 	<span class="tooltip-slot">
 		<slot />
 	</span>
-	<div class="tooltip" class:active>
-		<h7>{tip}</h7>
-	</div>
 </div>
 
 <style>
@@ -26,12 +26,18 @@
 		visibility: hidden;
 		transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, margin-top 0.2s ease-in-out;
 		left: 50%;
-		transform: translate(-50%, -100%);
-		margin-top: -6px;
-		display: inline-block;
-		padding: 0rem 0.75rem;
+		top: 0%;
+		line-height: normal;
+		transform: translate(-50%, -120%);
+		padding: 0.15rem 0.5rem;
 		border-radius: 6px;
 		background-color: var(--yellow);
+
+		color: var(--grey-one);
+		font-size: 0.9rem;
+		font-family: var(--font-two);
+		font-weight: 300;
+		letter-spacing: -0.075em;
 	}
 
 	.tooltip::after {
@@ -47,19 +53,15 @@
 		position: absolute;
 	}
 
-	h7 {
-		color: var(--grey-one);
-	}
-
 	.tooltip.active {
 		opacity: 1;
 		visibility: initial;
-        margin-top: -8px;
+		margin-top: -8px;
 	}
 
-	.tooltip-slot:hover + .tooltip {
+	.tooltip-wrapper:hover .tooltip {
 		opacity: 1;
 		visibility: initial;
-        margin-top: -8px;
+		margin-top: -8px;
 	}
 </style>

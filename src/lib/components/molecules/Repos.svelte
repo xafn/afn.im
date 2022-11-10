@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-
+	
+	// wow an interface are you proud of me
 	interface Repo {
 		owner: string;
 		repo: string;
@@ -23,7 +24,7 @@
 </script>
 
 <div class="wrapper">
-	<div class="contain">
+	<div class="title">
 		<h2><span>code</span>:work</h2>
 	</div>
 	<div class="grid">
@@ -66,7 +67,7 @@
 </div>
 
 <style>
-	.contain {
+	.title {
 		display: flex;
 		justify-content: center;
 		margin-top: 0;

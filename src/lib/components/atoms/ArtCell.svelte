@@ -1,7 +1,6 @@
 <script>
 	import { fly } from 'svelte/transition';
 	import { cubicOut, quintOut } from 'svelte/easing';
-	import Tooltip from '../atoms/Tooltip.svelte';
 
 	export let type = '';
 	export let art = 'HeroImage';

@@ -23,11 +23,4 @@
 		justify-content: center;
 		margin-top: 0;
 	}
-
-	@media (max-width: 868px) {
-		.art-work {
-			display: block;
-            margin-bottom: 0.3rem;
-		}
-	}
 </style>

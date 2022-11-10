@@ -1,6 +1,8 @@
 <script lang="ts">
 	// look away
 	import { onMount } from 'svelte';
+	import Tooltip from "../atoms/Tooltip.svelte";
+
 	let activity = 'afn#0128',
 		details = 'Fetching...',
 		state = '',
@@ -167,9 +169,11 @@
 
 		<section>
 			{#if isSpotify}
-				<a href={songLink} target="_blank">
-					<h5>{activity}</h5>
-				</a>
+				<Tooltip tip="Open Spotify">
+					<a href={songLink} target="_blank">
+						<h5>{activity}</h5>
+					</a>
+				</Tooltip>
 			{:else}
 				<h5>{activity}</h5>
 			{/if}

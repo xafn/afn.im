@@ -1,13 +1,18 @@
 <script>
+	import Tooltip from "./Tooltip.svelte";
+
 	export let icon = 'Github';
 	export let link = '';
+	export let tip = '';
 </script>
 
-<div>
-	<a href={link} target="_blank">
-		<img src="icons/{icon}.svg" alt={icon} />
-	</a>
-</div>
+<Tooltip {tip}>
+	<div>
+		<a href={link} target="_blank">
+			<img src="icons/{icon}.svg" alt={icon} />
+		</a>
+	</div>
+</Tooltip>
 
 <style>
 	a {
@@ -28,8 +33,11 @@
 	}
 
 	div:hover > a {
-		transform: translateY(-1px);
-		background-color: var(--yellow-opacity);
+		background-color: var(--grey-one);
+	}
+
+	div:hover img {
+		opacity: 1;
 	}
 
 	div:active {

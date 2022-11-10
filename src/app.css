@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;500;600;700&display=swap");
+
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-one);
+    scroll-behavior: smooth;
+    scroll-margin-top: 6rem;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@media (max-width: 868px) {
+    * {
+        scroll-margin-top: 1rem;
+    }
+}
+
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+    letter-spacing: -0.05em;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+}
+
+html,
+body {
+    max-width: 100%;
+}
+
+.wrapper {
+    min-height: 0vw;
+    margin-inline: auto;
+    width: min(90%, 65rem) !important;
+}
+
+@media (max-width: 868px) {
+    .wrapper {
+        margin-bottom: 4.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        width: min(88%, 65rem) !important;
+    }
+}
+
+body.stop-transitions * {
+    transition: none !important;
+}
+
+:root {
+    --white: #eed1c7;
+    --white-two: hsl(0, 17%, 69%);
+    --yellow: #dba895;
+    --yellow-opacity: #dba8952a;
+    --bg-color: #120e0e;
+    --grey-one: #211c1c;
+    --grey-two: #211c1c75;
+    --grey-three: #1e1a1a;
+    --font-one: "Space Grotesk", sans-serif;
+    --font-two: "JetBrains Mono", monospace;
+    --bezier-one: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+::selection {
+    color: var(--white);
+    background: var(--yellow-opacity);
+}
+
+/*-----headings-----*/
+
+h1 {
+    color: var(--white);
+    font-weight: 600;
+    letter-spacing: -0.075em;
+    font-size: 7.5rem;
+    line-height: 0.05rem;
+    line-height: 101.6%;
+    font-size: 6.25rem;
+}
+
+h2 {
+    color: var(--white);
+    font-weight: 500;
+    font-size: 2.25rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    width: fit-content;
+    display: none;
+}
+
+h3 {
+    color: var(--yellow);
+    font-weight: 300;
+    font-size: 1.6rem;
+    font-family: var(--font-two);
+    letter-spacing: -0.075em;
+}
+h4 {
+    color: var(--white-two);
+    font-weight: 300;
+    font-size: 1.7rem;
+}
+
+h5 {
+    color: var(--white);
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+h6 {
+    color: var(--white-two);
+    font-size: 1.15rem;
+    font-family: var(--font-two);
+    font-weight: 300;
+    letter-spacing: -0.075em;
+}
+
+h7 {
+    color: var(--white-two);
+    font-size: 0.9rem;
+    font-family: var(--font-two);
+    font-weight: 300;
+    letter-spacing: -0.075em;
+}
+
+p {
+    color: var(--white-two);
+    font-weight: 300;
+    font-size: 1.1rem;
+    letter-spacing: -0rem;
+}
+
+@media (max-width: 868px) {
+    h2 {
+        display: block;
+        padding: 0;
+        background-color: transparent;
+        font-size: 1.75rem;
+        margin-bottom: 0.3rem;
+        display: inline-block;
+    }
+
+    h5 {
+        font-size: 1.2rem;
+    }
+    
+    h6 {
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+/*-----scrollbar-----*/
+
+::-webkit-scrollbar {
+    width: 11px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--grey-three);
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--grey-one);
+}
