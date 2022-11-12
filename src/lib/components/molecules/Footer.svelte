@@ -1,7 +1,6 @@
 <script>
 	import Socials from '$lib/components/molecules/Socials.svelte';
-	import Tooltip from "../atoms/Tooltip.svelte";
-
+	import Tooltip from '../atoms/Tooltip.svelte';
 </script>
 
 <hr />
@@ -9,7 +8,8 @@
 	<div>
 		<Socials />
 		<h7>
-			Made with pain. &#60;3 <Tooltip tip="you're here"><span>V2</span></Tooltip> <Tooltip tip="how to delete"><a href="https://v1.afn.lol/" target="_blank">V1</a></Tooltip>
+			Made with pain. &#60;3 <Tooltip tip="you're here"><span>V2</span></Tooltip>
+			<Tooltip tip="how to delete"><a href="https://v1.afn.lol/" target="_blank">V1</a></Tooltip>
 		</h7>
 	</div>
 </footer>

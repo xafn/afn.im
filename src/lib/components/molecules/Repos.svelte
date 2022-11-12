@@ -80,12 +80,12 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
-		transition: transform 0.3s var(--bezier-one);
+		transition: border-radius 0.3s var(--bezier-one);
 		justify-content: space-between;
 	}
 
 	.repo-card:hover {
-		transform: translateY(-1px);
+		border-radius: 20px;
 	}
 
 	a {
@@ -117,7 +117,7 @@
 		justify-content: center;
 		align-items: center;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+		grid-template-columns: 1fr 1fr;
 		margin-bottom: 5rem;
 	}
 
@@ -140,12 +140,18 @@
 	}
 
 	@media (max-width: 868px) {
-		.contain {
+		.title {
 			justify-content: left;
 		}
 
         .grid {
             margin-bottom: 2rem;
         }
+	}
+
+	@media (max-width: 600px) {
+		.grid {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>

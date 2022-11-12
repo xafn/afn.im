@@ -10,7 +10,8 @@
 </script>
 
 <div
-	class="card {type} {shrink}"
+	class="card {type}"
+	class:shrink={shrink}
 	style="background-image:url(art/{art}.webp)"
 	loading="eager"
 	tabindex="0"

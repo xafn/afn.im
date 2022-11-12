@@ -3,7 +3,7 @@
 	let y: number;
 </script>
 
-<nav class:scrolled={y > 100}>
+<nav class:scrolled={y > 20}>
 	<ul>
 		<Nav href="#home" section="home" isSelected={y < 350} />
 		<Nav href="#about" section="about" isSelected={y > 350 && y < 675} />

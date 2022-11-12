@@ -3,12 +3,10 @@
 
 	export let tip = '';
 	export let active = false;
-	
+
 	let loaded = false;
 	onMount(() => {
-		if (document.readyState === 'complete') {
-			loaded = true;
-		}
+		loaded = true;
 	});
 </script>
 
