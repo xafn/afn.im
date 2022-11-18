@@ -1,5 +1,6 @@
 # 🎨 Personal Portfolio
-![Mockup](https://user-images.githubusercontent.com/47723802/197931161-6db7b9b4-3c2e-42b4-a233-70388c4be69b.png)
+![mockup](https://user-images.githubusercontent.com/47723802/202820178-d45d9781-5f5c-44be-9655-9d9820262bd3.png)
+
 
 A simple site to showcase the art I've made over the years. Check it out at [afn.lol](https://afn.lol/).
 
