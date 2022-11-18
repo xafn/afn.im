@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-
 	let img: HTMLElement;
-
 
 	onMount(() => {
 		img!.addEventListener('mousemove', (e: any) => {
@@ -40,14 +38,10 @@
 		height: auto;
 		z-index: 11;
 		display: block;
-		transition: width 0.4s var(--bezier-one), transform 0.4s var(--bezier-one),
-			box-shadow 0.4s var(--bezier-one);
+		transition: width 0.4s var(--bezier-one), transform 0.4s var(--bezier-one);
 	}
 
 	div {
-		float: right;
-		user-select: none;
-		display: block;
 		z-index: 12;
 		animation: float 6s ease-in-out infinite;
 		animation-play-state: running;

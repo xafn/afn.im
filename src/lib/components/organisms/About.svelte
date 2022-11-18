@@ -16,7 +16,7 @@
 	}, 1000);
 </script>
 
-<section id="about">
+<section id="about" class="wrapper">
 	<div class="rich">
 		<RichPresence />
 	</div>
