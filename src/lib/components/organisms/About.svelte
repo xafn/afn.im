@@ -17,39 +17,31 @@
 </script>
 
 <section id="about">
-	<div>
-		<div class="rich">
-			<RichPresence />
-		</div>
-		<div class="text">
-			<h2>bio</h2>
-			<p>
-				Hello funny people in my screen :&#93; I'm a <Tooltip tip={age}
-					><span>{Math.floor(Number(age))}</span></Tooltip
-				> year old digital artist and graphic/UI designer based in Canada. I’ve taken art seriously since
-				<span>2017</span>, and have been doodling silly anime characters since <span>2020</span>.
-				Recently, however, I’ve grown a knack for programming. I like contributing to
-				<Tooltip tip="🤓"><a href="https://github.com/xafn" target="_blank"><span>open source</span></a></Tooltip> as a web developer,
-				which is probably the reason why you've ended up here. Currently struggling with Svelte and Typescript.
-			</p>
-		</div>
+	<div class="rich">
+		<RichPresence />
+	</div>
+	<div class="text">
+		<h2>bio</h2>
+		<p>
+			Hello funny people in my screen :&#93; I'm a <Tooltip tip={age}
+				><span>{Math.floor(Number(age))}</span></Tooltip
+			> year old digital artist and graphic/UI designer based in Canada. I’ve taken art seriously since
+			<span>2017</span>, and have been doodling silly anime characters since <span>2020</span>.
+			Recently, however, I’ve grown a knack for programming. I like contributing to
+			<Tooltip tip="🤓"
+				><a href="https://github.com/xafn" target="_blank"><span>open source</span></a></Tooltip
+			> as a web developer, which is probably the reason why you've ended up here. Currently struggling
+			with Svelte and Typescript.
+		</p>
 	</div>
 </section>
 
 <style>
 	section {
-		display: inline-block;
 		margin-bottom: 6rem;
-	}
-
-	section > div {
 		display: grid;
 		gap: 3.5rem;
 		grid-template-columns: 1fr 1fr;
-	}
-
-	.rich {
-		display: flex;
 		align-items: center;
 	}
 
@@ -94,13 +86,10 @@
 	}
 
 	@media (max-width: 868px) {
-		section > div {
+		section {
 			display: flex;
 			flex-direction: column;
-		}
-
-		section {
-			margin-bottom: -2rem;
+			align-items: normal;
 		}
 
 		h2 {

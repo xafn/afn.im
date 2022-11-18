@@ -10,8 +10,12 @@
 	<Hero />
 	<About />
 </div>
+
 <Work />
-<Repos/>
+
+<div class="wrapper">
+	<Repos />
+</div>
 
 <Footer />
 

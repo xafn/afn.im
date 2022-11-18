@@ -96,6 +96,7 @@ h2 {
     border-radius: 12px;
     margin-bottom: 1rem;
     width: fit-content;
+    text-align: left;
     display: none;
 }
 
@@ -139,6 +140,7 @@ p {
     font-weight: 300;
     font-size: 1.1rem;
     letter-spacing: -0rem;
+    line-height: 1.75rem;
 }
 
 @media (max-width: 868px) {

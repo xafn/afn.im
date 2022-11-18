@@ -1,7 +1,7 @@
 <script lang="ts">
 	// look away
 	import { onMount } from 'svelte';
-	import Tooltip from "../atoms/Tooltip.svelte";
+	import Tooltip from '../atoms/Tooltip.svelte';
 
 	let activity = 'afn#0128',
 		details = 'Fetching...',
@@ -159,43 +159,40 @@
 	});
 </script>
 
+<h2>activity</h2>
 <div class="contain">
-	<h2>activity</h2>
+	<img src={activityImage} alt={activity} class="big" class:spin={isSpotify} />
+	{#if smallImage}
+		<img src={smallImage} alt={activity} class="small" />
+	{/if}
+
 	<div>
-		<img src={activityImage} alt={activity} class="big" class:spin={isSpotify} />
-		{#if smallImage}
-			<img src={smallImage} alt={activity} class="small" />
+		{#if isSpotify}
+			<Tooltip tip="Open Spotify">
+				<a href={songLink} target="_blank">
+					<h5>{activity}</h5>
+				</a>
+			</Tooltip>
+		{:else}
+			<h5>{activity}</h5>
 		{/if}
 
-		<section>
-			{#if isSpotify}
-				<Tooltip tip="Open Spotify">
-					<a href={songLink} target="_blank">
-						<h5>{activity}</h5>
-					</a>
-				</Tooltip>
-			{:else}
-				<h5>{activity}</h5>
-			{/if}
+		<h6>{details || ''}</h6>
+		<h6>{state || ''}</h6>
 
-			<h6>{details || ''}</h6>
-			<h6>{state || ''}</h6>
-
-			{#if isSpotify}
-				<progress max="100" value={progress} />
-			{:else if isActivity}
-				<h6>{elapsed}</h6>
-			{/if}
-		</section>
+		{#if isSpotify}
+			<progress max="100" value={progress} />
+		{:else if isActivity}
+			<h6>{elapsed}</h6>
+		{/if}
 	</div>
 </div>
 
 <style>
 	.contain {
 		display: flex;
-		justify-content: left;
-		align-content: left;
-		flex-direction: column;
+		gap: 2.25rem;
+		align-items: center;
 	}
 
 	a,
@@ -207,12 +204,6 @@
 
 	a:hover {
 		text-decoration-color: var(--white);
-	}
-
-	div > div {
-		display: flex;
-		gap: 2.25rem;
-		align-items: center;
 	}
 
 	.big {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	
+
 	// wow an interface are you proud of me
 	interface Repo {
 		owner: string;
@@ -23,47 +23,44 @@
 	});
 </script>
 
-<div class="wrapper">
-	<div class="title">
-		<h2><span>code</span>:work</h2>
-	</div>
-	<div class="grid">
-		{#if repos}
-			{#each repos as repo}
-				<a href={repo.link} target="_blank">
-					<div class="repo-card">
-						<div>
-							<h5>{repo.repo}</h5>
-							<h7>{repo.description}</h7>
-							<br />
+<div class="title">
+	<h2><span>code</span>:work</h2>
+</div>
+<div class="grid">
+	{#if repos}
+		{#each repos as repo}
+			<a href={repo.link} target="_blank">
+				<div class="repo-card">
+					<div>
+						<h5>{repo.repo}</h5>
+						<h7>{repo.description}</h7>
+						<br />
+					</div>
+					<div class="info-container">
+						<div class="info">
+							<span class="dot" style="background-color: {repo.languageColor}" />
+							<h7>{repo.language}</h7>
 						</div>
-						<div class="info-container">
-							<div class="info">
-								<span class="dot" style="background-color: {repo.languageColor}" />
-								<h7>{repo.language}</h7>
-							</div>
-							<div class="info">
-								{#if repo.stars}
-									<img src="icons/star.svg" id="star" alt="star" />
-									<h7>{repo.stars}</h7>
-								{/if}
-							</div>
-							<div class="info">
-								{#if repo.forks}
-									<img src="icons/fork.svg" alt="fork" />
-									<h7>{repo.forks}</h7>
-								{/if}
-							</div>
+						<div class="info">
+							{#if repo.stars}
+								<img src="icons/star.svg" id="star" alt="star" />
+								<h7>{repo.stars}</h7>
+							{/if}
+						</div>
+						<div class="info">
+							{#if repo.forks}
+								<img src="icons/fork.svg" alt="fork" />
+								<h7>{repo.forks}</h7>
+							{/if}
 						</div>
 					</div>
-				</a>
-			{/each}
-		{:else}
-                <div class="repo-card"></div>
-                <div class="repo-card"></div>
-        {/if}
-
-	</div>
+				</div>
+			</a>
+		{/each}
+	{:else}
+		<div class="repo-card" />
+		<div class="repo-card" />
+	{/if}
 </div>
 
 <style>
@@ -144,9 +141,9 @@
 			justify-content: left;
 		}
 
-        .grid {
-            margin-bottom: 2rem;
-        }
+		.grid {
+			margin-bottom: 2rem;
+		}
 	}
 
 	@media (max-width: 600px) {
