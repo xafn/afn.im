@@ -18,7 +18,7 @@
 		scroll-margin-top: 20rem;
 		display: flex;
 		justify-content: space-between;
-		padding-bottom: 5.75rem;
+		margin-bottom: 5.75rem;
 
 	}
 	h4 {
@@ -34,7 +34,7 @@
 
 	@media screen and (max-width: 768px) {
 		section {
-			padding-bottom: 2.75rem;
+			margin-bottom: 2.75rem;
 		}
 	}
 

@@ -5,30 +5,21 @@
 
 <hr />
 <footer class="wrapper">
-	<div>
 		<Socials />
 		<h7>
 			Made with pain. &#60;3 <Tooltip tip="you're here"><span>V2</span></Tooltip>
 			<Tooltip tip="how to delete"><a href="https://v1.afn.lol/" target="_blank">V1</a></Tooltip>
 		</h7>
-	</div>
 </footer>
 
 <style>
 	footer {
 		padding-bottom: 2.4rem;
 		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-	}
-
-	div {
-		width: 98%;
-		display: flex;
 		justify-content: space-between;
 		align-items: center;
 	}
+
 
 	hr {
 		background-color: var(--grey-one);
@@ -77,7 +68,7 @@
 			margin-bottom: 1.5rem;
 		}
 
-		div {
+		footer {
 			flex-direction: column;
 		}
 	}
