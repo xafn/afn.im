@@ -98,8 +98,8 @@
 	}
 
 	img {
-		height: auto;
-		width: 16px;
+		height: 14px;
+		width: auto;
 	}
 
 	h2 {
@@ -112,6 +112,7 @@
 
 	#pfp {
 		border-radius: 50%;
+		height: 16px;
 	}
 
 	span {
@@ -129,8 +130,8 @@
 	}
 
 	.dot {
-		height: 10px;
-		width: 10px;
+		height: 11px;
+		width: 11px;
 		border-radius: 50%;
 		display: inline-block;
 	}
@@ -143,7 +144,7 @@
 
 	.info-container {
 		display: flex;
-		gap: 0.75rem;
+		gap: 0.9rem;
 	}
 
 	@media (max-width: 868px) {
