@@ -29,29 +29,29 @@
 	</div>
 	<div class="grid">
 		{#if repos}
-			{#each repos as repo}
-				<a href={repo.link} target="_blank">
+			{#each repos as { link, repo, description, languageColor, language, stars, forks }}
+				<a href={link} target="_blank" rel="noreferrer">
 					<div class="repo-card">
 						<div>
-							<h5>{repo.repo}</h5>
-							<h7>{repo.description}</h7>
+							<h5>{repo}</h5>
+							<h7>{description}</h7>
 							<br />
 						</div>
 						<div class="info-container">
 							<div class="info">
-								<span class="dot" style="background-color: {repo.languageColor}" />
-								<h7>{repo.language}</h7>
+								<span class="dot" style="background-color: {languageColor}" />
+								<h7>{language}</h7>
 							</div>
 							<div class="info">
-								{#if repo.stars}
+								{#if stars}
 									<img src="icons/star.svg" id="star" alt="star" />
-									<h7>{repo.stars}</h7>
+									<h7>{stars}</h7>
 								{/if}
 							</div>
 							<div class="info">
-								{#if repo.forks}
+								{#if forks}
 									<img src="icons/fork.svg" alt="fork" />
-									<h7>{repo.forks}</h7>
+									<h7>{forks}</h7>
 								{/if}
 							</div>
 						</div>
@@ -75,16 +75,16 @@
 		padding: 1rem 1.25rem;
 		background-color: var(--grey-two);
 		border-radius: 8px;
-		min-height: 100px;
+		min-height: 110px;
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
-		transition: border-radius 0.3s var(--bezier-one);
+		transition: transform 0.3s var(--bezier-one);
 		justify-content: space-between;
 	}
 
 	.repo-card:hover {
-		border-radius: 20px;
+		transform: translateY(-2px);
 	}
 
 	a {
