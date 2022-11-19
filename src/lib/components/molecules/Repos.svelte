@@ -90,6 +90,10 @@
 		gap: 0.25rem;
 		transition: transform 0.3s var(--bezier-one);
 		justify-content: space-between;
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		background-blend-mode: overlay;
+
 	}
 
 	.repo-card:hover {
@@ -104,6 +108,7 @@
 		text-decoration: none;
 		color: var(--white);
 		height: 100%;
+		position: relative;
 	}
 
 
@@ -150,6 +155,22 @@
 		margin-bottom: 5rem;
 	}
 
+
+	a:last-child::before {
+		height: 300px;
+		font-size: 175px;
+		content: 'λ';
+		font-weight: 700;
+		z-index: -1;
+		user-select: none;
+		transform: translateY(-40%) translateX(575%);
+		-webkit-text-stroke: 2px var(--white);
+		color: transparent;
+		opacity: 0.25;
+		letter-spacing: -0.075em;
+		position: absolute;
+	}
+	
 	.dot {
 		height: 11px;
 		width: 11px;

@@ -58,6 +58,21 @@
 		user-select: none;
 	}
 
+	.card:nth-child(1)::before {
+		height: 300px;
+		font-size: 175px;
+		content: 'ℵℵ';
+		font-weight: 700;
+		z-index: -1;
+		user-select: none;
+		transform: translateY(-50%) translateX(-40%);
+		-webkit-text-stroke: 2px var(--white);
+		color: transparent;
+		opacity: 0.25;
+		letter-spacing: -0.075em;
+		position: absolute;
+	}
+
 	.card:hover {
 		transform: translateY(-1px);
 		box-shadow: 0 0 2rem #c0997f16;
