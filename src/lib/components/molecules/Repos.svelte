@@ -29,9 +29,13 @@
 	</div>
 	<div class="grid">
 		{#if repos}
-			{#each repos as { link, repo, description, languageColor, language, stars, forks }}
+			{#each repos as { link, owner, repo, description, languageColor, language, stars, forks }}
 				<a href={link} target="_blank" rel="noreferrer">
 					<div class="repo-card">
+						<div class="info">
+							<img src="https://github.com/{owner}.png" alt="{owner}'s profile picture" id="pfp" />
+							<h7>{owner}</h7>
+						</div>
 						<div>
 							<h5>{repo}</h5>
 							<h7>{description}</h7>
@@ -75,7 +79,7 @@
 		padding: 1rem 1.25rem;
 		background-color: var(--grey-two);
 		border-radius: 8px;
-		min-height: 110px;
+		min-height: 135px;
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
@@ -104,6 +108,10 @@
 
 	#star {
 		transform: translateY(-1px);
+	}
+
+	#pfp {
+		border-radius: 50%;
 	}
 
 	span {
