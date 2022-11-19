@@ -1,13 +1,11 @@
 <script>
 	import { page } from '$app/stores';
-	import { error } from '@sveltejs/kit';
-
 	$: status = $page.status;
 </script>
 
 <div class="wrapper">
     <h1>{status}</h1>
-    <h6>{$page.error.message}</h6>
+    <h4>{$page.error.message}</h4>
 </div>
 
 
@@ -17,5 +15,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
     }
 </style>
