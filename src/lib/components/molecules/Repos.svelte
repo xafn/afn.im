@@ -32,9 +32,14 @@
 			{#each repos as { link, owner, repo, description, languageColor, language, stars, forks }}
 				<a href={link} target="_blank" rel="noreferrer">
 					<div class="repo-card">
-						<div class="info">
-							<img src="https://github.com/{owner}.png" alt="{owner}'s profile picture" id="pfp" />
-							<h7>{owner}</h7>
+						<div id="top-part">
+							<div class="info">
+								<img src="https://github.com/{owner}.png" alt="{owner}'s profile picture" id="pfp" />
+								<h7>{owner}</h7>
+							</div>
+							<div>
+								<img src="icons/open.svg" alt="open in new tab" id="open"/>
+							</div>
 						</div>
 						<div>
 							<h5>{repo}</h5>
@@ -91,11 +96,16 @@
 		transform: translateY(-2px);
 	}
 
+	.repo-card:hover #open {
+		filter: brightness(1.3);
+	}
+
 	a {
 		text-decoration: none;
 		color: var(--white);
 		height: 100%;
 	}
+
 
 	img {
 		height: 14px;
@@ -113,6 +123,17 @@
 	#pfp {
 		border-radius: 50%;
 		height: 16px;
+	}
+
+	#top-part {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	#open {
+		height: 20px;
+		transition: filter 0.3s var(--bezier-one);
+
 	}
 
 	span {
