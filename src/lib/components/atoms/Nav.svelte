@@ -3,18 +3,21 @@
 	export let section = 'home';
 	export let isSelected: boolean;
 
-	function handleClick() {
+	import { page } from '$app/stores';
+	let currentPage = $page.url.pathname;
+
+	async function handleClick() {
+		if (currentPage !== '/') {
+			window.location.href = '/';
+		}
+		
 		const el = document.querySelector(href);
 		if (!el) return;
 		el.scrollIntoView(true);
 	}
 </script>
 
-<li
-	class:selected={isSelected}
-	oncontextmenu="return false;"
-	on:click={handleClick}
->
+<li class:selected={isSelected} oncontextmenu="return false;" on:click={handleClick}>
 	<div class="icon-container">
 		<img src="icons/{section}.svg" alt={section} />
 	</div>

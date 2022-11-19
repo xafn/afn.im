@@ -18,7 +18,7 @@
 	let repos: Repo[];
 
 	onMount(async () => {
-		const response = await fetch('https://gh-pinned-repos.egoist.dev/?username=xafn');
+		const response = await fetch('https://gh-pinned.nxl.sh/api/user/xafn');
 		repos = await response.json();
 	});
 </script>
