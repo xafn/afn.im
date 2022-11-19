@@ -3,8 +3,6 @@
 	import { onMount } from 'svelte';
 	import '../app.css';
 
-	export const prerender = true;
-
 	onMount(() => {
 		const classes = document.querySelector('body')?.classList;
 
