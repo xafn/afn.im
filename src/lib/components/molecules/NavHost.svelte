@@ -23,7 +23,7 @@
 		top: 0;
 		padding: 1.25rem 0;
 		z-index: 999;
-		background-color: #120e0fbb;
+		background-color: #181414bb;
 		backdrop-filter: blur(15px);
 		-webkit-backdrop-filter: blur(15px);
 		background-blend-mode: overlay;
