@@ -6,7 +6,17 @@
 	export let art = 'HeroImage';
 	export let shrink = '';
 
+	import { onMount } from 'svelte';
+
 	let clicked = false;
+
+	onMount(() => {
+		document.addEventListener('keydown', function (event) {
+			if (event.key === 'Escape') {
+				clicked = false
+			}
+		});
+	});
 </script>
 
 <div
@@ -76,7 +86,9 @@
 	.card:hover {
 		transform: translateY(-1px);
 		box-shadow: 0 0 2rem #c0997f16;
+		box-shadow: 0px 15px 25px -10px rgba(0,0,0,0.25);
 	}
+
 
 	.tall {
 		grid-row: span 2 / auto;
@@ -104,7 +116,7 @@
 		transform: translateY(-50%);
 		height: 200vh;
 		width: 100vw;
-		z-index: 1000;
+		z-index: 9999999;
 		cursor: pointer;
 		user-select: none;
 		background-color: #0a0808bb;

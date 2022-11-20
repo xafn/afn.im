@@ -29,7 +29,7 @@
 		position: fixed;
 		top: 0;
 		padding: 1.25rem 0;
-		z-index: 99;
+		z-index: 9999;
 		background-color: var(--bg-color);
 		backdrop-filter: blur(15px);
 		-webkit-backdrop-filter: blur(15px);
@@ -54,6 +54,7 @@
 			margin-top: 0.5rem;
 			width: 42rem;
 			background-color: #1c1818cf;
+			box-shadow: 0px 15px 45px -10px rgba(0,0,0,0.75);
 		}
 	}
 

@@ -88,7 +88,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
-		transition: transform 0.3s var(--bezier-one);
+		transition: transform 0.3s var(--bezier-one), box-shadow 0.3s var(--bezier-one);;
 		justify-content: space-between;
 		backdrop-filter: blur(5px);
 		-webkit-backdrop-filter: blur(5px);
@@ -98,6 +98,7 @@
 
 	.repo-card:hover {
 		transform: translateY(-2px);
+		box-shadow: 0px 15px 25px -10px rgba(0,0,0,0.25);
 	}
 
 	.repo-card:hover #open {
