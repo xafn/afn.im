@@ -169,7 +169,7 @@
 	<div>
 		{#if isSpotify}
 			<Tooltip tip="Open Spotify">
-				<a href={songLink} target="_blank">
+				<a href={songLink} target="_blank" rel="noreferrer">
 					<h5>{activity}</h5>
 				</a>
 			</Tooltip>

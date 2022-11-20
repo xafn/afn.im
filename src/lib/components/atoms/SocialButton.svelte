@@ -1,5 +1,5 @@
 <script>
-	import Tooltip from "./Tooltip.svelte";
+	import Tooltip from './Tooltip.svelte';
 
 	export let icon = 'Github';
 	export let link = '';
@@ -8,7 +8,7 @@
 
 <Tooltip {tip}>
 	<div>
-		<a href={link} target="_blank">
+		<a href={link} target="_blank" rel="noreferrer">
 			<img src="icons/{icon}.svg" alt={icon} />
 		</a>
 	</div>

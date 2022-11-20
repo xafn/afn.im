@@ -5,7 +5,7 @@
 
 <div class="wrapper">
     <h1>{status}</h1>
-    <h4>{$page.error.message}</h4>
+    <h4>{$page.error?.message}</h4>
 </div>
 
 

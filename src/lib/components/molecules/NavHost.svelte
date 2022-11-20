@@ -43,9 +43,9 @@
 		justify-content: center;
 	}
 
-	@media (min-width: 869px) {
+	@media (min-width: 868px) {
 		nav {
-			width: 48rem;
+			width: 50rem;
 			border-radius: 12px;
 		}
 		.scrolled {
@@ -53,8 +53,8 @@
 			padding: 0.5rem 0;
 			margin-top: 0.5rem;
 			width: 42rem;
-			background-color: #1c1818cf;
-			box-shadow: 0px 15px 45px -10px rgba(0,0,0,0.75);
+			background-color: #141010ca;
+			box-shadow: 0px 15px 8px -10px rgba(0,0,0,0.4);
 		}
 	}
 

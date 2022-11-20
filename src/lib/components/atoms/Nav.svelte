@@ -10,33 +10,30 @@
 		if (currentPage !== '/') {
 			window.location.href = '/';
 		}
-		
+
 		const el = document.querySelector(href);
 		if (!el) return;
 		el.scrollIntoView(true);
 	}
 </script>
 
-<li class:selected={isSelected} oncontextmenu="return false;" on:click={handleClick}>
+<!-- SHUT UP -->
+<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+<li
+	class:selected={isSelected}
+	tabindex="0"
+	on:click={handleClick}
+	on:keypress={handleClick}
+>
 	<div class="icon-container">
 		<img src="icons/{section}.svg" alt={section} />
 	</div>
-	<h6 class="text">
+	<h6>
 		{section}
 	</h6>
 </li>
 
 <style>
-	.text {
-		text-align: center;
-		list-style: none;
-		position: relative;
-		align-items: center;
-		border: var(--grey-six);
-		font-family: var(--font-two);
-		transition: all 0.3s var(--bezier-one);
-	}
-
 	li {
 		color: var(--white-two);
 		text-decoration: none;
@@ -52,23 +49,18 @@
 	}
 
 	li:hover {
-		background-color: var(--grey-two);
+		background-color: var(--grey-four);
 	}
 
-	li:hover > .text {
-		color: var(--white);
+	h6 {
+		transition: all 0.3s var(--bezier-one);
 	}
 
-	.selected {
-		color: var(--white);
-	}
-
-	.selected img {
-		opacity: 1;
-	}
-
+	li:hover > h6,
+	.selected img,
 	.selected h6 {
 		color: var(--white);
+		opacity: 1;
 	}
 
 	img {
@@ -79,6 +71,10 @@
 		height: 24px;
 		width: 24px;
 		transition: all 0.5s var(--bezier-one);
+	}
+
+	h6 {
+		opacity: 0.6;
 	}
 
 	li:active img,
@@ -93,7 +89,7 @@
 			transition-delay: 0.3s;
 		}
 
-		.text {
+		h6 {
 			transition-delay: 0.5s;
 		}
 

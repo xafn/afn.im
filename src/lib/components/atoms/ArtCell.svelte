@@ -13,15 +13,17 @@
 	onMount(() => {
 		document.addEventListener('keydown', function (event) {
 			if (event.key === 'Escape') {
-				clicked = false
+				clicked = false;
 			}
 		});
 	});
 </script>
 
+<!-- shut up im right -->
+<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <div
 	class="card {type}"
-	class:shrink={shrink}
+	class:shrink
 	style="background-image:url(art/{art}.webp)"
 	loading="eager"
 	tabindex="0"
@@ -38,6 +40,7 @@
 </svelte:head>
 
 {#if clicked === true}
+	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 	<div
 		class="img-contain"
 		tabindex="0"
@@ -86,9 +89,8 @@
 	.card:hover {
 		transform: translateY(-1px);
 		box-shadow: 0 0 2rem #c0997f16;
-		box-shadow: 0px 15px 25px -10px rgba(0,0,0,0.25);
+		box-shadow: 0px 15px 25px -10px rgba(0, 0, 0, 0.25);
 	}
-
 
 	.tall {
 		grid-row: span 2 / auto;
