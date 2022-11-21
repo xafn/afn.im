@@ -3,9 +3,12 @@
 	import { onMount } from 'svelte';
 	import '../app.css';
 
+	let loading = true;
+	
 	onMount(() => {
-		const classes = document.querySelector('body')?.classList;
+		loading = false;
 
+		const classes = document.querySelector('body')?.classList;
 		const stopResizeAnimation = () => {
 			let timer: any = 0;
 			window.addEventListener('resize', function () {
@@ -40,5 +43,13 @@
 	<title>afn</title>
 </svelte:head>
 
-<NavHost />
-<slot />
+<span class:loading>
+	<NavHost />
+	<slot />
+</span>
+
+<style>
+	.loading * {
+		transition: none;
+	}
+</style>
