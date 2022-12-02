@@ -29,7 +29,7 @@
 			<span>2017</span>, and have been doodling silly anime characters since <span>2020</span>.
 			Recently, however, I’ve grown a knack for programming. I like contributing to
 			<Tooltip tip="🤓"
-				><a href="https://github.com/xafn" target="_blank"><span>open source</span></a></Tooltip
+				><a href="https://github.com/xafn" target="_blank" rel="noreferrer"><span>open source</span></a></Tooltip
 			> as a web developer, which is probably the reason why you've ended up here. Currently struggling
 			with Svelte and Typescript.
 		</p>
