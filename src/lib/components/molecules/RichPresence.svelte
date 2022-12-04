@@ -233,21 +233,27 @@
 		border-radius: 10rem;
 		margin: 0;
 		margin-top: 0.6rem;
-		background-color: var(--grey-one);
 		height: 0.6rem;
+		background-color: var(--grey-one);
 	}
 
 	progress::-webkit-progress-bar {
 		background-color: var(--grey-one);
+		border-radius: 10rem;
 		transform: translateY(0.2rem);
 		height: 0.6rem;
 	}
 
-	progress[value]::-webkit-progress-value,
+	progress[value]::-webkit-progress-value {
+		background-color: var(--yellow);
+		border-radius: 10rem;
+	}
+
 	progress[value]::-moz-progress-bar {
 		background-color: var(--yellow);
 		border-radius: 10rem;
 	}
+
 	@keyframes rotate {
 		0% {
 			transform: rotate(0deg);
