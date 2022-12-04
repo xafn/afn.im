@@ -2,12 +2,12 @@
 	import ArtGrid from '$lib/components/molecules/ArtGrid.svelte';
 </script>
 
-<div>
-	<div class="art-work wrapper" id="aw">
+<section>
+	<div class="wrapper" id="aw">
 		<h2><span>art</span>:work</h2>
 	</div>
 	<ArtGrid />
-</div>
+</section>
 
 <style>
 	span {
@@ -18,14 +18,14 @@
 		display: inline-block;
 	}
 
-	.art-work {
+	div {
 		display: flex;
 		justify-content: center;
 		margin-top: 0;
 	}
 
 	@media (max-width: 868px) {
-		.art-work {
+		div {
 			justify-content: left;
             margin-bottom: 0.3rem;
 		}
