@@ -1,22 +1,30 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	let img: HTMLElement;
+	let zoom: boolean;
+	let xRotation: number;
+	let yRotation: number;
 
-	onMount(() => {
-		img!.addEventListener('mousemove', (e: any) => {
-			const yRotation = 13 * ((e.layerX - img!.clientHeight / 2) / img!.clientWidth);
-			const xRotation = -13 * ((e.layerY - img!.clientWidth / 2) / img!.clientHeight);
-			img!.style.transform = `perspective(500px) scale(1.05) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
-		});
+	const enterRotate3D = (e: MouseEvent) => {
+		zoom = true;
+		let img = e.target as HTMLImageElement;
+		yRotation = 13 * ((e.offsetX - img.clientHeight / 2) / img.clientWidth);
+		xRotation = -13 * ((e.offsetY - img.clientWidth / 2) / img.clientHeight);
+	};
 
-		img!.addEventListener('mouseout', () => {
-			img!.style.transform = 'perspective(500px) scale(1) rotateX(0) rotateY(0)';
-		});
-	});
+	const leaveRotate3D = () => {
+		zoom = false;
+		yRotation = 0;
+		xRotation = 0;
+	};
 </script>
 
 <div>
-	<img src="HeroImage.webp" alt="A drawing of me." bind:this={img} />
+	<img
+		src="HeroImage.webp"
+		alt="A drawing of me"
+		on:mousemove={enterRotate3D}
+		on:mouseleave={leaveRotate3D}
+		style:transform="perspective(500px) {zoom ? 'scale(1.05)' : ''} rotateX({xRotation}deg) rotateY({yRotation}deg)"
+	/>
 </div>
 
 <style>

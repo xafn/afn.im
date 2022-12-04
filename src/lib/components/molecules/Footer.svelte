@@ -5,11 +5,13 @@
 
 <hr />
 <footer class="wrapper">
-		<Socials />
-		<h7>
-			Made with pain. &#60;3 <Tooltip tip="you're here"><span>V2</span></Tooltip>
-			<Tooltip tip="how to delete"><a href="https://v1.afn.lol/" target="_blank">V1</a></Tooltip>
-		</h7>
+	<Socials />
+	<h7>
+		Made with pain. &#60;3 <Tooltip tip="you're here"><span>V2</span></Tooltip>
+		<Tooltip tip="how to delete"
+			><a href="https://v1.afn.lol/" target="_blank" rel="noreferrer">V1</a></Tooltip
+		>
+	</h7>
 </footer>
 
 <style>
@@ -19,7 +21,6 @@
 		justify-content: space-between;
 		align-items: center;
 	}
-
 
 	hr {
 		background-color: var(--grey-one);

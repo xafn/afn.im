@@ -54,7 +54,7 @@
 			margin-top: 0.5rem;
 			width: 42rem;
 			background-color: #141010ca;
-			box-shadow: 0px 15px 8px -10px rgba(0,0,0,0.4);
+			box-shadow: 0px 15px 8px -10px rgba(0, 0, 0, 0.4);
 		}
 	}
 

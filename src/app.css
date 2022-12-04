@@ -1,5 +1,5 @@
 /* very cool 
-https://google-webfonts-helper.herokuapp.com/ */
+https://google-web../fonts-helper.herokuapp.com/ */
 
 /* space-grotesk-300 - latin */
 @font-face {
@@ -7,8 +7,8 @@ https://google-webfonts-helper.herokuapp.com/ */
   font-style: normal;
   font-weight: 300;
   src: local(''),
-       url('fonts/space-grotesk-v13-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('fonts/space-grotesk-v13-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('../fonts/space-grotesk-v13-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/space-grotesk-v13-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* space-grotesk-regular - latin */
 @font-face {
@@ -16,8 +16,8 @@ https://google-webfonts-helper.herokuapp.com/ */
   font-style: normal;
   font-weight: 400;
   src: local(''),
-       url('fonts/space-grotesk-v13-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('fonts/space-grotesk-v13-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('../fonts/space-grotesk-v13-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/space-grotesk-v13-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* space-grotesk-500 - latin */
 @font-face {
@@ -25,8 +25,8 @@ https://google-webfonts-helper.herokuapp.com/ */
   font-style: normal;
   font-weight: 500;
   src: local(''),
-       url('fonts/space-grotesk-v13-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('fonts/space-grotesk-v13-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('../fonts/space-grotesk-v13-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/space-grotesk-v13-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* space-grotesk-600 - latin */
 @font-face {
@@ -34,8 +34,8 @@ https://google-webfonts-helper.herokuapp.com/ */
   font-style: normal;
   font-weight: 600;
   src: local(''),
-       url('fonts/space-grotesk-v13-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('fonts/space-grotesk-v13-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('../fonts/space-grotesk-v13-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/space-grotesk-v13-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* space-grotesk-700 - latin */
 @font-face {
@@ -43,8 +43,8 @@ https://google-webfonts-helper.herokuapp.com/ */
   font-style: normal;
   font-weight: 700;
   src: local(''),
-       url('fonts/space-grotesk-v13-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('fonts/space-grotesk-v13-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('../fonts/space-grotesk-v13-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/space-grotesk-v13-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* jetbrains-mono-300 - latin */
@@ -53,8 +53,8 @@ https://google-webfonts-helper.herokuapp.com/ */
     font-style: normal;
     font-weight: 300;
     src: local(''),
-         url('fonts/jetbrains-mono-v13-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('fonts/jetbrains-mono-v13-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+         url('../fonts/jetbrains-mono-v13-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/jetbrains-mono-v13-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
   /* jetbrains-mono-regular - latin */
   @font-face {
@@ -62,8 +62,8 @@ https://google-webfonts-helper.herokuapp.com/ */
     font-style: normal;
     font-weight: 400;
     src: local(''),
-         url('fonts/jetbrains-mono-v13-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('fonts/jetbrains-mono-v13-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+         url('../fonts/jetbrains-mono-v13-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/jetbrains-mono-v13-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
   /* jetbrains-mono-500 - latin */
   @font-face {
@@ -71,8 +71,8 @@ https://google-webfonts-helper.herokuapp.com/ */
     font-style: normal;
     font-weight: 500;
     src: local(''),
-         url('fonts/jetbrains-mono-v13-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('fonts/jetbrains-mono-v13-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+         url('../fonts/jetbrains-mono-v13-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/jetbrains-mono-v13-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
   /* jetbrains-mono-600 - latin */
   @font-face {
@@ -80,8 +80,8 @@ https://google-webfonts-helper.herokuapp.com/ */
     font-style: normal;
     font-weight: 600;
     src: local(''),
-         url('fonts/jetbrains-mono-v13-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('fonts/jetbrains-mono-v13-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+         url('../fonts/jetbrains-mono-v13-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/jetbrains-mono-v13-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
 
 * {
