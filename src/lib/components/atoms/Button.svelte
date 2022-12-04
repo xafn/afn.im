@@ -1,92 +1,70 @@
 <script>
-	function handleClick() {
-		const el = document.querySelector('#aw');
-		if (!el) return;
-		el.scrollIntoView(true);
-	}
+	export let side = false;
 </script>
 
-<div>
-	<button on:click={handleClick}>
-		<div class="rect" />
-		<span class="side" />
-		<h3>
-			<slot />
-		</h3>
-	</button>
+<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+<div class="button" on:click on:keypress tabindex="0" class:button-with-side={side}>
+	<div class:side />
+	<slot />
 </div>
 
 <style>
-	div {
-		transition: 0.5s var(--bezier-one);
-	}
-
-	.rect {
-		position: absolute;
-		background-color: var(--yellow);
-		width: 1.6rem;
-		height: 100%;
-		border-top-left-radius: 16px;
-		border-bottom-left-radius: 16px;
-		top: 0;
-		left: 0;
-		transition: 0.3s var(--bezier-one);
-		z-index: 0;
-	}
-
-	button {
-		position: absolute;
+	.button {
 		border-radius: 16px;
 		border: none;
-		padding: 1rem 2rem 1rem 3rem;
+		display: flex;
+		position: relative;
+		flex-direction: row;
+		width: max-content;
 		cursor: pointer;
 		background-color: var(--grey-one);
 		transition: padding 0.3s var(--bezier-one), transform 0.5s var(--bezier-one);
 		user-select: none;
 		margin: 0;
+		padding: 1rem 2rem;
 	}
 
-	h3 {
-		transition: 0.3s ease-out;
-		z-index: 88;
+	.button-with-side {
+		padding: 1rem 2rem 1rem 3rem;
 	}
 
-	button:hover {
-		padding: 1.5rem 2.5rem 1.5rem 3.5rem;
+	.side {
+		position: absolute;
+		border-radius: 16px 0 0 16px;
+		top: 0;
+		left: 0;
+		content: '';
+		height: 100%;
+		width: 1.6rem;
+		background-color: var(--yellow);
 	}
 
-	div:active {
+	.button:active{
 		transform: scale(95%);
 	}
 
-	@media screen and (max-width: 1240px) {
-		h3 {
-			min-height: 0vw;
-			font-size: clamp(1.1rem, 2vw, 1.9rem);
-		}
+	.button:hover {
+		padding: 1.5rem 2.5rem;
 	}
 
-	@media screen and (max-width: 768px) {
-		button {
-			position: inherit;
-			padding: 0.9rem 2rem 0.9rem 2rem;
-			border-radius: 12px;
+	.button-with-side:hover {
+		padding: 1.5rem 2.5rem 1.5rem 3.5rem;
+	}
+
+	@media screen and (max-width: 868px) {
+		.button {
+			text-align: center;
+			justify-content: center;
+			padding: 1rem 2rem;
 			width: 100%;
 		}
 
-		button:hover {
-			padding: 0.9rem 2rem 0.9rem 2rem;
+		.button:hover {
+			padding: 1rem 2rem;
 		}
-		.rect {
-			display: none;
-			border-top-left-radius: 17px;
-			border-bottom-left-radius: 17px;
-		}
-	}
 
-	@media (hover: none) {
-		button:hover {
-			padding: 1rem 2rem 1rem 3rem;
+		.side {
+			display: none;
 		}
 	}
 </style>

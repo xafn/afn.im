@@ -4,14 +4,14 @@
 
 <div class="grid-container">
 	<div class="grid">
-		<ArtCell art="painted_red" type="tall" />
+		<ArtCell art="painted_red" tall={true} />
 		<ArtCell art="drowning" />
-		<ArtCell art="BL1NG!" type="tall" />
+		<ArtCell art="BL1NG!" tall={true} />
 		<ArtCell art="811" />
-		<ArtCell art="diverge" type="tall" />
-		<ArtCell art="FADE" type="tall" />
-		<ArtCell art="chilly" type="tall" shrink="shrink" />
-		<ArtCell art="ribbons" type="tall" />
+		<ArtCell art="diverge" tall={true} />
+		<ArtCell art="FADE" tall={true} />
+		<ArtCell art="chilly" tall={true} shrink={true} />
+		<ArtCell art="ribbons" tall={true} />
 		<ArtCell art="asumi" />
 		<ArtCell art="doodle" />
 	</div>
@@ -29,6 +29,21 @@
 		width: min(90%, 75rem);
 	}
 
+	.grid:before {
+		height: 300px;
+		font-size: 175px;
+		content: '&&';
+		font-weight: 700;
+		z-index: -1;
+		user-select: none;
+		transform: translateY(-160%) translateX(-40%);
+		-webkit-text-stroke: 2px var(--white);
+		color: transparent;
+		opacity: 0.25;
+		letter-spacing: -0.075em;
+		position: absolute;
+	}
+
 	.grid-container {
 		display: flex;
 		justify-content: center;
@@ -40,6 +55,10 @@
 			width: min(100%, 75rem);
 			gap: 0.2rem;
 			grid-template-columns: 1fr 1fr 1fr;
+		}
+
+		.grid::before{
+			transform: translateY(-95%) translateX(-25%);
 		}
 	}
 

@@ -2,9 +2,9 @@
 	import { fly } from 'svelte/transition';
 	import { cubicOut, quintOut } from 'svelte/easing';
 
-	export let type = '';
+	export let tall = false;
+	export let shrink = false;
 	export let art = 'HeroImage';
-	export let shrink = '';
 
 	import { onMount } from 'svelte';
 
@@ -22,7 +22,8 @@
 <!-- shut up im right -->
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <div
-	class="card {type}"
+	class="card"
+	class:tall
 	class:shrink
 	style="background-image:url(art/{art}.webp)"
 	loading="eager"
@@ -71,24 +72,8 @@
 		user-select: none;
 	}
 
-	.card:nth-child(1)::before {
-		height: 300px;
-		font-size: 175px;
-		content: 'ℵℵ';
-		font-weight: 700;
-		z-index: -1;
-		user-select: none;
-		transform: translateY(-50%) translateX(-40%);
-		-webkit-text-stroke: 2px var(--white);
-		color: transparent;
-		opacity: 0.25;
-		letter-spacing: -0.075em;
-		position: absolute;
-	}
-
 	.card:hover {
 		transform: translateY(-1px);
-		box-shadow: 0 0 2rem #c0997f16;
 		box-shadow: 0px 15px 25px -10px rgba(0, 0, 0, 0.25);
 	}
 

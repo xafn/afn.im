@@ -84,7 +84,8 @@
 		padding: 1rem 1.25rem;
 		background-color: var(--grey-two);
 		border-radius: 8px;
-		min-height: 135px;
+		min-height: 140px;
+		height: 100%;
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
@@ -93,6 +94,7 @@
 		backdrop-filter: blur(5px);
 		-webkit-backdrop-filter: blur(5px);
 		background-blend-mode: overlay;
+
 
 	}
 
@@ -157,14 +159,14 @@
 	}
 
 
-	a:last-child::before {
+	.grid:before {
 		height: 300px;
 		font-size: 175px;
 		content: 'λ';
 		font-weight: 700;
 		z-index: -1;
 		user-select: none;
-		transform: translateY(-40%) translateX(575%);
+		transform: translateY(-20%) translateX(1175%);
 		-webkit-text-stroke: 2px var(--white);
 		color: transparent;
 		opacity: 0.25;

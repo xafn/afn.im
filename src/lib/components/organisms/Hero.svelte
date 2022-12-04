@@ -1,13 +1,21 @@
 <script>
 	import HeroImage from '$lib/components/atoms/HeroImage.svelte';
 	import Button from '../atoms/Button.svelte';
+
+	function handleClick() {
+		const el = document.querySelector('#aw');
+		if (!el) return;
+		el.scrollIntoView(true);
+	}
 </script>
 
 <section id="home" class="wrapper">
 	<div>
 		<h1>hey, <br /> i'm <span>affan;</span></h1>
 		<h4>Hobbyist illustrator and designer. <br />Attempting to program.</h4>
-		<Button>Discover my work ↓</Button>
+		<Button side={true} on:click={handleClick} on:keypress={handleClick}>
+			<h3>Discover my work ↓</h3>
+		</Button>
 	</div>
 	<HeroImage />
 </section>
@@ -63,10 +71,16 @@
 			font-size: clamp(2.5rem, 6vw, 4rem);
 		}
 
+		h3 {
+			min-height: 0vw;
+			font-size: clamp(1.1rem, 2vw, 1.9rem);
+		}
+
 		h4 {
 			min-height: 0vw;
 			font-size: clamp(1.4rem, 2.4vw, 1.7rem);
 		}
+		
 	}
 
 	@media screen and (max-width: 868px) {
@@ -79,18 +93,10 @@
 		section {
 			margin-bottom: 2.75rem;
 		}
-
-		h1 {
-			font-size: 6rem;
-		}
-
-		span {
-			font-size: 4rem;
-		}
 	}
 
 	@media screen and (max-width: 400px) {
-		br {
+		h4 br {
 			content: '&#160;';
 		}
 	}
