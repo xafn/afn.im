@@ -95,7 +95,6 @@
 		-webkit-backdrop-filter: blur(5px);
 		background-blend-mode: overlay;
 
-
 	}
 
 	.repo-card:hover {
@@ -111,7 +110,6 @@
 		text-decoration: none;
 		color: var(--white);
 		height: 100%;
-		position: relative;
 	}
 
 
@@ -156,6 +154,7 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		margin-bottom: 5rem;
+		position: relative;
 	}
 
 
