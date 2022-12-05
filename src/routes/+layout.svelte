@@ -1,12 +1,14 @@
 <script lang="ts">
-	import NavHost from '$lib/components/molecules/NavHost.svelte';
+	import NavHost from '../components/molecules/NavHost.svelte';
 	import { onMount } from 'svelte';
-	import '../app.css';
+	import '../styles/global.css';
 
 	let loading = true;
-	
+
 	onMount(() => {
-		loading = false;
+		if (document.readyState === 'complete') {
+			loading = false;
+		}
 
 		const classes = document.querySelector('body')?.classList;
 		const stopResizeAnimation = () => {

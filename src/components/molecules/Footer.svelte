@@ -1,16 +1,21 @@
 <script>
-	import Socials from '$lib/components/molecules/Socials.svelte';
+	import Social from '../atoms/Social.svelte';
 	import Tooltip from '../atoms/Tooltip.svelte';
 </script>
 
 <hr />
 <footer class="wrapper">
-	<Socials />
+	<div>
+		<Social icon="github" tip="@xafn" link="https://github.com/xafn" />
+		<Social icon="discord" tip="afn#0128" link="https://discord.com/users/420043923822608384"/>
+		<Social icon="email" tip="_@afn.lol" link="mailto:_@afn.lol" />
+		<Social icon="kofi" tip="@affan" link="https://ko-fi.com/affan" />
+	</div>
 	<h7>
 		Made with pain. &#60;3 <Tooltip tip="you're here"><span>V2</span></Tooltip>
-		<Tooltip tip="how to delete"
-			><a href="https://v1.afn.lol/" target="_blank" rel="noreferrer">V1</a></Tooltip
-		>
+		<Tooltip tip="how to delete">
+			<a href="https://v1.afn.lol/" target="_blank" rel="noreferrer">V1</a>
+		</Tooltip>
 	</h7>
 </footer>
 
@@ -20,6 +25,11 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+	}
+
+	div {
+		display: flex;
+		gap: 0.75rem;
 	}
 
 	hr {

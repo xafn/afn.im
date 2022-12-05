@@ -18,7 +18,7 @@
 		width: max-content;
 		cursor: pointer;
 		background-color: var(--grey-one);
-		transition: padding 0.3s var(--bezier-one), transform 0.5s var(--bezier-one);
+		transition: filter 0.2s var(--bezier-one), transform 0.5s var(--bezier-one);
 		user-select: none;
 		margin: 0;
 		padding: 1rem 2rem;
@@ -44,11 +44,7 @@
 	}
 
 	.button:hover {
-		padding: 1.5rem 2.5rem;
-	}
-
-	.button-with-side:hover {
-		padding: 1.5rem 2.5rem 1.5rem 3.5rem;
+		filter: brightness(110%);
 	}
 
 	@media screen and (max-width: 868px) {
@@ -57,10 +53,6 @@
 			justify-content: center;
 			padding: 1rem 2rem;
 			width: 100%;
-		}
-
-		.button:hover {
-			padding: 1rem 2rem;
 		}
 
 		.side {

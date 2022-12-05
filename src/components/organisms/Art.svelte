@@ -1,5 +1,5 @@
 <script>
-	import ArtGrid from '$lib/components/molecules/ArtGrid.svelte';
+	import ArtGrid from '../../components/molecules/ArtGrid.svelte';
 </script>
 
 <section>

@@ -44,7 +44,6 @@
 		padding: 0.15rem 0.5rem;
 		border-radius: 6px;
 		background-color: var(--yellow);
-
 		color: var(--grey-one);
 		font-size: 0.9rem;
 		font-family: var(--font-two);

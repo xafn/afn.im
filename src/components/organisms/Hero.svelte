@@ -1,5 +1,5 @@
 <script>
-	import HeroImage from '$lib/components/atoms/HeroImage.svelte';
+	import HeroImage from '../../components/atoms/HeroImage.svelte';
 	import Button from '../atoms/Button.svelte';
 
 	function handleClick() {
@@ -49,7 +49,7 @@
 		position: absolute;
 	}
 
-	span {
+	h1 span {
 		color: var(--yellow);
 		font-weight: 600;
 		font-size: 4rem;
@@ -65,7 +65,7 @@
 			min-height: 0vw;
 			font-size: clamp(4rem, 10vw, 6.25rem);
 		}
-		span {
+		h1 span {
 			min-height: 0vw;
 			border-radius: 16px;
 			font-size: clamp(2.5rem, 6vw, 4rem);
@@ -80,7 +80,6 @@
 			min-height: 0vw;
 			font-size: clamp(1.4rem, 2.4vw, 1.7rem);
 		}
-		
 	}
 
 	@media screen and (max-width: 868px) {
