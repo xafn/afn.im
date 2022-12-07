@@ -82,6 +82,7 @@
 					state = activity === state ? '' : 'on ' + state; // checking if the song is a single
 					songLink = `https://open.spotify.com/track/${data.spotify.track_id}`;
 					smallImage = '';
+					
 					musicProgress(data.spotify);
 					clearInterval(currentSetInterval);
 					currentSetInterval = setInterval(() => musicProgress(data.spotify), 1000);
@@ -194,6 +195,7 @@
 		margin-top: 0.6rem;
 		background-color: var(--grey-one);
 		height: 0.6rem;
+		overflow: hidden;
 	}
 
 	progress::-webkit-progress-bar {
