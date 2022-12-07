@@ -13,149 +13,109 @@
 		isActivity: boolean,
 		songLink: string,
 		progress: number,
-		elapsed: string;
-
-	let calculateMusicProgress: () => void,
-		calculateElapsedTime: () => void,
-		calculateCurrentTime: () => void;
+		elapsed: string,
+		currentSetInterval: ReturnType<typeof setInterval>,
+		spotifyTotal: number;
 
 	let images = {
 		'CLIP STUDIO PAINT': 'https://i.imgur.com/IUVs3RB.png'
 	};
 
-	function msToTime(ms: number): string {
-		let seconds: string | number = Math.floor((ms / 1000) % 60),
-			minutes: string | number = Math.floor((ms / (1000 * 60)) % 60),
-			hours: string | number = Math.floor((ms / (1000 * 60 * 60)) % 24);
-
-		seconds = seconds < 10 ? '0' + seconds : seconds;
-		minutes = minutes < 10 ? '0' + minutes : minutes;
-		hours = hours < 10 ? '0' + hours : hours;
-
-		return hours > 0 ? hours + ':' + minutes + ':' + seconds : minutes + ':' + seconds;
+	function localTime() {
+		state = new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York' });
 	}
 
-	calculateCurrentTime = () =>
-		(state = new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York' }));
+	function musicProgress(spotify) {
+		progress = 0;
+		spotifyTotal = spotify.timestamps.end - spotify.timestamps.start;
+		progress = 100 - (100 * (spotify.timestamps.end - new Date().getTime())) / spotifyTotal;
+	}
 
-	calculateCurrentTime();
-	setInterval(() => {
-		if (!isActivity) {
-			calculateCurrentTime();
+	function elapsedTime(timestampStart: number) {
+		let elapsedMs = new Date().getTime() - timestampStart;
+		// shrimple but hacky way of getting time from ms
+		elapsed = new Date(elapsedMs).toISOString().slice(11, 19) + ' elapsed';
+		if (elapsed.slice(0, 2) === '00') {
+			elapsed = elapsed.slice(-13);
 		}
-	}, 1000);
+	}
+
+	localTime();
+	clearInterval(currentSetInterval);
+	currentSetInterval = setInterval(() => localTime(), 1000);
 
 	onMount(() => {
-		const connect = () => {
-			let lanyard: WebSocket = new WebSocket('wss://api.lanyard.rest/socket');
-			lanyard.onopen = () => console.log('Synced with Discord rich presence!');
+		let lanyard: WebSocket = new WebSocket('wss://api.lanyard.rest/socket');
+		lanyard.onopen = () => console.log('Synced with Discord rich presence!');
 
-			lanyard.onmessage = (e) => {
-				let data = JSON.parse(e.data);
+		lanyard.onmessage = (e) => {
+			let opcode = JSON.parse(e.data).op;
+			let data = JSON.parse(e.data).d;
 
-				switch (data.op) {
-					case 1: {
-						pulse = data.d.heartbeat_interval;
-						lanyard.send(
-							JSON.stringify({
-								op: 2,
-								d: { subscribe_to_id: '420043923822608384' }
-							})
-						);
-						break;
-					}
-
-					case 0: {
-						isSpotify = data.d.listening_to_spotify;
-						isActivity = !!data.d.activities[0];
-
-						if (isSpotify) {
-							({
-								song: activity,
-								artist: details,
-								album: state,
-								album_art_url: activityImage
-							} = data.d.spotify);
-
-							details = 'by ' + details.replace(/;/g, ','); // why does lanyard use ; guhh??
-							state = activity === state ? '' : 'on ' + state; // checking if the song is a single
-							songLink = `https://open.spotify.com/track/${data.d.spotify.track_id}`;
-							smallImage = '';
-
-							calculateMusicProgress = () => {
-								let spotifyTotal = data.d.spotify.timestamps.end - data.d.spotify.timestamps.start;
-								progress =
-									100 -
-									(100 * (data.d.spotify.timestamps.end - new Date().getTime())) / spotifyTotal;
-							};
-
-							calculateMusicProgress();
-							setInterval(() => {
-								if (isSpotify) {
-									calculateMusicProgress();
-								}
-							}, 1000);
-						} else if (isActivity) {
-							({ name: activity, details, state } = data.d.activities[0]);
-
-							activityImage = data.d.activities[0].assets
-								? `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.large_image}.webp?size=512`
-								: images[activity] || 'question_mark.png';
-
-							// WHAT IS THIS SOMEONE HELP HOW DO I NOT DO THIS I TRIED EVERYTHING RIUHFSDUIHS
-							try {
-								if (data.d.activities[0].assets.small_image) {
-									smallImage = `https://cdn.discordapp.com/app-assets/${data.d.activities[0].application_id}/${data.d.activities[0].assets.small_image}.webp?size=512`;
-								} else {
-									smallImage = '';
-								}
-							} catch (err) {
-								smallImage = '';
-							}
-
-							calculateElapsedTime = () => {
-								let elapsedMs = new Date().getTime() - data.d.activities[0].timestamps.start;
-								elapsed = msToTime(elapsedMs) + ' elapsed';
-							};
-
-							calculateElapsedTime();
-							setInterval(() => {
-								if (isActivity) {
-									calculateElapsedTime();
-								}
-							}, 1000);
-						} else if (isActivity === false) {
-							activity = 'afn#0128';
-							details =
-								data.d.discord_status.charAt(0).toUpperCase() + data.d.discord_status.slice(1);
-							details = details === 'Dnd' ? 'Do Not Disturb' : details;
-							activityImage = 'default.webp';
-							smallImage = '';
-
-							calculateCurrentTime();
-							setInterval(() => {
-								if (!isActivity) {
-									calculateCurrentTime();
-								}
-							}, 1000);
-						}
-						break;
-					}
-				}
-			};
+			if (opcode === 1) {
+				pulse = data.heartbeat_interval;
+				lanyard.send(
+					JSON.stringify({
+						op: 2,
+						d: { subscribe_to_id: '420043923822608384' }
+					})
+				);
+			}
 
 			setInterval(() => {
 				lanyard.send(JSON.stringify({ op: 3 }));
 			}, pulse);
 
-			lanyard.onclose = () => {
-				lanyard.close();
-				setTimeout(function () {
-					connect();
-				}, 2500);
-			};
+			if (opcode === 0) {
+				isSpotify = data.listening_to_spotify;
+				isActivity = !!data.activities[0];
+
+				if (isSpotify) {
+					({
+						song: activity,
+						artist: details,
+						album: state,
+						album_art_url: activityImage
+					} = data.spotify);
+
+					details = 'by ' + details.replace(/;/g, ','); // why does lanyard use ; guhh??
+					state = activity === state ? '' : 'on ' + state; // checking if the song is a single
+					songLink = `https://open.spotify.com/track/${data.spotify.track_id}`;
+					smallImage = '';
+					musicProgress(data.spotify);
+					clearInterval(currentSetInterval);
+					currentSetInterval = setInterval(() => musicProgress(data.spotify), 1000);
+				} else if (isActivity) {
+					({ name: activity, details, state } = data.activities[0]);
+
+					elapsedTime(data.activities[0].timestamps.start);
+					clearInterval(currentSetInterval);
+					currentSetInterval = setInterval(
+						() => elapsedTime(data.activities[0].timestamps.start),
+						1000
+					);
+
+					activityImage = data.activities[0].assets
+						? `https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.large_image}.webp?size=512`
+						: images[activity] || 'question_mark.png';
+
+					smallImage = '';
+					if (data.activities[0].assets.small_image) {
+						smallImage = `https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.small_image}.webp?size=512`;
+					}
+				} else if (!isActivity) {
+					activity = 'afn#0128';
+					details = data.discord_status.charAt(0).toUpperCase() + data.discord_status.slice(1);
+					details = details === 'Dnd' ? 'Do Not Disturb' : details;
+					activityImage = 'default.webp';
+					smallImage = '';
+					
+					localTime();
+					clearInterval(currentSetInterval);
+					currentSetInterval = setInterval(() => localTime(), 1000);
+				}
+			}
 		};
-		connect();
 	});
 </script>
 
@@ -165,7 +125,6 @@
 	{#if smallImage}
 		<img src={smallImage} alt={activity} class="small" />
 	{/if}
-
 	<div>
 		{#if isSpotify}
 			<Tooltip tip="Open Spotify">
@@ -176,10 +135,8 @@
 		{:else}
 			<h5>{activity}</h5>
 		{/if}
-
 		<h6>{details || ''}</h6>
 		<h6>{state || ''}</h6>
-
 		{#if isSpotify}
 			<progress max="100" value={progress} />
 		{:else if isActivity}
@@ -229,26 +186,24 @@
 
 	progress {
 		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
 		border: 0;
 		border-radius: 10rem;
 		margin: 0;
 		margin-top: 0.6rem;
-		height: 0.6rem;
 		background-color: var(--grey-one);
+		height: 0.6rem;
 	}
 
 	progress::-webkit-progress-bar {
 		background-color: var(--grey-one);
 		border-radius: 10rem;
-		transform: translateY(0.2rem);
-		height: 0.6rem;
 	}
-
 	progress[value]::-webkit-progress-value {
 		background-color: var(--yellow);
 		border-radius: 10rem;
 	}
-
 	progress[value]::-moz-progress-bar {
 		background-color: var(--yellow);
 		border-radius: 10rem;
