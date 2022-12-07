@@ -1,23 +1,25 @@
 <script lang="ts">
-	// look away
 	import { onMount } from 'svelte';
 	import Tooltip from '../atoms/Tooltip.svelte';
 
-	let activity = 'afn#0128',
+	import { user } from '../../util/discord';
+	import type { Spotify } from '../../util/types';
+
+	let activity = user.fullName(),
 		details = 'Fetching...',
-		state = '',
 		activityImage = 'default.webp',
-		smallImage = '',
 		pulse = 30000,
+		state: string,
+		smallImage: string,
 		isSpotify: boolean,
 		isActivity: boolean,
 		songLink: string,
 		progress: number,
 		elapsed: string,
-		currentSetInterval: ReturnType<typeof setInterval>,
-		spotifyTotal: number;
+		spotifyTotal: number,
+		currentSetInterval: ReturnType<typeof setInterval>;
 
-	let images = {
+	let images: { [key: string]: string } = {
 		'CLIP STUDIO PAINT': 'https://i.imgur.com/IUVs3RB.png'
 	};
 
@@ -25,7 +27,7 @@
 		state = new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York' });
 	}
 
-	function musicProgress(spotify) {
+	function musicProgress(spotify: Spotify) {
 		progress = 0;
 		spotifyTotal = spotify.timestamps.end - spotify.timestamps.start;
 		progress = 100 - (100 * (spotify.timestamps.end - new Date().getTime())) / spotifyTotal;
@@ -38,10 +40,12 @@
 		if (elapsed.slice(0, 2) === '00') {
 			elapsed = elapsed.slice(-13);
 		}
+		if (elapsed.slice(0, 1) === '0' && elapsed.slice(1, 2) != '0') {
+			elapsed = elapsed.slice(-12);
+		}
 	}
 
 	localTime();
-	clearInterval(currentSetInterval);
 	currentSetInterval = setInterval(() => localTime(), 1000);
 
 	onMount(() => {
@@ -57,7 +61,7 @@
 				lanyard.send(
 					JSON.stringify({
 						op: 2,
-						d: { subscribe_to_id: '420043923822608384' }
+						d: { subscribe_to_id: user.id }
 					})
 				);
 			}
@@ -82,7 +86,7 @@
 					state = activity === state ? '' : 'on ' + state; // checking if the song is a single
 					songLink = `https://open.spotify.com/track/${data.spotify.track_id}`;
 					smallImage = '';
-					
+
 					musicProgress(data.spotify);
 					clearInterval(currentSetInterval);
 					currentSetInterval = setInterval(() => musicProgress(data.spotify), 1000);
@@ -91,10 +95,9 @@
 
 					elapsedTime(data.activities[0].timestamps.start);
 					clearInterval(currentSetInterval);
-					currentSetInterval = setInterval(
-						() => elapsedTime(data.activities[0].timestamps.start),
-						1000
-					);
+					currentSetInterval = setInterval(() => {
+						elapsedTime(data.activities[0].timestamps.start);
+					}, 1000);
 
 					activityImage = data.activities[0].assets
 						? `https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.large_image}.webp?size=512`
@@ -105,12 +108,12 @@
 						smallImage = `https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.small_image}.webp?size=512`;
 					}
 				} else if (!isActivity) {
-					activity = 'afn#0128';
+					activity = user.fullName();
 					details = data.discord_status.charAt(0).toUpperCase() + data.discord_status.slice(1);
 					details = details === 'Dnd' ? 'Do Not Disturb' : details;
 					activityImage = 'default.webp';
 					smallImage = '';
-					
+
 					localTime();
 					clearInterval(currentSetInterval);
 					currentSetInterval = setInterval(() => localTime(), 1000);

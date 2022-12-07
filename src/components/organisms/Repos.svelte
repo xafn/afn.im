@@ -1,19 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-
-	// wow an interface are you proud of me
-	interface Repo {
-		owner: string;
-		repo: string;
-		link: string;
-		description: string;
-		image: string;
-		website: string;
-		language: string;
-		languageColor: string;
-		stars: string;
-		forks: any;
-	}
+	import type { Repo } from '../../util/types';
 
 	let repos: Repo[];
 
