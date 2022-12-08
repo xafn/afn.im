@@ -55,9 +55,10 @@
 		font-size: 4rem;
 		font-family: var(--font-two);
 		letter-spacing: -0.075em;
-		background-color: var(--grey-one);
-		border-radius: 24px;
+		background-color: var(--neutral-one);
+		border-radius: 20px;
 		padding: 0.4rem 2rem 0.3rem;
+		border: 1px solid var(--neutral-four);
 	}
 
 	@media screen and (max-width: 1240px) {

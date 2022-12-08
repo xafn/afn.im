@@ -196,13 +196,13 @@
 		border-radius: 10rem;
 		margin: 0;
 		margin-top: 0.6rem;
-		background-color: var(--grey-one);
+		background-color: var(--neutral-one);
 		height: 0.6rem;
 		overflow: hidden;
 	}
 
 	progress::-webkit-progress-bar {
-		background-color: var(--grey-one);
+		background-color: var(--neutral-one);
 		border-radius: 10rem;
 	}
 	progress[value]::-webkit-progress-value {

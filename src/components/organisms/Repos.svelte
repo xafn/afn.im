@@ -21,11 +21,15 @@
 					<div class="repo-card">
 						<div id="top-part">
 							<div class="info">
-								<img src="https://github.com/{owner}.png" alt="{owner}'s profile picture" id="pfp" />
+								<img
+									src="https://github.com/{owner}.png"
+									alt="{owner}'s profile picture"
+									id="pfp"
+								/>
 								<h7>{owner}</h7>
 							</div>
 							<div>
-								<img src="icons/open.svg" alt="open in new tab" id="open"/>
+								<img src="icons/open.svg" alt="open in new tab" id="open" />
 							</div>
 						</div>
 						<div>
@@ -69,24 +73,24 @@
 	}
 	.repo-card {
 		padding: 1rem 1.25rem;
-		background-color: var(--grey-two);
+		background-color: var(--neutral-two);
 		border-radius: 8px;
 		min-height: 140px;
 		height: 100%;
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
-		transition: transform 0.3s var(--bezier-one), box-shadow 0.3s var(--bezier-one);;
+		transition: transform 0.3s var(--bezier-one), box-shadow 0.3s var(--bezier-one);
 		justify-content: space-between;
 		backdrop-filter: blur(5px);
 		-webkit-backdrop-filter: blur(5px);
 		background-blend-mode: overlay;
-
+		border: 1px solid var(--neutral-four);
 	}
 
 	.repo-card:hover {
 		transform: translateY(-2px);
-		box-shadow: 0px 15px 25px -10px rgba(0,0,0,0.25);
+		box-shadow: 0px 15px 25px -10px rgba(0, 0, 0, 0.25);
 	}
 
 	.repo-card:hover #open {
@@ -98,7 +102,6 @@
 		color: var(--white);
 		height: 100%;
 	}
-
 
 	img {
 		height: 14px;
@@ -126,7 +129,6 @@
 	#open {
 		height: 20px;
 		transition: filter 0.3s var(--bezier-one);
-
 	}
 
 	span {
@@ -144,7 +146,6 @@
 		position: relative;
 	}
 
-
 	.grid:before {
 		height: 300px;
 		font-size: 175px;
@@ -159,7 +160,7 @@
 		letter-spacing: -0.075em;
 		position: absolute;
 	}
-	
+
 	.dot {
 		height: 11px;
 		width: 11px;

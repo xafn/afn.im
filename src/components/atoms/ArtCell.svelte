@@ -62,7 +62,7 @@
 		width: 100%;
 		border-radius: 4px;
 		overflow: hidden;
-		background: var(--grey-one);
+		background: var(--neutral-one);
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;

@@ -1,7 +1,7 @@
 <script>
 	import Social from '../atoms/Social.svelte';
 	import Tooltip from '../atoms/Tooltip.svelte';
-	import { user }  from '../../util/discord'
+	import { user } from '../../util/discord';
 </script>
 
 <hr />
@@ -13,7 +13,7 @@
 		<Social icon="kofi" tip="@affan" link="https://ko-fi.com/affan" />
 	</div>
 	<h7>
-		Made with pain. &#60;3 
+		Made with pain. &#60;3
 		<Tooltip tip="you're here"><span>V2</span></Tooltip>
 		<Tooltip tip="how to delete">
 			<a href="https://v1.afn.lol/" target="_blank" rel="noreferrer">V1</a>
@@ -35,7 +35,7 @@
 	}
 
 	hr {
-		background-color: var(--grey-one);
+		background-color: var(--neutral-one);
 		height: 1px;
 		border: 0;
 		width: 100%;
@@ -50,7 +50,7 @@
 
 	span {
 		font-family: var(--font-two);
-		background-color: var(--grey-one);
+		background-color: var(--neutral-one);
 		border-radius: 7px;
 		padding: 0.15rem 0.5rem 0.15rem;
 		width: fit-content;
@@ -71,7 +71,7 @@
 	a:hover {
 		font-weight: 400;
 		background-color: var(--yellow);
-		color: var(--grey-one);
+		color: var(--neutral-one);
 		border-radius: 7px;
 		width: fit-content;
 	}

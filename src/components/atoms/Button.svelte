@@ -17,7 +17,7 @@
 		flex-direction: row;
 		width: max-content;
 		cursor: pointer;
-		background-color: var(--grey-one);
+		background-color: var(--neutral-one);
 		transition: filter 0.2s var(--bezier-one), transform 0.5s var(--bezier-one);
 		user-select: none;
 		margin: 0;
@@ -39,7 +39,7 @@
 		background-color: var(--yellow);
 	}
 
-	.button:active{
+	.button:active {
 		transform: scale(95%);
 	}
 

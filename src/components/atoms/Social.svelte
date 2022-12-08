@@ -33,7 +33,7 @@
 	}
 
 	div:hover > a {
-		background-color: var(--grey-one);
+		background-color: var(--neutral-one);
 	}
 
 	div:hover img {

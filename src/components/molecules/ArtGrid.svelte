@@ -20,13 +20,13 @@
 <style>
 	.grid {
 		gap: 0.8rem;
-		grid-auto-rows: 240px;
+		grid-auto-rows: 230px;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-		width: min(90%, 75rem);
+		width: min(90%, 72rem);
 	}
 
 	.grid:before {

@@ -42,7 +42,7 @@
 	section {
 		margin-bottom: 6rem;
 		display: grid;
-		gap: 3.5rem;
+		gap: 4.5rem;
 		grid-template-columns: 1fr 1fr;
 		align-items: center;
 	}
@@ -56,7 +56,7 @@
 		font-weight: 400;
 		font-family: var(--font-two);
 		font-size: 0.9rem;
-		background-color: var(--grey-one);
+		background-color: var(--neutral-one);
 		border-radius: 7px;
 		color: var(--yellow);
 		padding: 0.2rem 0.5rem 0.2rem;

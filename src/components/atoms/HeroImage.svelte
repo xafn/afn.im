@@ -42,8 +42,8 @@
 
 	img {
 		border-radius: 48px;
-		width: 450px;
-		height: auto;
+		width: 425px;
+		aspect-ratio: 450 / 431.11;
 		z-index: 11;
 		display: block;
 		transition: width 0.4s var(--bezier-one), transform 0.4s var(--bezier-one);
@@ -57,8 +57,7 @@
 
 	@media (max-width: 1240px) {
 		img {
-			min-height: 0vw;
-			width: clamp(340px, 40vw, 450px);
+			width: clamp(340px, 40vw, 425px);
 		}
 
 		div {

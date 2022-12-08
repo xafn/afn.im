@@ -19,12 +19,7 @@
 
 <!-- SHUT UP -->
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-<li
-	class:selected={isSelected}
-	tabindex="0"
-	on:click={handleClick}
-	on:keypress={handleClick}
->
+<li class:selected={isSelected} tabindex="0" on:click={handleClick} on:keypress={handleClick}>
 	<div class="icon-container">
 		<img src="icons/{section}.svg" alt={section} />
 	</div>
@@ -49,7 +44,7 @@
 	}
 
 	li:hover {
-		background-color: var(--grey-four);
+		background-color: var(--neutral-four);
 	}
 
 	h6 {
