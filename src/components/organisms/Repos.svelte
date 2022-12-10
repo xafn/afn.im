@@ -58,8 +58,8 @@
 				</a>
 			{/each}
 		{:else}
-			<div class="repo-card" />
-			<div class="repo-card" />
+			<div class="repo-card shimmer" />
+			<div class="repo-card shimmer" />
 		{/if}
 	</div>
 </div>
@@ -87,6 +87,25 @@
 		border: 1px solid var(--neutral-four);
 	}
 
+	.shimmer {
+		animation-duration: 2.2s;
+		animation-fill-mode: forwards;
+		animation-iteration-count: infinite;
+		animation-name: shimmer;
+		animation-timing-function: linear;
+		background: #ddd;
+		background: linear-gradient(to right, var(--neutral-two) 8%, var(--neutral-one) 18%, var(--neutral-two) 33%);
+		background-size: 1200px 100%;
+	}
+
+	@keyframes shimmer {
+		0% {
+			background-position: -1200px 0;
+		}
+		100% {
+			background-position: 1200px 0;
+		}
+	}
 	.repo-card:hover {
 		transform: translateY(-2px);
 		box-shadow: 0px 15px 25px -10px rgba(0, 0, 0, 0.25);
