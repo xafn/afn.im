@@ -26,32 +26,31 @@
 									alt="{owner}'s profile picture"
 									id="pfp"
 								/>
-								<h7>{owner}</h7>
+								<h6>{owner}</h6>
 							</div>
 							<div>
 								<img src="icons/open.svg" alt="open in new tab" id="open" />
 							</div>
 						</div>
 						<div>
-							<h5>{repo}</h5>
-							<h7>{description}</h7>
-							<br />
+							<h3>{repo}</h3>
+							<h6>{description}</h6>
 						</div>
 						<div class="info-container">
 							<div class="info">
 								<span class="dot" style="background-color: {languageColor}" />
-								<h7>{language}</h7>
+								<h6>{language}</h6>
 							</div>
 							<div class="info">
 								{#if stars}
 									<img src="icons/star.svg" id="star" alt="star" />
-									<h7>{stars}</h7>
+									<h6>{stars}</h6>
 								{/if}
 							</div>
 							<div class="info">
 								{#if forks}
 									<img src="icons/fork.svg" alt="fork" />
-									<h7>{forks}</h7>
+									<h6>{forks}</h6>
 								{/if}
 							</div>
 						</div>
@@ -75,7 +74,7 @@
 		padding: 1rem 1.25rem;
 		background-color: var(--neutral-two);
 		border-radius: 8px;
-		min-height: 140px;
+		min-height: 120px;
 		height: 100%;
 		display: flex;
 		flex-direction: column;

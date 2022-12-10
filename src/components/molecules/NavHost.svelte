@@ -3,26 +3,26 @@
 	let y: number;
 </script>
 
-<span>
-	<nav class:scrolled={y > 20}>
+<nav>
+	<div class:scrolled={y > 20}>
 		<ul>
 			<Nav href="#home" section="home" isSelected={y < 350} />
 			<Nav href="#about" section="about" isSelected={y > 350 && y < 675} />
 			<Nav href="#aw" section="work" isSelected={y > 675} />
 		</ul>
-	</nav>
-</span>
+	</div>
+</nav>
 
 <!-- this is the coolest thing ever wtf?? -->
 <svelte:window bind:scrollY={y} />
 
 <style>
-	span {
+	nav {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
-	nav {
+	div {
 		width: 100%;
 		text-align: center;
 		align-items: center;
@@ -37,14 +37,14 @@
 		transition: all 0.5s ease;
 	}
 
-	nav ul {
+	div ul {
 		display: flex;
 		gap: 4rem;
 		justify-content: center;
 	}
 
 	@media (min-width: 868px) {
-		nav {
+		div {
 			width: 50rem;
 			border-radius: 12px;
 		}
@@ -59,14 +59,14 @@
 	}
 
 	@media (max-width: 868px) {
-		nav {
+		div {
 			bottom: 0;
 			top: auto;
 			padding: 0rem;
 			background-color: #1a1616;
 		}
 
-		nav ul {
+		div ul {
 			display: flex;
 			justify-content: space-evenly;
 			gap: 2vw;

@@ -3,13 +3,13 @@
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-<div class="button" on:click on:keypress tabindex="0" class:button-with-side={side}>
+<button on:click on:keypress class:button-with-side={side}>
 	<div class:side />
 	<slot />
-</div>
+</button>
 
 <style>
-	.button {
+	button {
 		border-radius: 16px;
 		border: none;
 		display: flex;
@@ -22,6 +22,11 @@
 		user-select: none;
 		margin: 0;
 		padding: 1rem 2rem;
+		color: var(--yellow);
+		font-weight: 300;
+		font-size: 1.6rem;
+		font-family: var(--font-two);
+		letter-spacing: -0.075em;
 	}
 
 	.button-with-side {
@@ -39,16 +44,16 @@
 		background-color: var(--yellow);
 	}
 
-	.button:active {
+	button:active {
 		transform: scale(95%);
 	}
 
-	.button:hover {
+	button:hover {
 		filter: brightness(110%);
 	}
 
 	@media screen and (max-width: 868px) {
-		.button {
+		button {
 			text-align: center;
 			justify-content: center;
 			padding: 1rem 2rem;
@@ -57,6 +62,10 @@
 
 		.side {
 			display: none;
+		}
+
+		button {
+			font-size: clamp(1.1rem, 2vw, 1.9rem);
 		}
 	}
 </style>

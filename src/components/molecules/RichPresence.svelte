@@ -17,6 +17,7 @@
 		progress: number,
 		elapsed: string,
 		spotifyTotal: number,
+		tip = '',
 		currentSetInterval: ReturnType<typeof setInterval>;
 
 	let images: { [key: string]: string } = {
@@ -49,83 +50,97 @@
 	currentSetInterval = setInterval(() => localTime(), 1000);
 
 	onMount(() => {
-		let lanyard: WebSocket = new WebSocket('wss://api.lanyard.rest/socket');
-		lanyard.onopen = () => console.log('Synced with Discord rich presence!');
+		function connect() {
+			let lanyard: WebSocket = new WebSocket('wss://api.lanyard.rest/socket');
+			lanyard.onopen = () => console.log('Synced with Discord rich presence!');
 
-		lanyard.onmessage = (e) => {
-			let opcode = JSON.parse(e.data).op;
-			let data = JSON.parse(e.data).d;
+			lanyard.onmessage = (e) => {
+				let opcode = JSON.parse(e.data).op;
+				let data = JSON.parse(e.data).d;
 
-			if (opcode === 1) {
-				pulse = data.heartbeat_interval;
-				lanyard.send(
-					JSON.stringify({
-						op: 2,
-						d: { subscribe_to_id: user.id }
-					})
-				);
-			}
-
-			setInterval(() => {
-				lanyard.send(JSON.stringify({ op: 3 }));
-			}, pulse);
-
-			if (opcode === 0) {
-				isSpotify = data.listening_to_spotify;
-				isActivity = !!data.activities[0];
-
-				if (isSpotify) {
-					({
-						song: activity,
-						artist: details,
-						album: state,
-						album_art_url: activityImage
-					} = data.spotify);
-
-					details = 'by ' + details.replace(/;/g, ','); // why does lanyard use ; guhh??
-					state = activity === state ? '' : 'on ' + state; // checking if the song is a single
-					songLink = `https://open.spotify.com/track/${data.spotify.track_id}`;
-					smallImage = '';
-
-					musicProgress(data.spotify);
-					clearInterval(currentSetInterval);
-					currentSetInterval = setInterval(() => musicProgress(data.spotify), 1000);
-				} else if (isActivity) {
-					({ name: activity, details, state } = data.activities[0]);
-
-					elapsedTime(data.activities[0].timestamps.start);
-					clearInterval(currentSetInterval);
-					currentSetInterval = setInterval(() => {
-						elapsedTime(data.activities[0].timestamps.start);
-					}, 1000);
-
-					activityImage = data.activities[0].assets
-						? `https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.large_image}.webp?size=512`
-						: images[activity] || 'question_mark.png';
-
-					smallImage = '';
-					if (data.activities[0].assets.small_image) {
-						smallImage = `https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.small_image}.webp?size=512`;
-					}
-				} else if (!isActivity) {
-					activity = user.fullName();
-					details = data.discord_status.charAt(0).toUpperCase() + data.discord_status.slice(1);
-					details = details === 'Dnd' ? 'Do Not Disturb' : details;
-					activityImage = 'default.webp';
-					smallImage = '';
-
-					localTime();
-					clearInterval(currentSetInterval);
-					currentSetInterval = setInterval(() => localTime(), 1000);
+				if (opcode === 1) {
+					pulse = data.heartbeat_interval;
+					lanyard.send(
+						JSON.stringify({
+							op: 2,
+							d: { subscribe_to_id: user.id }
+						})
+					);
 				}
-			}
-		};
+
+				setInterval(() => {
+					lanyard.send(JSON.stringify({ op: 3 }));
+				}, pulse);
+
+				if (opcode === 0) {
+					isSpotify = data.listening_to_spotify;
+					isActivity = !!data.activities[0];
+
+					if (isSpotify) {
+						({
+							song: activity,
+							artist: details,
+							album: state,
+							album_art_url: activityImage
+						} = data.spotify);
+
+						details = 'by ' + details.replace(/;/g, ','); // why does lanyard use ; guhh??
+						tip = state;
+						state = activity === state ? '' : 'on ' + state; // checking if the song is a single
+						songLink = `https://open.spotify.com/track/${data.spotify.track_id}`;
+						smallImage = '';
+
+						musicProgress(data.spotify);
+						clearInterval(currentSetInterval);
+						currentSetInterval = setInterval(() => musicProgress(data.spotify), 1000);
+
+					} else if (isActivity) {
+						({ name: activity, details, state } = data.activities[0]);
+						tip = data.activities[0].assets.large_text;
+
+						elapsedTime(data.activities[0].timestamps.start);
+						clearInterval(currentSetInterval);
+						currentSetInterval = setInterval(() => {
+							elapsedTime(data.activities[0].timestamps.start);
+						}, 1000);
+
+						activityImage = data.activities[0].assets
+							? `https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.large_image}.webp?size=512`
+							: images[activity] || 'question_mark.png';
+
+						smallImage = '';
+						if (data.activities[0].assets.small_image) {
+							smallImage = `https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.small_image}.webp?size=512`;
+						}
+					} else if (!isActivity) {
+						activity = user.fullName();
+						details = data.discord_status.charAt(0).toUpperCase() + data.discord_status.slice(1);
+						details = details === 'Dnd' ? 'Do Not Disturb' : details;
+						activityImage = 'default.webp';
+						smallImage = '';
+						tip = "what's up";
+
+						localTime();
+						clearInterval(currentSetInterval);
+						currentSetInterval = setInterval(() => localTime(), 1000);
+					}
+				}
+
+				lanyard.onclose = () => {
+					lanyard.close();
+					setTimeout(() => connect(), 2500);
+				};
+			};
+		}
+		connect();
 	});
 </script>
 
 <h2>activity</h2>
 <div class="contain">
-	<img src={activityImage} alt={activity} class="big" class:spin={isSpotify} />
+	<Tooltip {tip}>
+		<img src={activityImage} alt={activity} class="big" class:spin={isSpotify} />
+	</Tooltip>
 	{#if smallImage}
 		<img src={smallImage} alt={activity} class="small" />
 	{/if}
@@ -133,18 +148,18 @@
 		{#if isSpotify}
 			<Tooltip tip="Open Spotify">
 				<a href={songLink} target="_blank" rel="noreferrer">
-					<h5>{activity}</h5>
+					<h3>{activity}</h3>
 				</a>
 			</Tooltip>
 		{:else}
-			<h5>{activity}</h5>
+			<h3>{activity}</h3>
 		{/if}
-		<h6>{details || ''}</h6>
-		<h6>{state || ''}</h6>
+		<h5>{details || ''}</h5>
+		<h5>{state || ''}</h5>
 		{#if isSpotify}
 			<progress max="100" value={progress} />
 		{:else if isActivity}
-			<h6>{elapsed}</h6>
+			<h5>{elapsed}</h5>
 		{/if}
 	</div>
 </div>
@@ -171,8 +186,7 @@
 		height: 135px;
 		width: 135px;
 		border-radius: 20px;
-		display: inline-block;
-		opacity: 1;
+		display: relative;
 		user-select: none;
 		transition: all 0.3s var(--bezier-one);
 	}
@@ -184,7 +198,6 @@
 		position: absolute;
 		transform: translate(275%, 150%);
 		outline: 6px solid var(--bg-color);
-		outline-offset: -1px;
 		background-color: var(--bg-color);
 	}
 

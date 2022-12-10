@@ -14,7 +14,7 @@
 		<h1>hey, <br /> i'm <span>affan;</span></h1>
 		<h4>Hobbyist illustrator and designer. <br />Attempting to program.</h4>
 		<Button side={true} on:click={handleClick} on:keypress={handleClick}>
-			<h3>Discover my work ↓</h3>
+			Discover my work ↓
 		</Button>
 	</div>
 	<HeroImage />
@@ -25,8 +25,9 @@
 		scroll-margin-top: 20rem;
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		margin-bottom: 5.75rem;
-		margin-top: 7.25rem;
+		margin-top: 6.75rem;
 	}
 
 	h4 {
@@ -49,7 +50,7 @@
 		position: absolute;
 	}
 
-	h1 span {
+	h1 > span {
 		color: var(--yellow);
 		font-weight: 600;
 		font-size: 4rem;
@@ -66,20 +67,16 @@
 			min-height: 0vw;
 			font-size: clamp(4rem, 10vw, 6.25rem);
 		}
-		h1 span {
+		h1 > span {
 			min-height: 0vw;
 			border-radius: 16px;
 			font-size: clamp(2.5rem, 6vw, 4rem);
 		}
-
-		h3 {
-			min-height: 0vw;
-			font-size: clamp(1.1rem, 2vw, 1.9rem);
-		}
-
+		
+		
 		h4 {
 			min-height: 0vw;
-			font-size: clamp(1.4rem, 2.4vw, 1.7rem);
+			font-size: clamp(1.4rem, 2.4vw, 1.5rem);
 		}
 	}
 

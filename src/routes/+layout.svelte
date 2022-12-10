@@ -46,7 +46,6 @@
 </svelte:head>
 
 <span class:loading>
-	<NavHost />
 	<slot />
 </span>
 

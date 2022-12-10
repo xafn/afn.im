@@ -12,13 +12,13 @@
 		<Social icon="email" tip="_@afn.lol" link="mailto:_@afn.lol" />
 		<Social icon="kofi" tip="@affan" link="https://ko-fi.com/affan" />
 	</div>
-	<h7>
+	<h6>
 		Made with pain. &#60;3
 		<Tooltip tip="you're here"><span>V2</span></Tooltip>
 		<Tooltip tip="how to delete">
 			<a href="https://v1.afn.lol/" target="_blank" rel="noreferrer">V1</a>
 		</Tooltip>
-	</h7>
+	</h6>
 </footer>
 
 <style>

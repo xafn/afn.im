@@ -23,9 +23,9 @@
 	<div class="icon-container">
 		<img src="icons/{section}.svg" alt={section} />
 	</div>
-	<h6>
+	<h5>
 		{section}
-	</h6>
+	</h5>
 </li>
 
 <style>
@@ -47,11 +47,11 @@
 		background-color: var(--neutral-four);
 	}
 
-	h6 {
+	h5 {
 		transition: all 0.3s var(--bezier-one);
 	}
 
-	li:hover > h6,
+	li:hover > h5,
 	.selected img,
 	.selected h6 {
 		color: var(--white);
@@ -68,8 +68,8 @@
 		transition: all 0.5s var(--bezier-one);
 	}
 
-	h6 {
-		opacity: 0.6;
+	h5 {
+		opacity: 0.8;
 	}
 
 	li:active img,
@@ -84,7 +84,7 @@
 			transition-delay: 0.3s;
 		}
 
-		h6 {
+		h5 {
 			transition-delay: 0.5s;
 		}
 

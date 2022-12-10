@@ -1,4 +1,5 @@
 <script>
+	import NavHost from '../components/molecules/NavHost.svelte';
 	import Hero from '../components/organisms/Hero.svelte';
 	import About from '../components/organisms/About.svelte';
 	import Art from '../components/organisms/Art.svelte';
@@ -6,8 +7,13 @@
 	import Footer from '../components/molecules/Footer.svelte';
 </script>
 
-<Hero />
-<About />
-<Art />
-<Repos />
-<Footer />
+<NavHost />
+<main>
+	<Hero />
+	<About />
+	<Art />
+	<Repos />
+	<Footer />
+</main>
+
+

@@ -43,10 +43,11 @@
 	img {
 		border-radius: 48px;
 		width: 425px;
-		aspect-ratio: 450 / 431.11;
+		height: auto;
 		z-index: 11;
 		display: block;
 		transition: width 0.4s var(--bezier-one), transform 0.4s var(--bezier-one);
+		align-self: start;
 	}
 
 	div {

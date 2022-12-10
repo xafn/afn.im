@@ -15,7 +15,6 @@
 }
 
 html {
-    font-size: 100%;
     box-sizing: border-box;
     letter-spacing: -0.05em;
     overflow-x: hidden;
@@ -27,11 +26,6 @@ body {
     line-height: 1.4;
     background-color: var(--bg-color);
     overflow-x: hidden;
-}
-
-html,
-body {
-    max-width: 100%;
 }
 
 .wrapper {
@@ -98,26 +92,20 @@ h2 {
     display: none;
 }
 
+
 h3 {
-    color: var(--yellow);
-    font-weight: 300;
-    font-size: 1.6rem;
-    font-family: var(--font-two);
-    letter-spacing: -0.075em;
+    color: var(--white);
+    font-weight: 500;
+    font-size: 1.45rem;
 }
+
 h4 {
     color: var(--white-two);
     font-weight: 300;
-    font-size: 1.7rem;
+    font-size: 1.6rem;
 }
 
 h5 {
-    color: var(--white);
-    font-weight: 500;
-    font-size: 1.4rem;
-}
-
-h6 {
     color: var(--white-two);
     font-size: 1.15rem;
     font-family: var(--font-two);
@@ -125,7 +113,7 @@ h6 {
     letter-spacing: -0.075em;
 }
 
-h7 {
+h6 {
     color: var(--white-two);
     font-size: 0.9rem;
     font-family: var(--font-two);
@@ -151,7 +139,7 @@ p {
         display: inline-block;
     }
 
-    h5 {
+    h4 {
         font-size: 1.2rem;
     }
 

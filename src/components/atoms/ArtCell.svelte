@@ -50,9 +50,9 @@
 		in:fly={{ y: 50, easing: quintOut, duration: 750 }}
 		out:fly={{ y: 50, easing: cubicOut, duration: 300 }}
 	>
-		<h4>{art}</h4>
+		<h3>{art}</h3>
 		<img src="art/{art}.webp" alt={art} />
-		<h7>Click anywhere to dismiss</h7>
+		<h6>Click anywhere to dismiss</h6>
 	</div>
 {/if}
 
@@ -111,17 +111,17 @@
 		-webkit-backdrop-filter: blur(12px);
 	}
 
-	h4,
-	h7 {
+	h3,
+	h6 {
 		margin: 1vh;
 	}
 
-	h7 {
+	h6 {
 		font-size: 2vh;
 		margin-top: 2vh;
 	}
 
-	h4 {
+	h3 {
 		font-size: 3.5vh;
 		font-weight: 500;
 		color: var(--white);
@@ -136,6 +136,10 @@
 	@media screen and (max-width: 868px) {
 		.card {
 			border-radius: 0;
+		}
+
+		img {
+			max-height: vh;
 		}
 	}
 </style>
