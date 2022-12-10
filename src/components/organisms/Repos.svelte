@@ -74,7 +74,7 @@
 		padding: 1rem 1.25rem;
 		background-color: var(--neutral-two);
 		border-radius: 8px;
-		min-height: 120px;
+		min-height: 140px;
 		height: 100%;
 		display: flex;
 		flex-direction: column;

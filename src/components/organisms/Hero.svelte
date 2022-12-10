@@ -1,6 +1,7 @@
 <script>
 	import HeroImage from '../../components/atoms/HeroImage.svelte';
 	import Button from '../atoms/Button.svelte';
+	import Tooltip from '../atoms/Tooltip.svelte';
 
 	function handleClick() {
 		const el = document.querySelector('#aw');
@@ -11,7 +12,7 @@
 
 <section id="home" class="wrapper">
 	<div>
-		<h1>hey, <br /> i'm <span>affan;</span></h1>
+		<h1>hey, <br /> i'm <Tooltip tip="call me afn"><span>affan;</span></Tooltip></h1>
 		<h4>Hobbyist illustrator and designer. <br />Attempting to program.</h4>
 		<Button side={true} on:click={handleClick} on:keypress={handleClick}>
 			Discover my work ↓
@@ -27,7 +28,7 @@
 		justify-content: space-between;
 		align-items: center;
 		margin-bottom: 5.75rem;
-		margin-top: 6.75rem;
+		margin-top: 7.25rem;
 	}
 
 	h4 {
@@ -50,7 +51,7 @@
 		position: absolute;
 	}
 
-	h1 > span {
+	h1 span {
 		color: var(--yellow);
 		font-weight: 600;
 		font-size: 4rem;
@@ -67,7 +68,7 @@
 			min-height: 0vw;
 			font-size: clamp(4rem, 10vw, 6.25rem);
 		}
-		h1 > span {
+		h1 span {
 			min-height: 0vw;
 			border-radius: 16px;
 			font-size: clamp(2.5rem, 6vw, 4rem);

@@ -19,19 +19,28 @@
 
 <!-- SHUT UP -->
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-<li class:selected={isSelected} tabindex="0" on:click={handleClick} on:keypress={handleClick}>
-	<div class="icon-container">
-		<img src="icons/{section}.svg" alt={section} />
-	</div>
-	<h5>
-		{section}
-	</h5>
+<li class:selected={isSelected} on:click={handleClick} on:keypress={handleClick}>
+	<button>
+		<div class="icon-container">
+			<img src="icons/{section}.svg" alt={section} />
+		</div>
+		<h5>
+			{section}
+		</h5>
+	</button>
 </li>
 
 <style>
+
 	li {
-		color: var(--white-two);
 		text-decoration: none;
+		list-style: none;
+	}
+
+	button {
+		background-color: transparent;
+		border: none;
+		color: var(--white-two);
 		font-size: 1.1rem;
 		user-select: none;
 		display: flex;
@@ -41,9 +50,10 @@
 		border-radius: 100px;
 		cursor: pointer;
 		transition: background-color 0.3s var(--bezier-one), transform 0.3s var(--bezier-one);
+
 	}
 
-	li:hover {
+	button:hover {
 		background-color: var(--neutral-four);
 	}
 
@@ -51,9 +61,9 @@
 		transition: all 0.3s var(--bezier-one);
 	}
 
-	li:hover > h5,
+	button:hover > h5,
 	.selected img,
-	.selected h6 {
+	.selected h5 {
 		color: var(--white);
 		opacity: 1;
 	}
@@ -72,8 +82,8 @@
 		opacity: 0.8;
 	}
 
-	li:active img,
-	li:hover img {
+	button:active img,
+	button:hover img {
 		opacity: 1;
 	}
 
@@ -96,19 +106,19 @@
 			transition-delay: 0.3s;
 		}
 
-		li {
+		button {
 			flex-direction: column;
 			gap: 0;
 			font-size: 0.9rem;
 			margin-bottom: 0;
 		}
 
-		li:hover {
+		button:hover {
 			background-color: transparent;
 		}
 
-		li:hover > .icon-container,
-		.selected > .icon-container {
+		button:hover .icon-container,
+		.selected .icon-container {
 			background-color: var(--yellow-opacity);
 		}
 	}

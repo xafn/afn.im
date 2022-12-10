@@ -17,7 +17,6 @@
 		progress: number,
 		elapsed: string,
 		spotifyTotal: number,
-		tip = '',
 		currentSetInterval: ReturnType<typeof setInterval>;
 
 	let images: { [key: string]: string } = {
@@ -85,7 +84,6 @@
 						} = data.spotify);
 
 						details = 'by ' + details.replace(/;/g, ','); // why does lanyard use ; guhh??
-						tip = state;
 						state = activity === state ? '' : 'on ' + state; // checking if the song is a single
 						songLink = `https://open.spotify.com/track/${data.spotify.track_id}`;
 						smallImage = '';
@@ -93,10 +91,8 @@
 						musicProgress(data.spotify);
 						clearInterval(currentSetInterval);
 						currentSetInterval = setInterval(() => musicProgress(data.spotify), 1000);
-
 					} else if (isActivity) {
 						({ name: activity, details, state } = data.activities[0]);
-						tip = data.activities[0].assets.large_text;
 
 						elapsedTime(data.activities[0].timestamps.start);
 						clearInterval(currentSetInterval);
@@ -118,7 +114,6 @@
 						details = details === 'Dnd' ? 'Do Not Disturb' : details;
 						activityImage = 'default.webp';
 						smallImage = '';
-						tip = "what's up";
 
 						localTime();
 						clearInterval(currentSetInterval);
@@ -138,9 +133,7 @@
 
 <h2>activity</h2>
 <div class="contain">
-	<Tooltip {tip}>
-		<img src={activityImage} alt={activity} class="big" class:spin={isSpotify} />
-	</Tooltip>
+	<img src={activityImage} alt={activity} class="big" class:spin={isSpotify} />
 	{#if smallImage}
 		<img src={smallImage} alt={activity} class="small" />
 	{/if}
@@ -176,6 +169,10 @@
 		text-decoration: underline;
 		text-decoration-color: var(--bg-color);
 		transition: 0.3s var(--bezier-one);
+	}
+
+	h2 {
+		display: none;
 	}
 
 	a:hover {
@@ -242,6 +239,9 @@
 	}
 
 	@media screen and (max-width: 868px) {
+		h2 {
+			display: block;
+		}
 		div {
 			justify-content: left;
 		}

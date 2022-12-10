@@ -64,6 +64,7 @@
 		position: absolute;
 	}
 
+
 	.tooltip.active {
 		opacity: 1;
 		visibility: initial;

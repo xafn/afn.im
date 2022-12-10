@@ -10,6 +10,7 @@
 
 <style>
 	button {
+		font-size: 100%;
 		border-radius: 16px;
 		border: none;
 		display: flex;

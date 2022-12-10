@@ -53,7 +53,7 @@
 			padding: 0.5rem 0;
 			margin-top: 0.5rem;
 			width: 42rem;
-			background-color: hsla(0, 13%, 11%, 0.792);
+			background-color: var(--neutral-five);
 			box-shadow: 0px 15px 8px -10px rgba(0, 0, 0, 0.4);
 		}
 	}

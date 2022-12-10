@@ -42,7 +42,7 @@
 		margin-bottom: 2rem;
 	}
 
-	h7 {
+	h6 {
 		text-align: center;
 		line-height: 2.5rem;
 		margin-top: 0;
