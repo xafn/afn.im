@@ -19,15 +19,12 @@
 	});
 </script>
 
-<!-- shut up im right -->
-<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-<div
+<button
 	class="card"
 	class:tall
 	class:shrink
 	style="background-image:url(art/{art}.webp)"
 	loading="eager"
-	tabindex="0"
 	on:click={() => (clicked = true)}
 	on:keypress={() => (clicked = true)}
 />
@@ -58,6 +55,8 @@
 
 <style>
 	.card {
+		border: none;
+		padding: none;
 		height: 100%;
 		width: 100%;
 		border-radius: 4px;
@@ -71,6 +70,7 @@
 		font-size: 0;
 		user-select: none;
 	}
+
 
 	.card:hover {
 		transform: translateY(-1px);
@@ -103,7 +103,7 @@
 		transform: translateY(-50%);
 		height: 200vh;
 		width: 100vw;
-		z-index: 9999999;
+		z-index: 20;
 		cursor: pointer;
 		user-select: none;
 		background-color: #0a0808bb;

@@ -3,8 +3,15 @@
 	import { onMount } from 'svelte';
 	import '../styles/global.css';
 	import '../styles/fonts.css';
+	import Cursor from '../components/atoms/Cursor.svelte';
 
 	let loading = true;
+
+	// bruh why is audio so weird
+	const clickSFX = typeof Audio !== 'undefined' ? new Audio('sounds/click.ogg') : undefined;
+	function clickSoundEffect() {
+		clickSFX?.play();
+	}
 
 	onMount(() => {
 		if (document.readyState === 'complete') {
@@ -45,6 +52,9 @@
 	<title>afn</title>
 </svelte:head>
 
+<svelte:window on:click={clickSoundEffect} />
+
+<Cursor />
 <span class:loading>
 	<slot />
 </span>

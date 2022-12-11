@@ -17,8 +17,6 @@
 	}
 </script>
 
-<!-- SHUT UP -->
-<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <li class:selected={isSelected} on:click={handleClick} on:keypress={handleClick}>
 	<button>
 		<div class="icon-container">

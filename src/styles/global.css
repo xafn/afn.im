@@ -67,7 +67,6 @@ body.stop-transitions * {
 }
 
 ::selection {
-    color: var(--white);
     background: var(--yellow-opacity);
 }
 

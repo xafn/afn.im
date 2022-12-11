@@ -29,7 +29,7 @@
 		position: fixed;
 		top: 0;
 		padding: 1.25rem 0;
-		z-index: 9999;
+		z-index: 15;
 		background-color: var(--bg-color);
 		backdrop-filter: blur(15px);
 		-webkit-backdrop-filter: blur(15px);

@@ -119,6 +119,7 @@
 		text-decoration: none;
 		color: var(--white);
 		height: 100%;
+		border-radius: 8px;
 	}
 
 	img {

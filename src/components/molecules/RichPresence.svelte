@@ -139,11 +139,11 @@
 	{/if}
 	<div>
 		{#if isSpotify}
-			<Tooltip tip="Open Spotify">
-				<a href={songLink} target="_blank" rel="noreferrer">
+			<a href={songLink} target="_blank" rel="noreferrer">
+				<Tooltip tip="Open Spotify">
 					<h3>{activity}</h3>
-				</a>
-			</Tooltip>
+				</Tooltip>
+			</a>
 		{:else}
 			<h3>{activity}</h3>
 		{/if}
@@ -166,6 +166,7 @@
 
 	a,
 	a:not(:hover) {
+		border-radius: 4px;
 		text-decoration: underline;
 		text-decoration-color: var(--bg-color);
 		transition: 0.3s var(--bezier-one);
