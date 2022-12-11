@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	let mouseX: number;
 	let mouseY: number;
 	let opacity: number;
@@ -15,32 +13,23 @@
 		clearTimeout(timeout);
 		timeout = setTimeout(() => {
 			opacity = 0;
-		}, 1000)
-	}
-
-
-	function enlargen() {
-		scale = 1.15;
-	}
-
-	function normalSize() {
-		scale = 1;
+		}, 1000);
 	}
 </script>
 
-<svelte:window on:mousemove={mouseMove} on:mousedown={enlargen} on:mouseup={normalSize} />
+<svelte:window
+	on:mousemove={mouseMove}
+	on:mousedown={() => (scale = 1.25)}
+	on:mouseup={() => (scale = 1)}
+/>
 
 <div
 	class="pointer-ring"
 	style="transform: translateX({mouseX - 15}px) translateY({mouseY - 15}px) scale({scale})"
-	style:opacity={opacity}
+	style:opacity
 />
 
 <style>
-	.pointer-ring :global(*):hover {
-		background-color: brown;
-	}
-
 	.pointer-ring {
 		left: 0;
 		top: 0;
