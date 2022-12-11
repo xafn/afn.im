@@ -1,24 +1,25 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 	$: status = $page.status;
-
-	import fs from 'fs';
-	const dir = fs.readdirSync('static/art');
-
-    let chosenFile = dir[Math.floor(Math.random() * dir.length)] 
+	// im not using this as it was intended, very hacky
+	const art = import.meta.glob('/static/art/*.webp', { as: 'raw' });
+	const artList = Object.keys(art);
+	const randomIndex = Math.floor(Math.random() * artList.length);
+	const chosenFile = artList[randomIndex].slice(12, -5);
 </script>
 
 <div class="main wrapper">
 	<div class="flex">
-	    <div 
-        class="art"
-        class:different={chosenFile === "chilly.webp"}
-        style="background-image:url(art/{chosenFile})"
-        alt="art" />
-    	<div class="text">
-        	<h6>{chosenFile.slice(0, -5)}</h6>
-            <h1>{status}</h1>
-    	</div>
+		<div
+			class="art"
+			class:different={chosenFile === 'chilly'}
+			style="background-image:url(art/{chosenFile}.webp)"
+			alt="art"
+		/>
+		<div class="text">
+			<h6>{chosenFile}</h6>
+			<h1>{status}</h1>
+		</div>
 	</div>
 	<br />
 	<a href="/"><h5>Go back home?</h5></a>
@@ -33,31 +34,30 @@
 		flex-direction: column;
 	}
 
+	.flex {
+		display: flex;
+		gap: 2rem;
+		align-items: center;
+	}
 
-    .flex {
-        display: flex;
-        gap: 2rem;
-        align-items: center;
-    }
-
-    .text {
-        display: flex;
-        flex-direction: column;
-        transform: translateY(5px);
-    }
+	.text {
+		display: flex;
+		flex-direction: column;
+		transform: translateY(5px);
+	}
 	.art {
-        background-color: var(--neutral-one);
+		background-color: var(--neutral-one);
 		height: 140px;
 		width: 140px;
 		border-radius: 200px;
-        background-size: cover;
-        background-position: 50% 10%;
+		background-size: cover;
+		background-position: 50% 10%;
 		background-repeat: no-repeat;
 	}
 
-    .different {
-        background-position: 50% 60%;
-    }
+	.different {
+		background-position: 50% 60%;
+	}
 
 	a {
 		text-decoration: none;
@@ -75,14 +75,14 @@
 		margin-left: 0.75rem;
 	}
 
-    @media only screen and (max-width: 768px) {
+	@media only screen and (max-width: 768px) {
 		.flex {
-            flex-direction: column;
-            gap: 1.5rem;
-        }
+			flex-direction: column;
+			gap: 1.5rem;
+		}
 
-        .text {
-            align-items: center;
-        }
+		.text {
+			align-items: center;
+		}
 	}
 </style>
