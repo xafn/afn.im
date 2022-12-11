@@ -49,7 +49,7 @@
 							</div>
 							<div class="info">
 								{#if forks}
-									<img src="icons/fork.svg" alt="fork" />
+									<img src="icons/fork.svg" id="fork" alt="fork" />
 									<h6>{forks}</h6>
 								{/if}
 							</div>
@@ -123,7 +123,7 @@
 	}
 
 	img {
-		height: 14px;
+		height: 16px;
 		width: auto;
 	}
 
@@ -133,6 +133,10 @@
 
 	#star {
 		transform: translateY(-1px);
+	}
+
+	#fork {
+		height: 17px;
 	}
 
 	#pfp {

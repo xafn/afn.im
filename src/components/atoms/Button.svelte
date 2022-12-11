@@ -28,6 +28,7 @@
 		font-size: 1.6rem;
 		font-family: var(--font-two);
 		letter-spacing: -0.075em;
+		border: 1px solid var(--neutral-four);
 	}
 
 	.button-with-side {

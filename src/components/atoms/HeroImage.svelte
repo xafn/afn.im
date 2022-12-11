@@ -19,7 +19,7 @@
 
 <div>
 	<img
-		src="HeroImage.webp"
+		src="art/afn.webp"
 		alt="A drawing of me"
 		on:mousemove={enterRotate3D}
 		on:mouseleave={leaveRotate3D}

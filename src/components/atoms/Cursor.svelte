@@ -38,7 +38,7 @@
 		border-radius: 100px;
 		border: 1px solid var(--white-two);
 		position: fixed;
-		z-index: 8;
+		z-index: 20;
 		opacity: 0;
 		pointer-events: none;
 		transition: 0.3s all var(--bezier-one);
