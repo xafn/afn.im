@@ -24,11 +24,10 @@
 	class:tall
 	class:shrink
 	loading="eager"
+	style="background-image:url(art/{art}.webp)" 	
 	on:click={() => (clicked = true)}
 	on:keypress={() => (clicked = true)}
->
-	<div style="background-image:url(art/{art}.webp)" />
-</button>
+	/>
 
 <svelte:head>
 	{#if clicked}
@@ -68,25 +67,14 @@
 		cursor: pointer;
 		font-size: 0;
 		user-select: none;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
 	}
 
 	.card:hover {
 		transform: translateY(-1px);
 		box-shadow: 0px 15px 25px -10px rgba(0, 0, 0, 0.25);
-		filter: brightness(0.9);
-	}
-
-	.card:hover div {
-		transform: scale(1.015);
-	}
-
-	.card div {
-		height: 100%;
-		width: 100%;
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		transition: all 0.3s var(--bezier-one);
 	}
 
 	.tall {
