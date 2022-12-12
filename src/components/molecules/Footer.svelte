@@ -2,16 +2,12 @@
 	import Social from '../atoms/Social.svelte';
 	import Tooltip from '../atoms/Tooltip.svelte';
 	import { user } from '../../util/discord';
+	import Socials from './Socials.svelte';
 </script>
 
 <hr />
 <footer class="wrapper">
-	<div>
-		<Social icon="github" tip="@xafn" link="https://github.com/xafn" />
-		<Social icon="discord" tip={user.fullName()} link={`https://discord.com/users/${user.id}`} />
-		<Social icon="email" tip="_@afn.lol" link="mailto:_@afn.lol" />
-		<Social icon="kofi" tip="@affan" link="https://ko-fi.com/affan" />
-	</div>
+	<Socials/>
 	<h6>
 		Made with pain. &#60;3
 		<Tooltip tip="you're here"><span>V2</span></Tooltip>

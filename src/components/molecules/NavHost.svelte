@@ -6,7 +6,7 @@
 <nav>
 	<div class:scrolled={y > 20}>
 		<ul>
-			<Nav href="#home" section="home" isSelected={y < 350} />
+			<Nav href="#home" section="/" isSelected={y < 350} />
 			<Nav href="#about" section="about" isSelected={y > 350 && y < 675} />
 			<Nav href="#aw" section="work" isSelected={y > 675} />
 		</ul>
@@ -45,14 +45,14 @@
 
 	@media (min-width: 868px) {
 		div {
-			width: 50rem;
+			width: 40rem;
 			border-radius: 12px;
 		}
 		.scrolled {
 			border-bottom: 1.5px solid var(--yellow-opacity);
 			padding: 0.5rem 0;
 			margin-top: 0.5rem;
-			width: 42rem;
+			width: 34rem;
 			background-color: var(--neutral-five);
 			box-shadow: 0px 15px 8px -10px rgba(0, 0, 0, 0.4);
 		}

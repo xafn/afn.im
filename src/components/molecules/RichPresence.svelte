@@ -86,7 +86,7 @@
 						details = 'by ' + details.replace(/;/g, ','); // why does lanyard use ; guhh??
 						state = activity === state ? '' : 'on ' + state; // checking if the song is a single
 						songLink = `https://open.spotify.com/track/${data.spotify.track_id}`;
-						smallImage = '';
+						smallImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu9UHeqFdp_Z-oR5s8ONEOMyyuwwiN7eXnoeV7q7D3dl_lqHA4';
 
 						musicProgress(data.spotify);
 						clearInterval(currentSetInterval);

@@ -20,7 +20,7 @@
 <li class:selected={isSelected} on:click={handleClick} on:keypress={handleClick}>
 	<button>
 		<div class="icon-container">
-			<img src="icons/{section}.svg" alt={section} />
+			<img src="icons/{section === '/' ? 'home' : section}.svg" alt={section} />
 		</div>
 		<h5>
 			{section}
@@ -29,7 +29,6 @@
 </li>
 
 <style>
-
 	li {
 		text-decoration: none;
 		list-style: none;
@@ -48,7 +47,6 @@
 		border-radius: 100px;
 		cursor: pointer;
 		transition: background-color 0.3s var(--bezier-one), transform 0.3s var(--bezier-one);
-
 	}
 
 	button:hover {
@@ -57,6 +55,10 @@
 
 	h5 {
 		transition: all 0.3s var(--bezier-one);
+	}
+
+	.icon-container {
+		display: none;
 	}
 
 	button:hover > h5,
@@ -97,6 +99,7 @@
 		}
 
 		.icon-container {
+			display: block;
 			padding: 6px 24px;
 			border-radius: 100px;
 			margin-bottom: 0.4rem;

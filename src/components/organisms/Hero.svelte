@@ -1,7 +1,10 @@
 <script>
 	import HeroImage from '../../components/atoms/HeroImage.svelte';
 	import Button from '../atoms/Button.svelte';
-	import Tooltip from '../atoms/Tooltip.svelte';
+	import Socials from '../molecules/Socials.svelte';
+	
+
+	let text = 'affan;';
 
 	function handleClick() {
 		const el = document.querySelector('#aw');
@@ -12,11 +15,14 @@
 
 <section id="home" class="wrapper">
 	<div>
-		<h1>hey, <br /> i'm <Tooltip tip="call me afn"><span>affan;</span></Tooltip></h1>
+		<h1>
+			afn
+		</h1>
 		<h4>Hobbyist illustrator and designer. <br />Attempting to program.</h4>
-		<Button side={true} on:click={handleClick} on:keypress={handleClick}>
-			Discover my work ↓
-		</Button>
+		<div class="socials">
+			<Socials/>
+		</div>
+		<Button side={true} on:click={handleClick} on:keypress={handleClick}>Discover my work ↓</Button>
 	</div>
 	<HeroImage />
 </section>
@@ -31,9 +37,13 @@
 		margin-top: 7.25rem;
 	}
 
-	h4 {
+	.socials {
 		margin-top: 1rem;
 		margin-bottom: 1.7rem;
+	}
+
+	h4 {
+		margin-top: 1rem;
 	}
 
 	h1::before {
@@ -51,30 +61,12 @@
 		position: absolute;
 	}
 
-	h1 span {
-		color: var(--yellow);
-		font-weight: 600;
-		font-size: 4rem;
-		font-family: var(--font-two);
-		letter-spacing: -0.075em;
-		background-color: var(--neutral-one);
-		border-radius: 20px;
-		padding: 0.4rem 2rem 0.3rem;
-		border: 1px solid var(--neutral-four);
-	}
-
 	@media screen and (max-width: 1240px) {
 		h1 {
 			min-height: 0vw;
 			font-size: clamp(4rem, 10vw, 6.25rem);
 		}
-		h1 span {
-			min-height: 0vw;
-			border-radius: 16px;
-			font-size: clamp(2.5rem, 6vw, 4rem);
-		}
-		
-		
+
 		h4 {
 			min-height: 0vw;
 			font-size: clamp(1.4rem, 2.4vw, 1.5rem);
@@ -90,6 +82,12 @@
 	@media screen and (max-width: 768px) {
 		section {
 			margin-bottom: 2.75rem;
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		section {
+			display: block;
 		}
 	}
 
