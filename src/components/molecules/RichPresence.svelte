@@ -40,9 +40,6 @@
 		if (elapsed.slice(0, 2) === '00') {
 			elapsed = elapsed.slice(-13);
 		}
-		if (elapsed.slice(0, 1) === '0' && elapsed.slice(1, 2) != '0') {
-			elapsed = elapsed.slice(-12);
-		}
 	}
 
 	localTime();
