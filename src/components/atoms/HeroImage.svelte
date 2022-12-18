@@ -18,11 +18,11 @@
 </script>
 
 <div>
-	<img
-		src="art/afn.webp"
-		alt="A drawing of me"
+	<div
 		on:mousemove={enterRotate3D}
 		on:mouseleave={leaveRotate3D}
+		class="img"
+		style:background-image="url(art/afn.webp)" 
 		style:transform="perspective(500px) {zoom ? 'scale(1.05)' : ''} rotateX({xRotation}deg) rotateY({yRotation}deg)"
 	/>
 </div>
@@ -40,14 +40,18 @@
 		}
 	}
 
-	img {
+	.img {
 		border-radius: 48px;
 		width: 425px;
-		height: auto;
+		height: 400px;
 		z-index: 1;
 		display: block;
 		transition: width 0.4s var(--bezier-one), transform 0.4s var(--bezier-one);
 		align-self: start;
+		background-color: var(--neutral-one);
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
 	}
 
 	div {
@@ -57,10 +61,10 @@
 	}
 
 	@media (max-width: 1240px) {
-		img {
+		.img {
 			width: clamp(340px, 40vw, 425px);
+			height: clamp(300px, 40vw, 400px);
 		}
-
 		div {
 			display: flex;
 			justify-content: center;
@@ -68,7 +72,7 @@
 	}
 
 	@media (max-width: 768px) {
-		img {
+		.img {
 			display: none;
 		}
 	}

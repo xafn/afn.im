@@ -10,7 +10,7 @@
 	});
 </script>
 
-<div class="wrapper" id="code">
+<section class="wrapper" id="code">
 	<div class="title">
 		<h2><span>code</span>:work</h2>
 	</div>
@@ -62,7 +62,7 @@
 			<div class="repo-card shimmer" />
 		{/if}
 	</div>
-</div>
+</section>
 
 <style>
 	.title {

@@ -24,12 +24,7 @@
 		justify-content: space-between;
 		align-items: center;
 	}
-
-	div {
-		display: flex;
-		gap: 0.75rem;
-	}
-
+	
 	hr {
 		background-color: var(--neutral-one);
 		height: 1px;

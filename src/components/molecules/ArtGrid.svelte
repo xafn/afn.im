@@ -10,7 +10,7 @@
 		<ArtCell art="811" />
 		<ArtCell art="diverge" tall={true} />
 		<ArtCell art="FADE" tall={true} />
-		<ArtCell art="chilly" tall={true} shrink={true} />
+		<ArtCell art="flandre" tall={true} disableRightClick={true} shrink={true} />
 		<ArtCell art="ribbons" tall={true} />
 		<ArtCell art="asumi" />
 		<ArtCell art="doodle" />
@@ -57,7 +57,7 @@
 			grid-template-columns: 1fr 1fr 1fr;
 		}
 
-		.grid::before{
+		.grid::before {
 			transform: translateY(-95%) translateX(-25%);
 		}
 	}

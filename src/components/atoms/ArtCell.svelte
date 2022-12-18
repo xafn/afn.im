@@ -4,6 +4,7 @@
 
 	export let tall = false;
 	export let shrink = false;
+	export let disableRightClick = false;
 	export let art = 'HeroImage';
 
 	import { onMount } from 'svelte';
@@ -24,7 +25,8 @@
 	class:tall
 	class:shrink
 	loading="eager"
-	style="background-image:url(art/{art}.webp)" 	
+	style="background-image:url(art/{art}.webp)" 
+	aria-label={art}	
 	on:click={() => (clicked = true)}
 	on:keypress={() => (clicked = true)}
 	/>
@@ -41,6 +43,7 @@
 	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 	<div
 		class="img-contain"
+		oncontextmenu={disableRightClick ? 'return false;' : ''}
 		tabindex="0"
 		on:click={() => (clicked = false)}
 		on:keypress={() => (clicked = false)}
@@ -111,6 +114,7 @@
 		-webkit-backdrop-filter: blur(12px);
 	}
 
+
 	h3,
 	h6 {
 		margin: 1vh;
@@ -130,6 +134,7 @@
 	@media only screen and (max-width: 1164px) {
 		.shrink {
 			grid-row: span 1 / auto;
+			background-position: top;
 		}
 	}
 
