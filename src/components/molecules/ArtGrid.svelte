@@ -1,5 +1,5 @@
 <script>
-	import ArtCell from '../atoms/ArtCell.svelte';
+	import ArtCell from '../atoms/Artwork.svelte';
 </script>
 
 <div class="grid-container">

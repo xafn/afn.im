@@ -102,6 +102,7 @@
 		justify-content: center;
 		align-items: center;
 		position: fixed;
+		text-align: center;
 		left: 0;
 		top: 50%;
 		transform: translateY(-50%);
