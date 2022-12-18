@@ -4,14 +4,20 @@
 
 <div class="grid-container">
 	<div class="grid">
-		<ArtCell art="painted_red" tall={true} />
+		<ArtCell art="painted_red" tall />
 		<ArtCell art="drowning" />
-		<ArtCell art="BL1NG!" tall={true} />
+		<ArtCell art="BL1NG!" tall />
 		<ArtCell art="811" />
-		<ArtCell art="diverge" tall={true} />
-		<ArtCell art="FADE" tall={true} />
-		<ArtCell art="flandre" tall={true} disableRightClick={true} shrink={true} />
-		<ArtCell art="ribbons" tall={true} />
+		<ArtCell art="diverge" tall />
+		<ArtCell art="FADE" tall />
+		<ArtCell
+			art="flandre"
+			tall
+			shrink
+			commission
+			bottomText="Commissioned by Kevin T#0001 · Do not use"
+		/>
+		<ArtCell art="ribbons" tall />
 		<ArtCell art="asumi" />
 		<ArtCell art="doodle" />
 	</div>

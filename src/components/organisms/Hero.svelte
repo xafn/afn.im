@@ -3,9 +3,6 @@
 	import Button from '../atoms/Button.svelte';
 	import Socials from '../molecules/Socials.svelte';
 	
-
-	let text = 'affan;';
-
 	function handleClick() {
 		const el = document.querySelector('#aw');
 		if (!el) return;
@@ -22,7 +19,7 @@
 		<div class="socials">
 			<Socials/>
 		</div>
-		<Button side={true} on:click={handleClick} on:keypress={handleClick}>Discover my work ↓</Button>
+		<Button side on:click={handleClick} on:keypress={handleClick}>Discover my work ↓</Button>
 	</div>
 	<HeroImage />
 </section>
@@ -34,7 +31,7 @@
 		justify-content: space-between;
 		align-items: center;
 		margin-bottom: 5.75rem;
-		margin-top: 7.25rem;
+		margin-top: 7rem;
 	}
 
 	.socials {

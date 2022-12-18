@@ -4,8 +4,9 @@
 
 	export let tall = false;
 	export let shrink = false;
-	export let disableRightClick = false;
+	export let commission = false;
 	export let art = 'HeroImage';
+	export let bottomText = 'Click anywhere to dismiss';
 
 	import { onMount } from 'svelte';
 
@@ -43,7 +44,7 @@
 	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 	<div
 		class="img-contain"
-		oncontextmenu={disableRightClick ? 'return false;' : ''}
+		oncontextmenu={commission ? 'return false;' : ''}
 		tabindex="0"
 		on:click={() => (clicked = false)}
 		on:keypress={() => (clicked = false)}
@@ -52,7 +53,7 @@
 	>
 		<h3>{art}</h3>
 		<img src="art/{art}.webp" alt={art} />
-		<h6>Click anywhere to dismiss</h6>
+		<h6>{bottomText}</h6>
 	</div>
 {/if}
 
