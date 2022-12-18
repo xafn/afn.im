@@ -5,7 +5,7 @@
 
 	function enterRotate3D(e: MouseEvent) {
 		zoom = true;
-		let img = e.target as HTMLImageElement;
+		let img = e.target as HTMLDivElement;
 		yRotation = 13 * ((e.offsetX - img.clientHeight / 2) / img.clientWidth);
 		xRotation = -13 * ((e.offsetY - img.clientWidth / 2) / img.clientHeight);
 	};
@@ -17,7 +17,7 @@
 	};
 </script>
 
-<div>
+<div class="img-container">
 	<div
 		on:mousemove={enterRotate3D}
 		on:mouseleave={leaveRotate3D}
@@ -54,7 +54,7 @@
 		background-repeat: no-repeat;
 	}
 
-	div {
+	.img-container {
 		z-index: 1;
 		animation: float 6s ease-in-out infinite;
 		animation-play-state: running;
@@ -65,7 +65,7 @@
 			width: clamp(340px, 40vw, 425px);
 			height: clamp(300px, 40vw, 400px);
 		}
-		div {
+		.img-container {
 			display: flex;
 			justify-content: center;
 		}
