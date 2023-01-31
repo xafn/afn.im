@@ -60,6 +60,8 @@
 		{:else}
 			<div class="repo-card shimmer" />
 			<div class="repo-card shimmer" />
+			<div class="repo-card shimmer" />
+			<div class="repo-card shimmer" />
 		{/if}
 	</div>
 </section>
