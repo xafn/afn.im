@@ -131,6 +131,8 @@
 
 	h2 {
 		display: inline-block;
+		margin-bottom: 1rem;
+
 	}
 
 	#star {
@@ -167,7 +169,7 @@
 		align-items: center;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		margin-bottom: 5rem;
+		margin-bottom: 3rem;
 		position: relative;
 	}
 

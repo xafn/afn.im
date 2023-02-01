@@ -96,6 +96,7 @@
 
 		h2 {
 			display: block;
+			margin-bottom: 1rem;
 		}
 	}
 </style>

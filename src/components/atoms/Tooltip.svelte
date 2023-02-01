@@ -5,9 +5,7 @@
 	export let active = false;
 
 	let loaded = false;
-	onMount(() => {
-		loaded = true;
-	});
+	onMount(() => (loaded = true));
 </script>
 
 <!-- preventing layout shifts by checking if page is fully loaded. if not, return original slot -->
@@ -63,7 +61,6 @@
 		margin-left: -10px;
 		position: absolute;
 	}
-
 
 	.tooltip.active {
 		opacity: 1;

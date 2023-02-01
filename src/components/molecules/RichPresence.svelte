@@ -239,6 +239,7 @@
 	@media screen and (max-width: 868px) {
 		h2 {
 			display: block;
+			margin-bottom: 1rem;
 		}
 		div {
 			justify-content: left;

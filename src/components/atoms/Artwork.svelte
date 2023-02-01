@@ -133,7 +133,7 @@
 		color: var(--white);
 	}
 
-	@media only screen and (max-width: 1164px) {
+	@media only screen and (max-width: 1153px) {
 		.shrink {
 			grid-row: span 1 / auto;
 			background-position: top;
