@@ -9,10 +9,12 @@
 		details = 'Fetching...',
 		activityImage = 'default.webp',
 		pulse = 30000,
+		activityNumber = 0,
 		state: string,
 		smallImage: string,
 		isSpotify: boolean,
 		isActivity: boolean,
+		isStatus: boolean,
 		songLink: string,
 		progress: number,
 		elapsed: string,
@@ -51,8 +53,9 @@
 			lanyard.onopen = () => console.log('Synced with Discord rich presence!');
 
 			lanyard.onmessage = (e) => {
-				let opcode = JSON.parse(e.data).op;
-				let data = JSON.parse(e.data).d;
+				let json = JSON.parse(e.data);
+				let opcode = json.op;
+				let data = json.d;
 
 				if (opcode === 1) {
 					pulse = data.heartbeat_interval;
@@ -64,6 +67,7 @@
 					);
 				}
 
+				// keep the websocket connection alive
 				setInterval(() => {
 					lanyard.send(JSON.stringify({ op: 3 }));
 				}, pulse);
@@ -71,6 +75,15 @@
 				if (opcode === 0) {
 					isSpotify = data.listening_to_spotify;
 					isActivity = !!data.activities[0];
+					isStatus = data.activities[0].name === 'Custom Status';
+					
+					// everything is so ugly oh my god why is there so many edge cases
+					if (isStatus && !!data.activities[1]) {
+						isActivity = true;
+						activityNumber = 1
+					} else if (isStatus && !data.activities[1]) {
+						isActivity = false;
+					}
 
 					if (isSpotify) {
 						({
@@ -80,30 +93,30 @@
 							album_art_url: activityImage
 						} = data.spotify);
 
-						details = 'by ' + details.replace(/;/g, ','); // why does lanyard use ; guhh??
-						state = activity === state ? '' : 'on ' + state; // checking if the song is a single
+						details = 'by ' + details.replace(/;/g, ',');
+						state = activity === state ? '' : 'on ' + state; // check if the song is a single
 						songLink = `https://open.spotify.com/track/${data.spotify.track_id}`;
 						smallImage = '';
 
 						musicProgress(data.spotify);
 						clearInterval(currentSetInterval);
-						currentSetInterval = setInterval(() => musicProgress(data.spotify), 1000);
+						currentSetInterval = setInterval(() => musicProgress(data.spotify), 250);
 					} else if (isActivity) {
-						({ name: activity, details, state } = data.activities[0]);
+						({ name: activity, details, state } = data.activities[activityNumber]);
 
-						elapsedTime(data.activities[0].timestamps.start);
+						elapsedTime(data.activities[activityNumber].timestamps.start);
 						clearInterval(currentSetInterval);
 						currentSetInterval = setInterval(() => {
-							elapsedTime(data.activities[0].timestamps.start);
+							elapsedTime(data.activities[activityNumber].timestamps.start);
 						}, 1000);
 
-						activityImage = data.activities[0].assets
-							? `https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.large_image}.webp?size=512`
+						activityImage = data.activities[activityNumber].assets
+							? `https://cdn.discordapp.com/app-assets/${data.activities[activityNumber].application_id}/${data.activities[activityNumber].assets.large_image}.webp?size=512`
 							: images[activity] || 'question_mark.png';
 
 						smallImage = '';
-						if (data.activities[0].assets.small_image) {
-							smallImage = `https://cdn.discordapp.com/app-assets/${data.activities[0].application_id}/${data.activities[0].assets.small_image}.webp?size=512`;
+						if (data.activities[activityNumber].assets.small_image) {
+							smallImage = `https://cdn.discordapp.com/app-assets/${data.activities[activityNumber].application_id}/${data.activities[activityNumber].assets.small_image}.webp?size=512`;
 						}
 					} else if (!isActivity) {
 						activity = user.fullName();
@@ -118,6 +131,7 @@
 					}
 				}
 
+				// re-open websocket connection when it closes, e.g. when switched out of tab
 				lanyard.onclose = () => {
 					lanyard.close();
 					setTimeout(() => connect(), 2500);
