@@ -2,13 +2,13 @@
 	const donators = [
 		{
 			name: 'afterst0rm',
-			icon: 'https://cdn.discordapp.com/avatars/282584705218510848/da56f904f34993aceba80fece31bb843.webp?size=4096',
+			icon: '/donators/afterst0rm.webp',
 			message:
 				"I wish I could do more, but I appreciate your work and creativity. You'll achieve great highs, brother. Big hugs from your Brazilian friend."
 		},
 		{
 			name: 'Kevin T.',
-			icon: 'https://cdn.discordapp.com/avatars/107244631724392448/472814086257707a120723bd3f4381c6.webp?size=4096',
+			icon: '/donators/kevin_t.webp',
 			message: 'hi'
 		}
 	];
