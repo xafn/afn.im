@@ -14,7 +14,7 @@
 		smallImage: string,
 		isSpotify: boolean,
 		isActivity: boolean,
-		isStatus: boolean,
+		hasStatus = false,
 		songLink: string,
 		progress: number,
 		elapsed: string,
@@ -75,17 +75,18 @@
 				if (opcode === 0) {
 					isSpotify = data.listening_to_spotify;
 					isActivity = !!data.activities[0];
-					isStatus = data.activities[0].name === 'Custom Status';
-
-					// everything is so ugly oh my god why is there so many edge cases
-					if (isStatus && !!data.activities[1]) {
-						isActivity = true;
-						activityNumber = 1;
-					} else if (isStatus && !data.activities[1]) {
-						isActivity = false;
-						activityNumber = 0;
-					}
-
+					// console.log(isActivity, hasStatus);
+					// hasStatus = data.activities[0].name === 'Custom Status';
+					
+					// // everything is so ugly oh my god why is there so many edge cases
+					// if (hasStatus && data.activities[1].name) {
+					// 	isActivity = true;
+					// 	activityNumber = 1;
+					// } else {
+					// 	isActivity = false;
+					// 	activityNumber = 0;
+					// }
+					
 					if (isSpotify) {
 						({
 							song: activity,
