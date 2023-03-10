@@ -14,12 +14,12 @@
 		smallImage: string,
 		isSpotify: boolean,
 		isActivity: boolean,
-		hasStatus = false,
 		songLink: string,
 		progress: number,
 		elapsed: string,
 		spotifyTotal: number,
 		currentSetInterval: ReturnType<typeof setInterval>;
+		// hasStatus = false,
 
 	let images: { [key: string]: string } = {
 		'CLIP STUDIO PAINT': 'https://i.imgur.com/IUVs3RB.png'
@@ -77,7 +77,7 @@
 					isActivity = !!data.activities[0];
 					// console.log(isActivity, hasStatus);
 					// hasStatus = data.activities[0].name === 'Custom Status';
-					
+
 					// // everything is so ugly oh my god why is there so many edge cases
 					// if (hasStatus && data.activities[1].name) {
 					// 	isActivity = true;
@@ -86,7 +86,7 @@
 					// 	isActivity = false;
 					// 	activityNumber = 0;
 					// }
-					
+
 					if (isSpotify) {
 						({
 							song: activity,
@@ -170,7 +170,7 @@
 	</div>
 </div>
 
-<style>
+<style lang="scss">
 	.contain {
 		display: flex;
 		gap: 2.25rem;
@@ -223,19 +223,22 @@
 		background-color: var(--neutral-one);
 		height: 0.6rem;
 		overflow: hidden;
-	}
 
-	progress::-webkit-progress-bar {
-		background-color: var(--neutral-one);
-		border-radius: 10rem;
-	}
-	progress[value]::-webkit-progress-value {
-		background-color: var(--yellow);
-		border-radius: 10rem;
-	}
-	progress[value]::-moz-progress-bar {
-		background-color: var(--yellow);
-		border-radius: 10rem;
+		&::-webkit-progress-bar {
+			background-color: var(--neutral-one);
+			border-radius: 10rem;
+		}
+
+		// dont ask me why these have to be duplicated because idk either
+		&[value]::-webkit-progress-value {
+			background-color: var(--yellow);
+			border-radius: 10rem;
+		}
+
+		&[value]::-moz-progress-bar {
+			background-color: var(--yellow);
+			border-radius: 10rem;
+		}
 	}
 
 	@keyframes rotate {

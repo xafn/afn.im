@@ -1,13 +1,11 @@
 <script>
-	import Social from '../atoms/Social.svelte';
 	import Tooltip from '../atoms/Tooltip.svelte';
-	import { user } from '../../util/discord';
 	import Socials from './Socials.svelte';
 </script>
 
 <hr />
 <footer class="wrapper">
-	<Socials/>
+	<Socials />
 	<h6>
 		Made with pain. &#60;3
 		<Tooltip tip="you're here"><span>V2</span></Tooltip>
@@ -17,20 +15,28 @@
 	</h6>
 </footer>
 
-<style>
-	footer {
-		padding-bottom: 2.4rem;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-	
+<style lang="scss">
 	hr {
 		background-color: var(--neutral-one);
 		height: 1px;
 		border: 0;
 		width: 100%;
 		margin-bottom: 2rem;
+
+		@media screen and (max-width: 768px) {
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	footer {
+		padding-bottom: 2.4rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		@media screen and (max-width: 768px) {
+			flex-direction: column;
+		}
 	}
 
 	h6 {
@@ -57,23 +63,13 @@
 		font-size: 0.9rem;
 		border-radius: 7px;
 		padding: 0.15rem 0.5rem 0.15rem;
-	}
 
-	a:hover {
-		font-weight: 400;
-		background-color: var(--yellow);
-		color: var(--neutral-one);
-		border-radius: 7px;
-		width: fit-content;
-	}
-
-	@media screen and (max-width: 768px) {
-		hr {
-			margin-bottom: 1.5rem;
-		}
-
-		footer {
-			flex-direction: column;
+		&:hover {
+			font-weight: 400;
+			background-color: var(--yellow);
+			color: var(--neutral-one);
+			border-radius: 7px;
+			width: fit-content;
 		}
 	}
 </style>

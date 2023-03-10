@@ -22,10 +22,16 @@
 	<slot />
 {/if}
 
-<style>
+<style lang="scss">
 	.tooltip-wrapper {
 		position: relative;
 		display: inline-block;
+		
+		&:hover .tooltip {
+			opacity: 1;
+			visibility: initial;
+			margin-top: -8px;
+		}
 	}
 
 	.tooltip {
@@ -47,30 +53,25 @@
 		font-family: var(--font-two);
 		font-weight: 300;
 		letter-spacing: -0.075em;
-	}
 
-	.tooltip::after {
-		border-left: solid transparent 10px;
-		border-right: solid transparent 10px;
-		border-top: solid var(--yellow) 10px;
-		bottom: -8px;
-		content: ' ';
-		height: 0;
-		width: 0;
-		left: 50%;
-		margin-left: -10px;
-		position: absolute;
-	}
+		// the little triangle below the tooltip v
+		&::after {
+			border-left: solid transparent 10px;
+			border-right: solid transparent 10px;
+			border-top: solid var(--yellow) 10px;
+			bottom: -8px;
+			content: ' ';
+			height: 0;
+			width: 0;
+			left: 50%;
+			margin-left: -10px;
+			position: absolute;
+		}
 
-	.tooltip.active {
-		opacity: 1;
-		visibility: initial;
-		margin-top: -8px;
-	}
-
-	.tooltip-wrapper:hover .tooltip {
-		opacity: 1;
-		visibility: initial;
-		margin-top: -8px;
+		&.active {
+			opacity: 1;
+			visibility: initial;
+			margin-top: -8px;
+		}
 	}
 </style>

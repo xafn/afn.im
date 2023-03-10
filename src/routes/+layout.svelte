@@ -1,7 +1,6 @@
 <script lang="ts">
-	import NavHost from '../components/molecules/NavHost.svelte';
 	import { onMount } from 'svelte';
-	import '../styles/global.css';
+	import '../styles/global.scss';
 	import '../styles/fonts.css';
 	import Cursor from '../components/atoms/Cursor.svelte';
 

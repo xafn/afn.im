@@ -11,8 +11,6 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
-		"@fontsource/fira-mono": "^4.5.0",
-		"@neoconfetti/svelte": "^1.0.0",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "^1.0.0",
 		"@types/cookie": "^0.5.1",
@@ -31,6 +29,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"sass": "^1.58.3",
 		"typescript": "^4.8.4"
 	}
 }

@@ -66,11 +66,17 @@
 	</div>
 </section>
 
-<style>
+<style lang="scss">
+	@import '../../styles/mixins.scss';
+
 	.title {
 		display: flex;
 		justify-content: center;
 		margin-top: 0;
+
+		@media (max-width: 868px) {
+			justify-content: left;
+		}
 	}
 	.repo-card {
 		padding: 1rem 1.25rem;
@@ -87,6 +93,15 @@
 		-webkit-backdrop-filter: blur(5px);
 		background-blend-mode: overlay;
 		border: 1px solid var(--neutral-four);
+
+		&:hover {
+			transform: translateY(-2px);
+			box-shadow: 0px 15px 25px -10px rgba(0, 0, 0, 0.25);
+
+			#open {
+				filter: brightness(1.3);
+			}
+		}
 	}
 
 	.shimmer {
@@ -96,7 +111,12 @@
 		animation-name: shimmer;
 		animation-timing-function: linear;
 		background: #ddd;
-		background: linear-gradient(to right, var(--neutral-two) 8%, var(--neutral-one) 18%, var(--neutral-two) 33%);
+		background: linear-gradient(
+			to right,
+			var(--neutral-two) 8%,
+			var(--neutral-one) 18%,
+			var(--neutral-two) 33%
+		);
 		background-size: 1200px 100%;
 	}
 
@@ -107,14 +127,6 @@
 		100% {
 			background-position: 1200px 0;
 		}
-	}
-	.repo-card:hover {
-		transform: translateY(-2px);
-		box-shadow: 0px 15px 25px -10px rgba(0, 0, 0, 0.25);
-	}
-
-	.repo-card:hover #open {
-		filter: brightness(1.3);
 	}
 
 	a {
@@ -132,7 +144,6 @@
 	h2 {
 		display: inline-block;
 		margin-bottom: 1rem;
-
 	}
 
 	#star {
@@ -171,21 +182,18 @@
 		grid-template-columns: 1fr 1fr;
 		margin-bottom: 3rem;
 		position: relative;
-	}
 
-	.grid:before {
-		height: 300px;
-		font-size: 175px;
-		content: 'λ';
-		font-weight: 700;
-		z-index: -1;
-		user-select: none;
-		transform: translateY(-20%) translateX(1175%);
-		-webkit-text-stroke: 2px var(--white);
-		color: transparent;
-		opacity: 0.25;
-		letter-spacing: -0.075em;
-		position: absolute;
+		&:before {
+			@include outlineText($content: 'λ', $translateX: 1150%, $translateY: -30%);
+		}
+
+		@media (max-width: 600px) {
+			grid-template-columns: 1fr;
+		}
+
+		@media (max-width: 868px) {
+			margin-bottom: 2rem;
+		}
 	}
 
 	.dot {
@@ -199,26 +207,10 @@
 		display: flex;
 		gap: 0.2rem;
 		align-items: center;
-	}
 
-	.info-container {
-		display: flex;
-		gap: 0.9rem;
-	}
-
-	@media (max-width: 868px) {
-		.title {
-			justify-content: left;
-		}
-
-		.grid {
-			margin-bottom: 2rem;
-		}
-	}
-
-	@media (max-width: 600px) {
-		.grid {
-			grid-template-columns: 1fr;
+		&-container {
+			display: flex;
+			gap: 0.9rem;
 		}
 	}
 </style>

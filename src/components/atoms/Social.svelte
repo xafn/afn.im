@@ -14,7 +14,7 @@
 	</div>
 </Tooltip>
 
-<style>
+<style lang="scss">
 	a {
 		transition: all 0.3s var(--bezier-one);
 		display: flex;
@@ -28,26 +28,27 @@
 		cursor: pointer;
 	}
 
-	div {
-		transition: all 0.3s var(--bezier-one);
-	}
-
-	div:hover > a {
-		background-color: var(--neutral-one);
-	}
-
-	div:hover img {
-		opacity: 1;
-	}
-
-	div:active {
-		transform: scale(98%);
-	}
-
 	img {
 		height: 26px;
 		width: 26px;
 		opacity: 0.7;
 		transition: all 0.3s var(--bezier-one);
+	}
+
+	div {
+		transition: all 0.3s var(--bezier-one);
+
+		&:hover {
+			img {
+				opacity: 1;
+			}
+			a {
+				background-color: var(--neutral-one);
+			}
+		}
+
+		&:active {
+			transform: scale(98%);
+		}
 	}
 </style>

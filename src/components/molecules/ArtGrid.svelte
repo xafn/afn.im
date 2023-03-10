@@ -23,7 +23,9 @@
 	</div>
 </div>
 
-<style>
+<style lang="scss">
+	@import '../../styles/mixins.scss';
+
 	.grid {
 		gap: 0.8rem;
 		grid-auto-rows: 230px;
@@ -33,44 +35,29 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 		width: min(90%, 72rem);
-	}
 
-	.grid:before {
-		height: 300px;
-		font-size: 175px;
-		content: '&&';
-		font-weight: 700;
-		z-index: -1;
-		user-select: none;
-		transform: translateY(-160%) translateX(-40%);
-		-webkit-text-stroke: 2px var(--white);
-		color: transparent;
-		opacity: 0.25;
-		letter-spacing: -0.075em;
-		position: absolute;
+		@media screen and (max-width: 600px) {
+			grid-auto-rows: 125px;
+		}
+
+		@media screen and (max-width: 868px) {
+			width: min(100%, 75rem);
+			gap: 0.2rem;
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+
+		&:before {
+			@include outlineText($content: '&&', $translateX: -40%, $translateY: -160%);
+
+			@media screen and (max-width: 868px) {
+				@include outlineText($content: '&&', $translateX: -25%, $translateY: -95%);
+			}
+		}
 	}
 
 	.grid-container {
 		display: flex;
 		justify-content: center;
 		margin-bottom: 4rem;
-	}
-
-	@media screen and (max-width: 868px) {
-		.grid {
-			width: min(100%, 75rem);
-			gap: 0.2rem;
-			grid-template-columns: 1fr 1fr 1fr;
-		}
-
-		.grid::before {
-			transform: translateY(-95%) translateX(-25%);
-		}
-	}
-
-	@media screen and (max-width: 600px) {
-		.grid {
-			grid-auto-rows: 125px;
-		}
 	}
 </style>

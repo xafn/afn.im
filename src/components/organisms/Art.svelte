@@ -12,7 +12,7 @@
 	<ArtGrid />
 </section>
 
-<style>
+<style lang="scss">
 	span {
 		color: var(--yellow);
 	}
@@ -26,12 +26,10 @@
 		display: flex;
 		justify-content: center;
 		margin-top: 0;
-	}
 
-	@media (max-width: 868px) {
-		div {
+		@media (max-width: 868px) {
 			justify-content: left;
-            margin-bottom: 0.3rem;
+			margin-bottom: 0.3rem;
 		}
 	}
 </style>

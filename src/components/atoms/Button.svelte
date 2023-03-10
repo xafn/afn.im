@@ -8,7 +8,7 @@
 	<slot />
 </button>
 
-<style>
+<style lang="scss">
 	button {
 		font-size: 100%;
 		border-radius: 16px;
@@ -29,6 +29,22 @@
 		font-family: var(--font-two);
 		letter-spacing: -0.075em;
 		border: 1px solid var(--neutral-four);
+
+		&:active {
+			transform: scale(95%);
+		}
+
+		&:hover {
+			filter: brightness(110%);
+		}
+
+		@media screen and (max-width: 868px) {
+			text-align: center;
+			justify-content: center;
+			padding: 1rem 2rem;
+			width: 100%;
+			font-size: clamp(1.1rem, 2vw, 1.9rem);
+		}
 	}
 
 	.button-with-side {
@@ -44,30 +60,9 @@
 		height: 100%;
 		width: 1.6rem;
 		background-color: var(--yellow);
-	}
 
-	button:active {
-		transform: scale(95%);
-	}
-
-	button:hover {
-		filter: brightness(110%);
-	}
-
-	@media screen and (max-width: 868px) {
-		button {
-			text-align: center;
-			justify-content: center;
-			padding: 1rem 2rem;
-			width: 100%;
-		}
-
-		.side {
+		@media screen and (max-width: 868px) {
 			display: none;
-		}
-
-		button {
-			font-size: clamp(1.1rem, 2vw, 1.9rem);
 		}
 	}
 </style>

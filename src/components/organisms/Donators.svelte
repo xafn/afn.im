@@ -17,7 +17,7 @@
 <section class="wrapper">
 	<div class="title">
 		<h2>donators</h2>
-        <p>Thank you!</p>
+		<p>Thank you!</p>
 	</div>
 
 	<div class="donations">
@@ -30,14 +30,17 @@
 	</div>
 </section>
 
-<style>
-    
+<style lang="scss">
 	.title {
-        display: flex;
+		display: flex;
 		flex-direction: column;
 		align-items: center;
 		margin-top: 0;
-        margin-bottom: 1.5rem;
+		margin-bottom: 1.5rem;
+
+		@media (max-width: 868px) {
+			align-items: normal;
+		}
 	}
 
 	.donator {
@@ -52,21 +55,15 @@
 		display: flex;
 		gap: 2rem;
 		margin-bottom: 3rem;
+
+		@media (max-width: 868px) {
+			justify-content: left;
+		}
 	}
 
 	img {
 		border-radius: 50%;
 		height: 64px;
 		width: 64px;
-	}
-
-	@media (max-width: 868px) {
-		.title {
-			align-items: normal;
-		}
-
-		.donations {
-			justify-content: left;
-		}
 	}
 </style>

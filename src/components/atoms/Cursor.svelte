@@ -29,7 +29,7 @@
 	style:opacity
 />
 
-<style>
+<style lang="scss">
 	.pointer-ring {
 		left: 0;
 		top: 0;
@@ -38,14 +38,12 @@
 		border-radius: 100px;
 		border: 1px solid var(--white-two);
 		position: fixed;
-		z-index: 20;
+		z-index: 30;
 		opacity: 0;
 		pointer-events: none;
 		transition: 0.3s all var(--bezier-one);
-	}
 
-	@media only screen and (max-width: 868px) {
-		.pointer-ring {
+		@media (pointer: coarse) {
 			display: none;
 		}
 	}

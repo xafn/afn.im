@@ -16,7 +16,7 @@
 <!-- this is the coolest thing ever wtf?? -->
 <svelte:window bind:scrollY={y} />
 
-<style>
+<style lang="scss">
 	nav {
 		display: flex;
 		align-items: center;
@@ -35,14 +35,13 @@
 		-webkit-backdrop-filter: blur(15px);
 		background-blend-mode: overlay;
 		transition: all 0.5s ease;
-	}
 
-	div ul {
-		display: flex;
-		gap: 4rem;
-		justify-content: center;
+		ul {
+			display: flex;
+			gap: 4rem;
+			justify-content: center;
+		}
 	}
-
 	@media (min-width: 868px) {
 		div {
 			width: 40rem;

@@ -1,36 +1,33 @@
-<script>
+<script lang="ts">
 	import { fly } from 'svelte/transition';
 	import { cubicOut, quintOut } from 'svelte/easing';
 
 	export let tall = false;
 	export let shrink = false;
 	export let commission = false;
-	export let art = 'HeroImage';
+	export let art = '';
 	export let bottomText = 'Click anywhere to dismiss';
-
-	import { onMount } from 'svelte';
 
 	let clicked = false;
 
-	onMount(() => {
-		document.addEventListener('keydown', function (event) {
-			if (event.key === 'Escape') {
-				clicked = false;
-			}
-		});
-	});
+	function onKeyDown(e: KeyboardEvent) {
+		if (e.key === 'Escape') {
+			clicked = false;
+		}
+	}
 </script>
 
 <button
 	class="card"
 	class:tall
 	class:shrink
-	loading="eager"
-	style="background-image:url(art/{art}.webp)" 
-	aria-label={art}	
+	style="background-image:url(art/{art}.webp)"
+	aria-label={art}
 	on:click={() => (clicked = true)}
 	on:keypress={() => (clicked = true)}
-	/>
+/>
+
+<svelte:window on:keydown={onKeyDown} />
 
 <svelte:head>
 	{#if clicked}
@@ -43,7 +40,7 @@
 {#if clicked === true}
 	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 	<div
-		class="img-contain"
+		class="img-modal"
 		oncontextmenu={commission ? 'return false;' : ''}
 		tabindex="0"
 		on:click={() => (clicked = false)}
@@ -57,7 +54,7 @@
 	</div>
 {/if}
 
-<style>
+<style lang="scss">
 	.card {
 		position: relative;
 		border: none;
@@ -74,28 +71,18 @@
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
+
+		&:hover {
+			transform: translateY(-1px);
+			box-shadow: 0px 15px 25px -10px rgba(0, 0, 0, 0.25);
+		}
+
+		@media screen and (max-width: 868px) {
+			border-radius: 0;
+		}
 	}
 
-	.card:hover {
-		transform: translateY(-1px);
-		box-shadow: 0px 15px 25px -10px rgba(0, 0, 0, 0.25);
-	}
-
-	.tall {
-		grid-row: span 2 / auto;
-	}
-
-	img {
-		max-height: 83vh;
-		height: auto;
-		max-width: 86vw;
-		border-radius: 2vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.img-contain {
+	.img-modal {
 		background-blend-mode: overlay;
 		display: flex;
 		flex-direction: column;
@@ -114,8 +101,17 @@
 		background-color: #0a0808bb;
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
-	}
 
+		img {
+			max-height: 83vh;
+			height: auto;
+			max-width: 86vw;
+			border-radius: 2vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
 
 	h3,
 	h6 {
@@ -133,20 +129,14 @@
 		color: var(--white);
 	}
 
+	.tall {
+		grid-row: span 2 / auto;
+	}
+
 	@media only screen and (max-width: 1153px) {
 		.shrink {
 			grid-row: span 1 / auto;
 			background-position: top;
-		}
-	}
-
-	@media screen and (max-width: 868px) {
-		.card {
-			border-radius: 0;
-		}
-
-		img {
-			max-height: vh;
 		}
 	}
 </style>
