@@ -1,14 +1,14 @@
 <script lang="ts">
-	const donators = [
+	const supporters = [
 		{
 			name: 'afterst0rm',
-			icon: '/donators/afterst0rm.webp',
+			icon: '/supporters/afterst0rm.webp',
 			message:
 				"I wish I could do more, but I appreciate your work and creativity. You'll achieve great highs, brother. Big hugs from your Brazilian friend."
 		},
 		{
 			name: 'Kevin T.',
-			icon: '/donators/kevin_t.webp',
+			icon: '/supporters/kevin_t.webp',
 			message: 'hi'
 		}
 	];
@@ -16,12 +16,12 @@
 
 <section class="wrapper">
 	<div class="title">
-		<h2>donators</h2>
+		<h2>supporters</h2>
 		<p>Thank you!</p>
 	</div>
 
 	<div class="donations">
-		{#each donators as { name, icon, message }}
+		{#each supporters as { name, icon, message }}
 			<div class="donator">
 				<img src={icon} alt={name} />
 				<h6>{name}</h6>
