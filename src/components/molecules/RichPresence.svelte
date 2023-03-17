@@ -18,10 +18,11 @@
 		progress: number,
 		elapsed: string,
 		spotifyTotal: number,
-		currentSetInterval: ReturnType<typeof setInterval>;
-		// hasStatus = false,
+		currentSetInterval: ReturnType<typeof setInterval>,
+		currentRequestAnimationFrame: number;
+	// hasStatus = false,
 
-	let images: { [key: string]: string } = {
+	const images: { [key: string]: string } = {
 		'CLIP STUDIO PAINT': 'https://i.imgur.com/IUVs3RB.png'
 	};
 
@@ -30,7 +31,6 @@
 	}
 
 	function musicProgress(spotify: Spotify) {
-		progress = 0;
 		spotifyTotal = spotify.timestamps.end - spotify.timestamps.start;
 		progress = 100 - (100 * (spotify.timestamps.end - new Date().getTime())) / spotifyTotal;
 	}
@@ -44,11 +44,14 @@
 		}
 	}
 
+	// can't use requestAnimationFrame outside of onMount since its part of the window object
+	// need to use currentSetInterval at the beginning since the clock needs to be there before we connect to Lanyard
 	localTime();
 	currentSetInterval = setInterval(() => localTime(), 1000);
 
 	onMount(() => {
 		function connect() {
+			clearInterval(currentSetInterval); // don't need this anymore
 			let lanyard: WebSocket = new WebSocket('wss://api.lanyard.rest/socket');
 			lanyard.onopen = () => console.log('Synced with Discord rich presence!');
 
@@ -65,6 +68,14 @@
 							d: { subscribe_to_id: user.id }
 						})
 					);
+				}
+
+				// requestAnimationFrame is much more performant than setTimeout
+				function tick() {
+					if (isSpotify) musicProgress(data.spotify);
+					else if (isActivity) elapsedTime(data.activities[activityNumber].timestamps.start);
+					else if (!isActivity) localTime();
+					currentRequestAnimationFrame = requestAnimationFrame(tick);
 				}
 
 				// keep the websocket connection alive
@@ -99,37 +110,27 @@
 						state = activity === state ? '' : 'on ' + state; // check if the song is a single
 						songLink = `https://open.spotify.com/track/${data.spotify.track_id}`;
 						smallImage = '';
-
-						musicProgress(data.spotify);
-						clearInterval(currentSetInterval);
-						currentSetInterval = setInterval(() => musicProgress(data.spotify), 250);
+						cancelAnimationFrame(currentRequestAnimationFrame);
+						tick();
 					} else if (isActivity) {
 						({ name: activity, details, state } = data.activities[activityNumber]);
-
-						elapsedTime(data.activities[activityNumber].timestamps.start);
-						clearInterval(currentSetInterval);
-						currentSetInterval = setInterval(() => {
-							elapsedTime(data.activities[activityNumber].timestamps.start);
-						}, 1000);
-
 						activityImage = data.activities[activityNumber].assets
 							? `https://cdn.discordapp.com/app-assets/${data.activities[activityNumber].application_id}/${data.activities[activityNumber].assets.large_image}.webp?size=512`
 							: images[activity] || 'question_mark.png';
-
 						smallImage = '';
 						if (data.activities[activityNumber].assets.small_image) {
 							smallImage = `https://cdn.discordapp.com/app-assets/${data.activities[activityNumber].application_id}/${data.activities[activityNumber].assets.small_image}.webp?size=512`;
 						}
+						cancelAnimationFrame(currentRequestAnimationFrame);
+						tick();
 					} else if (!isActivity) {
 						activity = user.fullName();
 						details = data.discord_status.charAt(0).toUpperCase() + data.discord_status.slice(1);
 						details = details === 'Dnd' ? 'Do Not Disturb' : details;
 						activityImage = 'default.webp';
 						smallImage = '';
-
-						localTime();
-						clearInterval(currentSetInterval);
-						currentSetInterval = setInterval(() => localTime(), 1000);
+						cancelAnimationFrame(currentRequestAnimationFrame);
+						tick();
 					}
 				}
 
