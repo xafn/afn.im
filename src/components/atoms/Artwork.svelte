@@ -71,6 +71,8 @@
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
+		-webkit-transform: translate3d(0, 0, 1px);
+		-webkit-backface-visibility: hidden;
 
 		&:hover {
 			transform: translateY(-1px);
