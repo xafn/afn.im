@@ -10,6 +10,11 @@
 			name: 'Kevin T.',
 			icon: '/supporters/kevin_t.webp',
 			message: 'hi'
+		},
+		{
+			name: 'Taku',
+			icon: '/supporters/taku.webp',
+			message: '3 Covfefe'
 		}
 	];
 </script>
