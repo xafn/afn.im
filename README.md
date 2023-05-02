@@ -26,4 +26,4 @@ Steps to follow if you want to replicate the hosting of this site. You may host 
 All website-related code is distributed under the [AGPL license](LICENSE).  
 
 ### Art Assets
-All art assets (files in ``static/art/``) are distributed under the [Creative Commons Attribution 4.0 International](static/art/LICENSE) license. You **must** give attribution if you share or repost these assets.
+All art assets (files in ``static/art/``) are distributed under the [Creative Commons Attribution 4.0 International](static/art/LICENSE-CC-BY) license. You **must** give attribution if you share or repost these assets.
