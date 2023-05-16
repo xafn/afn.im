@@ -15,6 +15,11 @@
 			name: 'Taku',
 			icon: '/supporters/taku.webp',
 			message: '3 Covfefe'
+		},
+		{
+			name: 'notIvan',
+			icon: '/supporters/notIvan.webp',
+			message: 'i forgot ☠️'
 		}
 	];
 </script>
