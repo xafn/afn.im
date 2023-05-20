@@ -1,6 +1,7 @@
 import { env } from '$env/dynamic/private';
 import type { PageServerLoad } from './$types';
 import type { Edge, PinnedRepo } from '../util/types';
+import { SECRET_API_KEY } from '$env/static/private';
 
 async function getPinnedRepos(username: string): Promise<PinnedRepo[]> {
 	const query = `
@@ -37,7 +38,7 @@ async function getPinnedRepos(username: string): Promise<PinnedRepo[]> {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer ${env.SECRET_API_KEY}`
+			Authorization: `Bearer ${SECRET_API_KEY}`
 		},
 		body: JSON.stringify({ query })
 	});
