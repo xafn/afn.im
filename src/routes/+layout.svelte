@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import '../styles/global.scss';
-	import '../styles/fonts.css';
+	import '../styles/fonts.scss';
 	import Cursor from '../components/atoms/Cursor.svelte';
 
 	let loading = true;
