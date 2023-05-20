@@ -18,7 +18,7 @@
 								<h6>{owner.login}</h6>
 							</div>
 							<div>
-								<img src="icons/open.svg" alt="open in new tab" id="open" />
+								<img src="icons/open.svg" alt="Open in new tab" id="open" />
 							</div>
 						</div>
 						<div>
