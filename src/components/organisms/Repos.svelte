@@ -23,7 +23,9 @@
 						</div>
 						<div>
 							<h3>{name.split('/')[1]}</h3>
-							<h6>{description}</h6>
+							{#if description}
+								<h6>{description}</h6>
+							{/if}
 						</div>
 						<div class="info-container">
 							<div class="info">
