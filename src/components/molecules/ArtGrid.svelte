@@ -1,25 +1,25 @@
 <script>
-	import Artwork from '../atoms/Artwork.svelte';
+	import ArtCell from '../atoms/Artwork.svelte';
 </script>
 
 <div class="grid-container">
 	<div class="grid">
-		<Artwork art="painted_red" tall />
-		<Artwork art="drowning" />
-		<Artwork art="BL1NG!" tall />
-		<Artwork art="811" />
-		<Artwork art="diverge" tall />
-		<Artwork art="FADE" tall />
-		<Artwork
+		<ArtCell art="painted_red" tall />
+		<ArtCell art="drowning" />
+		<ArtCell art="BL1NG!" tall />
+		<ArtCell art="811" />
+		<ArtCell art="diverge" tall />
+		<ArtCell art="FADE" tall />
+		<ArtCell
 			art="flandre"
 			tall
 			shrink
 			commission
 			bottomText="Commissioned by Kevin T#0001 · Do not use"
 		/>
-		<Artwork art="ribbons" tall />
-		<Artwork art="asumi" />
-		<Artwork art="doodle" />
+		<ArtCell art="ribbons" tall />
+		<ArtCell art="asumi" />
+		<ArtCell art="doodle" />
 	</div>
 </div>
 
