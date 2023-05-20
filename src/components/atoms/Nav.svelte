@@ -17,8 +17,8 @@
 	}
 </script>
 
-<li class:selected={isSelected} on:click={handleClick} on:keypress={handleClick}>
-	<button>
+<li class:selected={isSelected}>
+	<button on:click={handleClick}>
 		<div class="icon-container">
 			<img src="icons/{section === '/' ? 'home' : section}.svg" alt={section} />
 		</div>

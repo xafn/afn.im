@@ -1,4 +1,4 @@
-@mixin outlineText($content, $translateX: 0, $translateY: 0, $fontSize: 175px, $letterSpacing: -0.075em) {
+@mixin outlineText($content, $translateX: 0, $translateY: 0, $fontSize: 175px, $letterSpacing: -0.075em, $opacity: 0.25) {
     height: 300px;
     font-size: $fontSize;
     content: $content;
@@ -8,7 +8,7 @@
     transform: translateX($translateX) translateY($translateY);
     -webkit-text-stroke: 2px var(--white);
     color: transparent;
-    opacity: 0.25;
+    opacity: $opacity;
     letter-spacing: $letterSpacing;
     position: absolute;
 }
