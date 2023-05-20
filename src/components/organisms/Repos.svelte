@@ -1,13 +1,6 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import type { Repo } from '../../util/types';
-
-	let repos: Repo[];
-
-	onMount(async () => {
-		const response = await fetch('https://gh-pinned.nxl.sh/api/user/xafn');
-		repos = await response.json();
-	});
+	import type { PinnedRepo } from '../../util/types';
+	export let repos: PinnedRepo[];
 </script>
 
 <section class="wrapper" id="code">
@@ -16,30 +9,26 @@
 	</div>
 	<div class="grid">
 		{#if repos}
-			{#each repos as { link, owner, repo, description, languageColor, language, stars, forks }}
-				<a href={link} target="_blank" rel="noreferrer">
+			{#each repos as { name, owner, stars, forks, url, description, primaryLanguage }}
+				<a href={url} target="_blank" rel="noreferrer">
 					<div class="repo-card">
 						<div id="top-part">
 							<div class="info">
-								<img
-									src="https://github.com/{owner}.png"
-									alt="{owner}'s profile picture"
-									id="pfp"
-								/>
-								<h6>{owner}</h6>
+								<img src={owner.avatarUrl} alt="{owner.login}'s profile picture" id="pfp" />
+								<h6>{owner.login}</h6>
 							</div>
 							<div>
 								<img src="icons/open.svg" alt="open in new tab" id="open" />
 							</div>
 						</div>
 						<div>
-							<h3>{repo}</h3>
+							<h3>{name.split('/')[1]}</h3>
 							<h6>{description}</h6>
 						</div>
 						<div class="info-container">
 							<div class="info">
-								<span class="dot" style="background-color: {languageColor}" />
-								<h6>{language}</h6>
+								<span class="dot" style="background-color: {primaryLanguage.color}" />
+								<h6>{primaryLanguage.name}</h6>
 							</div>
 							<div class="info">
 								{#if stars}
