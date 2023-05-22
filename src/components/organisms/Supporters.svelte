@@ -1,27 +1,5 @@
 <script lang="ts">
-	const supporters = [
-		{
-			name: 'afterst0rm',
-			icon: '/supporters/afterst0rm.webp',
-			message:
-				"I wish I could do more, but I appreciate your work and creativity. You'll achieve great highs, brother. Big hugs from your Brazilian friend."
-		},
-		{
-			name: 'Kevin T.',
-			icon: '/supporters/kevin_t.webp',
-			message: 'hi'
-		},
-		{
-			name: 'Taku',
-			icon: '/supporters/taku.webp',
-			message: '3 Covfefe'
-		},
-		{
-			name: 'notIvan',
-			icon: '/supporters/notIvan.webp',
-			message: 'i forgot ☠️'
-		}
-	];
+	import supporters from '../../util/supporters.json'
 </script>
 
 <section class="wrapper">
