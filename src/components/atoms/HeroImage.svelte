@@ -54,12 +54,10 @@
 		background-repeat: no-repeat;
 
 		@media (max-width: 768px) {
-			width: 100px;
-			height: 100px;
-			border-radius: 999px;
+			display: none;
 		}
 
-		@media (min-width: 769px) and (max-width: 1240px) {
+		@media (max-width: 1240px) {
 			width: clamp(340px, 40vw, 425px);
 			height: clamp(300px, 40vw, 400px);
 		}
