@@ -12,14 +12,17 @@
 
 <section id="home" class="wrapper">
 	<div>
-		<h1>afn</h1>
+		<div class="title">
+			<div id="mobile-hero-image"><HeroImage /></div>
+			<h1>afn</h1>
+		</div>
 		<h4>Hobbyist illustrator and designer. <br />Attempting to program.</h4>
 		<div class="socials">
 			<Socials />
 		</div>
 		<Button side on:click={handleClick} on:keypress={handleClick}>Discover my work ↓</Button>
 	</div>
-	<HeroImage />
+	<div id="desktop-hero-image"><HeroImage /></div>
 </section>
 
 <style lang="scss">
@@ -46,6 +49,24 @@
 		}
 	}
 
+	.title {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	@media screen and (min-width: 768px) {
+		#mobile-hero-image {
+			display: none;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		#desktop-hero-image {
+			display: none;
+		}
+	}
+
 	.socials {
 		margin-top: 1rem;
 		margin-bottom: 1.7rem;
@@ -57,6 +78,10 @@
 
 	h1::before {
 		@include outlineText($content: '///', $translateX: -95%, $letterSpacing: -0.1em);
+
+		@media screen and (max-width: 768px) {
+			@include outlineText($content: '///', $translateX: -175%, $letterSpacing: -0.1em);
+		}
 	}
 
 	@media screen and (max-width: 1240px) {
