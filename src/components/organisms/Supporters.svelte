@@ -8,9 +8,9 @@
 		<p>Thank you!</p>
 	</div>
 
-	<div class="donations">
+	<div class="supporters">
 		{#each supporters as { name, icon, message }}
-			<div class="donator">
+			<div class="supporter">
 				<img src={icon} alt={name} />
 				<h6>{name}</h6>
 			</div>
@@ -31,16 +31,17 @@
 		}
 	}
 
-	.donator {
+	.supporter {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 0.5rem;
 	}
 
-	.donations {
+	.supporters {
 		justify-content: center;
 		display: flex;
+		flex-wrap: wrap;
 		gap: 2rem;
 		margin-bottom: 3rem;
 
