@@ -118,7 +118,7 @@
 							? `https://cdn.discordapp.com/app-assets/${data.activities[activityNumber].application_id}/${data.activities[activityNumber].assets.large_image}.webp?size=512`
 							: images[activity] || 'question_mark.png';
 						smallImage = '';
-						if (data.activities[activityNumber].assets.small_image) {
+						if (data.activities[activityNumber].assets && data.activities[activityNumber].assets.small_image) {
 							smallImage = `https://cdn.discordapp.com/app-assets/${data.activities[activityNumber].application_id}/${data.activities[activityNumber].assets.small_image}.webp?size=512`;
 						}
 						cancelAnimationFrame(currentRequestAnimationFrame);
