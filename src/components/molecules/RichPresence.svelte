@@ -5,7 +5,7 @@
 	import { user } from '../../util/discord';
 	import type { Spotify } from '../../util/types';
 
-	let activity = user.fullName(),
+	let activity = `@${user.username}`,
 		details = 'Fetching...',
 		activityImage = 'default.webp',
 		pulse = 30000,
@@ -124,7 +124,7 @@
 						cancelAnimationFrame(currentRequestAnimationFrame);
 						tick();
 					} else if (!isActivity) {
-						activity = user.fullName();
+						activity = `@${user.username}`;
 						details = data.discord_status.charAt(0).toUpperCase() + data.discord_status.slice(1);
 						details = details === 'Dnd' ? 'Do Not Disturb' : details;
 						activityImage = 'default.webp';

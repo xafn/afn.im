@@ -1,13 +1,8 @@
 class DiscordUser {
     constructor( 
-      public name: string, 
-      public discriminator: string,
+      public username: string, 
       public id: string 
     ) {}
-  
-    fullName() {
-      return this.name + "#" + this.discriminator
-    }
   }
   
-  export let user = new DiscordUser("afn", '0128', '420043923822608384');
+  export let user = new DiscordUser("affn", '420043923822608384');
