@@ -10,7 +10,7 @@
 		Made with pain. &#60;3
 		<Tooltip tip="you're here"><span>V2</span></Tooltip>
 		<Tooltip tip="how to delete">
-			<a href="https://v1.afn.lol/" target="_blank" rel="noreferrer">V1</a>
+			<a href="https://v1.afn.im/" target="_blank" rel="noreferrer">V1</a>
 		</Tooltip>
 	</h6>
 </footer>
