@@ -6,7 +6,7 @@
 	export let shrink = false;
 	export let commission = false;
 	export let art = '';
-	export let bottomText = 'Click anywhere to dismiss';
+	export let subtitle = 'Click anywhere to dismiss';
 
 	let clicked = false;
 
@@ -50,7 +50,7 @@
 	>
 		<h3>{art}</h3>
 		<img src="art/{art}.webp" alt={art} />
-		<h6>{bottomText}</h6>
+		<h6>{subtitle}</h6>
 	</div>
 {/if}
 
