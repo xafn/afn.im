@@ -6,7 +6,18 @@
 
 	onMount(async () => {
 		const response = await fetch('https://gh-pinned-repos.egoist.dev/?username=xafn');
-		repos = await response.json();
+		let unpatched = await response.json()
+
+		// patch repo owners having a slash at the end of them
+		for (let i = 0; i < unpatched.length; i++) {
+			const element = unpatched[i];
+
+			if ((element.owner as string).endsWith("/")) {
+				unpatched[i].owner = unpatched[i].owner.slice(0, -1)
+			}
+		}
+
+		repos = unpatched
 	});
 </script>
 
