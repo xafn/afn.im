@@ -88,34 +88,14 @@ export interface Assets {
 
 //--------------------------
 export interface Repo {
-	name: string;
-	description: string;
 	owner: string;
-	forks: number;
-	stars: number;
+	repo: string;
+	link: string;
+	description: string;
+	image: string;
+	website: string;
 	language: string;
 	languageColor: string;
-	url: string;
-}
-
-export interface PrimaryRepoJSON {
-	author: string;
-	name: string;
-	description: string;
-	language: string;
-	stars: number;
-	forks: number;
-}
-
-export interface SecondaryRepoJSON {
-	name: string;
-	description: string;
-	url: string;
-	stargazerCount: number;
-	forkCount: number;
-	languages: Languages;
-}
-
-interface Languages {
-	[key: string]: string;
+	stars: string;
+	forks: any;
 }
