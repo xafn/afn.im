@@ -1,43 +1,20 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { Repo, PrimaryRepoJSON, SecondaryRepoJSON } from '../../util/types';
+	import type { Repo } from '../../util/types';
 
 	let repos: Repo[];
 
 	onMount(async () => {
-		// this one has the primary language of the repos but no fork info
-		const primaryResponse = await fetch('https://pinned.berrysauce.me/get/xafn');
-		const primaryJSON: PrimaryRepoJSON[] = await primaryResponse.json();
-
-		// this one has fork info but gives an unorganized list of languages...
-		const secondaryResponse = await fetch(
-			'https://corsproxy.io/?https%3A%2F%2Fpinned.rubkn.dev%2Fapi%2Fuser%2Fxafn'
-		);
-		const secondaryJSON: SecondaryRepoJSON[] = (await secondaryResponse.json()).pinnedItems;
-
-		// merge the information from both JSONs using repos name
-		const combinedData: (Repo | null)[] = primaryJSON
-			.map((item1: PrimaryRepoJSON) => {
-				const item2 = secondaryJSON.find((item: SecondaryRepoJSON) => item.name === item1.name); // use repo name for matching
-
-				// combine the data
-				if (item2) {
-					return {
-						name: item1.name,
-						description: item1.description,
-						owner: item1.author,
-						forks: item2.forkCount,
-						stars: item2.stargazerCount,
-						language: item1.language,
-						languageColor: item2.languages[item1.language],
-						url: item2.url
-					};
-				}
-				return null;
-			})
-			.filter((item) => item !== null);
-
-		repos = combinedData as Repo[];
+		const response = await fetch('https://gh-pinned-repos-tsj7ta5xfhep.deno.dev/?username=xafn');
+		let unpatched = await response.json();
+		// patch repo owners having a slash at the end of them
+		for (let i = 0; i < unpatched.length; i++) {
+			const element = unpatched[i];
+			if ((element.owner as string).endsWith('/')) {
+				unpatched[i].owner = unpatched[i].owner.slice(0, -1);
+			}
+		}
+		repos = unpatched;
 	});
 </script>
 
@@ -47,8 +24,8 @@
 	</div>
 	<div class="grid">
 		{#if repos}
-			{#each repos as { name, description, owner, forks, stars, language, languageColor, url }}
-				<a href={url} target="_blank" rel="noreferrer">
+			{#each repos as { link, owner, repo, description, languageColor, language, stars, forks }}
+				<a href={link} target="_blank" rel="noreferrer">
 					<div class="repo-card">
 						<div id="top-part">
 							<div class="info">
@@ -64,7 +41,7 @@
 							</div>
 						</div>
 						<div>
-							<h3>{name}</h3>
+							<h3>{repo}</h3>
 							<h6>{description}</h6>
 						</div>
 						<div class="info-container">
