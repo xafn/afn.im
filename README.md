@@ -20,7 +20,7 @@ Steps to follow if you want to replicate the hosting of this site. You may host 
 3. Under `Build settings`, select the `SvelteKit` preset
 4. Under `Environmental variables (advanced)`, add the following variable:
    - Variable name: `NODE_VERSION`
-   - Value: `16`
+   - Value: `21`
 5. Save and deploy
 
 ## ⚖️ Licensing
