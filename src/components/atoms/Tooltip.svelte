@@ -26,7 +26,7 @@
 	.tooltip-wrapper {
 		position: relative;
 		display: inline-block;
-		
+
 		&:hover .tooltip {
 			opacity: 1;
 			visibility: initial;
@@ -47,8 +47,8 @@
 		transform: translate(-50%, -120%);
 		padding: 0.15rem 0.5rem;
 		border-radius: 6px;
-		background-color: var(--yellow);
-		color: var(--neutral-one);
+		background-color: var(--accent);
+		color: var(--elevation-one);
 		font-size: 0.9rem;
 		font-family: var(--font-two);
 		font-weight: 300;
@@ -58,7 +58,7 @@
 		&::after {
 			border-left: solid transparent 10px;
 			border-right: solid transparent 10px;
-			border-top: solid var(--yellow) 10px;
+			border-top: solid var(--accent) 10px;
 			bottom: -8px;
 			content: ' ';
 			height: 0;

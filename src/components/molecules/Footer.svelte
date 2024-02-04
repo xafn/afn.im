@@ -17,7 +17,7 @@
 
 <style lang="scss">
 	hr {
-		background-color: var(--neutral-one);
+		background-color: var(--elevation-one);
 		height: 1px;
 		border: 0;
 		width: 100%;
@@ -47,7 +47,7 @@
 
 	span {
 		font-family: var(--font-two);
-		background-color: var(--neutral-one);
+		background-color: var(--elevation-one);
 		border-radius: 7px;
 		padding: 0.15rem 0.5rem 0.15rem;
 		width: fit-content;
@@ -59,15 +59,15 @@
 		transition: 0.3s var(--bezier-one);
 		font-family: var(--font-two);
 		text-decoration: none;
-		color: var(--white-two);
+		color: var(--text-secondary);
 		font-size: 0.9rem;
 		border-radius: 7px;
 		padding: 0.15rem 0.5rem 0.15rem;
 
 		&:hover {
 			font-weight: 400;
-			background-color: var(--yellow);
-			color: var(--neutral-one);
+			background-color: var(--accent);
+			color: var(--elevation-one);
 			border-radius: 7px;
 			width: fit-content;
 		}

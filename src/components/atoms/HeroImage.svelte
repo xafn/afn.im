@@ -48,7 +48,7 @@
 		display: block;
 		transition: width 0.4s var(--bezier-one), transform 0.4s var(--bezier-one);
 		align-self: start;
-		background-color: var(--neutral-one);
+		background-color: var(--elevation-one);
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;

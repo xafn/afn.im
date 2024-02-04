@@ -63,7 +63,7 @@
 		width: 100%;
 		border-radius: 4px;
 		overflow: hidden;
-		background: var(--neutral-one);
+		background: var(--elevation-one);
 		transition: all 0.3s var(--bezier-one);
 		cursor: pointer;
 		font-size: 0;
@@ -100,7 +100,7 @@
 		z-index: 20;
 		cursor: pointer;
 		user-select: none;
-		background-color: #0a0808bb;
+		background-color: var(--elevation-six);
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
 
@@ -128,7 +128,7 @@
 	h3 {
 		font-size: 3.5vh;
 		font-weight: 500;
-		color: var(--white);
+		color: var(--text-primary);
 	}
 
 	.tall {

@@ -2,19 +2,23 @@
 	import { onMount } from 'svelte';
 	import type { Repo } from '../../util/types';
 
+	import { StarIcon } from '@indaco/svelte-iconoir/star';
+	import { GitForkIcon } from '@indaco/svelte-iconoir/git-fork';
+	import { OpenNewWindowIcon } from '@indaco/svelte-iconoir/open-new-window';
+
 	let repos: Repo[];
 
 	onMount(async () => {
 		const response = await fetch('https://gh-pinned-repos-tsj7ta5xfhep.deno.dev/?username=xafn');
-		let unpatched = await response.json()
+		let unpatched = await response.json();
 		// patch repo owners having a slash at the end of them
 		for (let i = 0; i < unpatched.length; i++) {
 			const element = unpatched[i];
-			if ((element.owner as string).endsWith("/")) {
-				unpatched[i].owner = unpatched[i].owner.slice(0, -1)
+			if ((element.owner as string).endsWith('/')) {
+				unpatched[i].owner = unpatched[i].owner.slice(0, -1);
 			}
 		}
-		repos = unpatched
+		repos = unpatched;
 	});
 </script>
 
@@ -36,8 +40,8 @@
 								/>
 								<h6>{owner}</h6>
 							</div>
-							<div>
-								<img src="icons/open.svg" alt="open in new tab" id="open" />
+							<div id="open">
+								<OpenNewWindowIcon color="var(--text-secondary)" size="20px" />
 							</div>
 						</div>
 						<div>
@@ -51,13 +55,13 @@
 							</div>
 							<div class="info">
 								{#if stars}
-									<img src="icons/star.svg" id="star" alt="star" />
+									<StarIcon color="var(--text-secondary)" size="16px" />
 									<h6>{stars}</h6>
 								{/if}
 							</div>
 							<div class="info">
 								{#if forks}
-									<img src="icons/fork.svg" id="fork" alt="fork" />
+									<GitForkIcon color="var(--text-secondary)" size="16px" />
 									<h6>{forks}</h6>
 								{/if}
 							</div>
@@ -66,10 +70,9 @@
 				</a>
 			{/each}
 		{:else}
-			<div class="repo-card shimmer" />
-			<div class="repo-card shimmer" />
-			<div class="repo-card shimmer" />
-			<div class="repo-card shimmer" />
+			{#each Array(4) as _}
+				<div class="repo-card shimmer" />
+			{/each}
 		{/if}
 	</div>
 </section>
@@ -88,7 +91,7 @@
 	}
 	.repo-card {
 		padding: 1rem 1.25rem;
-		background-color: var(--neutral-two);
+		background-color: var(--elevation-two);
 		border-radius: 8px;
 		min-height: 140px;
 		height: 100%;
@@ -100,7 +103,7 @@
 		backdrop-filter: blur(5px);
 		-webkit-backdrop-filter: blur(5px);
 		background-blend-mode: overlay;
-		border: 1px solid var(--neutral-four);
+		border: 1px solid var(--elevation-four);
 
 		&:hover {
 			transform: translateY(-2px);
@@ -121,9 +124,9 @@
 		background: #ddd;
 		background: linear-gradient(
 			to right,
-			var(--neutral-two) 8%,
-			var(--neutral-one) 18%,
-			var(--neutral-two) 33%
+			var(--elevation-two) 8%,
+			var(--elevation-one) 18%,
+			var(--elevation-two) 33%
 		);
 		background-size: 1200px 100%;
 	}
@@ -139,14 +142,9 @@
 
 	a {
 		text-decoration: none;
-		color: var(--white);
+		color: var(--text-primary);
 		height: 100%;
 		border-radius: 8px;
-	}
-
-	img {
-		height: 16px;
-		width: auto;
 	}
 
 	h2 {
@@ -178,7 +176,7 @@
 	}
 
 	span {
-		color: var(--yellow);
+		color: var(--accent);
 	}
 
 	.grid {

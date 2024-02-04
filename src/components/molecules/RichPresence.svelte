@@ -118,7 +118,10 @@
 							? `https://cdn.discordapp.com/app-assets/${data.activities[activityNumber].application_id}/${data.activities[activityNumber].assets.large_image}.webp?size=512`
 							: images[activity] || 'question_mark.png';
 						smallImage = '';
-						if (data.activities[activityNumber].assets && data.activities[activityNumber].assets.small_image) {
+						if (
+							data.activities[activityNumber].assets &&
+							data.activities[activityNumber].assets.small_image
+						) {
 							smallImage = `https://cdn.discordapp.com/app-assets/${data.activities[activityNumber].application_id}/${data.activities[activityNumber].assets.small_image}.webp?size=512`;
 						}
 						cancelAnimationFrame(currentRequestAnimationFrame);
@@ -191,7 +194,7 @@
 	}
 
 	a:hover {
-		text-decoration-color: var(--white);
+		text-decoration-color: var(--text-primary);
 	}
 
 	.big {
@@ -221,23 +224,23 @@
 		border-radius: 10rem;
 		margin: 0;
 		margin-top: 0.6rem;
-		background-color: var(--neutral-one);
+		background-color: var(--elevation-one);
 		height: 0.6rem;
 		overflow: hidden;
 
 		&::-webkit-progress-bar {
-			background-color: var(--neutral-one);
+			background-color: var(--elevation-one);
 			border-radius: 10rem;
 		}
 
 		// dont ask me why these have to be duplicated because idk either
 		&[value]::-webkit-progress-value {
-			background-color: var(--yellow);
+			background-color: var(--accent);
 			border-radius: 10rem;
 		}
 
 		&[value]::-moz-progress-bar {
-			background-color: var(--yellow);
+			background-color: var(--accent);
 			border-radius: 10rem;
 		}
 	}

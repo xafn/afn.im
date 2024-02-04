@@ -14,7 +14,7 @@
 
 <style lang="scss">
 	span {
-		color: var(--yellow);
+		color: var(--accent);
 	}
 
 	h2 {

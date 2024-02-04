@@ -60,9 +60,9 @@
 		font-weight: 400;
 		font-family: var(--font-two);
 		font-size: 0.9rem;
-		background-color: var(--neutral-one);
+		background-color: var(--elevation-one);
 		border-radius: 7px;
-		color: var(--yellow);
+		color: var(--accent);
 		padding: 0.2rem 0.5rem 0.2rem;
 		width: fit-content;
 	}
@@ -72,7 +72,13 @@
 	}
 
 	.text::before {
-		@include outlineText($content: 'afn', $translateX: 97%, $translateY: -5%, $fontSize: 300px, $opacity: 0.22);
+		@include outlineText(
+			$content: 'afn',
+			$translateX: 97%,
+			$translateY: -5%,
+			$fontSize: 300px,
+			$opacity: 0.22
+		);
 	}
 
 	h2 {

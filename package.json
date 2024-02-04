@@ -29,6 +29,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@indaco/svelte-iconoir": "^7.1.0",
 		"sass": "^1.58.3",
 		"typescript": "^5.0.0"
 	}

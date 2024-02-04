@@ -1,3 +1,6 @@
+@import url(theme.light.scss) (prefers-color-scheme: light);
+@import url(theme.dark.scss) (prefers-color-scheme: dark);
+
 * {
     box-sizing: inherit;
     margin: 0;
@@ -45,29 +48,19 @@ body.stop-transitions * {
 }
 
 :root {
-    --white: #eed1c7;
-    --white-two: hsl(0, 17%, 69%);
-    --yellow: #dba895;
-    --yellow-opacity: #dba8952a;
-    --bg-color: hsl(0, 11%, 8%);
-    --neutral-one: #211c1c;
-    --neutral-two: #211c1c75;
-    --neutral-three: #1e1a1a;
-    --neutral-four: rgba(123, 115, 115, 0.227);
-    --neutral-five: #1f1919ca;
     --font-one: "Space Grotesk", sans-serif;
     --font-two: "JetBrains Mono", monospace;
     --bezier-one: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 ::selection {
-    background: var(--yellow-opacity);
+    background: var(--accent-opacity);
 }
 
 /*-----headings-----*/
 
 h1 {
-    color: var(--white);
+    color: var(--text-primary);
     font-weight: 600;
     letter-spacing: -0.075em;
     line-height: 0.05rem;
@@ -76,7 +69,7 @@ h1 {
 }
 
 h2 {
-    color: var(--white);
+    color: var(--text-primary);
     font-weight: 500;
     font-size: 2.25rem;
     border-radius: 12px;
@@ -85,19 +78,19 @@ h2 {
 }
 
 h3 {
-    color: var(--white);
+    color: var(--text-primary);
     font-weight: 500;
     font-size: 1.4rem;
 }
 
 h4 {
-    color: var(--white-two);
+    color: var(--text-secondary);
     font-weight: 300;
     font-size: 1.6rem;
 }
 
 h5 {
-    color: var(--white-two);
+    color: var(--text-secondary);
     font-size: 1.15rem;
     font-family: var(--font-two);
     font-weight: 300;
@@ -105,7 +98,7 @@ h5 {
 }
 
 h6 {
-    color: var(--white-two);
+    color: var(--text-secondary);
     font-size: 0.9rem;
     font-family: var(--font-two);
     font-weight: 300;
@@ -113,7 +106,7 @@ h6 {
 }
 
 p {
-    color: var(--white-two);
+    color: var(--text-secondary);
     font-weight: 300;
     font-size: 1.1rem;
     letter-spacing: -0rem;
@@ -150,11 +143,11 @@ p {
     background-color: transparent;
 
     &-thumb {
-        background-color: var(--neutral-three);
+        background-color: var(--elevation-three);
         background-clip: content-box;
     }
 
     &-thumb:hover {
-        background-color: var(--neutral-one);
+        background-color: var(--elevation-one);
     }
 }

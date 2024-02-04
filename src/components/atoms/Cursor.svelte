@@ -36,7 +36,7 @@
 		height: 30px;
 		width: 30px;
 		border-radius: 100px;
-		border: 1px solid var(--white-two);
+		border: 1px solid var(--text-secondary);
 		position: fixed;
 		z-index: 30;
 		opacity: 0;

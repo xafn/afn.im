@@ -1,7 +1,6 @@
 <script>
 	import Tooltip from './Tooltip.svelte';
 
-	export let icon = 'Github';
 	export let link = '';
 	export let tip = '';
 </script>
@@ -9,7 +8,7 @@
 <Tooltip {tip}>
 	<div>
 		<a href={link} target="_blank" rel="noreferrer">
-			<img src="icons/{icon}.svg" alt={icon} />
+			<slot/>
 		</a>
 	</div>
 </Tooltip>
@@ -28,22 +27,12 @@
 		cursor: pointer;
 	}
 
-	img {
-		height: 26px;
-		width: 26px;
-		opacity: 0.7;
-		transition: all 0.3s var(--bezier-one);
-	}
-
 	div {
 		transition: all 0.3s var(--bezier-one);
 
 		&:hover {
-			img {
-				opacity: 1;
-			}
 			a {
-				background-color: var(--neutral-one);
+				background-color: var(--elevation-one);
 			}
 		}
 
