@@ -8,8 +8,8 @@
 		<Artwork art="drowning" />
 		<Artwork art="BL1NG!" tall />
 		<Artwork art="811" />
+		<Artwork art="lonely" tall subtitle="Acrylic Paint" />
 		<Artwork art="diverge" tall />
-		<Artwork art="FADE" tall />
 		<Artwork
 			art="flandre"
 			tall
