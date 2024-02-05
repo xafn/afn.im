@@ -22,6 +22,7 @@
 		on:mousemove={enterRotate3D}
 		on:mouseleave={leaveRotate3D}
 		class="img"
+		role="img"
 		style:background-image="url(art/afn.webp)"
 		style:transform="perspective(500px) {zoom ? 'scale(1.05)' : ''} rotateX({xRotation}deg) rotateY({yRotation}deg)"
 	/>
@@ -46,7 +47,9 @@
 		height: 400px;
 		z-index: 1;
 		display: block;
-		transition: width 0.4s var(--bezier-one), transform 0.4s var(--bezier-one);
+		transition:
+			width 0.4s var(--bezier-one),
+			transform 0.4s var(--bezier-one);
 		align-self: start;
 		background-color: var(--elevation-one);
 		background-size: cover;

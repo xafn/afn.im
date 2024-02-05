@@ -15,6 +15,12 @@
 			clicked = false;
 		}
 	}
+
+	function disableRightClick(event: { preventDefault: () => void }) {
+		if (commission) {
+			event.preventDefault();
+		}
+	}
 </script>
 
 <button
@@ -38,13 +44,13 @@
 </svelte:head>
 
 {#if clicked === true}
-	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 	<div
 		class="img-modal"
-		oncontextmenu={commission ? 'return false;' : ''}
 		tabindex="0"
 		on:click={() => (clicked = false)}
 		on:keypress={() => (clicked = false)}
+		on:contextmenu={disableRightClick}
+		role="button"
 		in:fly={{ y: 50, easing: quintOut, duration: 750 }}
 		out:fly={{ y: 50, easing: cubicOut, duration: 300 }}
 	>
@@ -72,7 +78,9 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		-webkit-transform: translate3d(0, 0, 1px);
+		transform: translate3d(0, 0, 1px);
 		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
 
 		&:hover {
 			transform: translateY(-1px);

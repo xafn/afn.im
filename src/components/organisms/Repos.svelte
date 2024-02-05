@@ -152,14 +152,6 @@
 		margin-bottom: 1rem;
 	}
 
-	#star {
-		transform: translateY(-1px);
-	}
-
-	#fork {
-		height: 17px;
-	}
-
 	#pfp {
 		border-radius: 50%;
 		height: 16px;
