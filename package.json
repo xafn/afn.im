@@ -30,8 +30,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@indaco/svelte-iconoir": "^7.1.0",
-		"sass": "^1.70.0",
-		"typescript": "^5.3.3"
+		"@indaco/svelte-iconoir": "^7.1.0"
 	}
 }

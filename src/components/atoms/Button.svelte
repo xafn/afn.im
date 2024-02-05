@@ -2,7 +2,6 @@
 	export let side = false;
 </script>
 
-<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <button on:click on:keypress class:button-with-side={side}>
 	<div class:side />
 	<slot />
