@@ -1,25 +1,13 @@
 <script>
 	import Artwork from '../atoms/Artwork.svelte';
+	import art from '../../util/art.json'
 </script>
 
 <div class="grid-container">
 	<div class="grid">
-		<Artwork art="painted_red" tall />
-		<Artwork art="drowning" />
-		<Artwork art="BL1NG!" tall />
-		<Artwork art="811" />
-		<Artwork art="lonely" tall subtitle="Acrylic Paint" />
-		<Artwork art="diverge" tall />
-		<Artwork
-			art="flandre"
-			tall
-			shrink
-			commission
-			subtitle="Commissioned by Kevin T. · Do not use"
-		/>
-		<Artwork art="ribbons" tall />
-		<Artwork art="asumi" />
-		<Artwork art="doodle" />
+		{#each art as { name, tall, position, commission, subtitle }}
+			<Artwork {name} {tall} {position} {commission} {subtitle} />
+		{/each}
 	</div>
 </div>
 
@@ -28,7 +16,7 @@
 
 	.grid {
 		gap: 0.8rem;
-		grid-auto-rows: 230px;
+		grid-auto-rows: 200px;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
@@ -47,7 +35,7 @@
 		}
 
 		&:before {
-			@include outlineText($content: '&&', $translateX: -40%, $translateY: -160%);
+			@include outlineText($content: '&&', $translateX: -40%, $translateY: -210%);
 
 			@media screen and (max-width: 868px) {
 				@include outlineText($content: '&&', $translateX: -25%, $translateY: -95%);

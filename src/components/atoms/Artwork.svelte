@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import { cubicOut, quintOut } from 'svelte/easing';
-
+	
+	export let name = '';
 	export let tall = false;
-	export let shrink = false;
+	export let position = "center";
 	export let commission = false;
-	export let art = '';
 	export let subtitle = 'Click anywhere to dismiss';
 
 	let clicked = false;
@@ -26,9 +26,8 @@
 <button
 	class="card"
 	class:tall
-	class:shrink
-	style="background-image:url(art/{art}.webp)"
-	aria-label={art}
+	style="background-position: {position}; background-image:url(art/{name}.webp);"
+	aria-label={name}
 	on:click={() => (clicked = true)}
 	on:keypress={() => (clicked = true)}
 />
@@ -37,7 +36,7 @@
 
 <svelte:head>
 	{#if clicked}
-		<title>afn · {art}</title>
+		<title>afn · {name}</title>
 	{:else}
 		<title>afn</title>
 	{/if}
@@ -54,8 +53,8 @@
 		in:fly={{ y: 50, easing: quintOut, duration: 750 }}
 		out:fly={{ y: 50, easing: cubicOut, duration: 300 }}
 	>
-		<h3>{art}</h3>
-		<img src="art/{art}.webp" alt={art} />
+		<h3>{name}</h3>
+		<img src="art/{name}.webp" alt={name} />
 		<h6>{subtitle}</h6>
 	</div>
 {/if}
@@ -75,7 +74,6 @@
 		font-size: 0;
 		user-select: none;
 		background-size: cover;
-		background-position: center;
 		background-repeat: no-repeat;
 		-webkit-transform: translate3d(0, 0, 1px);
 		transform: translate3d(0, 0, 1px);
@@ -141,12 +139,5 @@
 
 	.tall {
 		grid-row: span 2 / auto;
-	}
-
-	@media only screen and (max-width: 1153px) {
-		.shrink {
-			grid-row: span 1 / auto;
-			background-position: top;
-		}
 	}
 </style>
