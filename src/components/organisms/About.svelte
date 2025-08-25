@@ -23,19 +23,28 @@
 	<div class="text">
 		<h2>bio</h2>
 		<p>
-			Hey there, I'm afn! :] I'm a <Tooltip tip={age}
-				><span>{Math.floor(Number(age))}</span></Tooltip
+			Hey there, I'm <Tooltip tip="short for affan">
+				<span>afn!</span>
+			</Tooltip> :] I'm a <Tooltip tip={age}><span>{Math.floor(Number(age))}</span></Tooltip>
+			year old digital artist and designer based in Canada. I’ve taken art seriously since
+			<span>2017</span>, and have been doodling silly anime characters since <span>2020</span>. I
+			also started to pivot into some programming, which landed me to study at the <Tooltip
+				tip="stay tuned for my WatCard progression"
 			>
-			year old digital artist and graphic/UI designer based in Canada. I’ve taken art seriously since
-			<span>2017</span>, and have been doodling silly anime characters since <span>2020</span>.
-			Recently, however, I’ve grown a knack for programming. I like contributing to
+				<a href="https://cs.uwaterloo.ca/" target="_blank" rel="noreferrer">
+					<span>University of Waterloo</span>
+				</a>
+			</Tooltip>for computer science. In my free time, I like to contribute to
 			<Tooltip tip="🤓">
 				<a href="https://github.com/xafn" target="_blank" rel="noreferrer">
 					<span>open source</span>
 				</a>
 			</Tooltip>
-			as a web developer, which is probably the reason why you've ended up here. Currently struggling
-			with Svelte and Typescript.
+			as a web developer. I'm most notable for working on <Tooltip tip="<3">
+				<a href="https://revanced.app" target="_blank" rel="noreferrer">
+					<span>ReVanced</span>
+				</a>
+			</Tooltip>, which is probably how you found me here.
 		</p>
 	</div>
 </section>
