@@ -1,6 +1,6 @@
 # 🎨 Personal Portfolio
 
-![mockup](https://github.com/xafn/afn.im/assets/47723802/e6557c66-b781-4ba4-8784-03615a19b84c)
+![mockup](https://github.com/user-attachments/assets/e95760ac-8846-434a-b2de-63f1dfe5d3e1)
 
 A simple site to showcase the art I've made over the years. Check it out at [afn.im](https://afn.im/).
 
