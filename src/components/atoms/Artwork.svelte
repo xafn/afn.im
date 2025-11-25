@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import { cubicOut, quintOut } from 'svelte/easing';
-	
+
 	export let name = '';
 	export let tall = false;
-	export let position = "center";
+	export let position = 'center';
 	export let commission = false;
 	export let subtitle = 'Click anywhere to dismiss';
 
@@ -135,6 +135,15 @@
 		font-size: 3.5vh;
 		font-weight: 500;
 		color: var(--text-primary);
+	}
+
+	@media (prefers-color-scheme: light) {
+		h3 {
+			color: var(--art-modal-light-font-primary);
+		}
+		h6 {
+			color: var(--art-modal-light-font-secondary);
+		}
 	}
 
 	.tall {
