@@ -3,33 +3,15 @@
 	import '../styles/global.scss';
 	import '../styles/fonts.scss';
 	import Cursor from '../components/atoms/Cursor.svelte';
+	import { playSharedSFX } from '../util/audio';
 
 	let loading = true;
 	let playSFX: (() => void) | undefined;
 
 	onMount(() => {
-		// need to create our own audio context as the default Audio() pauses any music playing
-		let buffer: AudioBuffer;
-		const audioCtx = new window.AudioContext();
-		const request = new XMLHttpRequest();
-		request.open('GET', 'sounds/click.ogg', true);
-		request.responseType = 'arraybuffer';
-		request.onload = function () {
-			const audioData: ArrayBuffer = request.response;
-			audioCtx.decodeAudioData(audioData, function (decodedBuffer) {
-				buffer = decodedBuffer;
-				playSFX = () => {
-					const source = audioCtx.createBufferSource();
-					const gainNode = audioCtx.createGain();
-					gainNode.gain.value = 0.75;
-					source.buffer = buffer;
-					source.connect(gainNode);
-					gainNode.connect(audioCtx.destination);
-					source.start(0);
-				};
-			});
+		playSFX = () => {
+			void playSharedSFX('/sounds/click.ogg');
 		};
-		request.send();
 
 		if (document.readyState === 'complete') {
 			loading = false;

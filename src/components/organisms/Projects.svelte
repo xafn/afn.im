@@ -61,9 +61,9 @@
 
 	<div class="grid">
 		{#each projects as project}
+		<article class="project-card">
 			<a href={project.url} target="_blank" rel="noreferrer" class="project-link">
-				<article class="project-card">
-					<div class="preview shimmer">
+			<div class="preview shimmer">
 						{#if project.videoSrc}
 							<iframe
 								src={project.videoSrc}
@@ -85,9 +85,9 @@
 						<h3>{project.name}</h3>
 						{#if project.label}<h4>{project.label}</h4>{/if}
 					</div>
+				</a>
 					<p>{project.description}</p>
 				</article>
-			</a>
 		{/each}
 	</div>
 </section>
@@ -142,13 +142,10 @@
 		gap: 0.75rem;
 		height: 100%;
 		background-blend-mode: overlay;
-		transition:
-			transform 0.3s var(--bezier-one),
-			box-shadow 0.3s var(--bezier-one);
+		transition: transform 0.3s var(--bezier-one);
 
-		&:hover {
+		&:hover .preview {
 			transform: translateY(-2px);
-			box-shadow: 0px 15px 25px -10px rgba(0, 0, 0, 0.25);
 		}
 	}
 
@@ -164,7 +161,8 @@
 		border-radius: 4px;
 		overflow: hidden;
 		background-color: var(--elevation-two);
-		margin-bottom: 0.5rem;
+		transition: transform 0.3s var(--bezier-one);
+		margin-bottom: 1rem;
 
 		img {
 			width: 100%;

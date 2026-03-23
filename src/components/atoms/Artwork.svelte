@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import { cubicOut, quintOut } from 'svelte/easing';
+	import { playSharedSFX } from '../../util/audio';
 
 	export let name = '';
 	export let tall = false;
@@ -9,38 +10,15 @@
 	export let subtitle = 'Click anywhere to dismiss';
 
 	let clicked = false;
-	let artworkAudioCtx: AudioContext | null = null;
-
-	function playArtworkSFX(src: string, volume: number) {
-		const audio = new Audio(src);
-
-		if (typeof window !== 'undefined' && 'AudioContext' in window) {
-			artworkAudioCtx ??= new window.AudioContext();
-			const source = artworkAudioCtx.createMediaElementSource(audio);
-			const gainNode = artworkAudioCtx.createGain();
-			gainNode.gain.value = volume;
-			source.connect(gainNode);
-			gainNode.connect(artworkAudioCtx.destination);
-			void artworkAudioCtx.resume();
-		} else {
-			audio.volume = Math.min(volume, 1);
-		}
-
-		void audio.play().catch(() => {
-			const fallback = new Audio('/sounds/click.ogg');
-			fallback.volume = 1;
-			void fallback.play().catch(() => null);
-		});
-	}
 
 	function openArtwork() {
 		clicked = true;
-		playArtworkSFX('/sounds/paper.mp3', 1.25);
+		void playSharedSFX('/sounds/paper.mp3');
 	}
 
 	function closeArtwork() {
 		clicked = false;
-		playArtworkSFX('/sounds/crumple.mp3', 1.25);
+		void playSharedSFX('/sounds/crumple.mp3');
 	}
 
 	function onKeyDown(e: KeyboardEvent) {
@@ -134,7 +112,7 @@
 		left: 0;
 		top: 50%;
 		transform: translateY(-50%);
-		height: 100vh;
+		height: 200vh;
 		width: 100vw;
 		z-index: 20;
 		cursor: pointer;
@@ -142,6 +120,10 @@
 		background-color: var(--elevation-six);
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
+
+		@media (max-width: 868px) {
+			height: 100vh;
+		}
 
 		img {
 			max-height: 83vh;
