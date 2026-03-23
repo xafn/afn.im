@@ -5,7 +5,7 @@
 	import Art from '../components/organisms/Art.svelte';
 	import Projects from '../components/organisms/Projects.svelte';
 	import Repos from '../components/organisms/Repos.svelte';
-	import Footer from '../components/molecules/Footer.svelte';
+	import Footer from '../components/organisms/Footer.svelte';
 </script>
 
 <NavHost />

@@ -2,9 +2,9 @@
 	import { onMount } from 'svelte';
 	import type { User } from '@supabase/supabase-js';
 	import Tooltip from '../atoms/Tooltip.svelte';
-	import Socials from './Socials.svelte';
-	import SignatureModal from './SignatureModal.svelte';
-	import SignatureWall from './SignatureWall.svelte';
+	import Socials from '../molecules/Socials.svelte';
+	import SignatureModal from '../molecules/SignatureModal.svelte';
+	import SignatureWall from '../molecules/SignatureWall.svelte';
 	import { supabase } from '../../util/supabase';
 	import type { FooterSignature, SignaturePayload } from '../../util/types';
 	import {
