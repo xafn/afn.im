@@ -231,7 +231,6 @@
 		font-size: 0.9rem;
 		line-height: 1.6;
 		color: var(--text-secondary);
-		font-family: var(--font-two);
 		letter-spacing: -0.01rem;
 	}
 

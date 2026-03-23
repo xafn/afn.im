@@ -35,12 +35,12 @@
 
 	function openArtwork() {
 		clicked = true;
-		playArtworkSFX('/sounds/paper.mp3', 4);
+		playArtworkSFX('/sounds/paper.mp3', 1.25);
 	}
 
 	function closeArtwork() {
 		clicked = false;
-		playArtworkSFX('/sounds/crumple.mp3', 4);
+		playArtworkSFX('/sounds/crumple.mp3', 1.25);
 	}
 
 	function onKeyDown(e: KeyboardEvent) {
@@ -134,7 +134,7 @@
 		left: 0;
 		top: 50%;
 		transform: translateY(-50%);
-		height: 200vh;
+		height: 100vh;
 		width: 100vw;
 		z-index: 20;
 		cursor: pointer;
