@@ -1,5 +1,21 @@
 import { SIGN_INTENT_KEY } from './constants';
 
+function resolveAuthRedirectOrigin() {
+	const configuredUrl = String(
+		import.meta.env.PUBLIC_SITE_URL || import.meta.env.PUBLIC_APP_URL || ''
+	).trim();
+
+	if (!configuredUrl) {
+		return window.location.origin;
+	}
+
+	try {
+		return new URL(configuredUrl).origin;
+	} catch {
+		return window.location.origin;
+	}
+}
+
 export function setSignIntent(active: boolean) {
 	if (typeof window === 'undefined') return;
 	if (active) {
@@ -16,7 +32,7 @@ export function hasSignIntent() {
 
 export function buildAuthRedirectUrl() {
 	if (typeof window === 'undefined') return null;
-	const redirectUrl = new URL(window.location.origin);
+	const redirectUrl = new URL(resolveAuthRedirectOrigin());
 	redirectUrl.searchParams.set('sign', '1');
 	return redirectUrl.toString();
 }
