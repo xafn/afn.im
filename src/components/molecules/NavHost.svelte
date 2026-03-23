@@ -18,27 +18,27 @@
 					/></svg
 				>
 			</Nav>
-			<Nav href="#about" section="about" isSelected={y > 350 && y < 675}>
+			<Nav href="#projects" section="projects" isSelected={y > 350 && y < 675}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					width="24"
-					height="24"
+					height="24px"
+					viewBox="0 -960 960 960"
+					width="24px"
 					fill="var(--accent)"
-					viewBox="0 0 24 24"
-					><path fill="none" d="M0 0h24v24H0z" /><path
-						d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+					><path
+						d="M440-91 160-252q-19-11-29.5-29T120-321v-318q0-22 10.5-40t29.5-29l280-161q19-11 40-11t40 11l280 161q19 11 29.5 29t10.5 40v318q0 22-10.5 40T800-252L520-91q-19 11-40 11t-40-11Zm0-366v274l40 23 40-23v-274l240-139v-42l-43-25-237 137-237-137-43 25v42l240 139Z"
 					/></svg
 				>
 			</Nav>
-			<Nav href="#aw" section="work" isSelected={y > 675}>
+			<Nav href="#aw" section="museum" isSelected={y > 675}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					width="24"
-					height="24"
+					height="24px"
+					viewBox="0 -960 960 960"
+					width="24px"
 					fill="var(--accent)"
-					viewBox="0 0 24 24"
-					><path fill="none" d="M0 0h24v24H0z" /><path
-						d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"
+					><path
+						d="M160-80q-33 0-56.5-23.5T80-160v-480q0-33 23.5-56.5T160-720h160l160-160 160 160h160q33 0 56.5 23.5T880-640v480q0 33-23.5 56.5T800-80H160Zm80-160h480L570-440 450-280l-90-120-120 160Zm502.5-217.5Q760-475 760-500t-17.5-42.5Q725-560 700-560t-42.5 17.5Q640-525 640-500t17.5 42.5Q675-440 700-440t42.5-17.5ZM404-720h152l-76-76-76 76Z"
 					/></svg
 				>
 			</Nav>

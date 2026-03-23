@@ -9,10 +9,43 @@
 	export let subtitle = 'Click anywhere to dismiss';
 
 	let clicked = false;
+	let artworkAudioCtx: AudioContext | null = null;
+
+	function playArtworkSFX(src: string, volume: number) {
+		const audio = new Audio(src);
+
+		if (typeof window !== 'undefined' && 'AudioContext' in window) {
+			artworkAudioCtx ??= new window.AudioContext();
+			const source = artworkAudioCtx.createMediaElementSource(audio);
+			const gainNode = artworkAudioCtx.createGain();
+			gainNode.gain.value = volume;
+			source.connect(gainNode);
+			gainNode.connect(artworkAudioCtx.destination);
+			void artworkAudioCtx.resume();
+		} else {
+			audio.volume = Math.min(volume, 1);
+		}
+
+		void audio.play().catch(() => {
+			const fallback = new Audio('/sounds/click.ogg');
+			fallback.volume = 1;
+			void fallback.play().catch(() => null);
+		});
+	}
+
+	function openArtwork() {
+		clicked = true;
+		playArtworkSFX('/sounds/paper.mp3', 4);
+	}
+
+	function closeArtwork() {
+		clicked = false;
+		playArtworkSFX('/sounds/crumple.mp3', 4);
+	}
 
 	function onKeyDown(e: KeyboardEvent) {
 		if (e.key === 'Escape') {
-			clicked = false;
+			closeArtwork();
 		}
 	}
 
@@ -28,8 +61,8 @@
 	class:tall
 	style="background-position: {position}; background-image:url(art/{name}.webp);"
 	aria-label={name}
-	on:click={() => (clicked = true)}
-	on:keypress={() => (clicked = true)}
+	on:click|stopPropagation={openArtwork}
+	on:keypress|stopPropagation={openArtwork}
 />
 
 <svelte:window on:keydown={onKeyDown} />
@@ -46,8 +79,8 @@
 	<div
 		class="img-modal"
 		tabindex="0"
-		on:click={() => (clicked = false)}
-		on:keypress={() => (clicked = false)}
+		on:click|stopPropagation={closeArtwork}
+		on:keypress|stopPropagation={closeArtwork}
 		on:contextmenu={disableRightClick}
 		role="button"
 		in:fly={{ y: 50, easing: quintOut, duration: 750 }}

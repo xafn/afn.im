@@ -24,7 +24,7 @@
 
 <section class="wrapper" id="code">
 	<div class="title">
-		<h2><span>code</span>:work</h2>
+		<h2>oss</h2>
 	</div>
 	<div class="grid">
 		{#if repos}
@@ -178,7 +178,7 @@
 		align-items: center;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		margin-bottom: 3rem;
+		margin-bottom: 5rem;
 		position: relative;
 
 		&:before {

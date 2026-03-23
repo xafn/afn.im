@@ -23,28 +23,19 @@
 	<div class="text">
 		<h2>bio</h2>
 		<p>
-			Hey there, I'm <Tooltip tip="short for affan">
-				<span>afn!</span>
-			</Tooltip> :] I'm a <Tooltip tip={age}><span>{Math.floor(Number(age))}</span></Tooltip>
-			year old digital artist and designer based in Canada. I’ve taken art seriously since
-			<span>2017</span>, and have been doodling silly anime characters since <span>2020</span>. I
-			also started to pivot into some programming, which landed me to study at the <Tooltip
-				tip="stay tuned for my WatCard progression"
-			>
-				<a href="https://cs.uwaterloo.ca/" target="_blank" rel="noreferrer">
-					<span>University of Waterloo</span>
-				</a>
-			</Tooltip>for computer science. In my free time, I like to contribute to
-			<Tooltip tip="🤓">
-				<a href="https://github.com/xafn" target="_blank" rel="noreferrer">
-					<span>open source</span>
-				</a>
-			</Tooltip>
-			as a web developer. I'm most notable for working on <Tooltip tip="<3">
-				<a href="https://revanced.app" target="_blank" rel="noreferrer">
-					<span>ReVanced</span>
-				</a>
-			</Tooltip>, which is probably how you found me here.
+			I'm <Tooltip tip="aka afn online"><span>Affan Zaman</span></Tooltip>, a <Tooltip
+				tip={age}><span>{Math.floor(Number(age))}</span></Tooltip
+			> year old studying CS at the <Tooltip tip="i am balding here"
+				><a href="https://cs.uwaterloo.ca/" target="_blank"><span>University of Waterloo</span></a
+				></Tooltip
+			>. While my background now is in software, I have a strong love for product, <Tooltip
+				tip="like this!"><span>interaction</span></Tooltip
+			>, and design engineering. I like to contribute to
+			<Tooltip tip="nerd"
+				><a href="https://github.com/xafn" target="_blank"><span>open source</span></a></Tooltip
+			> in my free time, and most notably worked frontend for <Tooltip tip="much love"
+				><a href="https://revanced.app" target="_blank"><span>ReVanced</span></a></Tooltip
+			>. Whenever I can, I also like to attend hackathons, winning at NexHacks and DeltaHacks recently.
 		</p>
 	</div>
 </section>
@@ -53,7 +44,7 @@
 	@import '../../styles/mixins.scss';
 
 	section {
-		margin-bottom: 6rem;
+		margin-bottom: 4rem;
 		display: grid;
 		gap: 4.5rem;
 		grid-template-columns: 1fr 1fr;
@@ -83,7 +74,7 @@
 	.text::before {
 		@include outlineText(
 			$content: 'afn',
-			$translateX: 97%,
+			$translateX: 90%,
 			$translateY: -5%,
 			$fontSize: 300px,
 			$opacity: 0.22

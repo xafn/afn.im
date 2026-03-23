@@ -20,8 +20,11 @@
 				buffer = decodedBuffer;
 				playSFX = () => {
 					const source = audioCtx.createBufferSource();
+					const gainNode = audioCtx.createGain();
+					gainNode.gain.value = 0.75;
 					source.buffer = buffer;
-					source.connect(audioCtx.destination);
+					source.connect(gainNode);
+					gainNode.connect(audioCtx.destination);
 					source.start(0);
 				};
 			});

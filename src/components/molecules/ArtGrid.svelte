@@ -46,6 +46,6 @@
 	.grid-container {
 		display: flex;
 		justify-content: center;
-		margin-bottom: 4rem;
+		margin-bottom: 2rem;
 	}
 </style>

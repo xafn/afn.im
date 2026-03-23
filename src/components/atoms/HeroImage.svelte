@@ -42,7 +42,7 @@
 	}
 
 	.img {
-		border-radius: 48px;
+		border-radius: 36px;
 		width: 425px;
 		height: 400px;
 		z-index: 1;

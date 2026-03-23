@@ -3,8 +3,8 @@
 	import Hero from '../components/organisms/Hero.svelte';
 	import About from '../components/organisms/About.svelte';
 	import Art from '../components/organisms/Art.svelte';
+	import Projects from '../components/organisms/Projects.svelte';
 	import Repos from '../components/organisms/Repos.svelte';
-	import Supporters from '../components/organisms/Supporters.svelte';
 	import Footer from '../components/molecules/Footer.svelte';
 </script>
 
@@ -12,8 +12,8 @@
 <main>
 	<Hero />
 	<About />
+	<Projects />
 	<Art />
 	<Repos />
-	<Supporters />
 	<Footer />
 </main>
