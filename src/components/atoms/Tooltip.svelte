@@ -43,6 +43,9 @@
 		transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, margin-top 0.2s ease-in-out;
 		left: 50%;
 		top: 0%;
+		max-width: 200px;
+		overflow-wrap: anywhere;
+		word-break: break-all;
 		line-height: normal;
 		transform: translate(-50%, -120%);
 		padding: 0.15rem 0.5rem;

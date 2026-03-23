@@ -99,3 +99,30 @@ export interface Repo {
 	stars: string;
 	forks: any;
 }
+
+//--------------------------
+
+export type FooterSignature = {
+	id: string;
+	user_id?: string | null;
+	name: string;
+	message: string | null;
+	signature_data: string;
+	created_at: string;
+};
+
+export type SignaturePayload = {
+	name: string;
+	message: string | null;
+	signature_data: string;
+};
+
+export type SignaturePoint = {
+	x: number;
+	y: number;
+};
+
+export type SignatureStroke = {
+	width: number;
+	points: SignaturePoint[];
+};
