@@ -3,7 +3,6 @@
 	import '../styles/global.scss';
 	import '../styles/fonts.scss';
 	import Cursor from '../components/atoms/Cursor.svelte';
-	import CursorLifeEffect from '../components/atoms/CursorLifeEffect.svelte';
 	import { playSharedSFX } from '../util/audio';
 
 	let loading = true;
@@ -53,7 +52,6 @@
 
 <svelte:window on:click={playSFX} />
 
-<CursorLifeEffect />
 <Cursor />
 <span class:loading>
 	<slot />
