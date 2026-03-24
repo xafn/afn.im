@@ -37,16 +37,22 @@
 	.tooltip {
 		position: absolute;
 		display: inline-block;
-		white-space: nowrap;
+		white-space: normal;
+		width: max-content;
 		opacity: 0;
 		visibility: hidden;
-		transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, margin-top 0.2s ease-in-out;
+		transition:
+			opacity 0.2s ease-in-out,
+			visibility 0.2s ease-in-out,
+			margin-top 0.2s ease-in-out;
 		left: 50%;
 		top: 0%;
-		max-width: 200px;
-		overflow-wrap: anywhere;
-		word-break: break-all;
-		line-height: normal;
+		max-width: min(200px, calc(100vw - 2rem));
+		overflow-wrap: break-word;
+		word-break: normal;
+		hyphens: auto;
+		line-height: 1.25;
+		text-align: center;
 		transform: translate(-50%, -120%);
 		padding: 0.15rem 0.5rem;
 		border-radius: 6px;
