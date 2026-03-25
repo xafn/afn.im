@@ -23,20 +23,22 @@
 	<div class="text">
 		<h2>bio</h2>
 		<p>
-			I'm <Tooltip tip="aka afn online"><span>Affan Zaman</span></Tooltip>, a <Tooltip
-				tip={age}><span>{Math.floor(Number(age))}</span></Tooltip
+			I'm <Tooltip tip="aka afn online"><span>Affan Zaman</span></Tooltip>, a <Tooltip tip={age}
+				><span>{Math.floor(Number(age))}</span></Tooltip
 			> year old studying CS at the <Tooltip tip="i am balding here"
 				><a href="https://cs.uwaterloo.ca/" target="_blank"><span>University of Waterloo</span></a
 				></Tooltip
-			>. While my background now is in software, I have a strong love for product, <Tooltip
+			>. I'm working at <Tooltip tip="finally employed"
+				><a href="https://tempo.new" target="_blank"><span>Tempo (YC S23)</span></a></Tooltip
+			> as a design engineer this spring. While my background is now in software, I have a strong love for product, <Tooltip
 				tip="like this!"><span>interaction</span></Tooltip
-			>, and design engineering. I like to contribute to
+			>, and design. I like to contribute to
 			<Tooltip tip="nerd"
 				><a href="https://github.com/xafn" target="_blank"><span>open source</span></a></Tooltip
-			> in my free time, and most notably worked frontend for <Tooltip tip="much love"
+			> in my free time, and most notably worked frontend for <Tooltip tip="might be DMCA'd"
 				><a href="https://revanced.app" target="_blank"><span>ReVanced</span></a></Tooltip
-			>. Whenever I can, I also like to attend hackathons, winning at NexHacks and DeltaHacks recently.
-		</p>
+			>.
+		</p> 
 	</div>
 </section>
 
